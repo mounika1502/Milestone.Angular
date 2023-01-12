@@ -1,0 +1,77 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+      <img src="assets/Logo1.jpg" class="img">
+      <div class="title1">
+          <b>WELCOME TO MILESTONE</b>
+      </div>
+      <button class="log" (click)="toggle()"><h4>Login</h4></button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<article class="wrapper">
+  <form [formGroup]="loginForm" >  
+    <table *ngIf="login" matSort>     
+          <div class="form">
+              <div class="mail"><h3><b>E-mail :</b></h3>
+                  <input type="email" class="email" placeholder="Enter your email" name= "email" formControlName="email">
+              </div>                 
+              <br>                            
+              <div class="mail1"><h3><b>Password :</b></h3>
+                  <input type="password" class="email" placeholder="Password" formControlName="password">
+              </div>
+                  <button type="submit" class="login"><b>LOG IN</b></button> 
+              <div class="mobile">
+                  login with mobile?Login
+              </div>
+                  
+                  <div class="box1">
+                      <div class="new">
+                          <h1><b>New Here? </b></h1>
+                      </div>
+                      <div class="text">
+                         <h4>Sign up and discover a<br>
+                           greate amount of opportunies!</h4>
+                      </div>                
+                      <button class="sign" (click)="toggleregister()"><b>Sign up</b></button>        
+                  </div>
+          </div>
+          </table>   
+  </form>
+
+  <!--this is for signup form-->  
+<form  [formGroup] = "SignupForm"> 
+  <table *ngIf="signupForm" matSort >
+  <div class="signup">
+      <div class="name1">
+          <i class="fa fa-arrow-left" style="font-size: small;"routerLink="login"></i>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sign up 
+      </div>                
+      <div class="name">
+          First Name:<br>
+          <input type="text" formControlName="Firstname" placeholder="Enter your first name" class="box">
+          <span style="color: red;" *ngIf="Firstname && Firstname.invalid && Firstname.touched">Please enter your firstname</span> 
+      </div><br>
+      <div class="name">
+          Last Name:<br>
+          <input type="text" formControlName="Lastname" placeholder="Enter your last name"class="box">
+          <span style="color: red;" *ngIf="Lastname && Lastname.invalid && Lastname.touched">Please enter your lastname</span> 
+      </div><br>
+      <div class="name">
+          Mobile:<br>
+          <input type="text" formControlName="mobile" placeholder="+91-00000 00000" class="box">
+          <span style="color: red;" *ngIf="mobile && mobile.invalid && mobile.touched">Please enter your mobile number</span> 
+      </div><br>
+      <div class="name">
+          Email:<br>
+          <input type="email" formControlName="email" placeholder="Enter your email" class="box">
+          <span style="color: red;" *ngIf="email && email.invalid && email.touched">Please enter your email</span>
+      </div><br>
+      <div class="name">
+          Password:<br>
+          <input type="password" formControlName="password" placeholder="Enter your password" class="box">
+          <span style="color: red;" *ngIf="password && password.invalid && password.touched">Please enter your correct password</span>
+      </div><br>        
+      <button class="submit" (click)="submit()"><b>Submit</b></button> 
+  </div>   
+  </table>
+</form> 
+</article>
