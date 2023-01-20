@@ -1,0 +1,101 @@
+<button class="addproduct" (click)="add()" ><b>Add new product</b></button>
+
+<button (click)="getProduct()" class="get">
+    Get the Product
+  </button>
+
+<section class="main">
+    <div *ngFor="let product of products">      
+      <div class="users">  
+        
+    <div class="card1">
+    <div class="zoom">
+       <img src="{{product.image}}" class="img" >
+    </div>
+       <table style="height:50px; padding: 2%" >
+        <tr>
+        <td class="tdstyle"> Name: </td> 
+        <td>{{product.Name}}</td>
+      </tr>
+      <tr>
+        <td class="tdstyle"> Quantity: </td> 
+        <td>{{product.Quantity}}</td>
+      </tr>
+      <tr>
+        <td class="tdstyle"> Price: </td> 
+        <td>{{product.Price}}</td>
+      </tr>
+      <tr>
+        <td class="tdstyle"> Description: </td> 
+        <td>{{product.Description}}</td>
+      </tr>
+    </table>  
+        <div>
+          <i class="fa fa-trash-o" style="color: red;" ></i>
+          &nbsp;&nbsp;&nbsp;<i class="fa fa-pencil-square-o" style="color: blue;"></i>
+        </div>  
+      
+</div>
+</div>
+</div>
+</section>
+
+<!--Thiis is for product adding page-->
+
+<form  [formGroup]="productForm" > 
+  <div *ngIf="addProduct"  class="pop-up">
+    <div class="row">
+      <button (click)="cancel()" class="close"><i class="fa fa-times"></i></button>
+    </div>   
+    <div class="row">
+       <div class="title"><b>ADD PRODUCT </b></div>
+    </div>
+      <div class="row">
+          <div class="col">
+              <div class="image"><h2>Upload image:<br>
+                  <input type="text" formControlName="image" id="image">
+                  </h2>
+              </div>
+          </div>
+          <div class="col">
+              <div class="quantity">
+                  Quantity:<br>
+                  <button type="button" class="bt-t" (click)="minus()"><i class="fa fa-minus"></i></button>
+                  <input  [value]="quantity" class="btt" formControlName="Quantity">
+                  <button type="button" class="bt-t" (click)="plus()"><i class="fa fa-plus"></i></button>                    
+              </div><br>
+          </div>            
+      </div>
+      <div class="row">
+          <div class="name">
+              Product Name:<br>
+              <input type="text" formControlName="Name" placeholder="Enter your first name" class="input">
+              <!-- <span style="color: red;" *ngIf="Firstname && Firstname.invalid && Firstname.touched">Please enter your firstname</span>  -->
+          </div><br>
+      </div><br>
+      <div class="row">
+          <div class="name">
+              Price:<br>
+              <input type="email" formControlName="Price" placeholder="Enter your price" class="input">
+              <!-- <span style="color: red;" *ngIf="email && email.invalid && email.touched">Please enter your email</span> -->
+          </div><br>
+      </div><br>
+      <div class="row">
+          <div class="name">
+              Description :<br>
+              <textarea type="text" formControlName="Description" placeholder="Enter your description" class="description"></textarea>
+              <!--<span style="color: red;" *ngIf="Lastname && Lastname.invalid && Lastname.touched">Please enter your lastname</span> <br>-->
+          </div>
+      </div><br>
+      <button class="submit" (click)="submitForm()"><b>Submit</b></button> 
+          
+    </div>
+</form>
+    
+   
+ 
+
+ 
+
+ 
+ 

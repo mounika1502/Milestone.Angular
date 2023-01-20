@@ -35,18 +35,17 @@ mat-toolbar-row{
     background-color: #3b3b3b;
     height: 80px;
   }
-  .img{
+.img{
     height: 75px;
-      border-radius: 50%;
-      
-  }
-  .title1{
+      border-radius: 50%;      
+}
+.title1{
      color: white;
      margin-left: 10em;
     font-size: 2em;
      margin-top: 10px;
      margin-right: 10em;
-  }
+}
   .log{    
     color: black;
     background-color: white;
@@ -56,14 +55,6 @@ mat-toolbar-row{
     height: 33px;
     width: 100px;
   }
-  
-
-
-.img{
-    height: 75px;
-    border-radius: 50%;
-    
-}
 .search{
     height: 40px;
     width: 40em;
@@ -72,7 +63,6 @@ mat-toolbar-row{
     margin-top: 1em;
     border: 0;
 }
-
 .button{
     border-radius: 8px;
     margin-left: 1em;
@@ -90,20 +80,20 @@ mat-toolbar-row{
 
 .form{
     border: 1px solid black;
-    height: 351px;
+    height: 352px;
     width: 660px;
     padding: 15px;
     align-items: center;
-    margin-left: 1em;
-    margin-top: 0em;
+    margin-left: 30em;
+    margin-top: 13em;
     border-radius: 5px;
     background-color: #3b3b3b;
 }
 .box1{
-    height: 379px;
+    height: 351px;
     width: 300px;
     float: right;
-    margin-top: -23.1em;
+    margin-top: -22.9em;
     border-radius: 5px;
     border: 1px solid black;
     margin-right: -1.2em;
@@ -133,7 +123,6 @@ mat-toolbar-row{
 .mail1{
     color:white;
 }
-
 .new{
     text-align: center;
     margin-top: 7em;
@@ -154,6 +143,8 @@ mat-toolbar-row{
     margin-left: 7em;
     border: 0;
 }
+
+/* this is for signup form*/
 .signup{
     height: 35em;
     width: 300px;
@@ -164,7 +155,7 @@ mat-toolbar-row{
     border-radius: 5px;
     margin-top: 2em;
 }
-.box{
+.input{
     border-radius: 5px;
     height: 2em;
     width: 20em;
@@ -188,53 +179,132 @@ mat-toolbar-row{
     margin-left: 7em;
     margin-top: 1.5em;  
 }
+
+/* this is for login with mobile form*/
 .mobile{
     color: white;
     margin-top: 1em;
     margin-left: 7.5em;
 }
-
-
-  
-  /*THIS IS FOR ANIMATION*/
-  body {
-    background: #fff;
-  }
-  
-  .title {
-    font-size: 2.5rem;
-    font-family: 'Lobster', cursive;
-  }
-  
-  .wrapper {
-    animation: scroll 70s linear infinite;
-    background: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80"), #111111;
-    color: #eee;
-    height: 80vh;
-    min-width: 360px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 1000px;
-    perspective-origin: 50% 50%;
+.logwithPhone{
+    color: rgb(23, 23, 120);
+    border: 0;
+    cursor: pointer;
     
-  }
+}
+
+/*this is for choose language box*/
+
+.lang{
+    color: black;
+    margin-top: 2em;
+    margin-left: 1em;
+}
+.language{
+    height: 400px;
+    width: 350px;
+    float: right;
+    margin-top: 1em;
+    border-radius: 5px;
+    border: 2px solid rgb(59, 56, 56);
+    background-color: white;
+}
+.english{
+    height: 100px;
+    width: 100px;
+    border: 2px solid rgb(59, 56, 56);
+    margin-left: 2em;
+    margin-top: 3em;
+    border-radius: 5px;
+}
+.telugu{
+    height: 100px;
+    width: 100px;
+    border: 2px solid rgb(59, 56, 56);
+    margin-right: 2em;
+    float: right;
+    margin-top: 3em;
+    border-radius: 5px;
+}
+.hindhi{
+    height: 100px;
+    width: 100px;
+    border: 2px solid rgb(59, 56, 56);
+    margin-left: 9.3em;
+    border-radius: 5px;
+    margin-top: 1.5em;
+    
+}
+
+/* this is for login with mobile  form */
+.otpForm{
+    height: 20em;
+    width: 60em;
+    border: 2px solid white;
+    background-color: white;
+    border-radius: 5px;
+}
+.phone{
+    color: black;
+    margin-left: 1em;
+    margin-top: 1em;
+}
+.phonebox{
+    border: 0;
+    border-radius: 5px;
+    margin-top: 0.5em;
+    width: 16.5em;
+    height: 2.5em;
+    margin-left: 1em;
+    background-color: rgb(236, 233, 233);
+}
+.phonebox1{
+    border: 0;
+    border-radius: 5px;
+    margin-top: 0.5em;
+    width: 16.5em;
+    height: 2.5em;
+    margin-left: 7.3em;
+    background-color: rgb(236, 233, 233);
+}
+.next{
+    height: 2em;
+    width: 5em;
+    margin-left: 26em;
+    margin-top: 1.5em;
+    background-color: #3b3b3b;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+}
+.otp{
+    border: 0;
+    float: right;
+    margin-right: 2em;
+    width: 18em;
+    height: 2.5em;
+    background-color: #3b3b3b;
+    color: white;
+    border-radius: 5px;
+    margin-top: -3.7em;
+}
+.otp1{
+    border: 0;
+    float: right;
+    margin-right: 2em;
+    width: 18em;
+    height: 2.5em;
+    background-color: #656262;
+    color: white;
+    border-radius: 5px;
+    margin-top: -3.7em;
+}
+.mobileimg{
+    height: 4em;
+    margin-left: 27em;
+    margin-top: 1em;
+    background-color: rgb(183, 175, 175);
+}
+
+
   
-  @keyframes scroll {
-     100%{
-      background-position:0px -3000px;
-    }
-  }
-  
-  @media (prefers-reduced-motion) {
-    .wrapper {
-      animation: scroll 200s linear infinite;
-    }
-  }
-  
-  @media (min-width: 670px) {
-    .title {
-      font-size: 5rem;
-    }
-  }

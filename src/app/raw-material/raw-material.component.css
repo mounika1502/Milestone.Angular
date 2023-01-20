@@ -1,0 +1,54 @@
+.img{
+    height: 10em;
+    width: 10em;
+    margin-left: 1em;
+    margin-top: 1em;    
+}
+.img:hover{
+    box-shadow:4px 4px 6px 4px #3b3b3b;
+}
+.products{
+    height: 22em;
+    width: 17em;
+    border: 1px solid black;
+    margin-left: 0em;
+    margin-top: 2em;
+    border-radius: 5px;
+}
+.no{
+    margin-left: 1em;
+    margin-top: 10px;
+}
+.prod{
+    /* float: right; */
+    margin-left: 10px;
+    margin-top: 0em;
+}
+title{
+    margin-left: 5px;
+}
+
+.slabs{
+    margin-top: 10px;
+}
+.price{
+    margin-top: 10px; 
+}
+.size{
+    margin-top: 10px;
+}
+.qty{
+    margin-top: 10px; 
+}
+.color{
+    margin-top: 10px; 
+}
+.btt{
+    width: 15px;
+}
+.view{
+    background-color: rgb(84, 84, 87);
+    color: white;
+    border: 0;
+    border-radius: 2px;
+}

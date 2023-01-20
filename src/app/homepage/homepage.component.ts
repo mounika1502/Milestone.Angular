@@ -18,6 +18,8 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  sub:any
+  subdata:any
 
   
 

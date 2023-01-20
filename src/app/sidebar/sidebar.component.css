@@ -1,0 +1,27 @@
+.sidebar{
+    margin-top: 5em;
+    margin-left: 2em;
+    color: white;
+}
+.home{
+    margin-top: 2em;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.dropdown{
+    width: 100px;
+    height: 2.2em;
+    font-size: 1.5em;
+    padding: 5px;
+    
+    border-radius: 5px;
+}
+.marble{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px; 
+    padding: 10px;   
+}
+.granite{    
+    padding: 10px; 
+}

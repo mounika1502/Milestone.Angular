@@ -7,34 +7,37 @@
       <button class="log" (click)="toggle()"><h4>Login</h4></button>
   </mat-toolbar-row>
 </mat-toolbar>
-<article class="wrapper">
+
+
+<!--this is for login form-->    
   <form [formGroup]="loginForm" >  
     <table *ngIf="login" matSort>     
           <div class="form">
               <div class="mail"><h3><b>E-mail :</b></h3>
-                  <input type="email" class="email" placeholder="Enter your email" name= "email" formControlName="email">
+                  <input type="email" class="email" placeholder="Enter your email" name= "email" formControlName="Email"><br>
+                  <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched">Please enter your email</span>
               </div>                 
               <br>                            
               <div class="mail1"><h3><b>Password :</b></h3>
-                  <input type="password" class="email" placeholder="Password" formControlName="password">
+                  <input type="password" class="email" placeholder="Password" formControlName="Password"><br>
+                  <span style="color: red;" *ngIf="Password && Password.invalid && Password.touched">Please enter your correct password</span>
               </div>
-                  <button type="submit" class="login"><b>LOG IN</b></button> 
+                  <button type="submit" class="login" (click)="loginSubmit()"><b>LOG IN</b></button> 
               <div class="mobile">
-                  login with mobile?Login
+                  login with mobile?<a (click)="togglePhone()" class="logwithPhone"><b>Login</b></a>
               </div>
-                  
-                  <div class="box1">
-                      <div class="new">
-                          <h1><b>New Here? </b></h1>
-                      </div>
-                      <div class="text">
-                         <h4>Sign up and discover a<br>
-                           greate amount of opportunies!</h4>
-                      </div>                
-                      <button class="sign" (click)="toggleregister()"><b>Sign up</b></button>        
-                  </div>
+                <div class="box1">
+                    <div class="new">
+                        <h1><b>New Here? </b></h1>
+                    </div>
+                    <div class="text">
+                        <h4>Sign up and discover a<br>
+                        greate amount of opportunies!</h4>
+                    </div>                
+                    <button class="sign" (click)="toggleregister()"><b>Sign up</b></button>        
+                </div>
           </div>
-          </table>   
+        </table>   
   </form>
 
   <!--this is for signup form-->  
@@ -47,31 +50,62 @@
       </div>                
       <div class="name">
           First Name:<br>
-          <input type="text" formControlName="Firstname" placeholder="Enter your first name" class="box">
+          <input type="text" formControlName="Firstname" placeholder="Enter your first name" class="input">
           <span style="color: red;" *ngIf="Firstname && Firstname.invalid && Firstname.touched">Please enter your firstname</span> 
       </div><br>
       <div class="name">
           Last Name:<br>
-          <input type="text" formControlName="Lastname" placeholder="Enter your last name"class="box">
+          <input type="text" formControlName="Lastname" placeholder="Enter your last name"class="input">
           <span style="color: red;" *ngIf="Lastname && Lastname.invalid && Lastname.touched">Please enter your lastname</span> 
       </div><br>
       <div class="name">
           Mobile:<br>
-          <input type="text" formControlName="mobile" placeholder="+91-00000 00000" class="box">
+          <input type="text" formControlName="mobile" placeholder="+91-00000 00000" class="input">
           <span style="color: red;" *ngIf="mobile && mobile.invalid && mobile.touched">Please enter your mobile number</span> 
       </div><br>
       <div class="name">
           Email:<br>
-          <input type="email" formControlName="email" placeholder="Enter your email" class="box">
+          <input type="email" formControlName="email" placeholder="Enter your email" class="input">
           <span style="color: red;" *ngIf="email && email.invalid && email.touched">Please enter your email</span>
       </div><br>
       <div class="name">
           Password:<br>
-          <input type="password" formControlName="password" placeholder="Enter your password" class="box">
+          <input type="password" formControlName="password" placeholder="Enter your password" class="input">
           <span style="color: red;" *ngIf="password && password.invalid && password.touched">Please enter your correct password</span>
       </div><br>        
       <button class="submit" (click)="submit()"><b>Submit</b></button> 
   </div>   
   </table>
 </form> 
-</article>
+
+<!--this is for log in with mobile page-->
+<form [formGroup]="mobileForm">
+    <table *ngIf="withMobile" matSort>
+        <div class="otpForm">
+            <img src="assets/images/mobile4.jpg" class="mobileimg">
+            <div class="phone">
+               <h3>Enter your phonenumber: <input type="text" class="phonebox" formControlName="mobile"></h3>
+               <span style="color: red;" *ngIf="mobile && mobile.invalid && mobile.touched">Please enter your mobile number</span>
+            </div>
+            <button class="otp">Generate OTP</button>
+
+            <div class="phone">
+                <h3>Enter OTP: <input type="text" class="phonebox1"></h3>
+             </div>
+             <button class="otp1">Verify OTP</button>
+             <button class="next">Next</button>
+        </div>
+
+    </table>
+</form>
+
+<!--this is for choose language page-->
+<!-- <div class="language">
+    <div class="lang">
+        <h2><b>Choose your language:</b></h2>
+    </div>    
+    <button class="english">English</button>
+    <button class="telugu">Telugu</button>
+    <button class="hindhi">Hindhi</button>    
+</div> -->
+
