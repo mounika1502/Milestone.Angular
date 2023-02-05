@@ -1,0 +1,102 @@
+/* this is for signup form*/
+.signup{
+    height: 50em;
+    width: 400px;
+    border: 1px solid black;
+    background-color: #3b3b3b;
+    margin-left: 40em;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 2em;
+}
+.input{
+    border-radius: 5px;
+    height: 2em;
+    width: 20em;
+    border: 0;
+    font-size: 1em;
+}
+.name{
+    color: white;
+    font-size: 1.3em;
+}
+.name1{
+    color: white;
+    font-size: 2em; 
+    margin-bottom: 1em;  
+}
+.submit{
+    height: 30px ;
+    width: 100px;
+    color: white;
+    background-color:rgb(51, 51, 210);
+    border-radius: 5px;
+    border: 0;  
+    margin-left: 21.5em;
+    margin-top: 1.5em;  
+}
+.text{
+    border-radius: 5px;
+    height: 3.5em;
+    width: 20em;
+    border: 0;
+    font-size: 1em;
+
+}
+.container{
+ padding-left: 20%;
+ 
+   
+   
+
+}
+
+/*this is for toolbar*/
+mat-toolbar-row{
+    background-color: #3b3b3b;
+    height: 80px;
+  }
+.img{
+    height: 75px;
+      border-radius: 50%;      
+}
+.title1{
+     color: white;
+     margin-left: 10em;
+    font-size: 2em;
+     margin-top: 10px;
+     margin-right: 10em;
+}
+  .log{    
+    color: black;
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+    margin-top: 5px;
+    height: 33px;
+    width: 100px;
+  }
+.search{
+    height: 40px;
+    width: 40em;
+    border-radius: 10px;
+    margin-left: 10em;
+    margin-top: 1em;
+    border: 0;
+}
+.button{
+    border-radius: 8px;
+    margin-left: 1em;
+    border: 0;
+}
+.buttons{   
+    margin-left: 10em;
+    margin-top: 1em;
+}
+.button:hover{
+    background-color: rgb(63, 60, 66);
+}
+body{
+    background-image: url(https://img.freepik.com/premium-photo/grey-marble-texture-background_34936-2588.jpg?w=2000);
+}
+/* this is for another signup */

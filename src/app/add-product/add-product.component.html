@@ -1,26 +1,24 @@
-<mat-toolbar class="toolbar">
+ 
+ 
+ <mat-toolbar class="toolbar">
     <mat-toolbar-row>
       <img src="assets/Logo1.jpg" class="img">
-      <input type ="text" placeholder="&nbsp;&nbsp;search here..." class="search">
-      <div class="buttons">
-       <button class="button" routerLink="/home"><h4>Home</h4></button>&nbsp;&nbsp; &nbsp;&nbsp;
-       <button class="button" routerLink="product"><h4>Shopping</h4></button>&nbsp;&nbsp;&nbsp;&nbsp;
-       <button class="button"><h4>Sell</h4></button>&nbsp;&nbsp;&nbsp;&nbsp;
-       <button class="button"><h4>Help</h4></button>&nbsp;&nbsp;&nbsp;&nbsp;
-       <button class="button" ><h4>Login</h4></button> &nbsp;&nbsp;&nbsp;&nbsp;
-       
-      </div>
     </mat-toolbar-row>
 </mat-toolbar>    
 
-<form  [formGroup]="productForm"> 
-    <table >
-      <div class="signup">
+<form  [formGroup]="productForm" > 
+    <div *ngIf="addProduct"  class="signup">
+      <div class="row">
+        <button (click)="cancel()" class="close"><i class="fa fa-times"></i></button>
+      </div>   
+      <div class="row">
+         <div class="title"><b>ADD PRODUCT </b></div>
+      </div>
         <div class="row">
             <div class="col">
                 <div class="image"><h2>Upload image:<br>
                     <input type="text" formControlName="image" id="image">
-                    </h2>
+                </h2>
                 </div>
             </div>
             <div class="col">
@@ -30,61 +28,40 @@
                     <input  [value]="quantity" class="btt" formControlName="Quantity">
                     <button type="button" class="bt-t" (click)="plus()"><i class="fa fa-plus"></i></button>                    
                 </div><br>
-
-            </div>            
+            </div>           
         </div>
         <div class="row">
             <div class="name">
                 Product Name:<br>
                 <input type="text" formControlName="Name" placeholder="Enter your first name" class="input">
-                <!-- <span style="color: red;" *ngIf="Firstname && Firstname.invalid && Firstname.touched">Please enter your firstname</span>  -->
             </div><br>
         </div><br>
         <div class="row">
             <div class="name">
                 Price:<br>
                 <input type="email" formControlName="Price" placeholder="Enter your price" class="input">
-                <!-- <span style="color: red;" *ngIf="email && email.invalid && email.touched">Please enter your email</span> -->
             </div><br>
         </div><br>
         <div class="row">
+          <div class="name">
+            Number :<br>
+            <input type="email" formControlName="Number" placeholder="Enter your price" class="input">                   
+          </div><br>
+        </div>
+        <div class="row">
             <div class="name">
                 Description :<br>
-                <textarea type="text" formControlName="Number" placeholder="Enter your serial number"class="description"></textarea>
-                <!--<span style="color: red;" *ngIf="Lastname && Lastname.invalid && Lastname.touched">Please enter your lastname</span> <br>-->
+                <textarea type="text" formControlName="Description" placeholder="Enter your description" class="description"></textarea>
             </div>
         </div><br>
+        
         <button class="submit" (click)="submitForm()"><b>Submit</b></button> 
-      </div>       
-    </table>
-  </form> 
-
-       
-            <!-- <label for="file"><i class="fa fa-camera" style="font-size:15px; border-radius:5px  ;background-color: white;color: black; padding: 3px;border-top:-0px; " ></i></label>
-            <input type="file"(change)="onSelectFile($event)" name="" id="file" style="display:none; visibility: none; margin-top: -10px;" >    -->
-        
-        
-
-        <!-- <img [src]="url" style="height: 300px;width: 320px; margin-top: 0em;" formControlName="image"><br> -->
-        <!--$event parameter is used to specify this input element-->
-
-        <!-- <div class="color">
-            Colour Range:<br>
-            <input type="text" formControlName="Colour" placeholder="" class="input">
-            <span style="color: red;" *ngIf="password && password.invalid && password.touched">Please enter your correct password</span> 
-        </div> --> 
-           <!-- <div class="name">
-                Dimensions:<br>
-                <input type="text" formControlName="Dimensions" placeholder="Enter your dimensions" class="input">
-                 <span style="color: red;" *ngIf="mobile && mobile.invalid && mobile.touched">Please enter your mobile number</span>  
-            </div><br> -->
             
-           
-            <!-- <div class="name">
-                No of slabs:<br>
-                <input type="text" formControlName="Slabs"  class="input">
-                <span style="color: red;" *ngIf="mobile && mobile.invalid && mobile.touched">Please enter your mobile number</span>  
-            </div><br> -->
+      </div>
+  </form>
+      
+       
+            
            
            
           

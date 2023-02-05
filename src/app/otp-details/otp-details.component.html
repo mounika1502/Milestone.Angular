@@ -1,0 +1,44 @@
+
+<body class="style"> 
+    <br>
+     <br>
+     <h1 style="text-align:center;color:#ffffff">
+       <b>Signup Details</b>
+     </h1>
+     <section class="main" ><!--| paginate:  { itemsPerPage: 15, currentPage: p }"   | filter : searchtext"  <input type="text" class="search">-->
+     <div *ngFor="let data of details ">      
+   <div class="users">
+     <div class="card">
+   <table >
+           <tr>
+           <td class="tdstyle"> FirstName: </td> 
+           <td>{{data.Firstname}}</td>
+         </tr>
+         <tr>
+       <td class="tdstyle">  LastName:</td>     
+       <td> {{data.Lastname}}</td>
+     </tr>       
+   <tr>
+       <td class="tdstyle">  Mobile:</td> 
+        <td> {{data.mobile}}</td>
+     </tr>
+   <tr>       
+       <td class="tdstyle"> Email: </td> 
+        <td> {{data.email}}</td>
+     </tr>
+    <tr>
+       <td class="tdstyle"> Password: </td>
+        <td>{{data.password}}</td>
+     </tr>
+     </table>     
+   </div>
+     </div>
+     </div>
+   </section>
+   <!-- <pagination-controls style="color:#143479" 
+   (pageChange)="p = $event" 
+   class="float-right">
+   </pagination-controls><br> -->
+   
+     
+</body>

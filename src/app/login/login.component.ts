@@ -1,6 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgZone } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ModalController, ModalOptions} from '@ionic/angular';
 import Swal from 'sweetalert2';
+import { OtpComponent } from '../otp/otp.component';
+
+import  firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import  'firebase/auth';
+import 'firebase/compat/firestore';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
+var config = {
+  apiKey: "AIzaSyDM4C1YRZ14Lx_8NzbDnChklv9VInrgUmw",
+  authDomain: "otplogin-c4da2.firebaseapp.com",
+  projectId: "otplogin-c4da2",
+  storageBucket: "otplogin-c4da2.appspot.com",
+  messagingSenderId: "783500853422",
+  appId: "1:783500853422:web:9b813df9ba59a87c31ad3f",
+  measurementId: "G-69272HMPPD"
+}
+
 
 
 @Component({
@@ -10,134 +30,151 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
-  signupForm:any;
-  login=true;
-  loginForm:any
-  SignupForm!:FormGroup  
-
-
-data: any;
-  withMobile: any;
-  mobileForm: any;
   
+  login=true;
+  loginForm:any   
+  logindata:any=[] 
+  data: any;
+  withMobile: any;
+  mobileForm: any;  
+  reCaptchaVerifier: any;
+  mobile1:any  
+  List:any=[]
+  numbers: any=[];
+  loginData: any=[]
+  final: any=[]
 
-  constructor() { }
+  constructor(
+    private modalCtrl: ModalController,
+    private ngZone:NgZone,
+    private router: Router,
+    private _http:HttpClient
+    ) { }
 
   ngOnInit(): void {
-   //signup form
-    this.SignupForm = new FormGroup({
-      Firstname: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-      Lastname : new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-      mobile : new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-      email : new FormControl('',[Validators.required,Validators.email]),
-      password : new FormControl('',[Validators.required,Validators.minLength(5)])
-    });
-    console.log(this.SignupForm)
-
     //login form
     this.loginForm = new FormGroup({
       Email : new FormControl('',[Validators.required,Validators.email]),
-      Password : new FormControl('',[Validators.required,Validators.minLength(5)])
+      Password : new FormControl('',[Validators.required,Validators.minLength(5)]),      
     })
-  //login with mobile otp form
-    this.mobileForm = new FormGroup({
-      mobile1 : new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")])
 
-    })
-  }
-   
+    firebase.initializeApp(config)
+  }   
   
   toggle(){
-    this.login = !this.login
-    this.signupForm =false        
+    this.login = !this.login       
   }
 
-  toggleregister(){
-    this.signupForm = !this.signupForm
-    this.login=false
+  toggleArrow(){
+    this.withMobile = false
+    this.login = true
   }
+
   togglePhone(){
     this.withMobile = !this.withMobile
     this.login=false
   }
 
+
   //login form submit function
-  loginSubmit(){
-    if(this.loginForm.invalid){
-      return
-    fetch("http://localhost:2000/loginform/addlogin", {
-       method:'post',
-       headers:{
-         "Access-Control-Allow-Origin": "*",
-         "Content-Type":'application/json'
-       },
-       body:JSON.stringify(this.loginForm.value)
-     }).then(res=> res.json())
-     .then(result=>{ 
-       console.log(result)
-       alert('Successfully Submited....')
+  loginSubmit(data:any){
+     fetch("http://localhost:2000/loginform/addlogin", {
+      method:'post',
+      headers:{
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type":'application/json'
+      },
+      body:JSON.stringify(this.loginForm.value)
+    }).then(res=> res.json())
+    .then(result=>{ 
+      this.final = result
+      console.log(this.final)
+      
+      this.loginData.push(this.final)
+      localStorage.setItem('Login',JSON.stringify(this.loginData));        
+    
+    if(result.status ==='failed'){
+      Swal.fire( 
+        'Cancelled',
+        'Invalid username or password!',
+        'error'
+      )
+     }else{
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'submitted successfully',
+        showConfirmButton: false,
+        timer: 1500       
+      })
      }
-       )     
-       .catch(error => console.log('error',error)) 
+    })
+  }
+
+  details:any=[]
+
+  getProduct(){    
+    fetch("http://localhost:2000/signupform/getsignupdetails", {
+   method:'get', 
+    }).then(res=> res.json())
+    .then(result=>{ 
+    console.log(result)
+    this.details = result.find((item:any) =>{
+    return item.Email === this.loginForm.value.Email && item.Password === this.loginForm.value.Password
+     
+  }   
+   ) 
+   console.log(this.details) 
+   if(this.details){
+         alert("Login is successfull");
+        this.loginForm.reset();
+       this.router.navigate(['homepage'])
+       }else{
+         alert('User not found !!')
+        }
+      })
     }
-    else{
-      window.location.href="/homepage"
-    }  
 
-  }
-  
+ 
 
-  //signup submit function
-  submit(){
+  //this is for otp based login page
+   async mobileOtp(){ 
 
-    console.log(this.SignupForm) 
-        fetch("http://localhost:2000/signupform/addsignupdetails", {
-       method:'post',
-       headers:{
-         "Access-Control-Allow-Origin": "*",
-         "Content-Type":'application/json'
-       },
-       body:JSON.stringify(this.SignupForm.value)
-     }).then(res=> res.json())
-     .then(result=>{ 
-       console.log(result)
-       alert('Successfully Submited')
-     }
-       )     
-       .catch(error => console.log('error',error))   
-   
-//this function for showing success message after submitting the form
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Your data has been saved',
-      showConfirmButton: false,
-      timer: 1500
-    }) 
+  this.reCaptchaVerifier = new firebase.auth.RecaptchaVerifier(
+    'sign-in-button',
+    {
+      size: 'invisible',
+    }
+  );
+  console.log(this.reCaptchaVerifier);
 
-
+  console.log(this.mobile1);
+  firebase
+    .auth()
+    .signInWithPhoneNumber(this.mobile1,this.reCaptchaVerifier)
+    .then((confirmationResult:any) => {
+      localStorage.setItem(
+        'verificationId',
+        JSON.stringify(confirmationResult.verificationId)
+      );
+      localStorage.setItem(
+        'mobileNo',
+        JSON.stringify(this.mobile1)
+      );
+      this.ngZone.run(() => {
+        this.router.navigate(['/otp']);
+      });
+      alert('Otp generated..')
+    })
+    .catch((error:any) => {
+      console.log(error.message);
+      alert(error.message);
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000);
+    });
   }
-
-  get Firstname()
-  {
-   return this.SignupForm.get('Firstname');
-  }
-  get Lastname()
-  {
-   return this.SignupForm.get('Lastname');
-  }
-  get mobile()
-  {
-   return this.SignupForm.get('mobile');
-  }
-  get email()
-  {
-   return this.SignupForm.get('email');
-  }
-  get password()
-  {
-   return this.SignupForm.get('password');
-  }
+      
 
   get Email()
   {
@@ -146,11 +183,6 @@ data: any;
   get Password()
   {
     return this.loginForm.get('Password');
-  }
-
-  get mobile1()
-  {
-   return this.mobileForm.get('mobile1');
   }
 
 }

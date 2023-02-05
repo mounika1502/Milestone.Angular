@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
+import { UpdateService } from '../update.service';
 
 @Component({
   selector: 'app-product',
@@ -11,17 +14,30 @@ export class ProductComponent implements OnInit {
   productForm: any;
   products:any=[]
   addProduct= false;
-
-  constructor() { }
+  editForm=false;
+  data: any;
+  datas:any=[];
+  productform:any={
+    image: '',
+    Number:'',
+    Name:'',
+    Quantity:'',
+    Price:'',
+    Description:''
+  }
+  constructor( private router:Router,private service:UpdateService) {
+    this.getProduct();  
+   }
 
   ngOnInit(): void {
 
     this.productForm = new FormGroup ({
-      image :new FormControl(""),      
-      Description: new FormControl(""),
+      image :new FormArray([]),      
       Name: new FormControl(""),
       Quantity: new FormControl(this.quantity),
       Price: new FormControl(""),
+      Number:new FormControl(""),
+      Description: new FormControl("")
     })
   }
 
@@ -40,15 +56,12 @@ export class ProductComponent implements OnInit {
       this.quantity=this.i;
     }
   } 
-  
-//this is for produ adding form popup box
 
-add(){
-  this.addProduct=true
-}
-cancel(){
-  this.addProduct=false
-}
+  closeForm(){
+    this.editForm=false
+  }
+
+
 //This is for product adding (post) call
   submitForm(){
     console.log(this.productForm) 
@@ -72,8 +85,7 @@ cancel(){
   }
 
   //This is for product getting (gett) call 
-  getProduct(){
-    
+  getProduct(){    
     fetch("http://localhost:2000/products/getproduct", {
    method:'get',
    headers:{
@@ -85,15 +97,28 @@ cancel(){
  .then(result=>{ 
    console.log(result),
    this.products = result.ProductInfo
-   alert('Successfully getting')
- }
+   }
    )     
    .catch(error => console.log('error',error))
 }
 
 //This is for product delete
 delete(Number:any){
-    fetch("http://localhost:2000/products/deleteproduct" + Number,{
+
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+   
+  })
+
+  console.log(Number)
+    fetch("http://localhost:2000/products/deleteproduct/" + Number,{
      method:'DELETE',
      headers:{
        "access-Control-Allow-Origin":"*"
@@ -103,14 +128,45 @@ delete(Number:any){
     .then(result=>{
      console.log(result)
      this.getProduct()
+     if (result.isConfirmed) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    }
     }
     ).catch(err =>
-     console.log(err))
-    
+     console.log(err))    
  }
 
+ //this is for edit the product
+ edit(products:any){ 
+  this.productform = products
+  this.editForm = true;
+}
+ //this is for product update function
+updateProduct(id:any){
+  const data = {
+    image: this.productform.image,
+    Number:this.productform.Number,
+    Name:this.productform.Name,
+    Quantity:this.productform.Quantity,
+    Price:this.productform.Price,
+    Description:this.productform.Description
+  }
+  console.log(data)
+  this.service.update(data,id).subscribe((datas)=>{
+    console.log(datas)
+    if(datas){
+      alert('updated successfully')
+    }
+  })  
+}
 }
   
   
+
+
 
 

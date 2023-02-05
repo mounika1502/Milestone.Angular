@@ -1,8 +1,5 @@
-<button class="addproduct" (click)="add()" ><b>Add new product</b></button>
+<button class="addproduct" routerLink="/add"><b>Add new product</b></button>
 
-<button (click)="getProduct()" class="get">
-    Get the Product
-  </button>
 
 <section class="main">
     <div *ngFor="let product of products">      
@@ -13,6 +10,10 @@
        <img src="{{product.image}}" class="img" >
     </div>
        <table style="height:50px; padding: 2%" >
+        <tr>
+          <td class="tdstyle">Number: </td>
+          <td>{{product.Number}}</td>
+        </tr>
         <tr>
         <td class="tdstyle"> Name: </td> 
         <td>{{product.Name}}</td>
@@ -31,66 +32,75 @@
       </tr>
     </table>  
         <div>
-          <i class="fa fa-trash-o" style="color: red;" ></i>
-          &nbsp;&nbsp;&nbsp;<i class="fa fa-pencil-square-o" style="color: blue;"></i>
-        </div>  
-      
+          <i class="fa fa-trash-o" style="color: red;" (click)="delete(product.Number)"></i>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <i class="fa fa-pencil-square-o" style="color: blue;" (click)="edit(product)"></i>
+        </div>       
 </div>
 </div>
 </div>
 </section>
 
-<!--Thiis is for product adding page-->
+<!--this is for edit form-->
+<section *ngIf="editForm">
+<div class="pop-up-drop">
+  <div  class="pop-up">
 
-<form  [formGroup]="productForm" > 
-  <div *ngIf="addProduct"  class="pop-up">
     <div class="row">
-      <button (click)="cancel()" class="close"><i class="fa fa-times"></i></button>
-    </div>   
-    <div class="row">
-       <div class="title"><b>ADD PRODUCT </b></div>
+      <button (click)="closeForm()" class="close"><i class="fa fa-times"></i></button>
     </div>
-      <div class="row">
-          <div class="col">
-              <div class="image"><h2>Upload image:<br>
-                  <input type="text" formControlName="image" id="image">
-                  </h2>
-              </div>
-          </div>
-          <div class="col">
-              <div class="quantity">
-                  Quantity:<br>
-                  <button type="button" class="bt-t" (click)="minus()"><i class="fa fa-minus"></i></button>
-                  <input  [value]="quantity" class="btt" formControlName="Quantity">
-                  <button type="button" class="bt-t" (click)="plus()"><i class="fa fa-plus"></i></button>                    
-              </div><br>
-          </div>            
+    <div class="row" >
+      <div class="title"> EDIT PRODUCT</div>
+    </div> 
+    <div class="row">
+      <div class="col">
+        <img src="{{productform.image}}" class="img1" id="image" > 
       </div>
-      <div class="row">
-          <div class="name">
-              Product Name:<br>
-              <input type="text" formControlName="Name" placeholder="Enter your first name" class="input">
-              <!-- <span style="color: red;" *ngIf="Firstname && Firstname.invalid && Firstname.touched">Please enter your firstname</span>  -->
-          </div><br>
-      </div><br>
-      <div class="row">
-          <div class="name">
-              Price:<br>
-              <input type="email" formControlName="Price" placeholder="Enter your price" class="input">
-              <!-- <span style="color: red;" *ngIf="email && email.invalid && email.touched">Please enter your email</span> -->
-          </div><br>
-      </div><br>
-      <div class="row">
-          <div class="name">
-              Description :<br>
-              <textarea type="text" formControlName="Description" placeholder="Enter your description" class="description"></textarea>
-              <!--<span style="color: red;" *ngIf="Lastname && Lastname.invalid && Lastname.touched">Please enter your lastname</span> <br>-->
-          </div>
-      </div><br>
-      <button class="submit" (click)="submitForm()"><b>Submit</b></button> 
-          
+      <div class="col">
+        <div class="name">S.No :<br>
+          <input type="text" class="input" [(ngModel)]="productform.Number" id="Number" >
+        </div>
+        <div class="name" >Name :<br>
+          <input type="text" class="input" [(ngModel)]="productform.Name" id="Name">
+        </div>
+      </div>
     </div>
-</form>
+    <hr>    
+      <div class="row">  
+        <div class="col">
+          <div class="name">Quantity :<br>
+            <input type="text" class="input" [(ngModel)]="productform.Quantity" id="Quantity">
+          </div>
+          <div class="name">Price :<br>
+            <input type="text" class="input" [(ngModel)]="productform.Price" id="Price">
+          </div>
+        </div>  
+        <div class="col">
+          <div class="name">Description :<br>
+            <textarea type="text" class="discription" [(ngModel)]="productform.Description" id="Description"></textarea>
+          </div>
+        </div>       
+      </div>     
+    <div class="row" style="margin-top: 1em;">
+      <div class="col">
+        <button class="update"(click)="updateProduct(productform._id)">Save</button>
+        <button (click)="closeForm()" class="cancel">Cancel</button>
+      </div> 
+    </div>    
+  </div>     
+</div>  
+</section>
+
+
+
+
+
+
+    
+
+ 
+
+
     
    
  

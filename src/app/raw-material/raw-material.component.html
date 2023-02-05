@@ -1,52 +1,53 @@
-<div class="row">
-  <div class="col">
-    <div class="products">
-      <div class="no"><b>S.NO :123123</b></div>
-      <img src="http://pic.stonecontact.com/picture201511/20171/136763/granite-blocks-rustenburg-black-marikana-granite-raw-material-p513240-1b.jpg" class="img">
-      <div class="prod">          
-          <div class="title"><h2><b>BlueDunes</b></h2></div>
-          <h4 style="white-space: nowrap; overflow: hidden; text-overflow:ellipsis; max-width: 100ch;">this is the blue dunes marble and it is very good item for any where in the building</h4> 
-          <button class="view">View product</button>
-        </div> 
-    </div>
+<mat-toolbar >
+
+  <mat-toolbar-row>
+
+    <button mat-icon-button>
+
+      <mat-icon (click)="sidenav.toggle();"><i class="fa fa-bars" style="color: white;"></i></mat-icon>
+
+    </button>
+
+    <h1 class="bsbspace"> <img style="width:120px;height:90px;margin-top:-1%; border-radius:50%;" src="/assets/images/logoMilestone.jpg"></h1>
+
+    <br>
+    <h1 class="space">Home</h1>
+    <h1 class="space"> Help</h1>
+    <h1 routerLink="/profile" class="space">About Us</h1>
+    
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+
+  <mat-sidenav #sidenav opend="true" mode="side">
+
+    <mat-nav-list>
+
+      <a href="" class="bgclr" mat-list-item><i class="fa fa-home" style="font-size:24px;color:white"></i>&nbsp; Home  </a>    
+
+      <a href="/" class="bgclr" mat-list-item>&nbsp;Inventory</a>
+
+       <a href="/product" class="bgclr" mat-list-item>&nbsp;Products</a>
+
+       <a href="" class="bgclr" mat-list-item>&nbsp;Order History</a>
+       <a href="" class="bgclr" mat-list-item>&nbsp; Dealer Management </a>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <div style="height: 99vh">
+
+      <router-outlet>
+
+      </router-outlet>  
+
     </div>
 
-    <div class="col">
-        <div class="products">
-          <div class="no"><b>S.NO :123123</b></div>
-          <img src="https://tse2.mm.bing.net/th?id=OIP.vtFMUOIRmDfsx0g0q71QxwHaFj&pid=Api&P=0" class="img">
-          <div class="prod">
-              
-              <div class="title"><h2><b>BlueDunes</b></h2></div>
-              <h4 style="white-space: nowrap; overflow: hidden; text-overflow:ellipsis; max-width: 100ch;">this is the blue dunes marble and it is very good item for any where in the building</h4> 
-              <button class="view">View product</button> 
-            </div>
-      </div>
-    </div> 
- 
-    <div class="col">
-        <div class="products">
-          <div class="no"><b>S.NO :123123</b></div>
-          <img src="https://4.imimg.com/data4/MW/UB/MY-8940648/granite-raw-block-500x500.jpg" class="img">
-          <div class="prod">
-              
-              <div class="title"><h2><b>BlueDunes</b></h2></div>
-              <h4 style="white-space: nowrap; overflow: hidden; text-overflow:ellipsis; max-width: 100ch;">this is the blue dunes marble and it is very good item for any where in the building</h4> 
-              <button class="view">View product</button>
-          </div> 
-      </div>
-    </div>
- 
+  </mat-sidenav-content>
 
-    <div class="col">
-        <div class="products">
-          <div class="no"><b>S.NO :123123</b></div>
-          <img src="https://www.regattagranitesindia.com/wp-content/uploads/2020/09/Black-Galaxy-Granite-Block.jpg" class="img">
-          <div class="prod">              
-              <div class="title"><h2><b>BlueDunes</b></h2></div>
-              <h4 style="white-space: nowrap; overflow: hidden; text-overflow:ellipsis; max-width: 100ch;">this is the blue dunes marble and it is very good item for any where in the building</h4> 
-              <button class="view">View product</button> 
-         </div>
-     </div>
- </div>
- </div>
+</mat-sidenav-container>

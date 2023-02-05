@@ -1,0 +1,63 @@
+.form{
+    height: 35em;
+    width: 450px;
+    border: 1px solid rgb(66, 64, 64);
+    margin-left: 40em;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 4em;
+    background-color: rgb(66, 64, 64);
+    color: white;
+}
+.row1{
+    margin-left: 2em;
+    font-size: 1.3em;    
+}
+.edit{
+    border: 0;
+    height: 2em;
+    border-radius: 5px;
+    color: white;
+    margin-left: 12.5em;
+    background-color: rgb(58, 58, 170);
+}
+
+/*this is for tool bar*/
+mat-toolbar-row{
+    background-color: #3b3b3b;
+    height: 80px;
+  }
+.img{
+    height: 75px;
+      border-radius: 50%;      
+}
+.title1{
+     color: white;
+     margin-left: 10em;
+    font-size: 2em;
+     margin-top: 10px;
+     margin-right: 10em;
+}
+  .log{    
+    color: black;
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+    margin-top: 5px;
+    height: 33px;
+    width: 100px;
+  }
+  .edt{
+    background-color: rgb(66, 64, 64);
+    border: 0;
+    color: white;
+  }
+  .text{
+    width: 12.6em;
+  }
+  .container{
+    /* height: 44em;
+    width: 30%; */
+    border: 0;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjQ3y2L7RcrYakOQtg9KyS4ocERffiEjfsexYRgLVIUyH_LI8ePnQ6evD0WDPP6K-6tA4&usqp=CAU")
+  }

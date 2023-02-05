@@ -1,15 +1,14 @@
 
 /*this is for toolbar*/
-mat-toolbar{
+mat-toolbar-row{
     background-color:#3b3b3b ;
     height: 80px;
     width: 100%;
 }
-
 .img{
     height: 75px;
     border-radius: 50%;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 .search{
     height: 40px;
@@ -101,4 +100,111 @@ mat-toolbar{
 }
 
 
-/*this is for */
+/*this is for add product form*/
+.signup{
+    height: 49em;
+    width: 36.5em;
+    border: 1px solid black;
+    background-color: #3b3b3b;
+    margin-left: 36em;
+    padding: 25px;
+    border-radius: 5px;
+    padding: 15px;    
+    margin-top: 4em;
+    position: fixed;
+    z-index: 9999;
+} 
+.title{
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  height: 2em;
+  width: 37;
+  padding: 20px;
+  border-radius: 5px;  
+}
+.close{
+  color: red;  
+  border: 0;
+  width: 40px;
+  font-size: 1.5em;
+  margin-left: 22em;
+  margin-bottom: 5px;
+  margin-top: -8px;
+  background-color: #3b3b3b;
+}
+.input{
+    border-radius: 5px;
+    height: 2.7em;
+    width: 25em;
+    margin-top: 5px;
+    margin-bottom: -5px;
+}
+.name{
+    color: white;
+    font-size: 1.3em;
+    margin-left: 1em;
+    margin-top: -5px;
+}
+.name1{
+    color: white;
+    font-size: 2em; 
+    margin-bottom: 1em;  
+}
+.submit{
+    height: 30px;
+    width: 100px;
+    color: #3b3b3b;
+    background-color:white;
+    border-radius: 5px;
+    border: 0;  
+    margin-left: 12em;
+    margin-top: 1em;       
+}
+.image{
+   color: white; 
+   margin-top: 1.3em;
+   margin-left: 1.5em;
+}
+.serial{
+    float: right;
+    color: white;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+}
+.color{
+    margin-top: 1em;
+    color: white;
+    font-size: 1.3em;
+}
+.btt{
+    width: 4em ;
+    height: 2em;
+    margin-top: 4px;
+}
+.bt-t{
+    border: 0;
+    height: 1.9em;
+}
+.quantity{
+    margin-top: 1.5em;
+    color: white;
+    font-size: 1.3em;
+    margin-left: 2em;
+}
+.description{
+    border-radius: 5px;
+    height: 4em;
+    width: 19em;
+    margin-top: 2px;
+    font-size: 1.3em;    
+}
+.imagebox{
+  width: 19em;
+  height: 1em;
+}
+
+/*this is for success message*/
+body {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  }

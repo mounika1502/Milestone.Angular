@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-product',
@@ -8,6 +9,7 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
 })
 export class AddProductComponent implements OnInit {
   productForm: any;
+  addProduct=true
 
   constructor() { }
 
@@ -17,19 +19,21 @@ export class AddProductComponent implements OnInit {
       Colour: new FormControl(""),
       Number: new FormControl(""),
       Name: new FormControl(""),
-      Dimensions: new FormControl(""),
+      Description: new FormControl(""),
       Quantity: new FormControl(this.quantity),
       Price: new FormControl(""),
-    })
-    
+    })    
+  }
+  cancel(){
+    this.addProduct=false
   }
 
   submitForm(){
     console.log(this.productForm) 
-    if(this.productForm.invalid){
+    if(this.productForm.invalid){         //this if condition is used to return the page if any one field is not filled
       return
     }
-        fetch("http://localhost:2000/products/addproduct", {
+       fetch("http://localhost:2000/products/addproduct", {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",
@@ -39,41 +43,48 @@ export class AddProductComponent implements OnInit {
      }).then(res=> res.json())
      .then(result=>{ 
        console.log(result)
-       alert('Successfully Submited')
-     }
-       )     
-       .catch(error => console.log('error',error))   
-   
-
-  }
-
-  
-
-  url=""
-  onSelectFile(e:any){
-    if(e.target.files){       //files is used to get the input files DOM property
-     var reader = new FileReader();  //tjis object is used to read the file
-     reader.readAsDataURL(e.target.files[0]);           //DataURL to read the data  
-    reader.onload=(event:any)=>{                        //event parameter is used upload any type files  like xml files ,text files
-    this.url=event.target.result;
-    }
-    }
-  }
-
-  quantity:number=1;
-  i=1
-  plus(){
-    if(this.i !=0){
-      this.i++;
-      this.quantity=this.i;
-    }
-  }
-
-  minus(){
-    if(this.i !=1){
-      this.i--;
-      this.quantity=this.i;
-    }
+       this.productForm.reset()
+       Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500        
+      })
+   }
+  )      
+       .catch(error => console.log('error',error)) 
   }  
 
-}
+   //this is for  quantity
+   quantity:number=1;
+   i=1
+   plus(){
+     if(this.i !=0){
+       this.i++;
+       this.quantity=this.i;
+     }
+   }
+   minus(){
+     if(this.i !=1){
+       this.i--;
+       this.quantity=this.i;
+     }
+   } 
+  } 
+
+
+  // url=""
+  // onSelectFile(e:any){
+  //   if(e.target.files){       //files is used to get the input files DOM property
+  //    var reader = new FileReader();  //tjis object is used to read the file
+  //    reader.readAsDataURL(e.target.files[0]);           //DataURL to read the data  
+  //   reader.onload=(event:any)=>{                        //event parameter is used upload any type files  like xml files ,text files
+  //   this.url=event.target.result;
+  //   }
+  //   }
+  // }
+
+ 
+
+

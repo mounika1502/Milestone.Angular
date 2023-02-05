@@ -1,0 +1,28 @@
+<!-- <h2>Code Verification</h2>
+<i class="fa fa-arrow-left" routerLink="/login"></i>
+<div class="col">
+    Enter verification code:
+    <input type="text" (click)="onOtpChange($event)">
+    <button (click)="resend()" >Resend</button>
+    <button (click)="verifyOtp()">verify</button>
+    
+
+</div> -->
+
+<div class="container-fluid">
+    <form  [formGroup]="form">
+    <h3>Enter your OTP </h3>
+    <div class="row">
+    <!-- <div class="form-group col-sm-2" *ngFor="let input of formInput;  index as i"> -->
+    <!-- <input #formRow type="text" formControlName="{{input}}" class="form-control" maxlength="1" (keyup)="keyUpEvent($event, i)"> -->
+    <!-- </div> -->
+    <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+    </div>    
+    </form>
+    <button type="submit" class="btn btn-primary" style="margin-top: 1em;" (click)="onSubmit()">Submit</button>
+    </div>
+    <!-- <div class="data">
+        <div class="row">
+            <div class="col">{{otp}}</div>
+        </div>
+    </div> -->

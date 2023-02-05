@@ -1,1 +1,156 @@
-<p>signup works!</p>
+<mat-toolbar>
+    <mat-toolbar-row>
+        <img src="assets/Logo1.jpg" class="img">
+        <div class="title1">
+            <b>WELCOME TO MILESTONE</b>
+        </div>
+        <button class="log" routerLink="/"><h4>Login</h4></button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <!--this is for signup form-->  
+  <!-- <form  [formGroup] = "SignupForm"> 
+    <div class="signup">
+        <div class="name1">
+            <i class="fa fa-arrow-left" style="font-size: small;"routerLink="/"></i>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="assets/images/user1.png" style="height:3.5em;margin-left:1.5em">
+        </div>                
+        <div class="name">
+            First Name:<br>
+            <input type="text" formControlName="Firstname" placeholder="Enter your first name" class="input">
+            <span style="color: red;" *ngIf="Firstname && Firstname.invalid && Firstname.touched">Please enter your firstname</span> 
+        </div><br>
+        <div class="name">
+            Last Name:<br>
+            <input type="text" formControlName="Lastname" placeholder="Enter your last name"class="input">
+            <span style="color: red;" *ngIf="Lastname && Lastname.invalid && Lastname.touched">Please enter your lastname</span> 
+        </div><br>
+        <div class="name">
+            Mobile:<br>
+            <input type="text" formControlName="mobile" placeholder="+91-00000 00000" class="input">
+            <span style="color: red;" *ngIf="mobile && mobile.invalid && mobile.touched">Please enter your mobile number</span> 
+        </div><br>
+        <div class="name">
+            Email:<br>
+            <input type="email" formControlName="Email" placeholder="Enter your email" class="input">
+            <span style="color: red;" *ngIf="email && email.invalid && email.touched">Please enter your email</span>
+        </div><br>
+        <div class="name">
+            Password:<br>
+            <input type="password" formControlName="Password" placeholder="Enter your password" class="input">
+            <span style="color: red;" *ngIf="password && password.invalid && password.touched">Please enter your correct password</span>
+        </div><br>   
+        <div class="name">
+            Address:<br>
+            <textarea formControlName="Address" placeholder="Enter your address" class="text"></textarea>
+            <span style="color: red;" *ngIf="Address && Address.invalid && Address.touched">Please enter your address</span>
+        </div><br>      
+        <button class="submit" (click)="signupSubmit()"><b>Submit</b></button> 
+    </div>  
+</form>  -->
+
+
+
+  
+<body>  
+    <div class="container" >
+    <form [formGroup]="SignupForm">
+   
+      <div class="row gutters">     
+      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+        <div class="card11-up">
+          <div class="row gutters">
+            <h1 style="color: #4a88bf; text-align: center; font-size: 30px; font-weight: 700;">Signup</h1>             
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <h1 style="color:#1b86e4" >Personal Details</h1>
+            </div>           
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%"> 
+              <div class="form-group">
+                <label for="fullName">First Name</label>
+                <input type="text"  style="padding:3%"   class="form-control" formControlName="Firstname" placeholder="Enter full name" >
+              </div>
+            </div>           
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
+              <div class="form-group">
+                <label for="fullName">Last Name</label>
+                <input type="text"   style="padding:3%"    class="form-control" formControlName="Lastname" placeholder="Enter full name" >
+              </div>
+            </div>   
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%"> 
+                <div class="form-group">
+                  <label for="fullName">User Type</label>
+                  
+                  <!-- <input type="text"  style="padding:3%"   class="form-control" formControlName="Firstname" placeholder="Enter full name" > -->
+                  <select  class="form-control"  formControlName="UserType" style="padding: 3%;">
+                    <option value="">--Select--</option>
+                    <option value="Dealer"> Dealer</option>
+                    <option value="Manufacturer">  Manufacturer</option>
+                  </select>
+                </div>
+              </div>           
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
+                <div class="form-group">
+                  <label for="fullName">Company Name</label>
+                  <input type="text"   style="padding:3%"    class="form-control" formControlName="Company" placeholder="Enter full name" >
+                </div>
+              </div> 
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%"> 
+                <div class="form-group">
+                  <label for="fullName">Manufacturer ID</label>
+                  <input type="text"  style="padding:3%"   class="form-control" formControlName="ManufacturerID" placeholder="Enter full name" >
+                </div>
+              </div>           
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
+                <div class="form-group">
+                  <label for="fullName">Mobile</label>
+                  <input type="text"   style="padding:3%"    class="form-control" formControlName="mobile" placeholder="Enter full name" >
+                </div>
+              </div>          
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
+              <div class="form-group">
+                <label for="eMail">Email</label>
+                <input type="email"  style="padding:3%"   class="form-control" formControlName="Email" placeholder="Enter email ID">
+              </div>
+            </div>         
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
+              <div class="form-group">
+                <label for="eMail">Password</label>
+                <input type="email"  style="padding:3%"   class="form-control" formControlName="Password" placeholder="Enter email ID">
+              </div>
+            </div>       
+          <br>
+          <br> 
+            <h1 style="color:#1b86e4" >Address</h1> 
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
+              <div class="form-group">
+                <label for="ciTy">Town/City</label>
+                <input type="name"  style="padding:3%"   class="form-control" formControlName="City" placeholder="Enter City">
+              </div>
+            </div>      
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
+              <div class="form-group">
+                <label for="zIp">PinCode</label>
+                <input type="text"   style="padding:3%"  class="form-control" formControlName="Pincode" placeholder="Zip Code">
+              </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="padding:1%">
+              <div class="form-group">
+                <label for="Street">Area/Street</label>
+                <textarea type="name"  rows="5" style="width:100%;padding:2%"   class="form-control" formControlName="Street" placeholder="Enter Street"></textarea>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="text-right">               
+                <button class="submit" (click)="signupSubmit()"><b>Submit</b></button> 
+              </div>
+            </div>
+          </div>
+        </div>          
+      </div>
+
+      </form>
+    </div>
+    </body>      

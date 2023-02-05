@@ -1,54 +1,55 @@
-.img{
-    height: 10em;
-    width: 10em;
-    margin-left: 1em;
-    margin-top: 1em;    
-}
-.img:hover{
-    box-shadow:4px 4px 6px 4px #3b3b3b;
-}
-.products{
-    height: 22em;
-    width: 17em;
-    border: 1px solid black;
-    margin-left: 0em;
-    margin-top: 2em;
-    border-radius: 5px;
-}
-.no{
-    margin-left: 1em;
-    margin-top: 10px;
-}
-.prod{
-    /* float: right; */
-    margin-left: 10px;
-    margin-top: 0em;
-}
-title{
-    margin-left: 5px;
+input{
+    width:300px;
+    height:20px;
+    border-radius: 20px;
+    padding: 17px;
 }
 
-.slabs{
-    margin-top: 10px;
-}
-.price{
-    margin-top: 10px; 
-}
-.size{
-    margin-top: 10px;
-}
-.qty{
-    margin-top: 10px; 
-}
-.color{
-    margin-top: 10px; 
-}
-.btt{
-    width: 15px;
-}
-.view{
-    background-color: rgb(84, 84, 87);
+mat-nav-list{
+    background-color:#3b3b3b;
     color: white;
-    border: 0;
-    border-radius: 2px;
+    height:100%;
+  
+    cursor: pointer;
+}
+.a{
+    color: white;
+    color : white;
+}
+mat-toolbar-row{
+    background-image:url("https://www.kajariaceramics.com/product-picture/GP02384_b.jpg");
+    height:100px;
+    border:1px solid #3b3b3b;   
+}
+.div{
+
+    background-color: white;
+}
+p{
+    text-align: center;
+}
+span{
+    float: bottom;
+}
+img{
+    height:30px;
+    color:white;
+}
+
+
+.space{
+    padding-right: 13%;
+    color: white;
+    margin-left: 10%;
+}
+.bsbspace{
+    padding-right: 10%;
+    color: white;
+}
+.bgclr{
+    color:white
+}
+.bgclr:hover{
+ 
+    color:white;
 }

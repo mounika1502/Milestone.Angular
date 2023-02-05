@@ -1,0 +1,31 @@
+.style{ background-color: rgb(161, 161, 161); }
+
+body {
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+.main{ display: flex; flex-wrap: wrap; width: 100%; flex-direction: row;
+}
+td{ 
+    text-align: left; 
+    color: #000000;
+    padding: 15px;
+}
+
+.tdstyle{ color:#222222; font-weight: bold;
+}
+
+
+
+.main .users{ display: flex; margin-left: 10%;
+  }
+
+.users .card{ width: 100%;height: 100%; margin: 10px; background: white; text-align: center; border-radius: 10px; display: flex; flex-wrap: nowrap;
+}
+
+
+.users table{
+  margin:  auto;
+  width: 500px;
+  height: 200px;
+  padding: 15px;
+}
