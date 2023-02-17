@@ -4,7 +4,7 @@
     width: 370px;
     padding: 15px;
     align-items: center;
-    margin-left: 35em;
+    margin-left: 36.8em;
     margin-top: 12em;
     border-radius: 5px;
     background-color: #3b3b3b;
@@ -30,52 +30,6 @@
     color:white;
 }
 
-/*this is for toolbar*/
-mat-toolbar-row{
-    background-color: #3b3b3b;
-    height: 80px;
-  }
-.img{
-    height: 75px;
-      border-radius: 50%;      
-}
-.title1{
-     color: white;
-     margin-left: 10em;
-    font-size: 2em;
-     margin-top: 10px;
-     margin-right: 10em;
-}
-  .log{    
-    color: black;
-    background-color: white;
-    border: 0;
-    border-radius: 5px;
-    margin-top: 5px;
-    height: 33px;
-    width: 100px;
-  }
-.search{
-    height: 40px;
-    width: 40em;
-    border-radius: 10px;
-    margin-left: 10em;
-    margin-top: 1em;
-    border: 0;
-}
-.button{
-    border-radius: 8px;
-    margin-left: 1em;
-    border: 0;
-}
-.buttons{   
-    margin-left: 10em;
-    margin-top: 1em;
-}
-.button:hover{
-    background-color: rgb(63, 60, 66);
-}
-
 /*login form*/
 
 .form{
@@ -85,18 +39,20 @@ mat-toolbar-row{
     padding: 15px;
     align-items: center;
     margin-left: 30em;
-    margin-top: 13em;
+    margin-top: 10em;
     border-radius: 5px;
     background-color: #3b3b3b;
+    position: absolute;
 }
 .box1{
     height: 351px;
     width: 300px;
     float: right;
-    margin-top: -25.1em;
+    margin-top: 10em;
+    margin-left: 55em;
     border-radius: 5px;
     border: 1px solid black;
-    margin-right: 33.3em;
+    position: absolute;
     background-image:url("../../assets/images/app1.jpg");
 }
 .email{
@@ -143,8 +99,19 @@ mat-toolbar-row{
     margin-left: 7em;
     border: 0;
 }
-
-
+.loginForm{
+    height: 352px;
+    width:auto;
+    position: absolute;
+    position: relative;
+}
+.eye{
+    position: absolute;
+    
+    margin-left: -18px;
+    color: black;
+    cursor: pointer;
+}
 
 /* this is for login with mobile form*/
 .mobile{
@@ -158,48 +125,6 @@ mat-toolbar-row{
     cursor: pointer;    
 }
 
-/*this is for choose language box*/
-.lang{
-    color: black;
-    margin-top: 2em;
-    margin-left: 1em;
-}
-.language{
-    height: 400px;
-    width: 350px;
-    float: right;
-    margin-top: 1em;
-    border-radius: 5px;
-    border: 2px solid rgb(59, 56, 56);
-    background-color: white;
-}
-.english{
-    height: 100px;
-    width: 100px;
-    border: 2px solid rgb(59, 56, 56);
-    margin-left: 2em;
-    margin-top: 3em;
-    border-radius: 5px;
-}
-.telugu{
-    height: 100px;
-    width: 100px;
-    border: 2px solid rgb(59, 56, 56);
-    margin-right: 2em;
-    float: right;
-    margin-top: 3em;
-    border-radius: 5px;
-}
-.hindhi{
-    height: 100px;
-    width: 100px;
-    border: 2px solid rgb(59, 56, 56);
-    margin-left: 9.3em;
-    border-radius: 5px;
-    margin-top: 1.5em;
-    
-}
-
 /* this is for login with mobile  form */
 .otpForm{
     height: 20em;
@@ -207,7 +132,7 @@ mat-toolbar-row{
     border: 0;
     border: 1px solid black;   
     border-radius: 5px;
-    margin-top: 10em;
+    margin-top: -15em;
     margin-left: 40em;
 }
 .phone{

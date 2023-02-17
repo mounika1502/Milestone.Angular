@@ -44,58 +44,11 @@
 
 }
 .container{
- padding-left: 20%;
- 
-   
-   
+ padding-left: 20%; 
 
 }
 
-/*this is for toolbar*/
-mat-toolbar-row{
-    background-color: #3b3b3b;
-    height: 80px;
-  }
-.img{
-    height: 75px;
-      border-radius: 50%;      
-}
-.title1{
-     color: white;
-     margin-left: 10em;
-    font-size: 2em;
-     margin-top: 10px;
-     margin-right: 10em;
-}
-  .log{    
-    color: black;
-    background-color: white;
-    border: 0;
-    border-radius: 5px;
-    margin-top: 5px;
-    height: 33px;
-    width: 100px;
-  }
-.search{
-    height: 40px;
-    width: 40em;
-    border-radius: 10px;
-    margin-left: 10em;
-    margin-top: 1em;
-    border: 0;
-}
-.button{
-    border-radius: 8px;
-    margin-left: 1em;
-    border: 0;
-}
-.buttons{   
-    margin-left: 10em;
-    margin-top: 1em;
-}
-.button:hover{
-    background-color: rgb(63, 60, 66);
-}
+
 body{
     background-image: url(https://img.freepik.com/premium-photo/grey-marble-texture-background_34936-2588.jpg?w=2000);
 }

@@ -11,6 +11,9 @@ export class SignupComponent implements OnInit {
   SignupForm: any;
   signupdata: any=[]
   signupData: any=[]
+  router: any;
+  List:any = []
+  loginData: any=[]
 
   constructor() { }
 
@@ -26,6 +29,7 @@ export class SignupComponent implements OnInit {
         UserType:new FormControl('',[Validators.required]),
         Pincode:new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(6),Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
         Street:new FormControl('',[Validators.required]),
+        State:new FormControl('',Validators.required),
         ManufacturerID:new FormControl('',[Validators.required]),
         Company:new FormControl('',[Validators.required]),
       });
@@ -33,7 +37,25 @@ export class SignupComponent implements OnInit {
   }
 
    //signup submit function
-    signupSubmit(){ 
+    signupSubmit(){       
+      if(this.SignupForm.value.Firstname ==''||
+       this.SignupForm.value.Lastname ==''||
+       this.SignupForm.value.mobile ==''||
+       this.SignupForm.value.Email ==''||
+       this.SignupForm.value.Password ==''||
+       this.SignupForm.value.UserType ==''||
+       this.SignupForm.value.City ==''||
+       this.SignupForm.value.Pincode ==''||
+       this.SignupForm.value.Street ==''||
+       this.SignupForm.value.Company ==''||
+       this.SignupForm.value.State ==''
+       ){
+       Swal.fire(  
+         'Cancelled',  
+         'You Must  Enter All fields !',           //give for condition to take all properties take empty values
+         'error'                                  //then take one alert message like not save all data
+       ) 
+    }else{
         
       fetch("http://localhost:2000/signupform/addsignupdetails", {
        method:'post',
@@ -46,51 +68,24 @@ export class SignupComponent implements OnInit {
      }).then(res=> res.json())
      .then(result=>{ 
        console.log(result)
-       this.signupData = result
 
-       console.log(this.signupData)
-       
-      
+       if(result.status ==='failed'){
+        Swal.fire( 
+          'Cancelled',
+          'User already registered!',
+          'error'
+        )
+        window.location.reload()
+       }else{
+        Swal.fire( 'Submitted successfully!', '', 'success').then(() =>{         
+          this.router.navigate(["login"])
+          window.location.reload()
+        })       
+       }       
      })       
-       .catch(error => console.log('error',error))
-       if(this.signupData.length! == 0){
-        alert('nooo....')
-      }else{
-        alert('success....')     
-      }
-       
+       .catch(error => console.log('error',error))             
     }
-    
-  
-    
-    // if(this.SignupForm.value.Firstname ==''||
-    //    this.SignupForm.value.Lastname ==''||
-    //    this.SignupForm.value.mobile ==''||
-    //    this.SignupForm.value.Email ==''||
-    //    this.SignupForm.value.Password ==''||
-    //    this.SignupForm.value.UserType ==''||
-    //    this.SignupForm.value.City ==''||
-    //    this.SignupForm.value.Pincode ==''||
-    //    this.SignupForm.value.Street ==''||
-    //    this.SignupForm.value.Company ==''||
-    //    this.SignupForm.value.ManufacturerID ==''
-    //    ){
-    //    Swal.fire(  
-    //      'Cancelled',  
-    //      'You Must  Enter All fields !',           //give for condition to take all properties take empty values
-    //      'error'                                  //then take one alert message like not save all data
-    //    ) 
-    // }else{
-
-
-     // this.SignupForm.value.sid = this.signupdata.length+1; 
-      //  Swal.fire({
-      //    position: 'center',
-      //   icon: 'success',
-      //    title: 'submitted successfully',
-      //    showConfirmButton: false,
-      //    timer: 1500       
-      //  }) 
+  }
  
 
   get Firstname()

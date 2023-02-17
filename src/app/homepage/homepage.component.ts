@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -10,39 +11,35 @@ export class HomepageComponent implements OnInit {
 
   
   signupForm=false;
+  data: any=[]
+  aa: any={}
+  text: any;
 
- 
-
-
-  constructor() { }
+  constructor(private router: Router) {
+   //this.get()
+   }
 
   ngOnInit(): void {
+     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+     console.log(this.text)
+     this.aa=this.text.UserType
+     console.log(this.aa)
+    // console.log(this.text.UserType)
   }
-  sub:any
-  subdata:any
+ 
 
-  
-
-  
-
-  // toggle(){
-  //   this.loginForm = !this.loginForm
-  //   this.signupForm=false;
-  //   this.loginForm=true;
+  // get(){
+  //   this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+  //   console.log(this.text)
   // }
 
-  // toggleregister(){
-   
-  //   this.signupForm = !this.signupForm
-  //   this.signupForm=true;
-  //   this.loginForm=false;
-  // }
-
-  submit(){
-
+  logout(){
+      localStorage.clear();
+      window.location.href=("/login")
   }
+  
 
-  //signup form
+ 
  
   
 }

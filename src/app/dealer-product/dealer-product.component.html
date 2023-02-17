@@ -1,0 +1,62 @@
+
+
+<form  [formGroup]="productForm" > 
+    <div *ngIf="addProduct"  class="productForm">
+      <div class="row">
+        <button (click)="cancel()" class="close"><i class="fa fa-times"></i></button>
+      </div>   
+      <div class="row">
+         <div class="title"><b>ADD PRODUCT </b></div>
+      </div>
+      <br>
+      <hr>
+        <div class="row">
+            <div class="col">
+                <div class="image">Upload image:<br>
+                    <input type="text" formControlName="imgurl" id="image" placeholder="upload your image" class="input1">
+                </div>
+            </div>
+            <div class="col">
+                <div class="quantity">
+                    Quantity:<br>
+                    <button type="button" class="bt-t" (click)="minus()"><i class="fa fa-minus"></i></button>
+                    <input  [value]="quantity" class="btt" formControlName="qnt">
+                    <button type="button" class="bt-t" (click)="plus()"><i class="fa fa-plus"></i></button>                    
+                </div><br>
+            </div>           
+        </div>
+        <div class="row">
+            <div class="name">
+                Product Name:<br>
+                <input type="text" formControlName="name" placeholder="Enter your product name" class="input">
+            </div><br>
+        </div><br>
+        <div class="row">
+            <div class="name">
+                Price:<br>
+                <input type="email" formControlName="price" placeholder="Enter your price" class="input">
+            </div><br>
+        </div><br>
+        <div class="row">
+          <div class="name">
+            Number :<br>
+            <input type="email" formControlName="prodId" placeholder="Enter your mobilenumber" class="input">                   
+          </div>
+        </div><br>
+       
+        
+        <button class="submit" (click)="submitForm()"><b>Submit</b></button> 
+            
+      </div>
+  </form>
+      
+       
+            
+           
+           
+          
+          
+
+     
+
+

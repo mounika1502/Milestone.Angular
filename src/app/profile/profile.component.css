@@ -1,31 +1,36 @@
-.form{
+.box2{
     height: 35em;
     width: 450px;
-    border: 1px solid rgb(66, 64, 64);
-    margin-left: 40em;
+    border: 1px solid rgb(123, 121, 121);
+    margin-left: 47.6em;
     padding: 20px;
-    border-radius: 5px;
-    margin-top: 4em;
-    background-color: rgb(66, 64, 64);
-    color: white;
+    margin-top: -35em;   
+    position: absolute;
 }
 .row1{
-    margin-left: 2em;
+    /* margin-left: 2em; */
     font-size: 1.3em;    
 }
-.edit{
-    border: 0;
-    height: 2em;
-    border-radius: 5px;
-    color: white;
-    margin-left: 12.5em;
-    background-color: rgb(58, 58, 170);
+
+.box{
+  height: 35em;
+  width: 280px;
+  border:0;
+  margin-left: 27.7em;
+  margin-top: 4em;
+  /* background-color: #41607f; */
+  background: linear-gradient(105deg,#5782ae,rgb(97, 87, 174)); 
 }
+.profile{
+  position: absolute;
+}
+
 
 /*this is for tool bar*/
 mat-toolbar-row{
-    background-color: #3b3b3b;
+  background-image:url("https://www.kajariaceramics.com/product-picture/GP02384_b.jpg");
     height: 80px;
+    position: absolute;
   }
 .img{
     height: 75px;
@@ -54,10 +59,62 @@ mat-toolbar-row{
   }
   .text{
     width: 12.6em;
+  }  
+
+  /* this is for non bootstrap edit form */
+  .pop-up{
+    height: 39em;
+    width: 41em;
+    margin: 20px;
+    padding: 38px;
+    margin-left: 32em;
+    margin-top: 3%;
+    position: absolute;
+    background-image: url("https://img.freepik.com/premium-photo/grey-marble-texture-background_34936-2588.jpg?w=2000");
+}
+  .pop-up-drop { 
+    position: absolute;
+    width: 70%;
+    padding: 25px; 
+    top: 0;
+    left: 0;
+    min-height:100%;
+    height:100%;
   }
-  .container{
-    /* height: 44em;
-    width: 30%; */
+  .editform{
+    position: absolute;
+  }
+  .title{
+    font-size: 1.5em;
+    text-align: center;
+    color: #3b3b3b;
+    font-weight: bold;
+  }
+  .input{
+    border-radius: 5px;
+    color: white;
     border: 0;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjQ3y2L7RcrYakOQtg9KyS4ocERffiEjfsexYRgLVIUyH_LI8ePnQ6evD0WDPP6K-6tA4&usqp=CAU")
+    background-color: #777879;
+    height: 2em;
+    width: 15em;
+  }
+  .input1{
+    border-radius: 5px;
+    color: white;
+    border: 0;
+    background-color: #777879;
+    height: 3em;
+    width: 15em;
+  }
+  .email{
+    width: 33em;
+    height: 2em;
+    border: 0;
+    color: white;
+    border-radius: 5px;
+    background-color: #777879;
+  }
+  .address{
+    margin: 4px;
+    font-size: 1.3em;
   }

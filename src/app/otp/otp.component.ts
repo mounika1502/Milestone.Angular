@@ -109,7 +109,7 @@ export class OtpComponent implements OnInit {
           localStorage.setItem('user_data', JSON.stringify(response));
          this.ngZone.run(() => {
             
-      setTimeout(() => {
+       setTimeout(() => {
         this.spin=false
         this.router.navigate(['/homepage'])
       }, 2000);    

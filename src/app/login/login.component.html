@@ -1,35 +1,27 @@
-<mat-toolbar>
-  <mat-toolbar-row>
-      <img src="assets/images/logoMilestone.jpg" class="img">
-      <div class="title1">
-          <b>WELCOME TO MILESTONE</b>
-      </div>
-      <button class="log" (click)="toggle()"><h4>Login</h4></button>
-  </mat-toolbar-row>
-</mat-toolbar>
 
-
-<!--this is for login form-->    
-  <form [formGroup]="loginForm" >  
-    <table *ngIf="login" matSort>     
+<!--this is for login form-->  
+ 
+  <form [formGroup]="loginForm" class="loginForm">  
+    <table *ngIf="login" matSort>   
           <div class="form">
               <div class="mail"><h3><b>E-mail :</b></h3>
-                  <input type="email" class="email" placeholder="Enter your email" name= "email" formControlName="Email"><br>
+                  <input type="email" class="email" placeholder="Enter your email" name= "email" formControlName="Email" autocomplete="off"><br>
                   <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched">Please enter your email</span>
               </div>                 
               <br>                            
               <div class="mail1"><h3><b>Password :</b></h3>
-                  <input type="password" class="email" placeholder="Password" formControlName="Password"><br>
+                  <input [type]="changetype?'text':'password'" class="email" placeholder="Password" formControlName="Password" autocomplete="off">
+                  <span class="eye" (click)="view()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'" style="color: black;"></i></span><br>
                   <span style="color: red;" *ngIf="Password && Password.invalid && Password.touched">Please enter your correct password</span>
               </div>
-                  <button type="submit" class="login" (click)="loginSubmit(loginForm)"><b>LOG IN</b></button> 
+                  <button type="submit" class="login" *ngIf="ishidden" (click)="loginSubmit(loginForm)"><b>LOG IN</b></button> 
+                
               <div class="mobile">
-                  login with mobile?<a (click)="togglePhone()" class="logwithPhone"><b>Login</b></a>
+                  login with mobile?<a (click)="togglePhone()" class="logwithPhone"><b>Login</b></a>              
               </div>
-          </div>
-        </table>   
-  </form>
-  <div class="box1">
+          </div>        
+
+   <div class="box1">
     <div class="new">
         <h1><b>New Here? </b></h1>
     </div>
@@ -37,8 +29,10 @@
         <h4>Sign up and discover a<br>
         greate amount of opportunies!</h4>
     </div>                
-    <button class="sign" routerLink="/signup"><b>Sign up</b></button>        
+    <button class="sign"  routerLink="/signup"><b>Sign up</b></button>        
 </div>
+</table>
+</form>
 
 
 
@@ -64,26 +58,9 @@
             <div class="row">
                 <button class="otp" (click)="mobileOtp()">Generate OTP</button>
             </div>
-            
-            
-
-            <!-- <div class="phone">
-                <h3>Enter OTP: <input type="text" class="phonebox1"></h3>
-             </div>
-             <button class="otp1">Verify OTP</button>
-             <button class="next">Next</button>-->
         </div> 
-
     </table>
 </form>
 
-<!--this is for choose language page-->
-<!-- <div class="language">
-    <div class="lang">
-        <h2><b>Choose your language:</b></h2>
-    </div>    
-    <button class="english">English</button>
-    <button class="telugu">Telugu</button>
-    <button class="hindhi">Hindhi</button>    
-</div> -->
+
 

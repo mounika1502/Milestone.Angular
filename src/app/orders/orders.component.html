@@ -1,0 +1,76 @@
+<body>
+    <div class="container bootdey">
+        <div class="panel panel-default panel-order">
+            <div class="panel-heading">
+      <h1 style="font-size:50px;text-align:center;color: rgb(5, 74, 117) ;font-weight: bolder;padding: 2%;">Order history</h1>
+              </div>
+            <div class="panel-body">
+              <div *ngFor="let test of order">
+                <div class="row">
+                 <!-- <div> <h3 style="color:rgb(5, 74, 117);font-weight: bold;margin-left: 8.7%;margin-top: 1%;">OrderId :- {{test.OrderId}}</h3></div> -->
+                    <div class="col-md-1"><img src="{{test.Image2}}" class="media-object img-thumbnail" /></div>
+                    <div class="col-md-11">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-right">
+                                    <span style="color:rgb(3, 50, 104);"  class="label label-danger"><i class="fa fa-angle-right" style="font-size:50px;float:right;"></i></span></div>
+                                <span>{{test.image1}}</span> 
+                                <div class="col-md-12">Ordered On: {{test.Date}}</div>
+                                <span class="product-catagory">{{test.Type}}</span>
+                                <span class="label label-info" style="font-size:large;">Product ID: {{test.OrderId}}</span><br/>
+                                <span class="label label-info" style="font-size:large;">Product Name: {{test.Name}}</span><br/>
+                               <span style="font-size:large;"> Price  - {{test.Price}}</span>
+
+                            <div *ngIf="products">
+                              <h3 style="float: right;">More<i class="fa fa-ellipsis-h" (click)="view(test.OrderId)" style="font-size:24px;padding-top: 3%; float: right; "></i></h3> <br/>
+                             </div>
+
+                            <div *ngIf="product" ><br>
+                          
+                              <section>
+                                <div class="cards-wrapper">
+                                    <div>
+                                        <img class="card" src="{{test.Image2}}">
+                                  </div>
+                                  <div>  
+                                    <img class="card" src="{{test.Image2}}">    
+                              </div>
+                              <div>
+                                  <img class="card" src="{{test.Image2}}">
+                          </div>
+                              <div> 
+                                <img class="card" src="{{test.Image3}}">
+                               </div>           
+                                </div>
+                              </section>
+                              <br>
+                          <span style="font-size:x-large;">{{test.Description}}</span>
+                                  <br>
+                                  <span style="font-size:x-large;">Quantity:{{test.Quantity}}</span>
+                                    <span  > <i class="fa fa-remove" (click)="remove()" style="font-size:24px;float: right; margin-top: 20%;"></i></span>                                    
+                              <div class="row">
+                                <div class="col-sm-12"><br>
+                                  <h2 style="color:#ffd700">Rate Your Experiance</h2>
+                                    <ul class="list-inline rating-list" 
+                                         *ngFor="let star of stars" style="display: inline-block"  style="display: inline-block" >
+                                    <li  #namebutton  (click)="countStar(star)"
+                                              [ngClass]="{'selected': (star <= selectedValue)}">
+                                         {{star}}   <i class="fa fa-star"></i>
+                                    </ul>
+                                    <div (click)="clearStar()"></div>
+                                    <div style="color:#ffd700;font-weight: bold;font-size: xx-large;">{{selectedValue}}</div>
+                                </div>
+                              </div>
+                            </div>          
+                                </div>       
+                              </div>
+                                </div>
+                                </div>
+                                <br>
+                                <br>
+                              </div>
+                               </div>
+                               </div>
+                              </div>  
+                           
+                            </body>

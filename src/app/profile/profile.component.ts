@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProfileService } from '../profile.service';
 import { UpdateService } from '../update.service';
 
@@ -9,88 +9,122 @@ import { UpdateService } from '../update.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  loginData:any=[]
-  data:any
+  loginData:any
+  text:any=[]
   datas:any=[];
   editform=false
   SignupForm: any;
   submit: any;
   form:any
-  
-  // profileForm:any={
-  //   id:'',
-  //   Firstname:'',
-  //   Lastname:'',
-  //   mobile:'',
-  //   Email:'',
-  //   Password:'',
-  //   Address:'',
-  
-  // }
   final:any;
   finals:any
-  constructor(private service:ProfileService) {}
+  profileForm:any={
+    Firstname:'',
+    Lastname:'',
+    mobile:'',
+    Email:'',
+    Password:'',
+    City:'',
+    Pincode:'',
+    Street:'',
+    State:'',
+    
+  }
+
+   updateform!:FormGroup
+   products: any=[]
+
+  constructor(private service:ProfileService, private fb:FormBuilder) {}
   
 
   ngOnInit(): void {
-    this.data = JSON.parse(localStorage.getItem('Login')||'{}')   
-    this.loginData = this.data  
-    console.log(this.loginData)
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+     console.log(this.text)
+     
+    // for(let i=0;i<this.data.length;i++){
+    //  this.loginData =this.data[i]
+    // }
+    //this.loginData = this.data  
+    // console.log(this.loginData)
+
+    this.updateform = this.fb.group({
+      Firstname:[''],
+      Lastname:[''],
+      mobile:[''],
+      Email:[''],
+      Password:[''],
+      City:[''],
+      Pincode:[''],
+      Street:[''],
+      State:['']
+    })
 
   }
+
+  logout(){
+    localStorage.clear();
+    window.location.href=("/login")
+  }
+
   closeForm(){
     this.editform = false
   }
 
   edit(loginData:any){
     this.editform = true
-    this.SignupForm = loginData
+     this.profileForm = loginData
   }
   
-  updateData(docId:any){
-    const data = {
-      Firstname: this.SignupForm.Firstname,
-      Lastname:this.SignupForm.Lastname,
-      mobile:this.SignupForm.mobile,
-      Email:this.SignupForm.Email,
-      Password:this.SignupForm.Password,
-      // Address:this.SignupForm.Address,
-      docId:this.SignupForm.docId
-    }
-    console.log(data)
-    this.service.update(data,docId).subscribe((datas)=>{
-      console.log(datas)
-      if(datas){
-        alert('updated successfully')
-      }
-    })  
-  }
-
-  //signup details post call
-  // signupSubmit(){
-  //   this.data=JSON.parse(localStorage.getItem('login')||'{}') 
-      
-  //   for(let i=0;i<this.data.length;i++){
-  //     this.finals =this.data[i]
+  // updateData(id:any){
+  //   const data = {
+  //     Firstname: this.profileForm.Firstname,
+  //     Lastname:this.profileForm.Lastname,
+  //     mobile:this.profileForm.mobile,
+  //     Email:this.profileForm.Email,
+  //     Password:this.profileForm.Password,
+  //     City:this.profileForm.City,
+  //     Pincode:this.profileForm.Pincode,
+  //     Street:this.profileForm.Street,
+  //     State:this.profileForm.State
   //   }
-  //   console.log(this.finals.Email)
+  //   console.log(data)
+  //   this.service.update(data,id).subscribe((datas)=>{
+  //     console.log(datas)
+  //     if(datas){
+  //       alert('updated successfully')
+  //     }
+  //   })  
+  // }   
 
-  //   this.datas =  this.finals.find((item:any) => item.email === this.finals.Email);
-  //   console.log(this.datas)
 
-  // }
-    // fetch("http://localhost:2000/signupform/getsignupdetails", {
-    //   method:'get',
-    //    }).then(res=> res.json())
-    // .then(result=>{ 
-    //   console.log(result)
-    //   this.datas = this.data.find((item:any) => item.Email === this.details);
-    //   console.log(this.datas)
-    // }    
-    // )
-    //   .catch(error => console.log('error',error))      
-      //window.location.href=''
-    
+  ///---update function---///
+  updateProfile(data:any){
+    console.log(data)
+    //console.log(this.description, this.image, this.price, this.description, this.name)
+    console.log(this.text.id)
+    fetch("http://localhost:2000/signupform/editProfile/" + this.text.id, {
+      method: 'PUT',
+      headers: {
+        "access-Control-Allow-Origin": "*",        
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify(data),        // JSON Means An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
+
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result),
+
+          this.products =JSON.parse(result)  //it  runs $parse automatically when it runs the $digest loop, basically $parse is the way angular evaluates expressions
+        console.log(this.products)
+        //this.updateproductForm.reset();   // form reset
+        //window.location.reload()  // reloading window
+        
+      }
+
+      ).catch(err =>
+        console.log(err))
+  }
   
 
 }

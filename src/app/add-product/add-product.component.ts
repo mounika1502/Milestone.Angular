@@ -29,10 +29,20 @@ export class AddProductComponent implements OnInit {
   }
 
   submitForm(){
-    console.log(this.productForm) 
-    if(this.productForm.invalid){         //this if condition is used to return the page if any one field is not filled
-      return
-    }
+    if(this.productForm.value.image ==''||
+    this.productForm.value.Colour ==''||
+    this.productForm.value.Number ==''||
+    this.productForm.value.Name ==''||
+    this.productForm.value.Price ==''||
+    this.productForm.value.Quantity ==''||
+    this.productForm.value.Description =='')
+    { 
+      Swal.fire(  
+         'Cancelled',  
+         'You Must  Enter All fields !',           //give for condition to take all properties take empty values
+         'error'                                  //then take one alert message like not save all data
+       ) 
+    }else{  
        fetch("http://localhost:2000/products/addproduct", {
        method:'post',
        headers:{
@@ -47,7 +57,7 @@ export class AddProductComponent implements OnInit {
        Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Your work has been saved',
+        title: 'Your product has been saved',
         showConfirmButton: false,
         timer: 1500        
       })
@@ -55,6 +65,7 @@ export class AddProductComponent implements OnInit {
   )      
        .catch(error => console.log('error',error)) 
   }  
+}
 
    //this is for  quantity
    quantity:number=1;
@@ -74,16 +85,7 @@ export class AddProductComponent implements OnInit {
   } 
 
 
-  // url=""
-  // onSelectFile(e:any){
-  //   if(e.target.files){       //files is used to get the input files DOM property
-  //    var reader = new FileReader();  //tjis object is used to read the file
-  //    reader.readAsDataURL(e.target.files[0]);           //DataURL to read the data  
-  //   reader.onload=(event:any)=>{                        //event parameter is used upload any type files  like xml files ,text files
-  //   this.url=event.target.result;
-  //   }
-  //   }
-  // }
+
 
  
 

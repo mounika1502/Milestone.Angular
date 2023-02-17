@@ -11,159 +11,139 @@ import { UpdateService } from '../update.service';
 })
 export class ProductComponent implements OnInit {
 
-  productForm: any;
-  products:any=[]
-  addProduct= false;
-  editForm=false;
-  data: any;
-  datas:any=[];
-  productform:any={
-    image: '',
-    Number:'',
-    Name:'',
-    Quantity:'',
-    Price:'',
-    Description:''
-  }
-  constructor( private router:Router,private service:UpdateService) {
-    this.getProduct();  
+  productsStore: any=[]
+  cartItemList: any;
+  test:any;
+ 
+  constructor() {
+     this.getStoreProducts();
    }
 
-  ngOnInit(): void {
-
-    this.productForm = new FormGroup ({
-      image :new FormArray([]),      
-      Name: new FormControl(""),
-      Quantity: new FormControl(this.quantity),
-      Price: new FormControl(""),
-      Number:new FormControl(""),
-      Description: new FormControl("")
-    })
+  ngOnInit(): void {  
   }
 
-  //this is for quantity function
-  quantity:number=1;
-  i=1
-  plus(){
-    if(this.i !=0){
-      this.i++;
-      this.quantity=this.i;
-    }
-  }
-  minus(){
-    if(this.i !=1){
-      this.i--;
-      this.quantity=this.i;
-    }
-  } 
-
-  closeForm(){
-    this.editForm=false
-  }
-
-
-//This is for product adding (post) call
-  submitForm(){
-    console.log(this.productForm) 
-    if(this.productForm.invalid){
-      return
-    }
-        fetch("http://localhost:2000/products/addproduct", {
-       method:'post',
-       headers:{
-         "Access-Control-Allow-Origin": "*",
-         "Content-Type":'application/json'
-       },
-       body:JSON.stringify(this.productForm.value)
-     }).then(res=> res.json())
-     .then(result=>{ 
-       console.log(result)
-       alert('Successfully Submited')
-     }
-       )     
-       .catch(error => console.log('error',error)) 
-  }
-
-  //This is for product getting (gett) call 
-  getProduct(){    
-    fetch("http://localhost:2000/products/getproduct", {
-   method:'get',
-   headers:{
-     "Access-Control-Allow-Origin": "*",
-     "Content-Type":'application/json'
-   },
-   body:JSON.stringify(this.getProduct)
- }).then(res=> res.json())
- .then(result=>{ 
-   console.log(result),
-   this.products = result.ProductInfo
-   }
-   )     
-   .catch(error => console.log('error',error))
-}
-
-//This is for product delete
-delete(Number:any){
-
-  Swal.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
-  }).then((result) => {
-   
-  })
-
-  console.log(Number)
-    fetch("http://localhost:2000/products/deleteproduct/" + Number,{
-     method:'DELETE',
-     headers:{
-       "access-Control-Allow-Origin":"*"
-     },
-    })
-    .then(response => response.json())
-    .then(result=>{
-     console.log(result)
-     this.getProduct()
-     if (result.isConfirmed) {
-      Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
-        'success'
-      )
-    }
-    }
-    ).catch(err =>
-     console.log(err))    
+  getStoreProducts() {
+    fetch("http://localhost:2000/dealerproducts/getproduct",{
+  method:"GET",
+  headers:{
+    "access-Control-Allow-Origin":"*",
+  },
+ 
+ })
+ .then(response => response.json())
+ .then(result =>{
+  console.log(result),
+  this.productsStore = result.DealerproductInfo
  }
-
- //this is for edit the product
- edit(products:any){ 
-  this.productform = products
-  this.editForm = true;
-}
- //this is for product update function
-updateProduct(id:any){
-  const data = {
-    image: this.productform.image,
-    Number:this.productform.Number,
-    Name:this.productform.Name,
-    Quantity:this.productform.Quantity,
-    Price:this.productform.Price,
-    Description:this.productform.Description
+ ).catch(err =>
+  console.log('error',err))
   }
-  console.log(data)
-  this.service.update(data,id).subscribe((datas)=>{
-    console.log(datas)
-    if(datas){
-      alert('updated successfully')
+
+
+
+// export class ProductsComponent {
+
+
+  
+  // cartpage() {
+  //   this.router.navigate(['/cart']);
+  //  }
+  
+  
+  products:any=[];
+  cartItem:number = 0;
+  router:any=[];
+item:any=[];
+name:any;
+imgurl:any;
+prodId:any;
+price:any;
+qnt:any;
+Totalprice:any;
+// constructor() {}
+
+
+//   ngOnInit(): void {
+//     this.get();
+//     this.cartItemFunc();
+//   }
+ cartpage() {
+    this.router.navigate(['/cart']);
+   }
+  
+//increase the cartItem product
+cartItemFunc(){
+  if(localStorage.getItem('anunya') != null){
+  var cartCount = JSON.parse(localStorage.getItem('anunya') || '{}');
+  this.cartItem = cartCount.length;
+  console.log(this.cartItem)
+}
+}
+
+  
+
+//   get() {
+//     console.log('getStoreProducts')
+//     fetch("http://localhost:1000/productRouter/products", {
+//       method: 'GET',
+//       headers: {
+//         "access-Control-Allow-Origin": "*",
+
+//       },
+
+
+//     })
+//        .then(response => response.json())
+//       .then((result) => {
+//         console.log(result.products)
+//           this.products = result.products
+//         console.log(this.products)
+//       }
+
+//       ).catch(err =>
+//         console.log(err))
+//   }
+
+
+
+
+
+  itemsCart: any = [];  // itemsCart is a global array
+  addCart(category: any) {
+    let cartDataNull = localStorage.getItem('anunya'); // cartDataNull is a variable , localCart is a key,
+    if (cartDataNull == null) {
+      let storeDataGet: any = []; // storeDataGet is a array
+      storeDataGet.push(category); // push the category into localstorage
+      localStorage.setItem('anunya',JSON.stringify(storeDataGet));  //localCart is key ,storeDataGet is To convert the stringify
     }
-  })  
+    else {
+      var id = category.prodId;  // this is product id represented
+      let index: number = -1;
+      this.itemsCart = JSON.parse(localStorage.getItem('anunya') || '{}'); // 
+      for (let i = 0; i < this.itemsCart.length; i++) {   // i is a loop vice (inc is the products)
+        if (parseInt(id) === parseInt(this.itemsCart[i].prodId)) {    // In parseInt to store itemcart array in index
+          this.itemsCart[i].qnt = category.qnt;  // this qnt is inc and dec the product
+          index = i;
+          break;  // to break the function (end)
+        }
+      }
+      if (index == -1) {
+        this.itemsCart.push(category);  // this line product item to push itemcart array
+        localStorage.setItem('anunya', JSON.stringify(this.itemsCart));  //
+      }
+      else {
+        localStorage.setItem('anunya', JSON.stringify(this.itemsCart));
+      }
+    }
+      this.cartItemFunc();
+
 }
 }
+
+
+
+
+// }
   
   
 

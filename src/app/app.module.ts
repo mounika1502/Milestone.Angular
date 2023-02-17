@@ -15,9 +15,7 @@ import { SignupComponent } from './signup/signup.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProductComponent } from './product/product.component';
-import { RawMaterialComponent } from './raw-material/raw-material.component';
 import { AddProductComponent } from './add-product/add-product.component';
-import { UpdateComponent } from './update/update.component';
 import { OtpComponent } from './otp/otp.component';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { NgOtpInputModule } from  'ng-otp-input';
@@ -28,6 +26,17 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { OtpDetailsComponent } from './otp-details/otp-details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
+import { OwlModule } from 'ngx-owl-carousel';
+import { AddDealerComponent } from './add-dealer/add-dealer.component';
+import { DealerComponent } from './dealer/dealer.component';
+import { OrdersComponent } from './orders/orders.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { AddRawmaterialComponent } from './add-rawmaterial/add-rawmaterial.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { DealerProductComponent } from './dealer-product/dealer-product.component';
+
 
 // import { NgImageSliderModule } from 'ng-image-slider';
 
@@ -39,12 +48,19 @@ import { ProfileComponent } from './profile/profile.component';
     SignupComponent,
     SidebarComponent,
     ProductComponent,
-    RawMaterialComponent,
     AddProductComponent,
-    UpdateComponent,
     OtpComponent,
     OtpDetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    HomeComponent,
+    AddDealerComponent,
+    DealerComponent,
+    OrdersComponent,
+    InventoryComponent,
+    AddRawmaterialComponent,
+    CartComponent,
+    CheckoutComponent,
+    DealerProductComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +76,7 @@ import { ProfileComponent } from './profile/profile.component';
     HttpClientModule ,
     IonicModule.forRoot(),
     NgOtpInputModule,
+    OwlModule
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAuth(() => getAuth()),
     // provideFirestore(() => getFirestore())   

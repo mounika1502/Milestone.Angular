@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+ <ng-container *ngIf="showHeader"> 
+
+<app-homepage></app-homepage>
+
+ </ng-container> 
+ <app-login *ngIf="showLogin"></app-login>
+<!-- <router-outlet></router-outlet> -->
+
+   

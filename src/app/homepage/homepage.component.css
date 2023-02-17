@@ -1,48 +1,59 @@
 
-mat-toolbar{
-    background-color:#3b3b3b ;
-    height: 90px;
-    float: left;
+
+input{
+    width:300px;
+    height:20px;
+    border-radius: 20px;
+    padding: 17px;
 }
-.profile{
-    margin-top: 2.9em;
-    margin-left: -2em;
+
+mat-nav-list{
+    background-image:url("https://www.kajariaceramics.com/product-picture/GP02384_b.jpg");
+    color: white;
+    height:100%;
+  
+    cursor: pointer;
+}
+.a{
+    color: white;
+    color : white;
+}
+mat-toolbar-row{
+    background-image:url("https://www.kajariaceramics.com/product-picture/GP02384_b.jpg");
+    height:100px;
+    border:1px solid #3b3b3b;   
+}
+.div{
+
+    background-color: white;
+}
+p{
+    text-align: center;
+}
+span{
+    float: bottom;
+}
+img{
+    height:30px;
+    color:white;
+}
+
+
+.space{
+    padding-right: 8%;
+    color: white;
+    margin-left: 7%;
+    cursor: pointer;
+}
+.bsbspace{
+    padding-right: 10%;
     color: white;
 }
-.img{
-    height: 75px;
-    border-radius: 50%;
-    margin-top: 15px;
-    margin-left: 2em;
+.bgclr{
+    color:white
 }
-.search{
-    height: 40px;
-    width: 30em;
-    border-radius: 10px;
-    margin-left: 10em;
-    margin-top: 0em;
-    border: 0;
+.bgclr:hover{
+ 
+    color:white;
 }
 
-.button{
-    border-radius: 8px;
-    margin-left: 1em;
-    border: 0;
-}
-.buttons{
-    margin-left: 10.5em;
-}
-
-.button:hover{
-    background-color: rgb(63, 60, 66);
-}
-
-/*this is for sidebar*/
-mat-sidenav{
-    background:#3b3b3b;
-    width: 180px;   
-    margin-top: 6.4em; 
-} 
-.main{
-    margin-left: 210px;
-}

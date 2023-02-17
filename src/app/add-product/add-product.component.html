@@ -1,13 +1,7 @@
- 
- 
- <mat-toolbar class="toolbar">
-    <mat-toolbar-row>
-      <img src="assets/Logo1.jpg" class="img">
-    </mat-toolbar-row>
-</mat-toolbar>    
+<h1>hiiiii</h1>
 
 <form  [formGroup]="productForm" > 
-    <div *ngIf="addProduct"  class="signup">
+    <div *ngIf="addProduct"  class="productForm">
       <div class="row">
         <button (click)="cancel()" class="close"><i class="fa fa-times"></i></button>
       </div>   
@@ -16,9 +10,8 @@
       </div>
         <div class="row">
             <div class="col">
-                <div class="image"><h2>Upload image:<br>
-                    <input type="text" formControlName="image" id="image">
-                </h2>
+                <div class="image">Upload image:<br>
+                    <input type="text" formControlName="image" id="image" placeholder="upload your image" class="input1">
                 </div>
             </div>
             <div class="col">
@@ -33,7 +26,7 @@
         <div class="row">
             <div class="name">
                 Product Name:<br>
-                <input type="text" formControlName="Name" placeholder="Enter your first name" class="input">
+                <input type="text" formControlName="Name" placeholder="Enter your product name" class="input">
             </div><br>
         </div><br>
         <div class="row">
@@ -45,9 +38,9 @@
         <div class="row">
           <div class="name">
             Number :<br>
-            <input type="email" formControlName="Number" placeholder="Enter your price" class="input">                   
-          </div><br>
-        </div>
+            <input type="email" formControlName="Number" placeholder="Enter your mobilenumber" class="input">                   
+          </div>
+        </div><br>
         <div class="row">
             <div class="name">
                 Description :<br>
@@ -68,3 +61,4 @@
           
 
      
+

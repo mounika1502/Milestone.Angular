@@ -1,28 +1,55 @@
-
   
-<mat-toolbar >
-    
-      <mat-icon (click)='sidebar.toggle()' style="color:white;"><i class="fa fa-bars"></i></mat-icon>
-      <img src="assets/images/logoMilestone.jpg" class="img">
-      <input type ="text" placeholder="&nbsp;&nbsp;search here..." class="search">
-      <i class="fa fa-user" style="color: white;font-size:2em; margin-left: 17.5em;" routerLink="/profile"></i>
-      <div class="profile" >Profile</div>
-      <!-- <div class="buttons">
-       <button class="button" routerLink="/home"><h4>Home</h4></button>&nbsp;&nbsp; &nbsp;&nbsp;
-       <button class="button" ><h4>Shopping</h4></button>&nbsp;&nbsp;&nbsp;&nbsp;
-       <button class="button"><h4>Sell</h4></button>&nbsp;&nbsp;&nbsp;&nbsp;
-       <button class="button"><h4>Help</h4></button>&nbsp;&nbsp;&nbsp;&nbsp;
-       <button class="button" ><h4>Login</h4></button> &nbsp;&nbsp;&nbsp;&nbsp;       
-      </div>   -->
-</mat-toolbar>
-<mat-sidenav-container class="container"> 
-</mat-sidenav-container>
-<mat-sidenav #sidebar mode='side' opened>
-      
-  <app-sidebar></app-sidebar>
-</mat-sidenav> 
-<div class="main">
-  <router-outlet></router-outlet>
-</div>
+    <mat-toolbar >
    
-  
+       <mat-toolbar-row>
+     
+         <button mat-icon-button>
+     
+           <mat-icon (click)="sidenav.toggle();"><i class="fa fa-bars" style="color: white;"></i></mat-icon>
+     
+         </button>
+     
+         <h1 class="bsbspace"> <img style="width:120px;height:90px;margin-top:-1%; border-radius:50%;" src="/assets/images/logoMilestone.jpg"></h1>
+     
+         <br>
+         <h1 class="space" >Home</h1>
+         <h1 class="space"> Help</h1>
+         <h1 routerLink="/profile" class="space">About Us</h1>
+         <h1 class="space"  (click)="logout()">Logout</h1>
+       </mat-toolbar-row>
+     
+     </mat-toolbar>
+     
+    <mat-sidenav-container>
+     
+      <mat-sidenav #sidenav opend="true" mode="side">
+     
+        <mat-nav-list>
+     
+          <a  class="bgclr" mat-list-item routerLink="/home"><i class="fa fa-home" style="font-size:24px;color:white"></i>&nbsp; Home  </a>    
+     
+          <a [hidden]="aa === 'Dealer'" class="bgclr" mat-list-item routerLink="/inventory">&nbsp;Inventory</a>
+    
+          <a   class="bgclr" mat-list-item routerLink="/product">&nbsp;Products</a>
+            
+          <a class="bgclr" mat-list-item routerLink="/orders">&nbsp;Order History</a>
+
+          <a class="bgclr" mat-list-item routerLink="/dealer">&nbsp; Dealer Management </a>
+     
+        </mat-nav-list>
+     
+      </mat-sidenav>
+     
+       <mat-sidenav-content>
+          <div  style="height: 98vh;">       
+     
+             <router-outlet>
+     
+             </router-outlet>  
+     
+          </div>      
+       </mat-sidenav-content>
+
+    </mat-sidenav-container>
+      
+    

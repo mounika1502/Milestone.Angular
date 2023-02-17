@@ -10,6 +10,7 @@ import  'firebase/auth';
 import 'firebase/compat/firestore';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { UpdateService } from '../update.service';
 
 var config = {
   apiKey: "AIzaSyDM4C1YRZ14Lx_8NzbDnChklv9VInrgUmw",
@@ -30,36 +31,48 @@ var config = {
 })
 export class LoginComponent implements OnInit {
 
-  
+  ishidden=true;
   login=true;
   loginForm:any   
-  logindata:any=[] 
   data: any;
   withMobile: any;
-  mobileForm: any;  
   reCaptchaVerifier: any;
-  mobile1:any  
-  List:any=[]
-  numbers: any=[];
-  loginData: any=[]
-  final: any=[]
+  mobile1:any   
+  loginData: any;
+  final: any;
 
+  visible=true;
+  changetype=true;
+
+  datas: any=[];
+  List:any=[]
+  product: any;
   constructor(
     private modalCtrl: ModalController,
     private ngZone:NgZone,
     private router: Router,
     private _http:HttpClient
-    ) { }
+    ) {      
+     }
 
   ngOnInit(): void {
+    this.datas = JSON.parse(localStorage.getItem('Login') || '{}') 
+    console.log(this.datas)
+   
     //login form
     this.loginForm = new FormGroup({
       Email : new FormControl('',[Validators.required,Validators.email]),
-      Password : new FormControl('',[Validators.required,Validators.minLength(5)]),      
-    })
-
+      Password : new FormControl('',[Validators.required,Validators.minLength(5)])
+    }) 
+   
     firebase.initializeApp(config)
-  }   
+  } 
+
+  view(){
+    this.visible = !this.visible
+    this.changetype = !this.changetype
+  }
+
   
   toggle(){
     this.login = !this.login       
@@ -73,6 +86,7 @@ export class LoginComponent implements OnInit {
   togglePhone(){
     this.withMobile = !this.withMobile
     this.login=false
+
   }
 
 
@@ -87,11 +101,11 @@ export class LoginComponent implements OnInit {
       body:JSON.stringify(this.loginForm.value)
     }).then(res=> res.json())
     .then(result=>{ 
-      this.final = result
-      console.log(this.final)
-      
-      this.loginData.push(this.final)
-      localStorage.setItem('Login',JSON.stringify(this.loginData));        
+      this.loginData = result
+      console.log(this.loginData)      
+
+    localStorage.setItem('Login',JSON.stringify(this.loginData));
+    console.log(this.loginData)       
     
     if(result.status ==='failed'){
       Swal.fire( 
@@ -99,44 +113,13 @@ export class LoginComponent implements OnInit {
         'Invalid username or password!',
         'error'
       )
-     }else{
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'submitted successfully',
-        showConfirmButton: false,
-        timer: 1500       
-      })
-     }
-    })
+     }else{      
+      this.router.navigate(["profile"])
+     } 
+    })    
   }
 
   details:any=[]
-
-  getProduct(){    
-    fetch("http://localhost:2000/signupform/getsignupdetails", {
-   method:'get', 
-    }).then(res=> res.json())
-    .then(result=>{ 
-    console.log(result)
-    this.details = result.find((item:any) =>{
-    return item.Email === this.loginForm.value.Email && item.Password === this.loginForm.value.Password
-     
-  }   
-   ) 
-   console.log(this.details) 
-   if(this.details){
-         alert("Login is successfull");
-        this.loginForm.reset();
-       this.router.navigate(['homepage'])
-       }else{
-         alert('User not found !!')
-        }
-      })
-    }
-
- 
-
   //this is for otp based login page
    async mobileOtp(){ 
 
@@ -173,8 +156,7 @@ export class LoginComponent implements OnInit {
         window.location.reload();
       }, 5000);
     });
-  }
-      
+  }      
 
   get Email()
   {

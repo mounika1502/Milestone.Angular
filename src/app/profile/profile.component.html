@@ -1,113 +1,99 @@
-<mat-toolbar>
-    <mat-toolbar-row>
-        <img src="assets/images/logoMilestone.jpg" class="img">
-        <div class="title1">
-            <b>WELCOME TO MILESTONE</b>
-        </div>
-        <button class="log" routerLink="/"><h4>Login</h4></button>
-    </mat-toolbar-row>
-  </mat-toolbar>
 
-<div class="form" >
-<div  *ngFor="let text of loginData">   
-    <div class="row" >
-        <i class="fa fa-arrow-left" style="font-size: small;"routerLink="/homepage"></i>
-        <img src="assets/images/user3.png" style="height: 7em; width: 9em;margin-left: 10.6em;" >
-        <h1 style="text-align: center;" >{{text.Firstname}} {{text.Lastname}}</h1>
+<div >   
+    <div  class="box">
+        <img src="assets/images/user3.png" style="height: 9em; width: 9em;margin-left:4.7em;margin-top: 5em;" >
+        <h1 style="text-align: center; color: white;">{{text.Firstname}} {{text.Lastname}}</h1>
+        <br>
+        <i class="fa fa-pencil-square-o" style="color: white; font-size: 2em; margin-left: 4.5em;" (click)="edit(text)"></i>
     </div>
-    <hr><br>
-    <div class="row" class="row1">
+
+    <div class="box2" >
+      <div class="row" style="color: rgb(114, 110, 228);">Profile Information</div>
+      <hr>
+      <div class="row" class="row1">
         Mobile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp; 
          {{text.mobile}}     
-    </div><br>
-    <div class="row" class="row1">
+      </div><br><br>
+      <div class="row" class="row1">
         Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;   
         {{text.Email}}
-    </div><br>
-    <div class="row" class="row1">
+      </div><br><br>
+      <div class="row" class="row1">
         Password :&nbsp;   
         {{text.Password}}
-    </div><br>
-    <div class="row" class="row1">
-        Address &nbsp;&nbsp;&nbsp;:&nbsp;   
-        <!-- {{text.Address}}  -->
-    </div><br><br>
-    <!-- <button (click)="submit()">get</button>  (click)="edit()"-->
-    <button class="edit" (click)="edit(text)">Edit Profile</button>
+      </div><br><br>
+      <div class="row" style="color: rgb(114, 110, 228);">Address</div>
+      <hr>
+      <div class="row" class="row1">
+        Street &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :  
+         {{text.Street}}  
+      </div><br>
+      <div class="row" class="row1">
+        City/Town :  
+         {{text.City}}  
+      </div><br>
+      <div class="row" class="row1">
+        State &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :  
+         {{text.State}}  
+      </div><br>
+      <div class="row" class="row1">
+        Pincode &nbsp;&nbsp; :  
+         {{text.Pincode}}  
+      </div>
+    </div>
 </div>
-</div>
-
 
 <!-- This is for edit form -->
 
-<div *ngIf="editform">       
-    <div class="container">
-      <div class="row gutters">     
-      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-      <div class=" ">
-        <div class="card11-up">
-          <div class="row gutters">
-            <h1 style="color: white; text-align: center; font-size: 30px; font-weight: 700; margin-top: 5px;">Edit Profile</h1>             
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-              <h1 style="color:white" >Personal Details</h1>
-            </div>           
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%"> 
-              <div class="form-group">
-                <label for="fullName" style="color:white">First Name</label>
-                <input type="text"  style="padding:3%" [(ngModel)]="SignupForm.Firstname"  class="form-control"  >
-              </div>
-            </div>           
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
-              <div class="form-group">
-                <label for="fullName" style="color:white">Last Name</label>
-                <input type="text" [(ngModel)]="SignupForm.Lastname"  style="padding:3%"    class="form-control"  >
-              </div>
-            </div>         
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
-              <div class="form-group">
-                <label for="eMail" style="color:white">Mobile Number</label>
-                <input type="email" [(ngModel)]="SignupForm.mobile" style="padding:3%"   class="form-control" >
-              </div>
-            </div>         
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
-              <div class="form-group">
-                <label for="eMail" style="color:white">Password</label>
-                <input type="email" [(ngModel)]="SignupForm.Password" style="padding:3%"   class="form-control" >
-              </div>
-            </div>       
-          <br>
-          <br>
-          <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12" style="padding:1%">
-            <div class="form-group">
-              <label for="eMail" style="color:white">Email</label>
-              <input type="email" [(ngModel)]="SignupForm.Email" style="padding:3%"   class="form-control" >
-            </div>
-          </div>
-          <div class="row gutters">
-            <div   >
-              <h1 style="color:white" >Address</h1>
-            </div>    
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="padding:1%">
-              <div class="form-group">
-                <label for="Street" style="color:white">Area/Street</label>
-                <textarea type="name" [(ngModel)]="SignupForm.Address" rows="4" style="width:103%;padding:2%;border-radius: 5px;"></textarea>
-              </div>
-            </div>
-          </div>
-          </div>
-          <div class="row gutters">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-              <div class="text-right">               
-                <button  class="btn"  (click)="updateData(SignupForm.docId)"  style="color: white;background-color: rgb(73, 56, 165);"> Update </button>&nbsp;&nbsp;
-                <button  class=" btn" style="color: white;background-color: red;" type="submit" (click)="closeForm()">cancel</button>
-              </div>
-            </div>
-          </div>
-        </div>          
-        </div>
+<div *ngIf="editform">
+<div class="pop-up-drop">
+  <div  class="pop-up">
+    <form [formGroup]="updateform" (ngSubmit)="updateProfile(userPost.value)" #userPost="ngForm">
+    <div class="row" class="title">Edit profile</div>
+    <br>
+    <div class="row">
+      <div class="col">First Name
+        <input type="text" [(ngModel)]="text.Firstname"  class="input" formControlName="Firstname"> 
       </div>
+      <div class="col">Last Name
+        <input type="text" [(ngModel)]="text.Lastname"  class="input" formControlName="Lastname">
       </div>
-      
+    </div><br>
+    <div class="row">
+      <div class="col">Mobile Number
+        <input type="email" [(ngModel)]="text.mobile"  class="input" formControlName="mobile">
+      </div>
+      <div class="col">Password
+        <input type="email" [(ngModel)]="text.Password" class="input" formControlName="Password">
+      </div>      
+    </div><br>
+    <div class="row">
+      <div class="col">Email<br>
+        <input type="email" [(ngModel)]="text.Email"  class="email" formControlName="Email">
+      </div>
+    </div><br>
+    <div class="row" class="address">Address</div>
+    <div class="row">
+      <div class="col">Street<br>
+        <input type="text" class="input1" [(ngModel)]="text.Street"  formControlName="Street">
+      </div>
+      <div class="col">city/town
+        <input type="text" class="input1"  [(ngModel)]="text.City"  formControlName="City">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">state<br>
+        <input type="text" class="input"  [(ngModel)]="text.State"  formControlName="State"> 
+      </div>
+      <div class="col">Pincode
+        <input type="text" class="input"  [(ngModel)]="text.Pincode"  formControlName="Pincode">
+      </div>      
+    </div> 
+    <br> 
+    <button  class="btn"  (click)="updateProfile(text.id)"  style="color: white;background-color: rgb(73, 56, 165);"> Update </button>&nbsp;&nbsp;
+    <button  class=" btn" style="color: white;background-color: red;" type="submit" (click)="closeForm()">cancel</button>  
+    </form>
   </div>
-
+</div>
+</div>
 
