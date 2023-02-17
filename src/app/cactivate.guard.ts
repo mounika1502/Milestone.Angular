@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +13,7 @@ export class CactivateGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
   {
     if(localStorage.getItem("Login") == null){
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Please Login!'
-      })
+     alert('ok')
       this.rtr.navigate(["login"])
       return false
     }else{
