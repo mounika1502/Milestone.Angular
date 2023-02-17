@@ -1,14 +1,4 @@
-.form{
-    border: 1px solid black;
-    height: 250px;
-    width: 370px;
-    padding: 15px;
-    align-items: center;
-    margin-left: 36.8em;
-    margin-top: 12em;
-    border-radius: 5px;
-    background-color: #3b3b3b;
-}
+
 .email{
     height: 30px;
     width: 300px;
@@ -62,16 +52,7 @@
     border-radius: 5px;
     border: 1px solid rgb(175, 156, 156);
 }
-.login{
-    color: black;
-    background-color: white;
-    border: 0;
-    border-radius: 5px;
-    height: 30px;
-    width: 100px;
-    margin-left: 8em;
-    margin-top: 3em;
-}
+
 .mail{
     color:white;
     margin-top: 2em;
@@ -106,8 +87,7 @@
     position: relative;
 }
 .eye{
-    position: absolute;
-    
+    position: absolute;    
     margin-left: -18px;
     color: black;
     cursor: pointer;
@@ -149,25 +129,6 @@
     margin-bottom: 1.5em;
     background-color: rgb(193, 186, 186);
 }
-.phonebox1{
-    border: 0;
-    border-radius: 5px;
-    margin-top: 0.5em;
-    width: 16.5em;
-    height: 2.5em;
-    margin-left: 7.3em;
-    background-color: rgb(236, 233, 233);
-}
-.next{
-    height: 2em;
-    width: 5em;
-    margin-left: 26em;
-    margin-top: 1.5em;
-    background-color: #3b3b3b;
-    color: white;
-    border: 0;
-    border-radius: 5px;
-}
 .otp{
     border: 0;
     margin-right: 2em;
@@ -177,17 +138,6 @@
     color: white;
     border-radius: 5px;
     margin-left: 6em;
-}
-.otp1{
-    border: 0;
-    float: right;
-    margin-right: 2em;
-    width: 18em;
-    height: 2.5em;
-    background-color: #656262;
-    color: white;
-    border-radius: 5px;
-    margin-top: -3.7em;
 }
 .mobileimg{
     height: 8em;
