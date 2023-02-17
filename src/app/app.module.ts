@@ -27,7 +27,7 @@ import { OtpDetailsComponent } from './otp-details/otp-details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
-import { OwlModule } from 'ngx-owl-carousel';
+
 import { AddDealerComponent } from './add-dealer/add-dealer.component';
 import { DealerComponent } from './dealer/dealer.component';
 import { OrdersComponent } from './orders/orders.component';
@@ -76,7 +76,7 @@ import { DealerProductComponent } from './dealer-product/dealer-product.componen
     HttpClientModule ,
     IonicModule.forRoot(),
     NgOtpInputModule,
-    OwlModule
+    
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAuth(() => getAuth()),
     // provideFirestore(() => getFirestore())   
