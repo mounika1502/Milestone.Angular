@@ -3,14 +3,7 @@ body {
   color: #555555;
  background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg);
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #000000;
-}
+
 
 a {
   color: #000000;
@@ -23,195 +16,6 @@ a:hover {
   text-decoration: none;
 }
 
-.link-two {
-  color: #000000;
-  transition: all 0.5s ease;
-}
-
-.link-two:hover {
-  text-decoration: underline;
-  color: #000000;
-}
-
-.link-one {
-  color: #000000;
-  transition: all 0.5s ease;
-}
-
-.link-one:hover {
-  color: #000000;
-  text-decoration: none;
-}
-
-.link-icon {
-  color: #000000;
-  font-weight: 500;
-}
-
-.link-icon span {
-  font-size: 14px;
-  padding-left: 4px;
-  vertical-align: middle;
-}
-
-.link-a {
-  text-decoration: none;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-@media (min-width: 768px) {
-  .link-a {
-    font-size: 0.9rem;
-  }
-}
-
-@media (min-width: 992px) {
-  .link-a {
-    font-size: 1rem;
-  }
-}
-
-.link-a:hover {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.link-a span {
-  font-size: 18px;
-  vertical-align: middle;
-  margin-left: 5px;
-}
-
-@media (min-width: 768px) {
-  .link-a span {
-    font-size: 1.5rem;
-  }
-}
-
-@media (min-width: 992px) {
-  .link-a span {
-    font-size: 18px;
-  }
-}
-
-.text-brand {
-  color: #000000;
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-@media (max-width: 767px) {
-  .text-brand {
-    font-size: 1.8rem;
-  }
-}
-
-.color-a {
-  text-decoration: none;
-  color: #000000;
-
-}
-
-.color-b {
-  color: #2eca6a;
-}
-
-.color-d {
-  color: #adadad;
-}
-
-.color-text-a {
-  text-decoration: none;
-  color: #555555;
-
-}
-
-.no-margin {
-  margin: 0;
-}
-
-
-
-
-
-/* /------/ List a /------/ */
-.list-a {
-  text-decoration: none;
-  display: inline-block;
-  line-height: 2;
-  padding: 0;
-  list-style: none;
-}
-
-.list-a li {
-  position: relative;
-  width: 50%;
-  float: left;
-  padding-left: 25px;
-  padding-right: 5px;
-}
-
-@media (min-width: 992px) {
-  .list-a li {
-    width: 33.333%;
-  }
-}
-
-.list-a li:before {
-  content: "";
-  width: 10px;
-  height: 2px;
-  position: absolute;
-  background-color: #313131;
-  top: 15px;
-  left: 0;
-}
-
-/* /------/ Pagination-a /------/ */
-.pagination-a {
-  text-decoration: none;
-}
-
-.pagination-a .pagination .page-link {
-  margin: 0 0.2rem;
-  border-color: transparent;
-  padding: 0.5rem 0.8rem;
-  color: #000000;
-}
-
-.pagination-a .pagination .page-link:hover,
-.pagination-a .pagination .page-link:active,
-.pagination-a .pagination .page-link:focus {
-  background-color: #2eca6a;
-}
-
-.pagination-a .pagination .page-link span {
-  font-size: 1.2rem;
-}
-
-.pagination-a .pagination .next .page-link {
-  padding: 0.4rem 0.9rem;
-}
-
-.pagination-a .pagination .page-item:last-child .page-link {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.pagination-a .pagination .page-item:first-child .page-link {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.pagination-a .pagination .page-item.disabled .page-link {
-  padding: 0.4rem 0.9rem;
-  color: #555555;
-}
-
-.pagination-a .pagination .page-item.active .page-link {
-  background-color: #2eca6a;
-}
 
 .a {
   text-decoration: none;
@@ -267,22 +71,6 @@ a:hover {
   bottom: 20px;
   left: 0;
 }
-
-/* /------/ Display Table & Table Cell /------/ */
-.display-table {
-  width: 100%;
-  height: 100%;
-  display: table;
-}
-
-.table-cell {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-
-
-
 
 .overlay {
   position: absolute;
@@ -831,12 +619,7 @@ a:hover {
     .progress-bar{
         height:5px;
     }
-    .gray{  
-      background-color:lightgray;
-    }
-    .gray:hover {
-        background-color:gray;
-    }
+    
     .row .col-md-6 {
       margin-top:1%;
       height: 50%; 
