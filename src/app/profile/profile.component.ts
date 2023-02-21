@@ -102,7 +102,7 @@ export class ProfileComponent implements OnInit {
     console.log(data)
     //console.log(this.description, this.image, this.price, this.description, this.name)
     console.log(this.text.id)
-    fetch("http://localhost:2000/signupform/editProfile/" + this.text.id, {
+    fetch("https://powerful-erin-gopher.cyclic.app/signupform/editProfile/" + this.text.id, {
       method: 'PUT',
       headers: {
         "access-Control-Allow-Origin": "*",        

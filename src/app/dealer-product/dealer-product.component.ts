@@ -42,7 +42,7 @@ export class DealerProductComponent implements OnInit {
          'error'                                  //then take one alert message like not save all data
        ) 
     }else{  
-       fetch("http://localhost:2000/dealerproducts/addproduct", {
+       fetch("https://powerful-erin-gopher.cyclic.app/dealerproducts/addproduct", {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",

@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
   }
 
   getStoreProducts() {
-    fetch("http://localhost:2000/dealerproducts/getproduct",{
+    fetch("https://powerful-erin-gopher.cyclic.app/dealerproducts/getproduct",{
   method:"GET",
   headers:{
     "access-Control-Allow-Origin":"*",

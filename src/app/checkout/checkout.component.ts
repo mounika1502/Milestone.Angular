@@ -125,7 +125,7 @@ export class CheckoutComponent implements OnInit {
           body:JSON.stringify(Obj)
         };
         console.log(requestOptions);  
-        fetch("http://localhost:6900/orderRoute/post",{
+        fetch("https://powerful-erin-gopher.cyclic.app/orderRoute/post",{
           method:'POST',
           headers:{
             "Access-Control-Allow-Origin":"*",

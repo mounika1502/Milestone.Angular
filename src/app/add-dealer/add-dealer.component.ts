@@ -49,7 +49,7 @@ export class AddDealerComponent implements OnInit {
       body:JSON.stringify(this.registerForm.value)
     };
     console.log(requestOptions);  
-    fetch("http://localhost:2000/dealer/adddealer",{
+    fetch("https://powerful-erin-gopher.cyclic.app/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",

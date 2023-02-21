@@ -92,7 +92,7 @@ export class LoginComponent implements OnInit {
 
   //login form submit function
   loginSubmit(data:any){
-     fetch("http://localhost:2000/loginform/addlogin", {
+     fetch("https://powerful-erin-gopher.cyclic.app/loginform/addlogin", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",
