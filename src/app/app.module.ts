@@ -32,10 +32,10 @@ import { AddDealerComponent } from './add-dealer/add-dealer.component';
 import { DealerComponent } from './dealer/dealer.component';
 import { OrdersComponent } from './orders/orders.component';
 import { InventoryComponent } from './inventory/inventory.component';
-import { AddRawmaterialComponent } from './add-rawmaterial/add-rawmaterial.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { DealerProductComponent } from './dealer-product/dealer-product.component';
+import { LogComponent } from './log/log.component';
 
 
 // import { NgImageSliderModule } from 'ng-image-slider';
@@ -57,10 +57,10 @@ import { DealerProductComponent } from './dealer-product/dealer-product.componen
     DealerComponent,
     OrdersComponent,
     InventoryComponent,
-    AddRawmaterialComponent,
     CartComponent,
     CheckoutComponent,
-    DealerProductComponent
+    DealerProductComponent,
+    LogComponent
   ],
   imports: [
     BrowserModule,

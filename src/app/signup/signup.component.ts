@@ -9,12 +9,8 @@ import Swal from 'sweetalert2';
 })
 export class SignupComponent implements OnInit {
   SignupForm: any;
-  signupdata: any=[]
-  signupData: any=[]
   router: any;
-  List:any = []
-  loginData: any=[]
-
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -57,7 +53,7 @@ export class SignupComponent implements OnInit {
        ) 
     }else{
         
-      fetch("https://powerful-erin-gopher.cyclic.app/signupform/addsignupdetails", {
+      fetch("https://localhost:2000/signupform/addsignupdetails", {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",
@@ -100,9 +96,9 @@ export class SignupComponent implements OnInit {
   {
    return this.SignupForm.get('mobile');
   }
-  get email()
+  get Email()
   {
-   return this.SignupForm.get('email');
+   return this.SignupForm.get('Email');
   }
   get password()
   {

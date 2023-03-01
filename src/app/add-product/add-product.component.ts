@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,17 +12,15 @@ export class AddProductComponent implements OnInit {
   productForm: any;
   addProduct=true
 
-  constructor() { }
+  constructor( private router:Router) { }
 
   ngOnInit(): void {
     this.productForm = new FormGroup ({
-      image :new FormControl(""),
-      Colour: new FormControl(""),
-      Number: new FormControl(""),
-      Name: new FormControl(""),
-      Description: new FormControl(""),
-      Quantity: new FormControl(this.quantity),
-      Price: new FormControl(""),
+      imgurl :new FormControl(""),
+      prodId: new FormControl(""),
+      name: new FormControl(""),
+      qnt: new FormControl(""),
+      price: new FormControl(""),
     })    
   }
   cancel(){
@@ -29,13 +28,11 @@ export class AddProductComponent implements OnInit {
   }
 
   submitForm(){
-    if(this.productForm.value.image ==''||
-    this.productForm.value.Colour ==''||
-    this.productForm.value.Number ==''||
-    this.productForm.value.Name ==''||
-    this.productForm.value.Price ==''||
-    this.productForm.value.Quantity ==''||
-    this.productForm.value.Description =='')
+    if(this.productForm.value.imgurl ==''||
+    this.productForm.value.prodId ==''||
+    this.productForm.value.name ==''||
+    this.productForm.value.qnt ==''||
+    this.productForm.value.price =='')
     { 
       Swal.fire(  
          'Cancelled',  
@@ -43,7 +40,7 @@ export class AddProductComponent implements OnInit {
          'error'                                  //then take one alert message like not save all data
        ) 
     }else{  
-       fetch("https://powerful-erin-gopher.cyclic.app/products/addproduct", {
+       fetch("http://localhost:2000/products/addproduct", {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",
@@ -53,14 +50,11 @@ export class AddProductComponent implements OnInit {
      }).then(res=> res.json())
      .then(result=>{ 
        console.log(result)
-       this.productForm.reset()
-       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Your product has been saved',
-        showConfirmButton: false,
-        timer: 1500        
-      })
+       
+       Swal.fire( 'Submitted successfully!', '', 'success').then(() =>{         
+        this.router.navigate(["inventory"])
+        window.location.reload()
+      }) 
    }
   )      
        .catch(error => console.log('error',error)) 
@@ -68,21 +62,21 @@ export class AddProductComponent implements OnInit {
 }
 
    //this is for  quantity
-   quantity:number=1;
-   i=1
-   plus(){
-     if(this.i !=0){
-       this.i++;
-       this.quantity=this.i;
-     }
-   }
-   minus(){
-     if(this.i !=1){
-       this.i--;
-       this.quantity=this.i;
-     }
+  //  quantity:number=1;
+  //  i=1
+  //  plus(){
+  //    if(this.i !=0){
+  //      this.i++;
+  //      this.quantity=this.i;
+  //    }
+  //  }
+  //  minus(){
+  //    if(this.i !=1){
+  //      this.i--;
+  //      this.quantity=this.i;
+  //    }
+  //  } 
    } 
-  } 
 
 
 

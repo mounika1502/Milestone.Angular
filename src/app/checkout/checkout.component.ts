@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  finalcartItem: any=[];
 
   constructor() { }
  
@@ -16,21 +17,18 @@ export class CheckoutComponent implements OnInit {
      Firstname:any;
      Lastname:any;
      PhoneNumber:any;
-     Address:any;
+     Area:any;
      City:any;
      State:any;
      Pincode:any;
-     Email:any;
-  
+     Email:any; 
   
     
      name:any;
      price:number=0;
      qnt:number=0;
     prodId:any;
-    Totalprice:number=0;
-    
-    
+    Totalprice:number=0;    
     imgurl:any;
   
   
@@ -41,127 +39,96 @@ export class CheckoutComponent implements OnInit {
     pop=false;
    
     ngOnInit(): void {
-     
-  //  OrderItems={
-  //   name: new FormControl(),
-  //     price: new FormControl(),
-  //     prodId: new FormControl(),
-  //     imgurl:new FormControl(),
-  
-  // }  
-  
    
-  }
-     
-  
-  //  Adddata(){
-  //   var requestOptions = {
-  //     method: 'POST',
-  //     body:JSON.stringify(this.details.value)
-  //   };
-  //   console.log(requestOptions);  
-  //   fetch("http://localhost:5900/detailsRouter/create",{
-  //     method:'POST',
-  //     headers:{
-  //       "Access-Control-Allow-Origin":"*",
-  //       "Content-Type":'application/json'
-  //     },
-  //   body:JSON.stringify(this.details.value)
-     
-  //   })  .then(response => response.json())
-    
-  //   .then(result =>
-  //     console.log(result))
-     
-  //   .catch(error => console.log('error',error));
-    
-  //   }
+  } 
+
   popup(){
     this.pop=true;
   }
-  close(){
-    this.pop=false;
-  }
-  cash(){
-    var subObj={
-      name:this.name,
-      price:this.price,
-     grandtotal:this.grandtotal,
-      prodId:this.prodId,
-      Totalprice:this.Totalprice,
-     imgurl:this.imgurl,
-     qnt:this.qnt,
   
-  
-    
-    }
-  
-    localStorage.removeItem('anunya');
-    this.getCartDetails = [];
-    this.grandtotal = 0;
-    const Obj ={
-      Firstname:this.Firstname,
-      Lastname:this.Lastname,
-      Pincode:this.Pincode,
-      PhoneNumber:this.PhoneNumber,
-      Email:this.Email,
-      Address:this.Address,
-     City:this.City,
-     State:this.State,
-     OrderItems:[
-  
-      {subObj}
-      
-  
-  
-  
-  
-     ]
-    
-    }
-  
-    var requestOptions = {
-          method: 'POST',
-          body:JSON.stringify(Obj)
-        };
-        console.log(requestOptions);  
-        fetch("https://powerful-erin-gopher.cyclic.app/orderRoute/post",{
-          method:'POST',
-          headers:{
-            "Access-Control-Allow-Origin":"*",
-            "Content-Type":'application/json'
-          },
-        body:JSON.stringify(Obj)
-         
-        })  .then(response => response.json())
-        
-        .then(result =>
-          console.log(result))
-         
-        .catch(error => console.log('error',error));
-        
-        
-    this.close( )
-    
-  
-      
-    Swal.fire('order  placed Successfully!', '', 'success').then(() => {
-      window.location.href=('/products');
-  });
-  
-  
-   
-    
-  
-    
-      
-  
-  
-  
-   
-  
-  
-  
+cash1(){
+
+  this.finalcartItem = localStorage.getItem('anunya')
+  console.log(this.finalcartItem);
+
+  this.getCartDetails = [];
+  // this.grandtotal = 0;
+  var Obj ={
+    "Firstname":this.Firstname,
+    "Lastname":this.Lastname,
+    "Pincode":this.Pincode,
+    "PhoneNumber":this.PhoneNumber,
+    "Email":this.Email,
+    "Area":this.Area,
+   "City":this.City,
+   "State":this.State,
+   "OrderItems":JSON.parse(this.finalcartItem)  
   }
 
+  var requestOptions = {
+        method: 'POST',
+        body:Obj
+      };
+      console.log(Obj);  
+      console.log(JSON.stringify(Obj))   //product details with user details
+      fetch("http://localhost:2000/placeorders/post",{
+        method:'POST',
+        headers:{
+          "Access-Control-Allow-Origin":"*",
+          "Content-Type":'application/json'
+        },
+      body:JSON.stringify(Obj)
+       
+      })  .then(response => response.json())
+      
+      .then(result =>{
+        console.log(result)
+        localStorage.removeItem('anunya');
+      })
+       
+      .catch(error => console.log('error',error));      
+      
+  this.close( )
+    
+  Swal.fire('order  placed Successfully!', '', 'success').then(() => {
+     window.location.href=('/products');
+  } );
 }
+
+close(){
+  this.pop=false;
+}
+
+}
+
+
+ 
+  
+
+  
+    
+
+
+
+ 
+
+
+
+
+  
+  
+   
+    
+  
+    
+      
+  
+  
+  
+   
+  
+  
+  
+  
+
+

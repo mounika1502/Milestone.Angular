@@ -9,12 +9,8 @@ import Swal from 'sweetalert2';
 export class CartComponent implements OnInit {
  
     OrderItems:any;
-    // Totalprice:any;
-    // qnt:any;
-    // prodId:any;
-    // name:any;
-    // imgurl:any;
     cartItem: number = 0;
+
     constructor() { }
   
     ngOnInit() {
@@ -103,8 +99,7 @@ export class CartComponent implements OnInit {
           'success'
         )
       }
-      })
-  
+      })  
     }
   
     cartItemFunc() {
@@ -122,7 +117,7 @@ export class CartComponent implements OnInit {
         body:JSON.stringify(Obj)
       };
       console.log(requestOptions);  
-      fetch("https://powerful-erin-gopher.cyclic.app/orderRoute/post",{
+      fetch("https://localhost:2000/orderRoute/post",{
         method:'POST',
         headers:{
           "Access-Control-Allow-Origin":"*",

@@ -12,7 +12,8 @@ export class ProfileComponent implements OnInit {
   loginData:any
   text:any=[]
   datas:any=[];
-  editform=false
+  editform = false
+  profile = true;
   SignupForm: any;
   submit: any;
   form:any
@@ -68,10 +69,12 @@ export class ProfileComponent implements OnInit {
 
   closeForm(){
     this.editform = false
+    this.profile = true
   }
 
   edit(loginData:any){
     this.editform = true
+    this.profile = false
      this.profileForm = loginData
   }
   
@@ -100,9 +103,8 @@ export class ProfileComponent implements OnInit {
   ///---update function---///
   updateProfile(data:any){
     console.log(data)
-    //console.log(this.description, this.image, this.price, this.description, this.name)
     console.log(this.text.id)
-    fetch("https://powerful-erin-gopher.cyclic.app/signupform/editProfile/" + this.text.id, {
+    fetch("https://localhost:2000/signupform/editProfile/" + this.text.id, {
       method: 'PUT',
       headers: {
         "access-Control-Allow-Origin": "*",        
@@ -117,14 +119,10 @@ export class ProfileComponent implements OnInit {
 
           this.products =JSON.parse(result)  //it  runs $parse automatically when it runs the $digest loop, basically $parse is the way angular evaluates expressions
         console.log(this.products)
-        //this.updateproductForm.reset();   // form reset
-        //window.location.reload()  // reloading window
-        
+              
       }
-
       ).catch(err =>
         console.log(err))
-  }
-  
+  }  
 
 }

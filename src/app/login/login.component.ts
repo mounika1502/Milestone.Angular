@@ -31,22 +31,23 @@ var config = {
 })
 export class LoginComponent implements OnInit {
 
-  ishidden=true;
+ 
   login=true;
   loginForm:any   
-  data: any;
+ 
   withMobile: any;
   reCaptchaVerifier: any;
   mobile1:any   
   loginData: any;
-  final: any;
+ 
 
   visible=true;
   changetype=true;
 
   datas: any=[];
-  List:any=[]
-  product: any;
+  showSignup = false;
+  SignupForm: any;
+
   constructor(
     private modalCtrl: ModalController,
     private ngZone:NgZone,
@@ -61,38 +62,65 @@ export class LoginComponent implements OnInit {
    
     //login form
     this.loginForm = new FormGroup({
-      Email : new FormControl('',[Validators.required,Validators.email]),
-      Password : new FormControl('',[Validators.required,Validators.minLength(5)])
+      email : new FormControl('',[Validators.required,Validators.email]),
+      password : new FormControl('',[Validators.required,Validators.minLength(5)])
     }) 
+    // signup form
+    this.SignupForm = new FormGroup({
+      Firstname: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      Lastname : new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      mobile : new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+      Email : new FormControl('',[Validators.required,Validators.email]),
+      Password : new FormControl('',[Validators.required,Validators.minLength(5)]),
+      City:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      UserType:new FormControl('',[Validators.required]),
+      Pincode:new FormControl('',[Validators.required,Validators.pattern('[0-9]{6}')]),
+      Street:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      State:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      Company:new FormControl('',[Validators.required]),
+    });
    
     firebase.initializeApp(config)
   } 
-
   view(){
     this.visible = !this.visible
     this.changetype = !this.changetype
   }
-
   
   toggle(){
     this.login = !this.login       
   }
-
   toggleArrow(){
     this.withMobile = false
     this.login = true
   }
-
   togglePhone(){
     this.withMobile = !this.withMobile
     this.login=false
+  }
 
+  toggleSignup(){
+    this.showSignup = true;
+    this.login=false
+  }
+  toggleSignupArrow(){
+    this.showSignup = false
+    this.login = true
   }
 
 
   //login form submit function
   loginSubmit(data:any){
-     fetch("https://powerful-erin-gopher.cyclic.app/loginform/addlogin", {
+    if(this.loginForm.value.email ==''||
+    this.loginForm.value.password =='')
+    {
+      Swal.fire(  
+        'Cancelled',  
+        'You Must  Enter All fields !',           //give for condition to take all properties take empty values
+        'error'                                  //then take one alert message like not save all data
+      ) 
+  }else{
+     fetch("http://localhost:2000/loginform/addlogin", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -116,7 +144,8 @@ export class LoginComponent implements OnInit {
      }else{      
       this.router.navigate(["profile"])
      } 
-    })    
+    })
+  }    
   }
 
   details:any=[]
@@ -158,13 +187,114 @@ export class LoginComponent implements OnInit {
     });
   }      
 
+
+ //signup submit function
+ signupSubmit(){       
+  if(this.SignupForm.value.Firstname ==''||
+   this.SignupForm.value.Lastname ==''||
+   this.SignupForm.value.mobile ==''||
+   this.SignupForm.value.Email ==''||
+   this.SignupForm.value.Password ==''||
+   this.SignupForm.value.UserType ==''||
+   this.SignupForm.value.City ==''||
+   this.SignupForm.value.Pincode ==''||
+   this.SignupForm.value.Street ==''||
+   this.SignupForm.value.Company ==''||
+   this.SignupForm.value.State ==''
+   ){
+   Swal.fire(  
+     'Cancelled',  
+     'You Must  Enter All fields !',           //give for condition to take all properties take empty values
+     'error'                                  //then take one alert message like not save all data
+   ) 
+}else{
+    
+  fetch("http://localhost:2000/signupform/addsignupdetails", {
+   method:'post',
+   headers:{
+     "Access-Control-Allow-Origin": "*",
+     "Content-Type":'application/json'
+   },
+   body:JSON.stringify(this.SignupForm.value)
+
+ }).then(res=> res.json())
+ .then(result=>{ 
+   console.log(result)
+
+   if(result.status ==='failed'){
+    Swal.fire( 
+      'Cancelled',
+      'User already registered!',
+      'error'
+    )
+    window.location.reload()
+   }else{
+    Swal.fire( 'Submitted successfully!', '', 'success').then(() =>{         
+      this.router.navigate(["login"])
+      window.location.reload()
+    })       
+   }       
+ })       
+   .catch(error => console.log('error',error))             
+}
+}
+
+
+  get email()
+  {
+   return this.loginForm.get('email');
+  }
+  get password()
+  {
+    return this.loginForm.get('password');
+  }
+
+
+  // this is for signup form
+
+    get Firstname()
+  {
+   return this.SignupForm.get('Firstname');
+  }
+  get Lastname()
+  {
+   return this.SignupForm.get('Lastname');
+  }
+  get mobile()
+  {
+   return this.SignupForm.get('mobile');
+  }
   get Email()
   {
-   return this.loginForm.get('Email');
+   return this.SignupForm.get('Email');
   }
   get Password()
   {
-    return this.loginForm.get('Password');
+   return this.SignupForm.get('Password');
+  }
+  get UserType()
+  {
+   return this.SignupForm.get('UserType');
+  }
+  get City()
+  {
+   return this.SignupForm.get('City');
+  }
+  get Pincode()
+  {
+   return this.SignupForm.get('Pincode');
+  }
+  get Street()
+  {
+   return this.SignupForm.get('Street');
+  }
+  get Company()
+  {
+   return this.SignupForm.get('Company');
+  }
+  get State()
+  {
+   return this.SignupForm.get('State');
   }
 
 }

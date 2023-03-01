@@ -24,23 +24,12 @@
 
 /*this is for add product button*/
 .addproduct{
-    background: rgb(82, 83, 84);
+    background: rgb(42, 105, 168);
     color: white;
     border-radius: 5px;
     border: 0;
     height: 35px;
     width: 165px; 
-    float: right;
-    margin-right: 2em;
-    margin-top: 1em; 
-}
-.add{
-    background: rgb(66, 130, 193);
-    color: white;
-    border-radius: 5px;
-    border: 0;
-    height: 35px;
-    width: 195px; 
     float: right;
     margin-right: 2em;
     margin-top: 1em; 
@@ -73,56 +62,9 @@
   border-radius: 5px;
   border: 1px solid black;
   background-color: #f8f9fa;
+
 }
-.name{
-  font-size: 1em;
-}
-.input{
-  margin-top: 0.5em;
-  margin-bottom: 0.8em;
-  font-size: 1.5em;
-  height: 1.5em;
-  width: 10em;
-  border-radius: 5px;
-  border:1px solid #6e6c6c;
-}
-.discription{
-  height: 6.8em;
-  width: 15em;
-  margin-top: 0.5em;
-}
-.title{
-  font-size: 2em;
-  font-weight: bold;
-  margin-left: 5em;
-  margin-top: 0.5em;
-  margin-bottom:1em ;
-}
-.update{
- color: white;
- border-radius: 5px;
-  color: white;
-  height: 2em;
-  width: 6em;
-  background-color: rgb(29, 35, 198);
-  border: 0;
-  margin-left: 0em;
-}
-.cancel{
-color: white;
-border-radius: 5px;
-  color: white;
-  height: 2em;
-  width: 6em;
-  background-color: rgb(243, 43, 43);
-  border: 0;
-  margin-left: 1em;
-}
-.box1{
-height: 2.5em;
-width: 2.5em;
-border: 1px solid black;
-}
+
 .close{
   color: red;  
   border: 0;

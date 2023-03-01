@@ -18,6 +18,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { DealerProductComponent } from './dealer-product/dealer-product.component';
+import { LogComponent } from './log/log.component';
 
 const routes: Routes = [
  // { path:'',redirectTo:'login',pathMatch:'full'},
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path : 'add-dealer',component:AddDealerComponent,canActivate:[CactivateGuard]},
   { path : 'profile',component:ProfileComponent,canActivate:[CactivateGuard]}, 
   { path : 'dealer',component:DealerComponent,canActivate:[CactivateGuard]},
-  { path : 'add-raw',component:AddProductComponent,canActivate:[CactivateGuard]},   
+  { path : 'add-product',component:AddProductComponent,canActivate:[CactivateGuard]},   
   { path : 'otp',component:OtpComponent,canActivate:[CactivateGuard]},
   { path :'signup',component:SignupComponent},
   { path :'data',component:OtpDetailsComponent},
@@ -36,7 +37,9 @@ const routes: Routes = [
   { path : 'orders',component:OrdersComponent},
   { path : 'cart',component:CartComponent},
   { path : 'checkout',component:CheckoutComponent},
-  { path : 'dealerproduct',component:DealerProductComponent}
+  { path : 'dealerproduct',component:DealerProductComponent},
+  { path : 'log',component:LogComponent},
+
 ]; 
 
 @NgModule({

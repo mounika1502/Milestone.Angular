@@ -25,13 +25,7 @@ export class HomepageComponent implements OnInit {
      this.aa=this.text.UserType
      console.log(this.aa)
     // console.log(this.text.UserType)
-  }
- 
-
-  // get(){
-  //   this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
-  //   console.log(this.text)
-  // }
+  }  
 
   logout(){
       localStorage.clear();

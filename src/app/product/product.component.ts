@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
   }
 
   getStoreProducts() {
-    fetch("https://powerful-erin-gopher.cyclic.app/dealerproducts/getproduct",{
+    fetch("http://localhost:2000/products/getproduct",{
   method:"GET",
   headers:{
     "access-Control-Allow-Origin":"*",
@@ -33,21 +33,12 @@ export class ProductComponent implements OnInit {
  .then(response => response.json())
  .then(result =>{
   console.log(result),
-  this.productsStore = result.DealerproductInfo
+  this.productsStore = result.ProductInfo
  }
  ).catch(err =>
   console.log('error',err))
   }
 
-
-
-// export class ProductsComponent {
-
-
-  
-  // cartpage() {
-  //   this.router.navigate(['/cart']);
-  //  }
   
   
   products:any=[];
@@ -60,13 +51,7 @@ prodId:any;
 price:any;
 qnt:any;
 Totalprice:any;
-// constructor() {}
 
-
-//   ngOnInit(): void {
-//     this.get();
-//     this.cartItemFunc();
-//   }
  cartpage() {
     this.router.navigate(['/cart']);
    }
@@ -79,34 +64,6 @@ cartItemFunc(){
   console.log(this.cartItem)
 }
 }
-
-  
-
-//   get() {
-//     console.log('getStoreProducts')
-//     fetch("http://localhost:1000/productRouter/products", {
-//       method: 'GET',
-//       headers: {
-//         "access-Control-Allow-Origin": "*",
-
-//       },
-
-
-//     })
-//        .then(response => response.json())
-//       .then((result) => {
-//         console.log(result.products)
-//           this.products = result.products
-//         console.log(this.products)
-//       }
-
-//       ).catch(err =>
-//         console.log(err))
-//   }
-
-
-
-
 
   itemsCart: any = [];  // itemsCart is a global array
   addCart(category: any) {
@@ -143,7 +100,6 @@ cartItemFunc(){
 
 
 
-// }
   
   
 

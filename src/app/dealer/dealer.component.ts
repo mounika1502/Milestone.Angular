@@ -55,7 +55,7 @@ export class DealerComponent implements OnInit {
     
     Delete(_id:any){
       console.log(_id)
-        fetch("http://localhost:7500/dealer/deletedealer/" + _id,{
+        fetch("http://localhost:2000/dealer/deletedealer/" + _id,{
          method:'DELETE',
          headers:{
            "access-Control-Allow-Origin":"*"
@@ -146,7 +146,7 @@ export class DealerComponent implements OnInit {
         body:JSON.stringify(this.send.value)
       };
       console.log(requestOptions);  
-      fetch("http://localhost:5500/email/emailnotification",{
+      fetch("http://localhost:2000/email/emailnotification",{
         method:'POST',
         headers:{
           "Access-Control-Allow-Origin":"*",

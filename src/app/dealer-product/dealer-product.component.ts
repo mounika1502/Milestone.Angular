@@ -18,7 +18,7 @@ export class DealerProductComponent implements OnInit {
       imgurl :new FormControl(""),
       prodId: new FormControl(""),
       name: new FormControl(""),
-      qnt: new FormControl(this.quantity),
+      qnt: new FormControl("1"),
       price: new FormControl(""),
     })  
   }
@@ -42,7 +42,7 @@ export class DealerProductComponent implements OnInit {
          'error'                                  //then take one alert message like not save all data
        ) 
     }else{  
-       fetch("https://powerful-erin-gopher.cyclic.app/dealerproducts/addproduct", {
+       fetch("https://localhost:2000/dealerproducts/addproduct", {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",
@@ -67,19 +67,19 @@ export class DealerProductComponent implements OnInit {
 }
 
    //this is for  quantity
-   quantity:number=1;
-   i=1
-   plus(){
-     if(this.i !=0){
-       this.i++;
-       this.quantity=this.i;
-     }
-   }
-   minus(){
-     if(this.i !=1){
-       this.i--;
-       this.quantity=this.i;
-     }
-   } 
+  //  quantity:number=1;
+  //  i=1
+  //  plus(){
+  //    if(this.i !=0){
+  //      this.i++;
+  //      this.quantity=this.i;
+  //    }
+  //  }
+  //  minus(){
+  //    if(this.i !=1){
+  //      this.i--;
+  //      this.quantity=this.i;
+  //    }
+  //  } 
 
 }

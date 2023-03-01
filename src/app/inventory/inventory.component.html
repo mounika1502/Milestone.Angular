@@ -1,48 +1,52 @@
-<button class="add" routerLink="/dealerproduct"><b>Add your new product here</b></button>
-<button class="addproduct" routerLink="/add-raw"><b>Add your raw material</b></button>
 
-<section class="main">
-    <div *ngFor="let product of products"> <br>     
-      <div class="users">  
-        
-    <div class="card1">
-    <div class="zoom">
-       <img src="{{product.image}}" class="img" >
-    </div>
-       <table style="height:50px; padding: 2%" >
-        <tr>
-          <td class="tdstyle">Number: </td>
-          <td>{{product.Number}}</td>
-        </tr>
-        <tr>
-        <td class="tdstyle"> Name: </td> 
-        <td>{{product.Name}}</td>
-      </tr>
-      <tr>
-        <td class="tdstyle"> Quantity: </td> 
-        <td>{{product.Quantity}}</td>
-      </tr>
-      <tr>
-        <td class="tdstyle"> Price: </td> 
-        <td>{{product.Price}}</td>
-      </tr>
-      <tr>
-        <td class="tdstyle"> Description: </td> 
-        <td>{{product.Description}}</td>
-      </tr>
-    </table>  
-        <div>
-          <i class="fa fa-trash-o" style="color: red;" (click)="delete(product.Number)"></i>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <i class="fa fa-pencil-square-o" style="color: blue;" (click)="edit(product)"></i>
-        </div>       
+<br>
+<br><br>
+<br>
+<button class="addproduct" routerLink="/add-product"><b>Add your product</b></button>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="row row-cols-2 row-cols-sm-3  g-4"  >
+  <div *ngFor="let product of products">
+<div class="col">
+
+<div class="card h-100" style="margin: 7px; border-color: rgb(113, 113, 110);">
+<img src={{product.imgurl}} class="card-img-top" style="height:10em" >
+<div class="card-body">
+  <tr>
+    <td style="padding: 0%;" class="tdstyle"> Name : </td>
+    <td>{{product.name}}</td>
+  </tr>
+
+  <tr>
+    <td class="tdstyle"> Price: </td>
+    <td>{{product.price}}</td>
+  </tr>
+  <tr>
+    <td class="tdstyle"> Qnt: </td>
+    <td>{{product.qnt}}</td>
+  </tr>
+  <tr>
+    <td class="tdstyle"> Product ID </td>
+    <td>{{product.prodId}}</td>
+  </tr>
+  <div>
+    <i class="fa fa-trash-o" style="color: red;" (click)="delete(product.Number)"></i>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <i class="fa fa-pencil-square-o" style="color: blue;" (click)="edit(product)"></i>
+  </div> 
+</div>
+
 </div>
 </div>
 </div>
-</section>
+
 
 <!--this is for edit form-->
-<section *ngIf="editForm">
+<div *ngIf="editForm">
 <div class="pop-up-drop">
   <div  class="pop-up">
 
@@ -54,14 +58,14 @@
     </div> 
     <div class="row">
       <div class="col">
-        <img src="{{productform.image}}" class="img1" id="image" > 
+        <img src="{{productform.imgurl}}" class="img1" id="image" > 
       </div>
       <div class="col">
         <div class="name">S.No :<br>
-          <input type="text" class="input" [(ngModel)]="productform.Number" id="Number" >
+          <input type="text" class="input" [(ngModel)]="productform.price" id="Number" >
         </div>
         <div class="name" >Name :<br>
-          <input type="text" class="input" [(ngModel)]="productform.Name" id="Name">
+          <input type="text" class="input" [(ngModel)]="productform.name" id="Name">
         </div>
       </div>
     </div>
@@ -69,10 +73,10 @@
       <div class="row">  
         <div class="col">
           <div class="name">Quantity :<br>
-            <input type="text" class="input" [(ngModel)]="productform.Quantity" id="Quantity">
+            <input type="text" class="input" [(ngModel)]="productform.qnt" id="Quantity">
           </div>
           <div class="name">Price :<br>
-            <input type="text" class="input" [(ngModel)]="productform.Price" id="Price">
+            <input type="text" class="input" [(ngModel)]="productform.prodId" id="Price">
           </div>
         </div>  
         <div class="col">
@@ -89,7 +93,7 @@
     </div>    
   </div>     
 </div>  
-</section>
+</div>
 
 
 

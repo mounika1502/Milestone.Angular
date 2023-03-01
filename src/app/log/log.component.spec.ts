@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddRawmaterialComponent } from './add-rawmaterial.component';
+import { LogComponent } from './log.component';
 
-describe('AddRawmaterialComponent', () => {
-  let component: AddRawmaterialComponent;
-  let fixture: ComponentFixture<AddRawmaterialComponent>;
+describe('LogComponent', () => {
+  let component: LogComponent;
+  let fixture: ComponentFixture<LogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddRawmaterialComponent ]
+      declarations: [ LogComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AddRawmaterialComponent);
+    fixture = TestBed.createComponent(LogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

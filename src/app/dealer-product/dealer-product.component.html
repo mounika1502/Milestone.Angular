@@ -1,54 +1,76 @@
-
-
-<form  [formGroup]="productForm" > 
-    <div *ngIf="addProduct"  class="productForm">
-      <div class="row">
-        <button (click)="cancel()" class="close"><i class="fa fa-times"></i></button>
-      </div>   
-      <div class="row">
-         <div class="title"><b>ADD PRODUCT </b></div>
-      </div>
-      <br>
-      <hr>
-        <div class="row">
-            <div class="col">
-                <div class="image">Upload image:<br>
-                    <input type="text" formControlName="imgurl" id="image" placeholder="upload your image" class="input1">
+<br>
+<br>
+<br>  
+  <div class="container py-5 h-100" >
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;  background-image: url(https://w0.peakpx.com/wallpaper/474/857/HD-wallpaper-abstract-31-art-background-color-creativity-design-form-geometry-graphics-lines.jpg);">
+          <div class="card-body p-4 p-md-5 bg-color-#3b3b3b">
+            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="color: white;">ADD PRODUCT</h1>        
+            <form [formGroup]="productForm">
+            <hr>
+              <div class="row text-white">
+                <div class="col-md-8 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="firstName">Upload image:</label>
+                    <input type="text" class="form-control form-control-lg" formControlName="imgurl"  placeholder="upload your image" >                    
+                  </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="quantity">
-                    Quantity:<br>
-                    <button type="button" class="bt-t" (click)="minus()"><i class="fa fa-minus"></i></button>
-                    <input  [value]="quantity" class="btt" formControlName="qnt">
-                    <button type="button" class="bt-t" (click)="plus()"><i class="fa fa-plus"></i></button>                    
-                </div><br>
-            </div>           
-        </div>
-        <div class="row">
-            <div class="name">
-                Product Name:<br>
-                <input type="text" formControlName="name" placeholder="Enter your product name" class="input">
-            </div><br>
-        </div><br>
-        <div class="row">
-            <div class="name">
-                Price:<br>
-                <input type="email" formControlName="price" placeholder="Enter your price" class="input">
-            </div><br>
-        </div><br>
-        <div class="row">
-          <div class="name">
-            Number :<br>
-            <input type="email" formControlName="prodId" placeholder="Enter your mobilenumber" class="input">                   
+                <div class="col-md-4 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="lastName">Quantity:</label><br>
+                    <!-- <button type="button" class="bt" (click)="minus()"><i class="fa fa-minus"></i></button> -->
+                    <input   class="form-control form-control-lg" formControlName="qnt" [value]="1" readonly>
+                    <!-- <button type="button" class="bt-t" (click)="plus()"><i class="fa fa-plus"></i></button>  -->
+                                      
+                  </div>
+                </div>
+              </div>
+
+              <div class="row text-white">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label">Product Id:</label>
+                    <input type="text" class="form-control form-control-lg" formControlName="prodId" placeholder="Enter your product number">              
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label">Price:</label>
+                    <input type="text" class="form-control form-control-lg" formControlName="price" placeholder="Enter your price">                    
+                  </div>
+                </div>              
+              </div>
+
+              <div class="row text-white">
+                <div class="col-md-12 mb-4 pb-2">
+                  <div class="form-outline">
+                    <label class="form-label" for="emailAddress">Name of product :</label>
+                    <input type="email" class="form-control form-control-lg" formControlName="name" placeholder="Enter your product name">
+                  </div>
+                </div>
+              </div>               
+
+              <div class="mt-4 pt-2 text-center ">
+                <button class="btn btn-primary btn-lg" type="submit"  (click)="submitForm()">Submit</button>&nbsp;
+              </div>
+
+            </form>
           </div>
-        </div><br>
-       
-        
-        <button class="submit" (click)="submitForm()"><b>Submit</b></button> 
-            
+        </div>
       </div>
-  </form>
+    </div>
+  </div>      
+       
+            
+           
+           
+          
+          
+
+     
+
+
       
        
             

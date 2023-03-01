@@ -5,20 +5,8 @@
 <body>
     <div class="container bootdey">
       <div class="panel panel-default panel-order">
-        <div class="panel-heading">
-            <h1 style="font-size:50px;text-align:center;color: rgb(5, 74, 117) ;font-weight: bolder;padding: 2%;">Order History</h1>
-        </div>    
-        <button  style="float:right; 
-        border-radius:5px; 
-        background-color:rgb(86, 86, 185); 
-        color:white;border: 0;
-        margin-right: 2em;
-        margin-top: 3em;
-        height: 3em;"                                  
-        (click)="getAddress()">View shipping details
-    </button>  
-        <div class="panel-body" *ngFor="let test of order"> 
-                        
+        
+        <div class="panel-body" *ngFor="let test of order">                           
             <div *ngFor="let data of test.OrderData.OrderItems">
               <div class="row" >
                   <div class="col-md-1"><img src ="{{data.imgurl}}" style="height: 5em; width: 5em;"></div>
@@ -30,20 +18,15 @@
                                 <span class="label label-info" style="font-size:large;"><b>TotalPrice : </b> {{data.Totalprice}}</span><br>
                                 <span class="label label-info" style="font-size:large;"><b>Grandtotal : </b>{{data.grandtotal}}</span><br>
                                 <span class="label label-info" style="font-size:large;"><b>Price : </b>{{data.price}}</span><br>
-                       
-                              </div>    
-                                                        
+                              </div>                              
                             </div>
-                           
                           </div> 
                         </div>
-                      
-                      </div>
-                     
-                      
-  <!-- <div *ngIf="Address"  >
-    
-      <table >
+                      </div> 
+                      <br>                     
+<div class="container py-5 h-100">
+   <div class="row h-100 ">    
+      <!-- <table >
         <tr>
           <td class="tdstyle"> FirstName: </td>
           <td>{{test.OrderData.Firstname}}</td>
@@ -72,9 +55,9 @@
           <td class="tdstyle">Pincode:</td>
           <td>{{test.OrderData.Pincode}}</td>
         </tr> 
-      </table> 
+      </table>  -->
 
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem; ">
         <div class="card-header bg-dark text-light">
           Shipping - details
         </div>
@@ -88,13 +71,14 @@
           <li class="list-group-item"><b>Pincode </b>: {{test.OrderData.Pincode}}</li>
         </ul>
       </div>
-     
-</div>                                        -->
-            </div> 
-                     
+    </div> 
+</div>                                        
+            </div>                               
         </div>
    </div>                          
 </body>
+<br>
+<br>
 
 
                              

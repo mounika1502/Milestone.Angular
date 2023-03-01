@@ -68,7 +68,7 @@ export class InventoryComponent implements OnInit {
      if(this.productForm.invalid){
        return
      }
-         fetch("https://powerful-erin-gopher.cyclic.app/products/addproduct", {
+         fetch("https://localhost:2000/products/addproduct", {
         method:'post',
         headers:{
           "Access-Control-Allow-Origin": "*",
@@ -86,7 +86,7 @@ export class InventoryComponent implements OnInit {
  
    //This is for product getting (gett) call 
    getProduct(){    
-     fetch("https://powerful-erin-gopher.cyclic.app/products/getproduct", {
+     fetch("http://localhost:2000/products/getproduct", {
     method:'get',
     headers:{
       "Access-Control-Allow-Origin": "*",
@@ -116,7 +116,7 @@ export class InventoryComponent implements OnInit {
    }).then((result) => {
  
    console.log(Number)
-     fetch("https://powerful-erin-gopher.cyclic.app/products/deleteproduct/" + Number,{
+     fetch("https://localhost:2000/products/deleteproduct/" + Number,{
       method:'DELETE',
       headers:{
         "access-Control-Allow-Origin":"*"
