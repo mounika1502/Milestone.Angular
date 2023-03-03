@@ -103,7 +103,7 @@ export class InventoryComponent implements OnInit {
  }
  
  //This is for product delete
- delete(Number:any){
+ delete(prodId:any){
  
    Swal.fire({
      title: 'Are you sure?',
@@ -116,7 +116,7 @@ export class InventoryComponent implements OnInit {
    }).then((result) => {
  
    console.log(Number)
-     fetch("https://localhost:2000/products/deleteproduct/" + Number,{
+     fetch("http://localhost:2000/products/deleteproduct/" + prodId,{
       method:'DELETE',
       headers:{
         "access-Control-Allow-Origin":"*"
@@ -142,27 +142,10 @@ export class InventoryComponent implements OnInit {
   //this is for edit the product
   edit(products:any){ 
    this.productform = products
-   this.editForm = true;
+   localStorage.setItem('product',JSON.stringify(products)) 
+  //  this.editForm = true;
  }
   //this is for product update function
- updateProduct(id:any){
-   const data = {
-     image: this.productform.image,
-     Number:this.productform.Number,
-     Name:this.productform.Name,
-     Quantity:this.productform.Quantity,
-     Price:this.productform.Price,
-     Description:this.productform.Description
-   }
-   console.log(data)
-   this.service.update(data,id).subscribe((datas)=>{
-     console.log(datas)
-     if(datas){
-         Swal.fire( 'Updated successfully!', '', 'success').then(() =>{ 
-           this.editForm = false ;       
-         }) 
-     }
-   })  
- }
+
 
 }

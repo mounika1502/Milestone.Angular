@@ -111,7 +111,7 @@ export class OtpComponent implements OnInit {
             
        setTimeout(() => {
         this.spin=false
-        this.router.navigate(['/homepage'])
+        this.router.navigate(['/profile'])
       }, 2000);    
     });
     })

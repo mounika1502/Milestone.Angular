@@ -29,7 +29,7 @@ const routes: Routes = [
   { path : 'profile',component:ProfileComponent,canActivate:[CactivateGuard]}, 
   { path : 'dealer',component:DealerComponent,canActivate:[CactivateGuard]},
   { path : 'add-product',component:AddProductComponent,canActivate:[CactivateGuard]},   
-  { path : 'otp',component:OtpComponent,canActivate:[CactivateGuard]},
+  { path : 'otp',component:OtpComponent},
   { path :'signup',component:SignupComponent},
   { path :'data',component:OtpDetailsComponent},
   { path : 'home',component:HomeComponent},

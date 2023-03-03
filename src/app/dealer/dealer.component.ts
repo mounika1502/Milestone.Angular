@@ -10,6 +10,7 @@ import { UpdateService } from '../update.service';
 })
 export class DealerComponent implements OnInit {
   dealer:any;
+  searchtext:any
   popupform=false;
   popup=false;
   popupdata=false
@@ -18,6 +19,8 @@ export class DealerComponent implements OnInit {
   productform: any;
   sendemail: any;
   send:any;
+  text: any=[];
+  aa: any=[];
 
   constructor( private service:UpdateService) { 
     this.Get()
@@ -29,6 +32,11 @@ export class DealerComponent implements OnInit {
       Subject : new FormControl(''),
       Message : new FormControl(''),
     });
+
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text)
+    this.aa=this.text.UserType
+    console.log(this.aa)
   }
 
   Get(){

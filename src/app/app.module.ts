@@ -74,6 +74,7 @@ import { LogComponent } from './log/log.component';
     FormsModule,
     ReactiveFormsModule, 
     HttpClientModule ,
+    Ng2SearchPipeModule,
     IonicModule.forRoot(),
     NgOtpInputModule,
     

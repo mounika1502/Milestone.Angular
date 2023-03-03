@@ -1,70 +1,13 @@
-<!--   
-    <!-- <mat-toolbar >
-   
-       <mat-toolbar-row>
-     
-         <button mat-icon-button>
-     
-           <mat-icon (click)="sidenav.toggle();"><i class="fa fa-bars" style="color: white;"></i></mat-icon>
-     
-         </button>
-     
-         <h1 class="bsbspace"> <img style="width:120px;height:90px;margin-top:-1%; border-radius:50%;" src="/assets/images/logoMilestone.jpg"></h1>
-     
-         <br>
-         <h1 class="space" >Home</h1>
-         <h1 class="space"> Help</h1>
-         <h1  class="space">About Us</h1>
-         <h1 class="space" routerLink="/profile"> Profile</h1>
-         <h1 class="space"  (click)="logout()">Logout</h1>
-       </mat-toolbar-row>
-     
-     </mat-toolbar> -->
-     
-    <!-- <mat-sidenav-container>
-     
-      <mat-sidenav #sidenav opend="true" mode="side">
-     
-        <mat-nav-list>
-     
-          <a  class="bgclr" mat-list-item routerLink="/home"><i class="fa fa-home" style="font-size:24px;color:white"></i>&nbsp; Home  </a>    
-     
-          <a [hidden]="aa === 'Dealer'" class="bgclr" mat-list-item routerLink="/inventory">&nbsp;Inventory</a>
-    
-          <a   class="bgclr" mat-list-item routerLink="/product">&nbsp;Products</a>
-            
-          <a class="bgclr" mat-list-item routerLink="/orders">&nbsp;Order History</a>
-
-          <a class="bgclr" mat-list-item routerLink="/dealer">&nbsp; Dealer Management </a>
-     
-        </mat-nav-list>
-     
-      </mat-sidenav>
-     
-       <mat-sidenav-content>
-          <div  style="height: 98vh;">       
-     
-             <router-outlet>
-     
-             </router-outlet>  
-     
-          </div>      
-       </mat-sidenav-content>
-
-    </mat-sidenav-container> -->
-
-    <nav class="navbar navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-dark bg-dark fixed-top">
 
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span class="navbar-toggler-icon"></span>
    
     </button>
-    <h1 class="navbar-brand" >MileStone</h1>
     
     <div class="offcanvas offcanvas-start text-bg-dark" style="width:250px;" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
-        <!-- <h5 class="offcanvas-title" style="font-size: xx-large;" id="offcanvasDarkNavbarLabel">MILESTONE</h5> -->
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div><br>
       <br>

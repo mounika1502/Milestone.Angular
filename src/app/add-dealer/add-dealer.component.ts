@@ -49,7 +49,7 @@ export class AddDealerComponent implements OnInit {
       body:JSON.stringify(this.registerForm.value)
     };
     console.log(requestOptions);  
-    fetch("https://localhost:2000/dealer/adddealer",{
+    fetch("http://localhost:2000/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",

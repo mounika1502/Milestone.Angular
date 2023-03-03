@@ -24,7 +24,6 @@ export class HomepageComponent implements OnInit {
      console.log(this.text)
      this.aa=this.text.UserType
      console.log(this.aa)
-    // console.log(this.text.UserType)
   }  
 
   logout(){

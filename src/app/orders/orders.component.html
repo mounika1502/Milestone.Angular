@@ -6,90 +6,37 @@
     <div class="container bootdey">
       <div class="panel panel-default panel-order">
         <div class="panel-heading">
-            <h1 style="font-size:50px;text-align:center;color: rgb(5, 74, 117) ;font-weight: bolder;padding: 2%;">Order History</h1>
-        </div>    
-        <button  style="float:right; 
-        border-radius:5px; 
-        background-color:rgb(86, 86, 185); 
-        color:white;border: 0;
-        margin-right: 2em;
-        margin-top: 3em;
-        height: 3em;"                                  
-        (click)="getAddress()">View shipping details
-    </button>  
-        <div class="panel-body" *ngFor="let test of order"> 
-                        
-            <div *ngFor="let data of test.OrderData.OrderItems">
+          <input type="text"  style=" width: 80%; font-size: large;    padding: 1%; " value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+            <h1 style="font-size:30px;color: rgb(5, 74, 117) ;font-weight: bolder;padding: 2%;">ORDERS</h1>
+        </div>        
+        <div class="panel-body" *ngFor="let test of order | filter : searchtext ">                         
+             <div *ngFor="let data of test.OrderData.OrderItems"> 
               <div class="row" >
-                  <div class="col-md-1"><img src ="{{data.imgurl}}" style="height: 5em; width: 5em;"></div>
+                  <div class="col-md-1"><img src ="{{data.imgurl}}" style="height: 6.5em; width: 15em;"></div>
                     <div class="col-md-11">
                         <div class="row">
-                            <div class="col-md-12" >                                 
-                                <span class="label label-info"><b>Name : </b> {{data.name}}</span><br>
-                                <span class="label label-info"><b>Quantity : </b> {{data.qnt}}</span><br>
-                                <span class="label label-info" style="font-size:large;"><b>TotalPrice : </b> {{data.Totalprice}}</span><br>
-                                <span class="label label-info" style="font-size:large;"><b>Grandtotal : </b>{{data.grandtotal}}</span><br>
-                                <span class="label label-info" style="font-size:large;"><b>Price : </b>{{data.price}}</span><br>
-                       
+                            <div class="col-md-12" style="padding:25px" >                                 
+                                <span class="label label-info"><b>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.name}}</span><br>
+                                <span class="label label-info"><b>Quantity &nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.qnt}}</span><br>
+                                <span class="label label-info" ><b>TotalPrice &nbsp;: </b> {{data.Totalprice}}</span><br>
+                                <span class="label label-info" ><b>Grandtotal : </b>{{data.grandtotal}}</span><br>
+                                <span class="label label-info" ><b>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>{{data.price}}</span><br>
                               </div>    
                                                         
                             </div>
                            
                           </div> 
                         </div>
-                      
-                      </div>
-                     
-                      
-  <!-- <div *ngIf="Address"  >
-    
-      <table >
-        <tr>
-          <td class="tdstyle"> FirstName: </td>
-          <td>{{test.OrderData.Firstname}}</td>
-        </tr>
-        <tr>
-          <td class="tdstyle">  LastName:</td>
-          <td>{{test.OrderData.Lastname}}</td>
-        </tr>
-        <tr>
-          <td class="tdstyle">  Email:</td>
-          <td> {{test.OrderData.Email}}</td>
-        </tr>
-        <tr>
-          <td class="tdstyle"> PhoneNumber: </td>
-          <td> {{test.OrderData.PhoneNumber}}</td>
-        </tr>
-        <tr>
-          <td class="tdstyle">  City:</td>
-          <td> {{test.OrderData.City}}</td>
-        </tr>
-        <tr>
-          <td class="tdstyle">State: </td>
-          <td>{{test.OrderData.State}}</td>
-        </tr>
-        <tr>
-          <td class="tdstyle">Pincode:</td>
-          <td>{{test.OrderData.Pincode}}</td>
-        </tr> 
-      </table> 
-
-      <div class="card" style="width: 18rem;">
-        <div class="card-header bg-dark text-light">
-          Shipping - details
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><b>FirstName</b>:  {{test.OrderData.Firstname}}</li>
-          <li class="list-group-item"><b>Lastname </b>: {{test.OrderData.Lastname}}</li>
-          <li class="list-group-item"><b>Email </b>: {{test.OrderData.Email}}</li>
-          <li class="list-group-item"><b>PhoneNumber </b>: {{test.OrderData.PhoneNumber}}</li>
-          <li class="list-group-item"><b>City </b>: {{test.OrderData.City}}</li>
-          <li class="list-group-item"><b>State </b>: {{test.OrderData.State}}</li>
-          <li class="list-group-item"><b>Pincode </b>: {{test.OrderData.Pincode}}</li>
-        </ul>
-      </div>
-     
-</div>                                        -->
+                        </div>
+                        <button  style=" 
+                border-radius:5px; 
+                background-color:rgb(86, 86, 185); 
+                color:white;border: 0;
+                margin-left: 2em;
+                margin-bottom: 1em;
+                height: 3em;"                                  
+              (click)="getAddress(test)">View shipping details
+             </button> 
             </div> 
                      
         </div>

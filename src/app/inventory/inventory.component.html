@@ -1,13 +1,13 @@
 
 <br>
-<br><br>
+<br>
 <br>
 <button class="addproduct" routerLink="/add-product"><b>Add your product</b></button>
 <br>
 <br>
 <br>
 <br>
-<br>
+
 
 <div class="row row-cols-2 row-cols-sm-3  g-4"  >
   <div *ngFor="let product of products">
@@ -34,66 +34,17 @@
     <td>{{product.prodId}}</td>
   </tr>
   <div>
-    <i class="fa fa-trash-o" style="color: red;" (click)="delete(product.Number)"></i>
+    <i class="fa fa-trash-o" style="color: red;" (click)="delete(product.prodId)"></i>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <i class="fa fa-pencil-square-o" style="color: blue;" (click)="edit(product)"></i>
+    <i class="fa fa-pencil-square-o" style="color: blue;" (click)="edit(product)" routerLink="/dealerproduct"></i>
   </div> 
 </div>
-
 </div>
 </div>
 </div>
 
 
-<!--this is for edit form-->
-<div *ngIf="editForm">
-<div class="pop-up-drop">
-  <div  class="pop-up">
 
-    <div class="row">
-      <button (click)="closeForm()" class="close"><i class="fa fa-times"></i></button>
-    </div>
-    <div class="row" >
-      <div class="title"> EDIT PRODUCT</div>
-    </div> 
-    <div class="row">
-      <div class="col">
-        <img src="{{productform.imgurl}}" class="img1" id="image" > 
-      </div>
-      <div class="col">
-        <div class="name">S.No :<br>
-          <input type="text" class="input" [(ngModel)]="productform.price" id="Number" >
-        </div>
-        <div class="name" >Name :<br>
-          <input type="text" class="input" [(ngModel)]="productform.name" id="Name">
-        </div>
-      </div>
-    </div>
-    <hr>    
-      <div class="row">  
-        <div class="col">
-          <div class="name">Quantity :<br>
-            <input type="text" class="input" [(ngModel)]="productform.qnt" id="Quantity">
-          </div>
-          <div class="name">Price :<br>
-            <input type="text" class="input" [(ngModel)]="productform.prodId" id="Price">
-          </div>
-        </div>  
-        <div class="col">
-          <div class="name">Description :<br>
-            <textarea type="text" class="discription" [(ngModel)]="productform.Description" id="Description"></textarea>
-          </div>
-        </div>       
-      </div>     
-    <div class="row" style="margin-top: 1em;">
-      <div class="col">
-        <button class="update"(click)="updateProduct(productform._id)">Save</button>
-        <button (click)="closeForm()" class="cancel">Cancel</button>
-      </div> 
-    </div>    
-  </div>     
-</div>  
-</div>
 
 
 

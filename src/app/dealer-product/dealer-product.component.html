@@ -1,61 +1,61 @@
 <br>
 <br>
-<br>  
+<br>    
   <div class="container py-5 h-100" >
     <div class="row justify-content-center align-items-center h-100">
       <div class="col-12 col-lg-9 col-xl-7">
-        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;  background-image: url(https://w0.peakpx.com/wallpaper/474/857/HD-wallpaper-abstract-31-art-background-color-creativity-design-form-geometry-graphics-lines.jpg);">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;  ">
           <div class="card-body p-4 p-md-5 bg-color-#3b3b3b">
-            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="color: white;">ADD PRODUCT</h1>        
-            <form [formGroup]="productForm">
+            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" >ADD PRODUCT</h1>        
+          
             <hr>
-              <div class="row text-white">
+              <div class="row ">
                 <div class="col-md-8 mb-4">
                   <div class="form-outline">
                     <label class="form-label" for="firstName">Upload image:</label>
-                    <input type="text" class="form-control form-control-lg" formControlName="imgurl"  placeholder="upload your image" >                    
+                    <img src="{{this.data.imgurl}}" class="img1" id="image" style="height:5em">                    
                   </div>
                 </div>
                 <div class="col-md-4 mb-4">
                   <div class="form-outline">
                     <label class="form-label" for="lastName">Quantity:</label><br>
                     <!-- <button type="button" class="bt" (click)="minus()"><i class="fa fa-minus"></i></button> -->
-                    <input   class="form-control form-control-lg" formControlName="qnt" [value]="1" readonly>
+                    <input   class="form-control form-control-lg"   [(ngModel)]="this.data.qnt"   >
                     <!-- <button type="button" class="bt-t" (click)="plus()"><i class="fa fa-plus"></i></button>  -->
                                       
                   </div>
                 </div>
               </div>
 
-              <div class="row text-white">
+              <div class="row ">
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label">Product Id:</label>
-                    <input type="text" class="form-control form-control-lg" formControlName="prodId" placeholder="Enter your product number">              
+                    <input type="text" class="form-control form-control-lg"  [(ngModel)]="this.data.prodId">              
                   </div>
                 </div>
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label">Price:</label>
-                    <input type="text" class="form-control form-control-lg" formControlName="price" placeholder="Enter your price">                    
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.price">                    
                   </div>
                 </div>              
               </div>
 
-              <div class="row text-white">
+              <div class="row ">
                 <div class="col-md-12 mb-4 pb-2">
                   <div class="form-outline">
                     <label class="form-label" for="emailAddress">Name of product :</label>
-                    <input type="email" class="form-control form-control-lg" formControlName="name" placeholder="Enter your product name">
+                    <input type="email" class="form-control form-control-lg" [(ngModel)]="this.data.name">
                   </div>
                 </div>
               </div>               
 
-              <div class="mt-4 pt-2 text-center ">
-                <button class="btn btn-primary btn-lg" type="submit"  (click)="submitForm()">Submit</button>&nbsp;
+              <div class="mt-4 pt-2  ">
+                  <button class="btn btn-primary"(click)="updateProduct(this.data._id)">Save</button>&nbsp;&nbsp;
+                  <button (click)="closeForm()" class="btn btn-danger">Cancel</button>
               </div>
-
-            </form>
+            
           </div>
         </div>
       </div>
@@ -81,4 +81,14 @@
 
      
 
+
+
+       
+            
+           
+           
+          
+          
+
+     
 

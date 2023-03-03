@@ -96,14 +96,14 @@
     <div class="row mb-4">
       <div class="col" >
         <div class="form-outline">
-          <input type="text"  style="border-color: blue" id="form9Example1" [(ngModel)]="Firstname" class="form-control input-custom" formControlName="firstname" />
+          <input type="text"  style="border-color: blue" id="form9Example1" [(ngModel)]="Firstname" class="form-control input-custom" name="Firstname" />
           <label class="form-label"  for="form9Example1"  required>Firstname</label>
          
         </div>
       </div>
       <div class="col">
         <div class="form-outline">
-          <input type="text"style="border-color: blue" id="form9Example2" [(ngModel)]="Lastname" class="form-control input-custom" />
+          <input type="text"style="border-color: blue" id="form9Example2" [(ngModel)]="Lastname" class="form-control input-custom" name="Lastname"/>
           <label class="form-label" for="form9Example2" id="validationCustom01" required>Lastname</label>
         </div>
       </div>
@@ -111,13 +111,13 @@
     <div class="row mb-4">
       <div class="col">
         <div class="form-outline">
-          <input type="text" style="border-color: rgb(85, 85, 253)" id="form9Example3" [(ngModel)]="Email" class="form-control input-custom" />
+          <input type="text" style="border-color: rgb(85, 85, 253)" id="form9Example3" [(ngModel)]="Email" class="form-control input-custom" name="Email" />
           <label class="form-label" for="form9Example3" id="validationCustom01" required>Email</label>
         </div>
       </div>
       <div class="col">
         <div class="form-outline">
-          <input type="text"style="border-color: blue" id="form9Example4" [(ngModel)]="State" class="form-control input-custom" />
+          <input type="text"style="border-color: blue" id="form9Example4" [(ngModel)]="State" class="form-control input-custom" name="State"/>
           <label class="form-label" for="form9Example4" id="validationCustom01" required>State</label>
         </div>
       </div>
@@ -125,26 +125,26 @@
     <div class="row mb-4">
       <div class="col">
         <div class="form-outline">
-          <input type="text"style="border-color: blue" id="form9Example6" [(ngModel)]="Pincode" class="form-control input-custom" />
+          <input type="text"style="border-color: blue" id="form9Example6" [(ngModel)]="Pincode" class="form-control input-custom" name="Pincode"/>
           <label class="form-label" for="form9Example6" id="validationCustom01" required>Pincode</label>
         </div>
       </div>
       <div class="col">
         <div class="form-outline">
-          <input type="email"style="border-color: blue" id="typeEmail" [(ngModel)]="City" class="form-control input-custom" />
+          <input type="email"style="border-color: blue" id="typeEmail" [(ngModel)]="City" class="form-control input-custom" name="City"/>
           <label class="form-label" for="typeEmail"id="validationCustom01" required>City</label>
         </div>
       </div>
       <div class="col">
         <div class="form-outline">
-          <input type="text"style="border-color: blue" id="form9Example2" [(ngModel)]="PhoneNumber" class="form-control input-custom" />
+          <input type="text"style="border-color: blue" id="form9Example2" [(ngModel)]="PhoneNumber" class="form-control input-custom" name="PhoneNumber"/>
           <label class="form-label" for="form9Example2" id="validationCustom01" required>PhoneNumber</label>
         </div>
       </div>
     </div>
 
 <div class="form-outline mb-4">
-<textarea [(ngModel)]="Area" class="form-control"style="border-color: blue" id="form11Example7" rows="4"></textarea>
+<textarea [(ngModel)]="Area" class="form-control"style="border-color: blue" id="form11Example7" rows="4" name="Area"></textarea>
 <label class="form-label" for="form11Example7" id="validationCustom01" required>Area</label>
 </div>
     </div>

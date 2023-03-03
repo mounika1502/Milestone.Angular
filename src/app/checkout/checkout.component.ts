@@ -51,8 +51,6 @@ cash1(){
   this.finalcartItem = localStorage.getItem('anunya')
   console.log(this.finalcartItem);
 
-  this.getCartDetails = [];
-  // this.grandtotal = 0;
   var Obj ={
     "Firstname":this.Firstname,
     "Lastname":this.Lastname,
@@ -86,12 +84,12 @@ cash1(){
         localStorage.removeItem('anunya');
       })
        
-      .catch(error => console.log('error',error));      
+      .catch(error => console.log('error',error));  
       
-  this.close( )
+ 
     
   Swal.fire('order  placed Successfully!', '', 'success').then(() => {
-     window.location.href=('/products');
+     window.location.href=('/product');
   } );
 }
 

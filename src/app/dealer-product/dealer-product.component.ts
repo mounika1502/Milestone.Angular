@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { UpdateService } from '../update.service';
 
 @Component({
   selector: 'app-dealer-product',
@@ -8,78 +10,47 @@ import Swal from 'sweetalert2';
   styleUrls: ['./dealer-product.component.css']
 })
 export class DealerProductComponent implements OnInit {
-  productForm: any;
-  addProduct=true
+  products: any;
+  data: any;
 
-  constructor() { }
+
+  constructor( private service:UpdateService,private router:Router) { }
 
   ngOnInit(): void {
-    this.productForm = new FormGroup ({
-      imgurl :new FormControl(""),
-      prodId: new FormControl(""),
-      name: new FormControl(""),
-      qnt: new FormControl("1"),
-      price: new FormControl(""),
+    const localdata=localStorage.getItem('product')
+    if(localdata!=null){
+      this.data=JSON.parse(localdata)
+    }
+   
+  }
+  updateProduct(id:any){
+    localStorage.setItem('product',JSON.stringify(this.data))
+    const data = {
+      imgurl: this.data.imgurl,
+      prodId: this.data.prodId,
+      //Number:this.data.Number,
+      name:this.data.name,
+      qnt:this.data.qnt,
+      price:this.data.price,
+      Description:this.data.Description
+    }
+    console.log(data)
+    this.service.update(data,id).subscribe((datas)=>{
+      console.log(datas)
+      if(datas){
+          Swal.fire( 'Updated successfully!', '', 'success').then(() =>{ 
+                 
+          }) 
+      }
     })  
   }
 
-
-  cancel(){
-    this.addProduct=false
+  closeForm(){
+    this.router.navigate(["product"])
   }
 
-  submitForm(){
-    if(this.productForm.value.imgurl ==''||
-    this.productForm.value.prodId ==''||
-    this.productForm.value.name ==''||
-    this.productForm.value.qnt ==''||
-    this.productForm.value.price ==''
-    )
-    { 
-      Swal.fire(  
-         'Cancelled',  
-         'You Must  Enter All fields !',           //give for condition to take all properties take empty values
-         'error'                                  //then take one alert message like not save all data
-       ) 
-    }else{  
-       fetch("https://localhost:2000/dealerproducts/addproduct", {
-       method:'post',
-       headers:{
-         "Access-Control-Allow-Origin": "*",
-         "Content-Type":'application/json'
-       },
-       body:JSON.stringify(this.productForm.value)
-     }).then(res=> res.json())
-     .then(result=>{ 
-       console.log(result)
-       this.productForm.reset()
-       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Your product has been saved',
-        showConfirmButton: false,
-        timer: 1500        
-      })
-   }
-  )      
-       .catch(error => console.log('error',error)) 
-  }  
-}
+ 
 
-   //this is for  quantity
-  //  quantity:number=1;
-  //  i=1
-  //  plus(){
-  //    if(this.i !=0){
-  //      this.i++;
-  //      this.quantity=this.i;
-  //    }
-  //  }
-  //  minus(){
-  //    if(this.i !=1){
-  //      this.i--;
-  //      this.quantity=this.i;
-  //    }
-  //  } 
+ 
 
 }

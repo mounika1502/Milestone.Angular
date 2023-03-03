@@ -4,45 +4,49 @@
 <br>
 <br>
 <body >
+  <div class="row row-cols-2 row-cols-sm-3  g-4"  >
   <div class="panel-heading">
     <!-- <h1 style="font-size:50px;text-align:center;color: rgb(5, 74, 117) ;font-weight: bolder;padding: 2%;">PRODUCT PAGE</h1> -->
-    <i style="font-size: 30px; margin-left: 42em; " class="fa fa-cart-plus" (click)="cartpage()"></i>
-    <div style="font-size:12px ; color: yellow;cursor: pointer;" class="badge bg-danger" slot="end" routerLink="/cart">
+    <i style="font-size: 30px;float: right;" class="fa fa-cart-plus" (click)="cartpage()"></i>
+    <div style="font-size:12px;float: right; color: yellow;cursor: pointer;" class="badge bg-danger" slot="end" routerLink="/cart">
       {{cartItem}}
     </div>
   </div>
       <p (click)="getStoreProducts()"></p>
-<section class="main">
   <div *ngFor="let test of productsStore">
-    <div class="users">
-      <div class="card1">
-        <div class="zoom">
-          <img src="{{test.imgurl}}" class="img">
-        </div><br>
-        <table style="height:52px; padding: 2%">
-          <tr>
-            <td class="tdstyle"> Name: </td>
-            <td>{{test.name}}</td>
-          </tr>
-          <tr>
-            <td class="tdstyle"> price: </td>
-            <td>{{test.price}}</td>
-          </tr>
-          <tr>
-            <td class="tdstyle"> OrderId: </td>
-            <td>{{test.prodId}}</td>
-          </tr>
-          <tr>
-            <td class="tdstyle"> Quantity: </td>
-            <td>{{test.qnt}}</td>
-          </tr>
-          <tr>
-            <button class="btn btn-primary" (click)="addCart(test)"> Add to cart</button>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-  <br>
-</section>
+<div class="col">
+
+<div class="card h-100" style="margin: 7px; border-color: rgb(113, 113, 110);">
+<img src={{test.imgurl}} class="card-img-top" style="height:10em" >
+<div class="card-body">
+  <table>
+  <tr>
+    <td style="padding: 0%;" class="tdstyle"> Name : </td>
+    <td>{{test.name}}</td>
+  </tr>
+
+  <tr>
+    <td class="tdstyle"> Price: </td>
+    <td>{{test.price}}</td>
+  </tr>
+  <!-- <tr>
+    <td class="tdstyle"> Qnt: </td>
+    <td>{{test.qnt}}</td>
+  </tr>
+  <tr>
+    <td class="tdstyle"> Product ID </td>
+    <td>{{test.prodId}}</td>
+  </tr>-->
+  <tr> 
+    <td>
+      <button class="btn btn-primary" (click)="addCart(test)"> Add to cart</button>
+    </td>    
+  </tr>
+</table>  
+</div>
+</div>
+</div>
+</div>
+</div>
+
 </body>

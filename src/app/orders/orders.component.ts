@@ -6,7 +6,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-  
+  searchtext:any
   order:any=[] 
   OrderData: any;
   data: any;  
@@ -38,10 +38,10 @@ export class OrdersComponent implements OnInit {
       console.log('error',err))
   }
 
-  getAddress(){
+  getAddress(test:any){
     window.location.href=("/log")
-    localStorage.setItem('Order',JSON.stringify(this.order));
-    console.log(this.order)  
+    localStorage.setItem('Order',JSON.stringify(test));
+    console.log(test)  
   }
 
 }

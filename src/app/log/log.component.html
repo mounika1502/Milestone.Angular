@@ -1,77 +1,47 @@
 <br>
 <br>
 <br>
+<i class="fa fa-arrow-left" style="margin-left: 1em; margin-top: 2em;" routerLink="/orders"></i>
 <br>
-<body>
+<br>
+<body> 
     <div class="container bootdey">
       <div class="panel panel-default panel-order">
         
-        <div class="panel-body" *ngFor="let test of order">                           
-            <div *ngFor="let data of test.OrderData.OrderItems">
+        <div class="panel-body" >                           
+            <div *ngFor="let data of order.OrderData.OrderItems">
               <div class="row" >
-                  <div class="col-md-1"><img src ="{{data.imgurl}}" style="height: 5em; width: 5em;"></div>
+                  <div class="col-md-1"><img src ="{{data.imgurl}}" style="height: 6.5em; width: 15em;"></div>
                     <div class="col-md-11">
                         <div class="row">
-                            <div class="col-md-12" >                                 
-                                <span class="label label-info"><b>Name : </b> {{data.name}}</span><br>
-                                <span class="label label-info"><b>Quantity : </b> {{data.qnt}}</span><br>
-                                <span class="label label-info" style="font-size:large;"><b>TotalPrice : </b> {{data.Totalprice}}</span><br>
-                                <span class="label label-info" style="font-size:large;"><b>Grandtotal : </b>{{data.grandtotal}}</span><br>
-                                <span class="label label-info" style="font-size:large;"><b>Price : </b>{{data.price}}</span><br>
-                              </div>                              
-                            </div>
-                          </div> 
+                          <div class="col-md-12" style="padding:25px" >                                 
+                            <span class="label label-info"><b>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.name}}</span><br>
+                            <span class="label label-info"><b>Quantity &nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.qnt}}</span><br>
+                            <span class="label label-info" ><b>TotalPrice &nbsp;: </b> {{data.Totalprice}}</span><br>
+                            <span class="label label-info" ><b>Grandtotal : </b>{{data.grandtotal}}</span><br>
+                            <span class="label label-info" ><b>Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>{{data.price}}</span><br>
+                          </div>                               
                         </div>
-                      </div> 
+                    </div> 
+                  </div>
+              </div> 
                       <br>                     
-<div class="container py-5 h-100">
-   <div class="row h-100 ">    
-      <!-- <table >
-        <tr>
-          <td class="tdstyle"> FirstName: </td>
-          <td>{{test.OrderData.Firstname}}</td>
-        </tr>
-        <tr>
-          <td class="tdstyle">  LastName:</td>
-          <td>{{test.OrderData.Lastname}}</td>
-        </tr>
-        <tr>
-          <td class="tdstyle">  Email:</td>
-          <td> {{test.OrderData.Email}}</td>
-        </tr>
-        <tr>
-          <td class="tdstyle"> PhoneNumber: </td>
-          <td> {{test.OrderData.PhoneNumber}}</td>
-        </tr>
-        <tr>
-          <td class="tdstyle">  City:</td>
-          <td> {{test.OrderData.City}}</td>
-        </tr>
-        <tr>
-          <td class="tdstyle">State: </td>
-          <td>{{test.OrderData.State}}</td>
-        </tr>
-        <tr>
-          <td class="tdstyle">Pincode:</td>
-          <td>{{test.OrderData.Pincode}}</td>
-        </tr> 
-      </table>  -->
-
-      <div class="card" style="width: 18rem; ">
-        <div class="card-header bg-dark text-light">
-          Shipping - details
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><b>FirstName</b>:  {{test.OrderData.Firstname}}</li>
-          <li class="list-group-item"><b>Lastname </b>: {{test.OrderData.Lastname}}</li>
-          <li class="list-group-item"><b>Email </b>: {{test.OrderData.Email}}</li>
-          <li class="list-group-item"><b>PhoneNumber </b>: {{test.OrderData.PhoneNumber}}</li>
-          <li class="list-group-item"><b>City </b>: {{test.OrderData.City}}</li>
-          <li class="list-group-item"><b>State </b>: {{test.OrderData.State}}</li>
-          <li class="list-group-item"><b>Pincode </b>: {{test.OrderData.Pincode}}</li>
-        </ul>
-      </div>
-    </div> 
+        
+         <div class="row h-100 " style="padding: 15px;">    
+           <h3 style="color: rgb(18, 138, 90);font-size: 1.5em;">
+               <b>Shipping - Address</b>
+           </h3>
+           <hr>
+           <div class="list-group list-group-flush"style="padding: 5px;" >
+               <p><b style="color: rgb(81, 81, 211)">User Name</b>&nbsp;:  {{order.OrderData.Firstname}} {{order.Lastname}}</p>
+               <p><b style="color: rgb(81, 81, 211)">Email </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{order.OrderData.Email}}</p>
+               <p><b style="color: rgb(81, 81, 211)">PhoneNumber </b>: {{order.OrderData.PhoneNumber}}</p>
+               <p><b style="color: rgb(81, 81, 211)">Address &nbsp;&nbsp;&nbsp;:  </b><br>
+                {{order.OrderData.Pincode}}, {{order.OrderData.City}},{{order.OrderData.State}}</p>
+          <!-- <h4><b>State </b>: </h4>
+          <h4><b>Pincode </b>:</h4> -->
+          </div>
+  
 </div>                                        
             </div>                               
         </div>

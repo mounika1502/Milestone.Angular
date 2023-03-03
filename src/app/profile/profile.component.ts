@@ -104,7 +104,7 @@ export class ProfileComponent implements OnInit {
   updateProfile(data:any){
     console.log(data)
     console.log(this.text.id)
-    fetch("https://localhost:2000/signupform/editProfile/" + this.text.id, {
+    fetch("http://localhost:2000/signupform/editProfile/" + this.text.id, {
       method: 'PUT',
       headers: {
         "access-Control-Allow-Origin": "*",        
