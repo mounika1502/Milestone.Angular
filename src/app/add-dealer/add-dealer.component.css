@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: "Poppins", sans-serif;
     color: #555555;
     background-image: url(https://img.freepik.com/premium-photo/grey-marble-texture-background_34936-2588.jpg?w=2000);
@@ -76,5 +76,92 @@ body {
       color:black;
       
       padding-bottom:1% ;
-    }
+    } */
 
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #555555;
+      background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg);
+    }
+    .container{
+        margin-top:5%;
+      }
+       .row{
+          margin-top:3%;
+          margin-left: 12%;
+      } 
+      .progress{
+        height:5px;
+      }
+      .progress-bar{
+          height:5px;
+      }
+      .gray{  
+        background-color:lightgray;
+      }
+      .gray:hover {
+          background-color:gray;
+      }
+      .row .col-md-6 {
+        margin-top:1%;
+        height: 50%;   
+      }
+      .btn{
+        margin-left: 1%;
+      }
+     
+      
+      @media (max-width: 767px) {
+        .intro-single {
+          padding-top: 10rem;
+        }
+      }
+     
+      
+      .intro-single .title-single-box {
+        border-left: 3px solid #2eca6a;
+      }
+      
+      .intro-single .title-single-box .title-single {
+        font-weight: bold;
+        font-size: 5rem;
+      }
+      
+      @media (min-width: 768px) {
+        .intro-single .title-single-box .title-single {
+          font-size: 2.1rem;
+        }
+      }
+      
+      @media (min-width: 992px) {
+        .intro-single .title-single-box .title-single {
+          font-size: 2.5rem;
+        }
+      }
+      
+    
+      
+      .intro-single .breadcrumb {
+        background-color: transparent;
+        padding-right: 0;
+        padding-left: 0;
+      }
+    
+    
+    
+      .btn{
+    margin-left: 65%;
+    padding-left: 3%;
+    padding-right: 3%;
+    
+      }
+      label{
+       margin-left: -5%;
+       color:black;
+        font-size: large;
+        padding-bottom:1% ;
+      }
+    
+      .form-control{
+        margin-left: -7%;
+      }

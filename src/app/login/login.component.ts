@@ -75,9 +75,10 @@ export class LoginComponent implements OnInit {
       City:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
       UserType:new FormControl('',[Validators.required]),
       Pincode:new FormControl('',[Validators.required,Validators.pattern('[0-9]{6}')]),
-      Street:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      Street:new FormControl('',[Validators.required]),
       State:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
       Company:new FormControl('',[Validators.required]),
+      Message:new FormControl('congratulations your signup successfully!!')
     });
    
     firebase.initializeApp(config)
@@ -207,7 +208,8 @@ export class LoginComponent implements OnInit {
      'You Must  Enter All fields !',           //give for condition to take all properties take empty values
      'error'                                  //then take one alert message like not save all data
    ) 
-}else{
+}
+else{
     
   fetch("http://localhost:2000/signupform/addsignupdetails", {
    method:'post',
@@ -227,16 +229,30 @@ export class LoginComponent implements OnInit {
       'User already registered!',
       'error'
     )
-    window.location.reload()
+    // window.location.reload()
    }else{
     Swal.fire( 'Submitted successfully!', '', 'success').then(() =>{         
-      this.router.navigate(["login"])
-      window.location.reload()
+       this.router.navigate(["login"])
+       window.location.reload()
     })       
    }       
  })       
    .catch(error => console.log('error',error))             
-}
+} 
+
+// fetch("http://localhost:2000/signupform/emailnotification", {
+//   method:'post',
+//   headers:{
+//     "Access-Control-Allow-Origin": "*",
+//     "Content-Type":'application/json'
+//   },
+//   body:JSON.stringify(this.SignupForm.value.Email)
+// }).then(res=> res.json())
+// .then(result=>{ 
+//   console.log(result)
+// }
+// )
+
 }
 
 

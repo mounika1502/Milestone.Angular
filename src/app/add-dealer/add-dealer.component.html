@@ -1,7 +1,7 @@
 <br>
 <br>
 <br>
-<body>
+<!-- <body>
     <div class="row">
       <div class="col-md-12 col-lg-8">
         <div class="title-single-box">
@@ -83,4 +83,76 @@
   </div>
  
   <div class="container"></div>
+   </body> -->
+
+   <body>
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single" style="color:#3b3b3b;font-weight:bold;font-size: 40px;">MILE STONE</h1>
+          <span style="color: #2eca6a"> Dealer Form</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+         <button routerLink="/dealer"  class="btn btn-secondary mr-2" >Go Back</button>
+      </div>
+    </div>
+  <div class="container-fluid ">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-5" style="padding: 3%;">
+        <label>Add Your Picture Here</label>
+         <input type="text" class="form-control" formControlName="Image" id="exampleInputPassword1" placeholder="Upload Your Picture Here" autocomplete="off">
+      </div>  
+      <div class="col-md-5" style="padding: 3%;">
+          <label>StoreId</label>
+          <input type="text" class="form-control" formControlName="StoreId" id="exampleInputPassword1"  autocomplete="off" placeholder="Enter your store Id">
+      </div>
+   
+    <div class="col-md-5" style="padding: 3%;">
+      <label>First Name</label>
+    <input type="text" class="form-control" formControlName="FirstName" id="exampleInputEmail1" placeholder="First Name" autocomplete="off">
+    <span style="color: red;" *ngIf="FirstName && FirstName.invalid && FirstName.touched">Please enter your firstname</span>
+    </div>
+    <div class="col-md-5" style="padding: 3%;">
+      <label>Last Name</label>
+        <input type="text" class="form-control"  formControlName="LastName" id="exampleInputPassword1" placeholder="Last Name" autocomplete="off">
+        <span style="color: red;" *ngIf="LastName && LastName.invalid && LastName.touched">Please enter your lastname</span>
+   </div>
+ 
+    <div class="col-md-5" style="padding: 3%;">
+      <label>Company Name</label>
+    <input type="text" class="form-control" formControlName="CompanyName" id="exampleInputEmail1" placeholder="Company Name" autocomplete="off">
+
+    </div>
+    <div class="col-md-5" style="padding: 3%;">
+      <label>Email Address</label>
+        <input type="text" class="form-control"  formControlName="Email" id="exampleInputPassword1" placeholder="Email Address" autocomplete="off">
+        <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched">Please enter your email</span>
+   </div>
+ 
+      <div class="col-md-5" style="padding: 3%;">
+        <label>Primary Phone Number</label>
+      <input type="text" class="form-control" formControlName="PrimaryPhoneNumber" id="exampleInputEmail1" placeholder="Primary Phone Number" autocomplete="off">
+      <span style="color: red;" *ngIf="PrimaryPhoneNumber && PrimaryPhoneNumber.invalid && PrimaryPhoneNumber.touched">Please enter your primary mobile number</span>
+      </div>
+      <div class="col-md-5" style="padding: 3%;">
+        <label>Business Phone Number</label>
+          <input type="text" class="form-control"  formControlName="BusinessNumber" id="exampleInputPassword1" placeholder="Business Phone Number" autocomplete="off">
+          <span style="color: red;" *ngIf="BusinessNumber && BusinessNumber.invalid && BusinessNumber.touched">Please enter your bussiness mobile number</span>
+     </div>
+   
+    <div class="col-md-10" style="padding: 3%;">
+      <label>Address</label>
+      <textarea type="text" class="form-control"  formControlName="Address" id="exampleInputPassword1" placeholder=" Address" autocomplete="off"></textarea>
+   </div>
+  </div>
+  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-8">
+    <div class="text-center">               
+      <button class="btn btn-primary" (click)="Adddata()"><b>Add</b></button> 
+    </div>
+  </div>
+     <br>
+    </form>
+  </div>
    </body>

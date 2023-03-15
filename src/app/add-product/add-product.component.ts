@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -11,27 +11,55 @@ import Swal from 'sweetalert2';
 export class AddProductComponent implements OnInit {
   productForm: any;
   addProduct=true
+  text: any;
+  size: any;
 
-  constructor( private router:Router) { }
+  constructor( private router:Router,private fb:FormBuilder) { }
 
   ngOnInit(): void {
+
+    
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text)
+
     this.productForm = new FormGroup ({
       imgurl :new FormControl(""),
       prodId: new FormControl(""),
       name: new FormControl(""),
+      color: new FormControl(""),
+      size: new FormControl(""),
+      thick: new FormControl(""),
       qnt: new FormControl(""),
       price: new FormControl(""),
-    })    
+      region: new FormControl(""),
+      quality: new FormControl(""),
+      date: new FormControl(""),
+      mobile:new FormControl(""),
+      description: new FormControl("")
+    })   
+
   }
   cancel(){
     this.addProduct=false
   }
+  toggle(){
+    this.size = !this.size
+  }
 
   submitForm(){
+    console.log(this.productForm.value)
     if(this.productForm.value.imgurl ==''||
     this.productForm.value.prodId ==''||
     this.productForm.value.name ==''||
+    this.productForm.value.color ==''||
+    this.productForm.value.size ==''||
+    this.productForm.value.thick ==''||
     this.productForm.value.qnt ==''||
+    this.productForm.value.region ==''||
+    this.productForm.value.quality ==''||
+    this.productForm.value.date ==''||
+    this.productForm.value.mobile ==''||
+    this.productForm.value.description ==''||
     this.productForm.value.price =='')
     { 
       Swal.fire(  
@@ -53,12 +81,13 @@ export class AddProductComponent implements OnInit {
        
        Swal.fire( 'Submitted successfully!', '', 'success').then(() =>{         
         this.router.navigate(["inventory"])
-        window.location.reload()
       }) 
-   }
+    }
   )      
        .catch(error => console.log('error',error)) 
   }  
+}
+
 }
 
    //this is for  quantity
@@ -76,7 +105,7 @@ export class AddProductComponent implements OnInit {
   //      this.quantity=this.i;
   //    }
   //  } 
-   } 
+   
 
 
 

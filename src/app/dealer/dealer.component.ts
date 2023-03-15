@@ -55,19 +55,20 @@ export class DealerComponent implements OnInit {
     }
     ).catch(err =>
       console.log('error',err))   
-    }
-    sendmail(dealer:any){
-  this.popupdata=true;
-  this.registerForm = dealer
-    }
+  }
+
+  sendmail(dealer:any){
+    this.popupdata=true;
+    this.registerForm = dealer
+  }
     
-    Delete(_id:any){
-      console.log(_id)
-        fetch("http://localhost:2000/dealer/deletedealer/" + _id,{
-         method:'DELETE',
-         headers:{
-           "access-Control-Allow-Origin":"*"
-         },
+  Delete(_id:any){
+    console.log(_id)
+      fetch("http://localhost:2000/dealer/deletedealer/" + _id,{
+       method:'DELETE',
+        headers:{
+         "access-Control-Allow-Origin":"*"
+        },
         })
         .then(response => response.json())
         .then(result=>{
@@ -110,34 +111,13 @@ export class DealerComponent implements OnInit {
      Edit(dealer:any){
           this.popupform=true;
           this.registerForm = dealer
+          localStorage.setItem('edit',JSON.stringify(dealer))
         }
         remove(){
           this.popupform=false;
           this.popupdata=false;
         }
-        update(id:any){
-          const data = {
-            Image: this.registerForm.Image,
-            FirstName:this.registerForm.FirstName,
-            LastName:this.registerForm.LastName,
-            Address:this.registerForm.Address,
-            PrimaryPhoneNumber:this.registerForm.PrimaryPhoneNumber,
-            BusinessNumber:this.registerForm.BusinessNumber,
-            CompanyName:this.registerForm.CompanyName,
-            Email:this.registerForm.Email,
-            StoreId:this.registerForm.StoreId
-          }
-          console.log(data)
-          this.service.updateDealer(data,id).subscribe((datas)=>{
-            console.log(datas)
-            if(datas){
-              Swal.fire('Updated Successfully!', '', 'success').then(() => {
-                window.location.reload();
-              }); 
-            }
-          
-          })
-    }
+       
     sendmessage(){
       this.remove();
       if(this.send.value.To==''||this.send.value.Subject==''||this.send.value.Message==''){

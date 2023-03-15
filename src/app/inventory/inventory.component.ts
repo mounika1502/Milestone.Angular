@@ -10,35 +10,18 @@ import { UpdateService } from '../update.service';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-
-  productForm: any;
+  text: any;
+  searchtext:any
+  
   products:any=[]
-  addProduct= false;
-  editForm=false;
-  data: any;
-  datas:any=[];
-  productform:any={
-    image: '',
-    Number:'',
-    Name:'',
-    Quantity:'',
-    Price:'',
-    Description:''
-  }
 
   constructor( private router:Router,private service:UpdateService) { 
-    this.getProduct(); 
-  }
+   }
 
   ngOnInit(): void {
-    this.productForm = new FormGroup ({
-      image :new FormControl(""),      
-      Name: new FormControl(""),
-      Quantity: new FormControl(this.quantity),
-      Price: new FormControl(""),
-      Number:new FormControl(""),
-      Description: new FormControl("")
-    })
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+     console.log(this.text)
+     this.getProduct(); 
   }
 
    //this is for quantity function
@@ -57,42 +40,18 @@ export class InventoryComponent implements OnInit {
      }
    } 
  
-   closeForm(){
-     this.editForm=false
-   }
- 
- 
- //This is for product adding (post) call
-   submitForm(){
-     console.log(this.productForm) 
-     if(this.productForm.invalid){
-       return
-     }
-         fetch("https://localhost:2000/products/addproduct", {
-        method:'post',
-        headers:{
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type":'application/json'
-        },
-        body:JSON.stringify(this.productForm.value)
-      }).then(res=> res.json())
-      .then(result=>{ 
-        console.log(result)
-        alert('Successfully Submited')
-      }
-        )     
-        .catch(error => console.log('error',error)) 
-   }
- 
    //This is for product getting (gett) call 
-   getProduct(){    
+   getProduct(){
+    var data={
+      mobile:this.text.mobile
+    }    
      fetch("http://localhost:2000/products/getproduct", {
-    method:'get',
+    method:'post',
     headers:{
       "Access-Control-Allow-Origin": "*",
       "Content-Type":'application/json'
     },
-    body:JSON.stringify(this.getProduct)
+    body:JSON.stringify(data)
   }).then(res=> res.json())
   .then(result=>{ 
     console.log(result),
@@ -103,18 +62,7 @@ export class InventoryComponent implements OnInit {
  }
  
  //This is for product delete
- delete(prodId:any){
- 
-   Swal.fire({
-     title: 'Are you sure?',
-     text: "You won't be able to revert this!",
-     icon: 'warning',
-     showCancelButton: true,
-     confirmButtonColor: '#3085d6',
-     cancelButtonColor: '#d33',
-     confirmButtonText: 'Yes, delete it!'
-   }).then((result) => {
- 
+ delete(prodId:any){  
    console.log(Number)
      fetch("http://localhost:2000/products/deleteproduct/" + prodId,{
       method:'DELETE',
@@ -126,26 +74,23 @@ export class InventoryComponent implements OnInit {
      .then(result=>{
       console.log(result)
       this.getProduct()
-    })
-      if (result.isConfirmed) {
-       Swal.fire(
-         'Deleted!',
-         'Your file has been deleted.',
-         'success'
-       )
-     }
-     }
-     ).catch(err =>
+      alert('ok')
+    })     
+     .catch(err =>
       console.log(err))    
-  }
- 
+  } 
+
   //this is for edit the product
   edit(products:any){ 
-   this.productform = products
-   localStorage.setItem('product',JSON.stringify(products)) 
-  //  this.editForm = true;
+  
+   localStorage.setItem('product',JSON.stringify(products))   
  }
-  //this is for product update function
+  
+  description(product:any){
+    window.location.href=("/prod-data")
+    localStorage.setItem('Description',JSON.stringify(product));
+    console.log(product)  
+  }
 
 
 }

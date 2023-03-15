@@ -34,49 +34,7 @@ export class LogComponent implements OnInit {
     private ngZone:NgZone,) { }
 
   ngOnInit(): void {
-
     this.order = JSON.parse(localStorage.getItem('Order') || '{}') 
     console.log(this.order)
-
-    firebase.initializeApp(config)
   }
-  
-   //this is for otp based login page
-   async mobileOtp(){ 
-
-    this.reCaptchaVerifier = new firebase.auth.RecaptchaVerifier(
-      'sign-in-button',
-      {
-        size: 'invisible',
-      }
-    );
-    console.log(this.reCaptchaVerifier);
-  
-    console.log(this.mobile1);
-    firebase
-      .auth()
-      .signInWithPhoneNumber(this.mobile1,this.reCaptchaVerifier)
-      .then((confirmationResult:any) => {
-        localStorage.setItem(
-          'verificationId',
-          JSON.stringify(confirmationResult.verificationId)
-        );
-        localStorage.setItem(
-          'mobileNo',
-          JSON.stringify(this.mobile1)
-        );
-        this.ngZone.run(() => {
-          this.router.navigate(['/otp']);
-        });
-        alert('Otp generated..')
-      })
-      .catch((error:any) => {
-        console.log(error.message);
-        alert(error.message);
-        setTimeout(() => {
-          window.location.reload();
-        }, 5000);
-      });
-    }  
-
 }

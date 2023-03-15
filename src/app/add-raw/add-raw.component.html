@@ -1,0 +1,112 @@
+<br>
+<br>
+<br> 
+<br>
+<br>  
+<body>
+<i class="fa fa-arrow-left" style="margin-left: 1em; color: #697184;" routerLink="/raw"></i> 
+  <div class="container py-5 h-100" >
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border: 0;">
+          <div class="card-body p-4 p-md-5 bg-color-#3b3b3b">
+            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="margin-top:-2.5em;"><b>ADD PRODUCT</b></h1>        
+            <form [formGroup]="productForm" novalidate>
+              <hr>
+              <div class="row text-dark">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="firstName"><b>Upload image :</b></label>
+                    <input type="text" class="form-control form-control-lg" formControlName="Image"  placeholder="upload your image" >                    
+                  </div>
+                   
+                </div>               
+              </div>
+              <div class="row text-dark">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>S.NO :</b></label>
+                    <input type="text" class="form-control form-control-lg" formControlName="Number" placeholder="Enter your product ID">              
+                  </div>
+                </div>
+                  <div *ngIf="productForm.controls['Number'].invalid && productForm.controls['Number'].touched " class="alert alert-danger">
+                    <div *ngIf="productForm.controls['Number'].errors.required">Number is required</div>
+                  </div>
+                 
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Name of product :</b></label>
+                    <input type="text" class="form-control form-control-lg" formControlName="Name" placeholder="Enter your product name">              
+                  </div>
+                </div>                            
+              </div>
+              <div class="row text-dark"> 
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Colour :</b></label>
+                    <input type="text" class="form-control form-control-lg" formControlName="color" placeholder="Enter your product colour">                    
+                  </div>
+                </div>  
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                 <div class="form-outline datepicker w-100">
+                   <label for="birthdayDate" class="form-label"><b>Size :</b></label>
+                   <input type="text" class="form-control form-control-lg" formControlName="size" placeholder="Enter your product size">                    
+                 </div>
+                </div>                
+              </div>
+              <div class="row text-dark">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                    <div class="form-outline datepicker w-100">
+                      <label for="birthdayDate" class="form-label"><b>Region of stone :</b></label>
+                      <input type="text" class="form-control form-control-lg" formControlName="region" placeholder="select your product location">              
+                    </div>
+                  </div>  
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Arrival Date :</b></label>
+                    <input type="date" class="form-control form-control-lg" formControlName="date" placeholder="Enter processing date">              
+                  </div>
+                </div>
+              </div> 
+              <div class="mt-1  text-center ">
+                <button class="submit" type="submit"  (click)="submitForm()">Submit</button>&nbsp;
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>      
+       
+            
+           
+           
+          
+          
+
+     
+
+
+      
+       
+            
+           
+           
+          
+          
+
+     
+
+
+
+       
+            
+           
+           
+          
+          
+
+     
+
+

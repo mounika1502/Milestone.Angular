@@ -1,219 +1,6 @@
-
-<br>
-<br>
-<br>
-<br>
-<!-- <body>
-    <p (click)="Get()"></p>
-     <section class="intro-single">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-lg-8">
-            <div class="title-single-box">
-              <h1 class="title-single">MILE STONE</h1>
-              <span class="color-text-a" style="color:#2eca6a" > Dealers</span>
-            </div>
-          </div>
-          <div class="col-md-12 col-lg-4">
-            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-             <button routerLink="/add-dealer"  class="btn btn-success mr-2" style="float:right">Add a Dealer</button>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </section>
-          <section class="main">
-            <div *ngFor="let test of dealer">
-          <div class="users">
-            <div class="card">
-          <table>
-                    <div class="agent-avatar-box">
-                      <img src="{{test.Image}}" alt="" style="width:60%;height: 150px;" class="agent-avatar img-fluid">
-                    </div>
-                  <br>
-                  <div class="col-md-12 section-md-t3">
-                    <div class="agent-info-box">
-                      <div class="agent-title">
-                        <div class="title-box-d">
-                          <h3 class="title-d"  >{{test.FirstName}}  {{test.LastName}}
-                          </h3>
-                        </div>
-                      </div>
-                      <div class="agent-content mb-3">
-                        <div class="info-agents color-a">
-                          <p>
-                            <strong style="  float:left;">StoreId: </strong>
-                            <span class="color-text-a" style="  float:right;">{{test.StoreId}}</span>
-                          </p>
-                          <br>
-                          <br>
-                          <p>
-                            <strong style="  float:left;">Company Name: </strong>
-                            <span class="color-text-a" style="  float:right;">{{test.CompanyName}}</span>
-                          </p>
-                          <br> 
-                          <p>
-                            <strong style="  float:left;">Email Address:  </strong>
-                            <span class="color-text-a" style="  float:right;"> {{test.Email}}</span>
-                          </p>
-                          <br>
-                          <p>
-                            <strong style="  float:left;">Phone Number: </strong>
-                            <span class="color-text-a" style="  float:right;"> {{test.PrimaryPhoneNumber}}</span>
-                          </p>
-                          <br>
-                          <p>
-                            <strong style="  float:left;">Business PhoneNumber: </strong>
-                            <span class="color-text-a" style="  float:right;"> {{test.BusinessNumber}}</span>
-                          </p>
-                          <br>
-                          <p>
-                              <strong style="  float:left;">Address: </strong>
-                            <span class="color-text-a" style="  float:right;"> {{test.Address}}</span>
-                          </p>  
-                          <br>
-                          <button class="btn btn-success"  (click)="sendmail(test)" style="float:left;">Send Mail</button> 
-                        </div>
-                      </div>
-                    <br>
-                    <br>
-                    <span style="padding:3%">
-                      <button   class="btn btn-primary" style="width:70px;float: left;" (click)="Edit(test)">Edit</button>
-                      </span>
-                      <span>
-                      <button (click)="Delete(test._id)" style="float:left" class="btn btn-danger">Delete</button>
-                      </span>
-                      <div class="socials-footer">
-                        <ul class="list-inline">
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-facebook" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-twitter" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-instagram" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-linkedin" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-           </table>
-                  </div>
-    </div>
-    </div>
-    </section>
-    
-    
-    
-    <div class="container-fluid " *ngIf="popupform">
-      <div class="pop-up-drop1">
-      <div class="pop-up">
-        <div ><i class="fa fa-remove" (click)="remove()" style="font-size:24px;float:right;color:red"></i></div>
-        <h1 style="text-align:center;color:white;font-weight:bold;font-size:50px;margin-top: 5%;">Edit Dealer</h1>
-    <div class="row"  style="margin-left:10%;">
-      <div class="col-md-10">
-    
-        <label>Add Your Picture Here</label>
-      <span><input type="text" class="form-control"  [(ngModel)]="registerForm.Image" placeholder="Image" autocomplete="off"></span>
-    
-      </div>
-      </div><br>
-      <div class="row"  style="margin-left:10%;">
-        <div class="col-md-10">
-      
-          <label>StoreId:</label>
-        <span><input type="text" class="form-control"  [(ngModel)]="registerForm.StoreId" placeholder="StoreId" autocomplete="off"></span>
-      
-        </div>
-        </div><br>
-    <div class="row"  style="margin-left:10%;">
-    <div class="col-md-5">
-      <label >First Name</label>
-    <input  type="text" class="form-control" [(ngModel)]="registerForm.FirstName" placeholder="First Name" autocomplete="off">
-    </div><br>
-    <div class="col-md-5">
-      <label>Last Name</label>
-        <input type="text" class="form-control" [(ngModel)]="registerForm.LastName"  placeholder="Last Name" autocomplete="off">
-    </div>
-    </div><br>
-    <div class="row" style="margin-left:10%;">
-    <div class="col-md-5">
-      <label>Company Name</label>
-    <input type="text" class="form-control" [(ngModel)]="registerForm.CompanyName"  placeholder="Company Name" autocomplete="off">
-    </div><br>
-    <div class="col-md-5">
-      <label>Email Address</label>
-        <input type="text" class="form-control"  [(ngModel)]="registerForm.Email" placeholder="Email Address" autocomplete="off">
-    </div>
-    </div><br>
-    <div class="row"  style="margin-left:10%;">
-      <div class="col-md-5">
-        <label>Primary Phone Number</label>
-      <input type="text" class="form-control" [(ngModel)]="registerForm.PrimaryPhoneNumber" placeholder="Primary Phone Number" autocomplete="off">
-      </div><br>
-      <div class="col-md-5">
-        <label>Business Phone Number</label>
-          <input type="text" class="form-control"  [(ngModel)]="registerForm.BusinessNumber"  placeholder="Business Phone Number" autocomplete="off">
-     </div>
-    </div><br>
-    <div class="row"  style="margin-left:10%;">
-    <div class="col-md-10">
-      <label>Address</label>
-      <textarea type="text" class="form-control" [(ngModel)]="registerForm.Address"  placeholder=" Address" autocomplete="off"></textarea>
-    </div>
-    </div><br>
-    
-    <div class="row"  style="margin-left:10%;margin-top: 5%;">
-    <button  type="button" style="margin-left: 30%;" (click)="update(registerForm._id)"  class="btn btn-primary btn-close-white col-md-2 col-xs-2">Update</button>
-    </div>
-    </div>
-    </div>
-    </div>
-          <div class="container" *ngIf="popupdata">
-            <div class="pop-up-drop-form">
-            <div class="pop-up-form">
-              <div ><i class="fa fa-remove" (click)="remove()" style="font-size:24px;float:right;color:red"></i></div>
-              <h1 class="text-center;" style="text-align:center;color:white;font-weight: bold;font-size: 60px;">Email Sending </h1>
-              
-              <form [formGroup]="send" autocomplete="off" action="/emailnotification" method="POST" enctype="multipart/form-data">
-                  <div class="form-group">
-                    <h2 style="color:white;">To:</h2> <input [(ngModel)]="registerForm.Email" class="form-control" type="email" formControlName="To" required >  
-                  </div>
-                  <br>
-                  <div class="form-group">
-                    <h2 style="color:white;"> Subject::</h2>  <input  class="form-control" type="text"  formControlName="Subject" required > 
-                  </div>
-                  <br>
-                  <div class="form-group">
-                    <h2 style="color:white;"> Message: </h2>  <textarea  class="form-control" type="body" cols="30" rows="10"  formControlName="Message" required ></textarea>
-                  </div>
-                  <br>
-                  <div class="form-group">
-                      <button class="btn btn-primary btn-close-white " style="margin-left:45%;" (click)="sendmessage()" > Send Message</button>
-                  </div>
-              </form>
-          </div>
-          </div>
-          </div>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-      </body>
-     -->
-
-     <head>
+   <!-- <head>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    </head>
+    </head> 
       <br>
       <br>
      <br><br>
@@ -227,12 +14,12 @@
             <div class="col-md-12 col-lg-8">
               <div class="title-single-box">
                 <h1 class="title-single">MILE STONE</h1>
-                <span class="color-text-a" style="color:#2eca6a" > Dealers</span>
+                <span class="color-text-a" style="color:#2eca6a"> Dealers</span>
               </div>
             </div>
             <div class="col-md-12 col-lg-4">
               <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-               <button  [hidden]= "aa === 'Manufacturer'" routerLink="/add"  class="btn btn-success mr-2" style="float:right">Add a Dealer</button>
+               <button  [hidden]= "aa === 'Manufacturer'" routerLink="/add-dealer"  class="btn btn-success mr-2" style="float:right">Add a Dealer</button>
               </nav>
             </div>
           </div>
@@ -346,4 +133,143 @@
             <br><br>
          
     
-        </body>
+        </body> -->
+
+        <head>
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        </head>
+          <br>
+          <br>
+          <br>
+          <br>
+          <body>
+            <input type="text"  style=" width: 88%; padding: 2%; font-size: large; margin-left: 3%; border: 1px solid rgb(159, 159, 159);  padding: 1%; position: fixed; " value="submit" placeholder= "Search..." [(ngModel)]="searchtext" name="array id" class="form-control"><br><br><br>
+          <p (click)="Get()"></p>
+        
+           <section class="intro-single">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 col-lg-8">
+                  <div class="title-single-box">
+                    <h1 class="title-single">MILE STONE</h1>
+                    <span class="color-text-a" style="color:#2eca6a" > Dealers</span>
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-4">
+                  <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                   <button routerLink="/add-dealer"  class="btn btn-success mr-2" style="float:right">Add a Dealer</button>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </section><br>
+        
+                <section class="main">
+                  <div *ngFor="let test of dealer | filter:searchtext">
+                <div class="users">
+                  <div class="card">
+                <table>
+                          <div class="agent-avatar-box"><br>
+                            <br>
+                            <img src="{{test.Image}}" alt="" style="width:30%;height: 90px;" class="agent-avatar img-fluid">
+                          </div>
+                          <br>
+                      
+                        <div class="col-md-12 section-md-t3">
+                          <div class="agent-info-box">
+                            <div class="agent-title">
+                              <div class="title-box-d">
+                                <h3 class="title-d"  >{{test.FirstName}}  {{test.LastName}}
+                                </h3>
+                              </div>
+                            </div>
+                            <div class="agent-content mb-3">
+                              <div class="info-agents color-a">
+                                <p>
+                                  <strong style="  float:left;">StoreId: </strong>
+                                  <span class="color-text-a" style="  float:right;">{{test.StoreId}}</span>
+                                </p>
+                                <br>
+                                <br>
+                                <p>
+                                  <strong style="  float:left;">Company Name: </strong>
+                                  <span class="color-text-a" style="  float:right;">{{test.CompanyName}}</span>
+                                </p>
+                                <br> 
+                                <p>
+                                  <strong style="  float:left;">Email Address:  </strong>
+                                  <span class="color-text-a" style="  float:right;"> {{test.Email}}</span>
+                                </p>
+                                <br>
+                                <p>
+                                  <strong style="  float:left;">Phone Number: </strong>
+                                  <span class="color-text-a" style="  float:right;"> {{test.PrimaryPhoneNumber}}</span>
+                                </p>
+                                <br>
+                                <p>
+                                  <strong style="  float:left;">Business PhoneNumber: </strong>
+                                  <span class="color-text-a" style="  float:right;"> {{test.BusinessNumber}}</span>
+                                </p>
+                                <br>
+                                <p>
+                                    <strong style="  float:left;">Address: </strong>
+                                  <span class="color-text-a" style="  float:right;"> {{test.Address}}</span>
+                                </p>  
+                                <br>
+                             
+                              </div>
+                            </div>
+                            <span style="padding:3%">
+                              <button class="btn btn-success" [hidden]="aa === 'Dealer'" (click)="sendmail(test)" style="float:left;">Send Mail</button> 
+                              </span>
+                          <span style="padding:3%">
+                            <button   class="btn btn-primary" [hidden]="aa === 'Manufacturer'" style="width:70px;float: left;" routerLink="/dealer-update" (click)="Edit(test)">Edit</button>
+                            </span>
+                            <span>
+                            <button (click)="Delete(test._id)" [hidden]="aa === 'Dealer'" [hidden]="aa === 'Manufacturer'" style="float:left" class="btn btn-danger">Delete</button>
+                            </span>
+                            <br>
+                            <br>
+                            <br>
+                         
+                          </div>
+                        </div>
+                 </table>
+                        </div>
+          </div>
+          </div>
+          </section>
+          
+          
+          <br>
+          <br>
+                <div class="container" *ngIf="popupdata">
+                  <div class="pop-up-drop-form">
+                  <div class="pop-up-form">
+                    <div ><i class="fa fa-remove" (click)="remove()" style="font-size:24px;float:right;color:red"></i></div>
+                    <h1 class="text-center;" style="text-align:center;color:#3b3b3b;;font-weight: 700;font-size: 30px;">Send Mail To Dealer</h1>
+                    
+                    <form [formGroup]="send" autocomplete="off" action="/emailnotification" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                          <h2 style="color: #3b3b3b;">To:</h2> <input [(ngModel)]="registerForm.Email" class="form-control" type="email" formControlName="To" required >  
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <h2 style="color:#3b3b3b;;"> Subject::</h2>  <input  class="form-control" type="text"  formControlName="Subject" required > 
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <h2 style="color:#3b3b3b;;"> Message: </h2>  <textarea  class="form-control" type="body"   formControlName="Message" required ></textarea>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <button class="btn btn-secondary  " style="margin-left:40%;" (click)="sendmessage()" > Send Message</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+                </div> 
+                <br><br>
+             
+        
+            </body>

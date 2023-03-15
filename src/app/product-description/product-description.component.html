@@ -1,0 +1,64 @@
+
+
+<br>
+<br>
+<i class="fa fa-arrow-left" style="margin-left: 1em; margin-top: 2em;" routerLink="/inventory"></i>
+<br>
+<br>
+  <body> 
+    <div class="container bootdey">
+      <div class="panel panel-default panel-order">        
+        <div class="panel-body" >                           
+            <div>
+              <div class="row">
+                  <div class="col-md-1"><img src ="{{data.imgurl}}" style="width:80%;"></div>
+                    <div class="col-md-11">
+                        <div class="row">
+                          <div class="col-md-12" style="padding:25px; font-size: 1.5em;" >  
+                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Product Id : </b> {{data.prodId}}</span><br> 
+                            <hr>                               
+                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.name}}</span><br><hr>  
+                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Colour &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>{{data.color}}</span><br><hr>  
+                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">size &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.size}}</span><br><hr>  
+                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Thickness &nbsp;&nbsp;: </b> {{data.thick}}</span><br> <hr>  
+                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Quantity &nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.qnt}}</span><br> <hr>  
+                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.price}}</span><br> <hr>  
+                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Quality &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.quality}}</span><br><hr>  
+                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Location of stone : </b> {{data.region}}</span><br> <hr>  
+                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Processing date &nbsp;&nbsp;&nbsp;: </b> {{data.date}}</span><br>  <hr>               
+                             <span class="label label-info"><b style="color: rgb(81, 81, 211)">Description : </b>{{data.description}}</span><br>                            
+                          </div>                               
+                        </div>
+                        <div>
+                            <button class="btn btn-danger" (click)="delete(data.prodId)">Delete</button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-primary" style="width:5em" (click)="edit(data)" routerLink="/dealerproduct">Edit</button>
+                        </div>
+                    </div> 
+                  </div>
+              </div> 
+                                
+        
+                                            
+            </div>                               
+        </div>
+   </div>                          
+</body>
+
+
+
+
+
+    
+
+ 
+
+
+    
+   
+ 
+
+ 
+
+ 
+ 

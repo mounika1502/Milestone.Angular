@@ -1,0 +1,68 @@
+<br><br><br><br><br><br>
+<body>
+    <div class="container py-10 h-100" >
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-5-strong card-registration" style="border-radius: 10px; ">
+            <div class="card-body p-4 p-md-5 bg-color-#3b3b3b" >
+              <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="color: rgb(56, 55, 55);font-size: 40px;font-weight: 800;">Update Status</h1>            
+              <hr>
+                <div class="row text-black" >
+                  <div class="col-md-8 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="firstName" style="color:rgb(68, 68, 68)"> Uploading Image:</label>&nbsp;&nbsp;
+                    <img src="{{this.order2.imgurl}}" name="imgurl" style="width:50%;height:50%">           
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-4">
+                      <div class="form-outline">
+                        <label class="form-label" for="lastName" style="color:rgb(68, 68, 68)">Product Name:</label><br>
+                        <!-- <button type="button" class="bt" (click)="minus()"><i class="fa fa-minus"></i></button> -->
+                        <input   class="form-control form-control-lg" style="color:black" [(ngModel)]="this.order2.name" name="name">
+                        <!-- <button type="button" class="bt-t" (click)="plus()"><i class="fa fa-plus"></i></button>  -->                                 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row text-white">
+                      <div class="col-md-12 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label" for="lastName" style="color:rgb(68, 68, 68)">Product Price:</label>
+                          <input type="email" class="form-control form-control-lg" style="color:black" [(ngModel)]="this.order2.price" name="price" >
+                        </div>
+                      </div>
+                  <div class="row text-white">
+                      <div class="col-md-12 mb-4">
+                        <div class="form-outline datepicker w-100">
+                          <label class="form-label" for="lastName" style="color:rgb(68, 68, 68)">Total::</label>
+                          <input type="text" class="form-control form-control-lg" style="color:black" [(ngModel)]="this.order2.Grandtotal" name="Grandtotal" >              
+                        </div>
+                      </div>
+                      <div class="row text-white">
+                          <div class="col-md-12 mb-4">
+                            <label class="form-label" for="lastName" style="color:rgb(68, 68, 68)">Product Quantity:</label>
+                            <input type="text" class="form-control form-control-lg" style="color:black" [(ngModel)]="this.order2.qnt" name="qnt" >                    
+                          </div>
+                        </div>
+                        <div class="row text-white">
+                          <div class="col-md-12 mb-4">
+                            <label class="form-label" for="lastName" style="color:rgb(68, 68, 68)">Order Status:</label>
+                            <input type="text" class="form-control form-control-lg" style="color:black" [(ngModel)]="this.order2.OrderStatus" name="OrderStatus"  >                    
+                          </div>
+                        </div>                 
+                </div>            
+            </div>
+            <div class="row text-white">
+              <div class="col-md-12 mb-4">
+                <label class="form-label" for="lastName" style="color:rgb(68, 68, 68)">Delivery Time:</label>
+                <input type="text" class="form-control form-control-lg" style="color:black" [(ngModel)]="this.order2.ApproximateTime" name="ApproximateTime"  >                    
+              </div>
+            </div>                 
+                <div class="mt-4 pt-2 text-center ">
+                  <button class="btn btn-primary btn-lg" type="submit"  (click)="update(this.order2._id)">Update</button>&nbsp;
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </body>

@@ -14,43 +14,44 @@ export class DealerProductComponent implements OnInit {
   data: any;
 
 
-  constructor( private service:UpdateService,private router:Router) { }
+  constructor(private service:UpdateService,private router:Router) { }
 
   ngOnInit(): void {
     const localdata=localStorage.getItem('product')
     if(localdata!=null){
       this.data=JSON.parse(localdata)
-    }
-   
+    }   
   }
   updateProduct(id:any){
     localStorage.setItem('product',JSON.stringify(this.data))
     const data = {
       imgurl: this.data.imgurl,
       prodId: this.data.prodId,
-      //Number:this.data.Number,
       name:this.data.name,
       qnt:this.data.qnt,
       price:this.data.price,
-      Description:this.data.Description
+      color:this.data.color,
+      size:this.data.size,
+      thick:this.data.thick,
+      quality:this.data.quality,
+      region:this.data.region,
+      date:this.data.date,
+      description:this.data.Description
     }
     console.log(data)
     this.service.update(data,id).subscribe((datas)=>{
       console.log(datas)
       if(datas){
           Swal.fire( 'Updated successfully!', '', 'success').then(() =>{ 
-                 
+            this.router.navigate(['/inventory'])     
           }) 
+          
       }
     })  
   }
 
   closeForm(){
-    this.router.navigate(["product"])
-  }
-
- 
-
- 
+    this.router.navigate(["inventory"])
+  } 
 
 }

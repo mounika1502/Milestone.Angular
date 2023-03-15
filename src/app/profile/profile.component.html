@@ -1,9 +1,9 @@
 <br>
 <br>
 <br>
-<!-- bootatrap profile form -->
+<!-- bootatrap profile form   *ngIf="profile"-->
 
-  <div class="container py-5 h-100" *ngIf="profile">
+  <div class="container py-5 h-100" >
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-lg-6 mb-4 mb-lg-0">
         <div class="card mb-3" style="border-radius: .5rem;">
@@ -14,7 +14,7 @@
                 alt="Avatar" class="img-fluid my-5" style="width: 90px;" />
               <h2>{{text.Firstname}} {{text.Lastname}}</h2>
              
-              <i class="fa fa-pencil-square-o" style="color: rgb(243, 241, 245);" (click)="edit(text)"></i>
+              <i class="fa fa-pencil-square-o" style="color: rgb(243, 241, 245);" (click)="edit(text)" routerLink="/profile-update"></i>
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">
@@ -22,32 +22,32 @@
                 <hr class="mt-0 mb-4">
                 <div class="row">
                   <div class="col-21 mb-3">
-                    <h3>Phone : {{text.mobile}} </h3>
+                    <h3>Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{text.mobile}} </h3>
                   </div>
                   <div class="col-12 mb-3">
-                    <h3>Email : {{text.Email}}</h3>
+                    <h3>Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{text.Email}}</h3>
                     </div>
-                  <div class="col-21 mb-3">
-                    <h3>Password : {{text.Password}} </h3>
-                  </div>
+                   <div class="col-21 mb-3">
+                    <h3>User Type &nbsp;: {{text.UserType}} </h3>
+                  </div> 
                 </div>
                 <h5 style="color: blue;">Address</h5>
                 <hr class="mt-0 mb-4">
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
-                    <h5>Street : </h5>
+                    <h4 style="color: rgb(255, 0, 0);">Street : </h4>
                     <h3>{{text.Street}}</h3>
                   </div>
                   <div class="col-6 mb-3">
-                    <h5>City : </h5>
+                    <h4 style="color: rgb(255, 0, 0);">City : </h4>
                     <h3>{{text.City}}</h3>
                   </div>
                   <div class="col-6 mb-3">
-                    <h5>State :  </h5>
+                    <h4 style="color: rgb(255, 0, 0);">State : </h4>
                     <h3> {{text.State}}</h3>
                   </div>
                   <div class="col-6 mb-3">
-                    <h5>Pincode :  </h5>
+                    <h4 style="color: rgb(255, 0, 0);">Pincode : </h4>
                     <h3> {{text.Pincode}} </h3>
                   </div>
                 </div>
@@ -62,6 +62,7 @@
 
 
   <div class="container py-5 h-100" *ngIf="editform">
+    <i class="fa fa-arrow-left" style="margin-left: 1em;" (click)="closeForm()"></i>
     <div class="row justify-content-center align-items-center h-100">
       <div class="col-12 col-lg-9 col-xl-7">
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
@@ -106,7 +107,6 @@
                     <input type="text" class="form-control form-control-lg" [(ngModel)]="text.Password"  formControlName="Password">
                     
                   </div>
-
                 </div>              
               </div>
 

@@ -8,3 +8,14 @@
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right bottom, rgb(72, 82, 168), rgb(190, 120, 100))
     }
+    .submit{
+      background-color: #697184;
+      color: white;
+      border: 0;
+      border-radius: 5px;
+      height: 2.5em;
+      width: 5.5em;
+  }
+  body{
+    background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg);
+}

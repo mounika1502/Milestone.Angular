@@ -1,0 +1,47 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<input type="text"  style=" width: 80%; font-size: large; margin-left: 3em; justify-content: center; " value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+<button class="addproduct" routerLink="/add-raw">Add Raw-Product</button>
+<br>
+<br>
+<br>
+<br>
+<div class="row row-cols-1 sm-1 row-cols-md-5 p-2 g-5">
+  <div *ngFor="let product of products | filter : searchtext ">
+    <div class="col">
+       <div class="card h-100">
+           <img src={{product.Image}} class="card-img-top" style="height:13em">
+          <div class="card-body">
+            <table>
+              <tr>
+                <td><b style="color: rgb(77, 77, 180);"> S.NO </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td>
+                <td> {{product.Number}}</td>
+              </tr>
+              <tr>
+                <td><b style="color: rgb(77, 77, 180);"> Name </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td>
+                <td>{{product.Name}}</td>
+              </tr>
+              <tr>
+                <td><b style="color: rgb(77, 77, 180);"> Colour </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td>
+                <td>{{product.color}}</td>
+              </tr>
+              <tr>
+                <td><b style="color: rgb(77, 77, 180);"> Location </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td>
+                <td>{{product.region}}</td>
+              </tr>
+              <tr>
+                <td><b style="color: rgb(77, 77, 180);"> Arrival- Date </b>:</td>
+                <td>{{product.date}}</td>
+              </tr>
+            </table> 
+            <div>
+              <button style="width: 4em; background-color: rgb(232, 79, 79);color: white;border-radius: 5px;border: 0;"  (click)="delete(product.Number)">Delete</button>&nbsp;
+              <button style="width: 4em; background-color: rgb(80, 98, 237);color: white;border-radius: 5px;border: 0;"  (click)="edit(product)" routerLink="/raw-update">Edit</button>
+            </div>        
+         </div>
+      </div>
+  </div>
+</div>

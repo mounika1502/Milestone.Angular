@@ -41,12 +41,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
      console.log(this.text)
-     
-    // for(let i=0;i<this.data.length;i++){
-    //  this.loginData =this.data[i]
-    // }
-    //this.loginData = this.data  
-    // console.log(this.loginData)
 
     this.updateform = this.fb.group({
       Firstname:[''],
@@ -62,11 +56,6 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  logout(){
-    localStorage.clear();
-    window.location.href=("/login")
-  }
-
   closeForm(){
     this.editform = false
     this.profile = true
@@ -76,6 +65,8 @@ export class ProfileComponent implements OnInit {
     this.editform = true
     this.profile = false
      this.profileForm = loginData
+     localStorage.setItem('Profile',JSON.stringify(loginData))
+     console.log(loginData)  
   }
   
   // updateData(id:any){

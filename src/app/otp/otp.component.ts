@@ -54,7 +54,6 @@ export class OtpComponent implements OnInit {
     }
    }
 
-
    constructor(private router:Router,private ngZone: NgZone) {
      this.form = this.toFormGroup(this.formInput);
    }

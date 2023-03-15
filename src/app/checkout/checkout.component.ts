@@ -75,7 +75,7 @@ cash1(){
           "Access-Control-Allow-Origin":"*",
           "Content-Type":'application/json'
         },
-      body:JSON.stringify(Obj)
+        body:JSON.stringify(Obj)
        
       })  .then(response => response.json())
       

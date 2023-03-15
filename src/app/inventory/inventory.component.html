@@ -2,45 +2,31 @@
 <br>
 <br>
 <br>
-<button class="addproduct" routerLink="/add-product"><b>Add your product</b></button>
+<br>
+<br>
+<input type="text"  style=" width: 80%; font-size: large; margin-left: 2.5em; " value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+<button class="addproduct" routerLink="/add-product">Add Your Product</button>
 <br>
 <br>
 <br>
 <br>
-
-
-<div class="row row-cols-2 row-cols-sm-3  g-4"  >
-  <div *ngFor="let product of products">
-<div class="col">
-
-<div class="card h-100" style="margin: 7px; border-color: rgb(113, 113, 110);">
-<img src={{product.imgurl}} class="card-img-top" style="height:10em" >
-<div class="card-body">
-  <tr>
-    <td style="padding: 0%;" class="tdstyle"> Name : </td>
-    <td>{{product.name}}</td>
-  </tr>
-
-  <tr>
-    <td class="tdstyle"> Price: </td>
-    <td>{{product.price}}</td>
-  </tr>
-  <tr>
-    <td class="tdstyle"> Qnt: </td>
-    <td>{{product.qnt}}</td>
-  </tr>
-  <tr>
-    <td class="tdstyle"> Product ID </td>
-    <td>{{product.prodId}}</td>
-  </tr>
-  <div>
-    <i class="fa fa-trash-o" style="color: red;" (click)="delete(product.prodId)"></i>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <i class="fa fa-pencil-square-o" style="color: blue;" (click)="edit(product)" routerLink="/dealerproduct"></i>
-  </div> 
-</div>
-</div>
-</div>
+<div class="row row-cols-2 row-cols-sm-4  g-4"  >
+  <div *ngFor="let product of products | filter : searchtext ">
+    <div class="col">
+       <div class="card h-100" style="margin: 7px; border-color: rgb(113, 113, 110);">
+           <img src={{product.imgurl}} class="card-img-top" style="height:10em" (click)="description(product)">
+          <div class="card-body"> 
+            <div ><b style="color: rgb(77, 77, 180);">Name </b>&nbsp;:{{product.name}}</div> 
+            <div ><b style="color: rgb(77, 77, 180);"> Size </b>&nbsp;&nbsp;&nbsp;&nbsp;: {{product.size}}</div>
+            <div ><b style="color: rgb(77, 77, 180);">Price/SQFT</b>&nbsp;&nbsp;&nbsp;: {{product.price}}</div>             
+            <br>
+          <div>
+              <button style="width: 4em; background-color: red;color: white;border-radius: 5px;border: 0;"  (click)="delete(product.prodId)">Delete</button>&nbsp;
+              <button style="width: 4em; background-color: blue;color: white;border-radius: 5px;border: 0;" (click)="edit(product)" routerLink="/dealerproduct">Edit</button>
+            </div>        
+         </div>
+      </div>
+  </div>
 </div>
 
 

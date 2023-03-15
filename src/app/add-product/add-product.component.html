@@ -1,65 +1,134 @@
 <br>
 <br>
-<br>    
-  <div class="container py-5 h-100" >
+<br> 
+<br>
+<br> 
+<body>
+<i class="fa fa-arrow-left" style="margin-left: 1em; font-size: 20px; color: #697184;" routerLink="/inventory"></i> 
+  <div class="container h-100" >
     <div class="row justify-content-center align-items-center h-100">
       <div class="col-12 col-lg-9 col-xl-7">
-        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;  background-image: url(https://w0.peakpx.com/wallpaper/474/857/HD-wallpaper-abstract-31-art-background-color-creativity-design-form-geometry-graphics-lines.jpg);">
+        <div class="card shadow-2-strong card-registration" style="border:0;  background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg);">
           <div class="card-body p-4 p-md-5 bg-color-#3b3b3b">
-            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="color: white;">ADD PRODUCT</h1>        
+            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="color: #697184;"><b>ADD PRODUCT</b></h1>        
             <form [formGroup]="productForm">
             <hr>
-              <div class="row text-white">
-                <div class="col-md-8 mb-4">
-                  <div class="form-outline">
-                    <label class="form-label" for="firstName">Upload image:</label>
+              <div class="row text-dark">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">                    
+                    <label class="form-label" for="firstName"><b>Upload image :</b></label>
                     <input type="text" class="form-control form-control-lg" formControlName="imgurl"  placeholder="upload your image" >                    
                   </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                  <div class="form-outline">
-                    <label class="form-label" for="lastName">Quantity:</label><br>
-                    <!-- <button type="button" class="bt" (click)="minus()"><i class="fa fa-minus"></i></button> -->
-                    <input   class="form-control form-control-lg" formControlName="qnt" >
-                    <!-- <button type="button" class="bt-t" (click)="plus()"><i class="fa fa-plus"></i></button>  -->
-                                      
+                  <div class="form-outline">                    
+                    <input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" placeholder="upload your image" >                    
                   </div>
-                </div>
+                </div>               
               </div>
-
-              <div class="row text-white">
+              <div class="row text-dark">
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label">Product Id:</label>
-                    <input type="text" class="form-control form-control-lg" formControlName="prodId" placeholder="Enter your product number">              
+                    <label for="birthdayDate" class="form-label"><b>S.NO :</b></label>
+                    <input type="text" class="form-control form-control-lg" formControlName="prodId" placeholder="Enter your product ID">              
                   </div>
+                </div> 
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Name of product :</b></label>
+                    <input type="text" class="form-control form-control-lg" formControlName="name" placeholder="Enter your product name">              
+                  </div>
+                </div>                            
+              </div>
+              <div class="row text-dark"> 
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Colour :</b></label>
+                    <input type="text" class="form-control form-control-lg" formControlName="color" placeholder="Enter your product colour">                    
+                  </div>
+                </div>  
+                <div class="col-md-5 mb-1 align-items-center">   
+                 <div class="form-outline datepicker w-80" style="margin-bottom: -2em;">
+                   <label for="birthdayDate" class="form-label"><b>Size :</b></label>               
+                   <input type="text" class="form-control form-control-lg" formControlName="size" >                                                     
+                 </div>                 
+                </div>  
+                <div class="col mb-4" style="margin-top: 2.5em;">   
+                    <i class="fa fa-question-circle-o" style="font-size:20px; color: rgb(102, 102, 232);" (click)="toggle()"></i>                                                
+                </div> 
+                <div *ngIf ="size" style="float: left;margin-top: -5px;">
+                  <div class="form-control" style=" background-color: #9a9fa9; color: white;">
+                    <p>This field provides value according to <b>length x breadth</b></p>
+                  </div>
+                </div>                         
+              </div>             
+              <div class="row text-dark">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Thickness :</b></label>
+                    <select  class="form-control"  formControlName="thick" style="padding: 3%;" >
+                      <option value="">--Select--</option>
+                      <option value="3cm"> 3Cm</option>
+                      <option value="2cm">  2cm</option>
+                    </select>                    
+                 </div>
                 </div>
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label">Price:</label>
+                    <label for="birthdayDate" class="form-label"><b>Available Quantity :</b></label>
+                    <input type="text" class="form-control form-control-lg" formControlName="qnt" placeholder="Enter your product qnty">              
+                  </div>
+                </div>                             
+              </div>
+              <div class="row text-dark">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Price /SQFT :</b></label>
                     <input type="text" class="form-control form-control-lg" formControlName="price" placeholder="Enter your price">                    
                   </div>
-                </div>              
+                </div> 
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Region of stone :</b></label>
+                    <input type="text" class="form-control form-control-lg" formControlName="region" placeholder="select your product location">              
+                  </div>
+                </div>                             
               </div>
-
-              <div class="row text-white">
-                <div class="col-md-12 mb-4 pb-2">
-                  <div class="form-outline">
-                    <label class="form-label" for="emailAddress">Name of product :</label>
-                    <input type="email" class="form-control form-control-lg" formControlName="name" placeholder="Enter your product name">
+              <div class="row text-dark">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Quality :</b></label>
+                    <select  class="form-control"  formControlName="quality" style="padding: 2%;" >
+                      <option value="">--Select--</option>
+                      <option value="Premium"> Premium</option>
+                      <option value="Standard">  Standard</option>
+                      <option value="Commercial">  Commercial</option>
+                    </select>                                       
+                  </div>
+                </div> 
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Processing Date :</b></label>
+                    <input type="date" class="form-control form-control-lg" formControlName="date" placeholder="Enter processing date">              
                   </div>
                 </div>
-              </div>               
-
-              <div class="mt-4 pt-2 text-center ">
-                <button class="btn btn-primary btn-lg" type="submit"  (click)="submitForm()">Submit</button>&nbsp;
+              </div>
+              <div class="row text-dark">
+                <div class="col-md-12  pb-2">
+                  <div class="form-outline">
+                    <label class="form-label" for="emailAddress"><b>Description :</b></label>
+                    <textarea type="email" class="form-control form-control-lg" cols="5" rows="5" formControlName="description" placeholder="Enter your message"></textarea>
+                  </div>
+                </div>
+              </div> 
+              <div class="mt-1  text-center ">
+                <button class="submit" type="submit"  (click)="submitForm()">Submit</button>&nbsp;
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-  </div>      
+  </div>
+</body>      
        
             
            

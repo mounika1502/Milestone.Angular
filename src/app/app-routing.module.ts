@@ -19,6 +19,14 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { DealerProductComponent } from './dealer-product/dealer-product.component';
 import { LogComponent } from './log/log.component';
+import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { UpdatestatusComponent } from './updatestatus/updatestatus.component';
+import { DealerUpdateComponent } from './dealer-update/dealer-update.component';
+import { ProfileUpdateComponent } from './profile-update/profile-update.component';
+import { RawMaterialComponent } from './raw-material/raw-material.component';
+import { AddRawComponent } from './add-raw/add-raw.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { RawUpdateComponent } from './raw-update/raw-update.component';
 
 const routes: Routes = [
  // { path:'',redirectTo:'login',pathMatch:'full'},
@@ -39,6 +47,14 @@ const routes: Routes = [
   { path : 'checkout',component:CheckoutComponent},
   { path : 'dealerproduct',component:DealerProductComponent},
   { path : 'log',component:LogComponent},
+  { path : 'prod-data',component:ProductDescriptionComponent},
+  { path : 'updatestatus',component:UpdatestatusComponent},
+  { path : 'dealer-update',component:DealerUpdateComponent},
+  { path : 'profile-update',component:ProfileUpdateComponent},
+  { path : 'raw',component:RawMaterialComponent},
+  { path : 'add-raw',component:AddRawComponent},
+  { path : 'side',component:SidebarComponent},
+  { path : 'raw-update',component:RawUpdateComponent}
 
 ]; 
 

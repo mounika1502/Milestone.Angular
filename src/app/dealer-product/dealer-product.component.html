@@ -1,55 +1,104 @@
 <br>
 <br>
-<br>    
+<br> 
+<br>
+<br>   
+<i class="fa fa-arrow-left" style="margin-left: 1em; font-size: 30px;" routerLink="/inventory"></i>
+
   <div class="container py-5 h-100" >
     <div class="row justify-content-center align-items-center h-100">
       <div class="col-12 col-lg-9 col-xl-7">
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px;  ">
           <div class="card-body p-4 p-md-5 bg-color-#3b3b3b">
-            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" >ADD PRODUCT</h1>        
-          
+            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="color: brown;"><b>Edit PRODUCT</b></h1>         
             <hr>
               <div class="row ">
-                <div class="col-md-8 mb-4">
+                <div class="col-md-12 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="firstName">Upload image:</label>
-                    <img src="{{this.data.imgurl}}" class="img1" id="image" style="height:5em">                    
-                  </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                  <div class="form-outline">
-                    <label class="form-label" for="lastName">Quantity:</label><br>
-                    <!-- <button type="button" class="bt" (click)="minus()"><i class="fa fa-minus"></i></button> -->
-                    <input   class="form-control form-control-lg"   [(ngModel)]="this.data.qnt"   >
-                    <!-- <button type="button" class="bt-t" (click)="plus()"><i class="fa fa-plus"></i></button>  -->
-                                      
+                    <label class="form-label" for="firstName"><b>Upload image :</b></label>
+                    <img src="{{this.data.imgurl}}" id="image" style="width:6.5em">                    
                   </div>
                 </div>
               </div>
-
               <div class="row ">
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label">Product Id:</label>
+                    <label for="birthdayDate" class="form-label"><b>Product Id :</b></label>
                     <input type="text" class="form-control form-control-lg"  [(ngModel)]="this.data.prodId">              
                   </div>
                 </div>
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label">Price:</label>
-                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.price">                    
+                    <label for="birthdayDate" class="form-label"><b>Name of product :</b></label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.name">                    
                   </div>
                 </div>              
               </div>
 
               <div class="row ">
-                <div class="col-md-12 mb-4 pb-2">
-                  <div class="form-outline">
-                    <label class="form-label" for="emailAddress">Name of product :</label>
-                    <input type="email" class="form-control form-control-lg" [(ngModel)]="this.data.name">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Colour :</b></label>
+                    <input type="text" class="form-control form-control-lg"  [(ngModel)]="this.data.color">              
                   </div>
                 </div>
-              </div>               
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Size :</b></label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.size">                    
+                  </div>
+                </div>              
+              </div>
+              <div class="row ">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Thickness :</b></label>
+                    <input type="text" class="form-control form-control-lg"  [(ngModel)]="this.data.thick">              
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Quantity :</b></label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.qnt">                    
+                  </div>
+                </div>              
+              </div>
+              <div class="row ">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Price/SQFT :</b></label>
+                    <input type="text" class="form-control form-control-lg"  [(ngModel)]="this.data.price">              
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Location of stone :</b></label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.region">                    
+                  </div>
+                </div>              
+              </div>
+              <div class="row ">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Quality :</b></label>
+                    <input type="text" class="form-control form-control-lg"  [(ngModel)]="this.data.quality">              
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Processing date :</b></label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.date">                    
+                  </div>
+                </div>              
+              </div> 
+              <div class="row ">
+                <div class="col-md-12 pb-2">
+                  <div class="form-outline">
+                    <label class="form-label" for="firstName"><b>Description :</b></label>
+                    <textarea type="text" class="form-control form-control-lg" [(ngModel)]="this.data.description" cols="5" rows="5"></textarea>                    
+                  </div>
+                </div>
+              </div>         
 
               <div class="mt-4 pt-2  ">
                   <button class="btn btn-primary"(click)="updateProduct(this.data._id)">Save</button>&nbsp;&nbsp;

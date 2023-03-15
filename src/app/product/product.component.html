@@ -5,10 +5,9 @@
 <br>
 <body >
   <div class="row row-cols-2 row-cols-sm-3  g-4"  >
-  <div class="panel-heading">
-    <!-- <h1 style="font-size:50px;text-align:center;color: rgb(5, 74, 117) ;font-weight: bolder;padding: 2%;">PRODUCT PAGE</h1> -->
-    <i style="font-size: 30px;float: right;" class="fa fa-cart-plus" (click)="cartpage()"></i>
+  <div class="panel-heading">    
     <div style="font-size:12px;float: right; color: yellow;cursor: pointer;" class="badge bg-danger" slot="end" routerLink="/cart">
+      <i style="font-size: 30px;float: right;" class="fa fa-cart-plus" routerLink="/cart"></i>
       {{cartItem}}
     </div>
   </div>

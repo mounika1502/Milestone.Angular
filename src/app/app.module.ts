@@ -36,6 +36,13 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { DealerProductComponent } from './dealer-product/dealer-product.component';
 import { LogComponent } from './log/log.component';
+import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { UpdatestatusComponent } from './updatestatus/updatestatus.component';
+import { DealerUpdateComponent } from './dealer-update/dealer-update.component';
+import { ProfileUpdateComponent } from './profile-update/profile-update.component';
+import { RawMaterialComponent } from './raw-material/raw-material.component';
+import { AddRawComponent } from './add-raw/add-raw.component';
+import { RawUpdateComponent } from './raw-update/raw-update.component';
 
 
 // import { NgImageSliderModule } from 'ng-image-slider';
@@ -60,7 +67,14 @@ import { LogComponent } from './log/log.component';
     CartComponent,
     CheckoutComponent,
     DealerProductComponent,
-    LogComponent
+    LogComponent,
+    ProductDescriptionComponent,
+    UpdatestatusComponent,
+    DealerUpdateComponent,
+    ProfileUpdateComponent,
+    RawMaterialComponent,
+    AddRawComponent,
+    RawUpdateComponent
   ],
   imports: [
     BrowserModule,

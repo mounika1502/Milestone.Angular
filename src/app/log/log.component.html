@@ -6,8 +6,7 @@
 <br>
 <body> 
     <div class="container bootdey">
-      <div class="panel panel-default panel-order">
-        
+      <div class="panel panel-default panel-order">        
         <div class="panel-body" >                           
             <div *ngFor="let data of order.OrderData.OrderItems">
               <div class="row" >
@@ -25,30 +24,26 @@
                     </div> 
                   </div>
               </div> 
-                      <br>                     
+            <br>                     
         
          <div class="row h-100 " style="padding: 15px;">    
-           <h3 style="color: rgb(18, 138, 90);font-size: 1.5em;">
+            <h3 style="color: rgb(18, 138, 90);font-size: 1.5em;">
                <b>Shipping - Address</b>
-           </h3>
-           <hr>
-           <div class="list-group list-group-flush"style="padding: 5px;" >
+            </h3>
+            <hr>
+            <div class="list-group list-group-flush"style="padding: 5px;" >
                <p><b style="color: rgb(81, 81, 211)">User Name</b>&nbsp;:  {{order.OrderData.Firstname}} {{order.Lastname}}</p>
                <p><b style="color: rgb(81, 81, 211)">Email </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{order.OrderData.Email}}</p>
                <p><b style="color: rgb(81, 81, 211)">PhoneNumber </b>: {{order.OrderData.PhoneNumber}}</p>
                <p><b style="color: rgb(81, 81, 211)">Address &nbsp;&nbsp;&nbsp;:  </b><br>
                 {{order.OrderData.Pincode}}, {{order.OrderData.City}},{{order.OrderData.State}}</p>
-          <!-- <h4><b>State </b>: </h4>
-          <h4><b>Pincode </b>:</h4> -->
-          </div>
-  
-</div>                                        
-            </div>                               
-        </div>
+            </div>  
+         </div>                                        
+      </div>                               
+    </div>
    </div>                          
 </body>
-<br>
-<br>
+
 
 
                              
