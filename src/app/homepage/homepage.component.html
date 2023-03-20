@@ -20,9 +20,7 @@
           <li class="nav-items">
             <a class="nav-link active text-light" routerLink="/home" aria-current="page"><i class="fa fa-home" style="font-size:24px;color:white;"></i>&nbsp;&nbsp;Home</a>
           </li><br>
-          <li class="nav-item">
-            <a class="nav-link active text-light" routerLink="/dealer" aria-current="page" ><i class="fa fa-users" style="font-size:24px;color:white;"></i>&nbsp;&nbsp; Dealer Management</a>
-          </li><br>
+         
          <li class="nav-item">
             <a class="nav-link active text-light" [hidden]="aa === 'Dealer'" routerLink="/raw" aria-current="page" ><img src="assets/images/Raw.png" style="height:32px;">&nbsp;&nbsp;Raw product</a>
           </li><br>           
@@ -35,6 +33,14 @@
           <li class="nav-item">
             <a class="nav-link active text-light" [hidden]="aa === 'Dealer'" routerLink="/inventory" ><img  style="width:25px;height:25px;color:white" src="https://flaticons.net/icon.php?slug_category=application&slug_icon=inventory">&nbsp;&nbsp;Inventory</a>
           </li><br>
+
+          <li class="nav-item">
+            <a class="nav-link active text-light" [hidden]="aa === 'Dealer'" routerLink="/dealer" ><i class="fa fa-users" style="font-size:24px;color:white;"></i>&nbsp;&nbsp;Dealer Management</a>
+          </li><br>
+          <li class="nav-item">
+            <a class="nav-link active text-light" [hidden]="aa === 'Manufacturer'" routerLink="/manufacturer" ><i class="fa fa-users" style="font-size:24px;color:white;"></i>&nbsp;&nbsp;Manufacturers</a>
+          </li><br>
+
           <li class="nav-item">
             <a class="nav-link active text-light" [hidden]="aa === 'Dealer'" routerLink="/shippers"><i class="fa fa-truck" style="font-size:24px; color:white"></i>&nbsp;&nbsp;My Shippers</a>
           </li><br>
