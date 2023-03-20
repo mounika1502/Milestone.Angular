@@ -33,6 +33,9 @@ import { AddShipperComponent } from './add-shipper/add-shipper.component';
 import { ShipperDataComponent } from './shipper-data/shipper-data.component';
 import { ShipperUpdateComponent } from './shipper-update/shipper-update.component';
 import { UpdatedealerComponent } from './updatedealer/updatedealer.component';
+import { ManufacturerComponent } from './manufacturer/manufacturer.component';
+import { AddManufacturerComponent } from './add-manufacturer/add-manufacturer.component';
+import { EditManufacturerComponent } from './edit-manufacturer/edit-manufacturer.component';
 
 const routes: Routes = [
  // { path:'',redirectTo:'login',pathMatch:'full'},
@@ -67,6 +70,9 @@ const routes: Routes = [
   { path : 'shipper-data',component:ShipperDataComponent},
   { path : 'shipper-update',component:ShipperUpdateComponent},
   { path : 'update-dealer',component:UpdatedealerComponent},
+  { path : 'manufacturer',component:ManufacturerComponent},
+  { path : 'add-manufacturer',component:AddManufacturerComponent},
+  { path : 'Edit-manufacturer',component:EditManufacturerComponent},
 
 ]; 
 

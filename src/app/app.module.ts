@@ -49,6 +49,9 @@ import { AddShipperComponent } from './add-shipper/add-shipper.component';
 import { ShipperDataComponent } from './shipper-data/shipper-data.component';
 import { ShipperUpdateComponent } from './shipper-update/shipper-update.component';
 import { UpdatedealerComponent } from './updatedealer/updatedealer.component';
+import { ManufacturerComponent } from './manufacturer/manufacturer.component';
+import { AddManufacturerComponent } from './add-manufacturer/add-manufacturer.component';
+import { EditManufacturerComponent } from './edit-manufacturer/edit-manufacturer.component';
 
 
 // import { NgImageSliderModule } from 'ng-image-slider';
@@ -86,7 +89,10 @@ import { UpdatedealerComponent } from './updatedealer/updatedealer.component';
     AddShipperComponent,
     ShipperDataComponent,
     ShipperUpdateComponent,
-    UpdatedealerComponent
+    UpdatedealerComponent,
+    ManufacturerComponent,
+    AddManufacturerComponent,
+    EditManufacturerComponent
   ],
   imports: [
     BrowserModule,

@@ -27,7 +27,7 @@
               <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
               <label (click)="data3()"  class="btn btn-outline-success" for="btnradio2">My Dealers</label>
             </div>
-            <button class="btn btn-primary mr-2" routerLink="/add" style="float:right">Add a Dealer</button>
+            <button class="btn btn-primary mr-2"routerLink="/add-dealer"  style="float:right">Add a Dealer</button>
            </nav>   
          </div>
        </div>
@@ -70,7 +70,7 @@
             <td><span class="color-text-a" style="  padding-left: 1cm;"> :&nbsp;&nbsp;{{text.Address}}</span></td>
           </tr>  <br>
           <div class="card-footer">
-     <span><button class="btn btn-success" [hidden]="text._id==localid"  style="margin-left: 37%;"   (click)="dealer2(text)">Add</button></span>
+     <span><button class="btn btn-success"  [hidden]="text._id==localid"  style="margin-left: 37%;"  (click)="dealer2(text)">Add</button></span>
 
      <!-- <span><button class="btn btn-primary"  style="float:right" routerLink="/update"  (click)="dealerform(text)">Edit</button></span> -->
      <!-- [hidden]="text._id==localid" -->

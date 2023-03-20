@@ -7,102 +7,101 @@ import Swal from 'sweetalert2';
   templateUrl: './add-dealer.component.html',
   styleUrls: ['./add-dealer.component.css']
 })
-export class AddDealerComponent implements OnInit {
-
+export class AddDealerComponent implements OnInit {  
+ 
   registerForm: any;
   dealer: any=[];
-
+  sign: any=[]
+  Signupform:any;
   constructor() { }
-
   ngOnInit(): void {
-
-    this.registerForm = new FormGroup(
+    this.Signupform = new FormGroup(
       {
-        FirstName: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-        LastName : new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-        PrimaryPhoneNumber : new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+        Firstname: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+        Lastname : new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+        mobile : new FormControl('',[Validators.required]),
         Email : new FormControl('',[Validators.required,Validators.email]),
-        Image:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-        BusinessNumber : new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-        CompanyName: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+        // Image:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+        // BusinessNumber : new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+        Company: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
         Address: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+        Location:new FormControl(),
         sid:new FormControl(0),
-        StoreId:new FormControl('',Validators.required),
+        UserType:new FormControl('',Validators.required),
         
       });
   }
-
   Adddata(){
-    if(this.registerForm.value.FirstName ==""||this.registerForm.value.LastName ==""||this.registerForm.value.Email ==""||this.registerForm.value.BusinessNumber ==""||this.registerForm.value.PrimaryPhoneNumber ==""||this.registerForm.value.Address ==""||this.registerForm.value.Image ==""||this.registerForm.value.CompanyName ==""||this.registerForm.value.Notification==""||this.registerForm.value.StoreId==""){
+    if(this.Signupform.value.Firstname ==""||this.Signupform.value.UserType ==""||this.Signupform.value.Lastname ==""||this.Signupform.value.Email ==""||this.Signupform.value.mobile ==""||this.Signupform.value.Company ==""||this.Signupform.value.Address ==""){
       Swal.fire(  
         'Cancelled',  
         'You Must  Enter All fields !',           //give for condition to take all properties take empty values
         'error'                                  //then take one alert message like not save all data
       )  
       }else{
-    this.registerForm.value.sid = this.dealer.length+1;   
-    Swal.fire('Added Successfully!', '', 'success').then(() => {
+    this.Signupform.value.sid = this.sign.length+1;   
+    Swal.fire('Added!', '', 'success').then(() => {
       window.location.href=('/dealer');
     }); 
     var requestOptions = {
       method: 'POST',
-      body:JSON.stringify(this.registerForm.value)
+      body:JSON.stringify(this.Signupform.value)
     };
     console.log(requestOptions);  
-    fetch("http://localhost:2000/dealer/adddealer",{
-      method:'POST',
-      headers:{
-        "Access-Control-Allow-Origin":"*",
-        "Content-Type":'application/json'
-      },
-    body:JSON.stringify(this.registerForm.value)
-     
-    })  .then(response => response.json())
-    
-    .then(result =>
-      console.log(result))
-     
-    .catch(error => console.log('error',error)); 
-      }  
+      fetch("http://localhost:2000/dealer/adddealer",{
+        method:'POST',
+        headers:{
+          "Access-Control-Allow-Origin":"*",
+          "Content-Type":'application/json'
+        },
+      body:JSON.stringify(this.Signupform.value)
       
-    if (this.registerForm.invalid) {
+      })  .then(response => response.json())
+      
+      .then(result =>
+        console.log(result))
+      
+      .catch(error => console.log('error',error)); 
+        }  
+      
+    if (this.Signupform.invalid) {
       return;
     }   
-    console.log(JSON.stringify(this.registerForm.value, null, 2));  
+    console.log(JSON.stringify(this.Signupform.value, null, 2));  
   }
   onSubmit(){
  
   }
-  get FirstName()
+  get Firstname()
   {
-   return this.registerForm.get('FirstName') as FormControl;
+   return this.Signupform.get('Firstname') as FormControl;
   }
-  get LastName()
+  get Lastname()
   {
-   return this.registerForm.get('LastName') as FormControl;
+   return this.Signupform.get('Lastname') as FormControl;
   }
-  get BusinessNumber()
+  get mobile()
   {
-   return this.registerForm.get('BusinessNumber') as FormControl;
+   return this.Signupform.get('mobile') as FormControl;
   }
-  get PrimaryPhoneNumber()
+  get Company()
   {
-   return this.registerForm.get('PrimaryPhoneNumber') as FormControl;
+   return this.Signupform.get('Company') as FormControl;
   }
   get Email()
   {
-   return this.registerForm.get('Email') as FormControl;
+   return this.Signupform.get('Email') as FormControl;
   }
-  get CompanyName()
+  get Location()
   {
-   return this.registerForm.get('CompanyName') as FormControl;
+   return this.Signupform.get('Location') as FormControl;
   }
   get Address()
   {
-   return this.registerForm.get('Address') as FormControl;
+   return this.Signupform.get('Address') as FormControl;
   }
-  get Image()
+  get UserType()
   {
-   return this.registerForm.get('Image') as FormControl;
+   return this.Signupform.get('UserType') as FormControl;
   }
 }

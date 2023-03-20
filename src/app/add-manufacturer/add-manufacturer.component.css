@@ -1,0 +1,15 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #f6d365;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right bottom, rgb(156, 126, 27), rgb(151, 91, 74));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right bottom, rgb(72, 82, 168), rgb(190, 120, 100))
+    }
+    body {
+        font-family: "Poppins", sans-serif;
+        color: #555555;
+       background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg);
+    }

@@ -8,21 +8,21 @@
       <div class="col-12 col-lg-9 col-xl-7">
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px">
           <div class="card-body p-4 p-md-5 bg-color-#3b3b3b">
-            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="color: rgb(69, 69, 69);font-size: 40px;font-weight: 800;">ADD Dealer</h1>        
-            <form [formGroup]="Signupform">
+            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="color: rgb(69, 69, 69);font-size: 40px;font-weight: 800;">Edit Manufacturer</h1>        
+
             <hr>
               <div class="row text-white" style="background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg);">
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label" style="color:black;font-size:large;font-weight: 800;">First Name:</label>
-                    <input type="text" class="form-control form-control-lg" formControlName="Firstname" placeholder="Enter Dealer FirstName">                
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.Manufacturer.Firstname" placeholder="Enter Dealer FirstName">                
                   </div>
                 </div>  
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                     <div class="form-outline datepicker w-100">
                       <label class="form-label" style="color:black;font-size: large;font-weight: 800;" for="lastName">Last Name:</label><br>
   
-                      <input   class="form-control form-control-lg" formControlName="Lastname"placeholder="Enter Dealer Lastname" >
+                      <input   class="form-control form-control-lg" [(ngModel)]="this.Manufacturer.Lastname" placeholder="Enter Dealer Lastname" >
                   
                     </div>
                   </div>               
@@ -31,14 +31,14 @@
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label" style="color:black;font-size:large;font-weight: 800;">Location:</label>
-                    <input type="text" class="form-control form-control-lg" formControlName="Location" placeholder="Enter Dealer Location">              
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.Manufacturer.Location" placeholder="Enter Dealer Location">              
                   </div>
                 </div> 
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                     <div class="form-outline datepicker w-100">
                       <label class="form-label" style="color:black;font-size: large;font-weight: 800;" for="Company">Phone Number:</label><br>
                       <!-- <button type="button" class="bt" (click)="minus()"><i class="fa fa-minus"></i></button> -->
-                      <input   class="form-control form-control-lg" formControlName="mobile" placeholder="Enter Dealer Mobilenumber">
+                      <input   class="form-control form-control-lg" [(ngModel)]="this.Manufacturer.mobile" placeholder="Enter Dealer Mobilenumber">
                       <!-- <button type="button" class="bt-t" (click)="plus()"><i class="fa fa-plus"></i></button>  -->                    
                     </div>
                   </div>               
@@ -47,7 +47,7 @@
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label" style="color:black;font-size:large;font-weight: 800;">Company Name:</label>
-                    <input type="text" class="form-control form-control-lg" formControlName="Company" placeholder="Enter Company name">              
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.Manufacturer.Company" placeholder="Enter Dealer name">              
                   </div>
                 </div>
                 
@@ -55,8 +55,7 @@
                     <div class="form-outline datepicker w-100">
                       <label class="form-label" style="color:black;font-size: large;font-weight: 800;" for="/UserType">User Type:</label><br>
                       <!-- <button type="button" class="bt" (click)="minus()"><i class="fa fa-minus"></i></button> -->
-                      <select   class="form-control form-control-lg" formControlName="UserType" >
-                        <option value="">--Select--</option>
+                      <select   class="form-control form-control-lg" [(ngModel)]="this.Manufacturer.UserType" >
                         <option value="Dealer">Dealer</option>
                         <option value="Manufacturer">Manufacturer</option>
                       </select>
@@ -71,7 +70,7 @@
                 <div class="col-md-12 mb-4 pb-2">
                   <div class="form-outline">
                     <label class="form-label" for="emailAddress" style="color:black;font-size:large;font-weight: 800;">Email:</label>
-                    <input type="email" class="form-control form-control-lg" formControlName="Email" placeholder="Enter  Email">
+                    <input type="email" class="form-control form-control-lg" [(ngModel)]="this.Manufacturer.Email" placeholder="Enter  Email">
                   </div>
                 </div>
               </div>
@@ -79,15 +78,15 @@
                 <div class="col-md-12 mb-4 pb-2">
                   <div class="form-outline">
                     <label class="form-label" for="emailAddress" style="color:black;font-size:large;font-weight: 800;">Address:</label>
-                    <textarea type="email" class="form-control form-control-lg" formControlName="Address" placeholder="Enter  Address"></textarea>
+                    <textarea type="email" class="form-control form-control-lg" [(ngModel)]="this.Manufacturer.Address" placeholder="Enter  Address"></textarea>
                   </div>
                 </div>
               </div>             
 
               <div class="mt-4 pt-2 text-center ">
-                <button class="btn btn-primary btn-lg" type="submit"  (click)="Adddata()">Submit</button>&nbsp;
+                <button class="btn btn-primary btn-lg" type="submit"  (click)="update(this.Manufacturer._id)">Submit</button>&nbsp;
               </div>
-            </form>
+          
           </div>
         </div>
       </div>
