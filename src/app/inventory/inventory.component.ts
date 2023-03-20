@@ -81,8 +81,7 @@ export class InventoryComponent implements OnInit {
   } 
 
   //this is for edit the product
-  edit(products:any){ 
-  
+  edit(products:any){   
    localStorage.setItem('product',JSON.stringify(products))   
  }
   

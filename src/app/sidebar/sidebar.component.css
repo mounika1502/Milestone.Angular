@@ -1,161 +1,84 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+
+}
 .sidebar{
-    margin-top: 5em;
-    margin-left: 2em;
-    color: white;
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #042331;  
+  transition: all .5s ease;
 }
-.home{
-    margin-top: 2em;
-    font-size: 1.5em;
-    cursor: pointer;
+.sidebar header{
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  line-height: 70px;
+  background: #063146;
+  user-select: none;
 }
-.dropdown{
-    width: 100px;
-    height: 2.2em;
-    font-size: 1.5em;
-    padding: 5px;
-    
-    border-radius: 5px;
-}
-.marble{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-top: 10px; 
-    padding: 10px;   
-}
-.granite{    
-    padding: 10px; 
-}
-
-
-
-
-/* cards */
-body {font-family: sans-serif;}
-p {color: #666;}
-
-h2 {
-  font-size: 2em;
-  color: #e74c3c;  
-}
-.centered {
-    margin: 0 auto;
-    padding: 0 1em;
-}
-
-@media screen and (min-width: 52em) {
-    .centered {
-        max-width: 52em;
-    }
-}
-
-/*--------------------------------------------------------------
-Header styles minus menu
---------------------------------------------------------------*/
-
-.masthead {
-    background: #e74c3c;
-  	box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
-}
-
-.site-title {
-    margin: 0 0 1em;
-    padding: 1em 0;
-    font-size: 2em;
-    font-weight: 300;
-    text-align: center;
-    color: black;
-}
-
-@media screen and (min-width: 44.44em) {
-    .site-title {
-        font-size: 2em;
-    }
-}
-    
-@media screen and (min-width: 50em) {
-    .site-title {
-        font-size: 2.5em;
-    }
-}
-
-.site-title a {
-    color: hsl(5, 45%, 95%);
-    text-decoration: none;
-}
-
-.site-title a:hover {
-    text-decoration: underline;
-}
-
-/* Card Based Layout - Base styles */
-body {
-  background: #ecf0f1;
-  line-height: 1.4;
-}
-
-.site-title {
-	color: white;
-}
-
-.card {
-	background: white;
-	margin-bottom: 2em;	
-}
-
-.card a {
-	color: black;
-	text-decoration: none;
-}
-
-.card a:hover {
-	box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
-}
-
-.card-content {
-	padding: 1.4em;
-}
-
-.card-content h2 {
-	margin-top: 0;
-	margin-bottom: .5em;
-	font-weight: normal;
-}
-
-.card-content p {
-	font-size: 95%;
-}
-
-img {
+.sidebar ul a{
+  display: block;
+  height: 100%;
   width: 100%;
-  height: auto;
+  line-height: 65px;
+  font-size: 20px;
+ color: white;
+ padding-left: 40px;
+ box-sizing: border-box;
+ border-top: 1px solid rgba(255,255,255,.1);
+ border-bottom: 1px solid black;
+ transition: .4s;
 }
-
-/* Flexbox styles */
-@media screen and (min-width: 40em) {  
-  .cards {
-    margin-top: -1em;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .card {
-    margin-bottom: 1em;
-    display: flex;
-    flex: 0 1 calc(50% - 0.5em);
-    /* width: calc(50% - 1em); */
-  }
-} /* mq 40em*/
-
-@media screen and (min-width: 60em) {
-  .cards {
-    margin-top: inherit;
-  }
-  
-  .card {
-    margin-bottom: 2em;
-    display: flex;
-    flex: 0 1 calc(33% - 0.5em);
-    /* width: calc(33% - 1em); */
-  }
-} /* mq 60em*/
+ul li:hover a{
+  padding-left: 50px;
+}
+.sidebar ul a li{
+  margin-right: 16px;
+}
+#check{
+  display: none;
+}
+label #btn,label #cancel{
+  position:absolute;
+  cursor: pointer;
+  background: #042331;
+  border-radius: 3px;
+}
+label #btn{
+  left: 40px;
+  top: 25px;
+  font-size: 35px;
+  color: white;
+  padding: 6px 12px;
+  transition: all .5s;
+}
+label #cancel{
+  z-index: 1111;
+  left: -195px;
+  top:17px;
+font-size: 30px;
+color: #0a5275;
+padding: 4px 9px;
+transition: all .5s ease;
+}
+#chech:checked ~ .sidebar{
+  left: 0;
+}
+#chech:checked ~ label #btn{
+  left: 250px;
+  opacity: 0;
+  pointer-events: none;
+}
+#chech:checked ~ label #cancel{
+  left: 195px;
+}
+/* section{
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+} */

@@ -27,6 +27,12 @@ import { RawMaterialComponent } from './raw-material/raw-material.component';
 import { AddRawComponent } from './add-raw/add-raw.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RawUpdateComponent } from './raw-update/raw-update.component';
+import { MenubarComponent } from './menubar/menubar.component';
+import { ShippersComponent } from './shippers/shippers.component';
+import { AddShipperComponent } from './add-shipper/add-shipper.component';
+import { ShipperDataComponent } from './shipper-data/shipper-data.component';
+import { ShipperUpdateComponent } from './shipper-update/shipper-update.component';
+import { UpdatedealerComponent } from './updatedealer/updatedealer.component';
 
 const routes: Routes = [
  // { path:'',redirectTo:'login',pathMatch:'full'},
@@ -54,7 +60,13 @@ const routes: Routes = [
   { path : 'raw',component:RawMaterialComponent},
   { path : 'add-raw',component:AddRawComponent},
   { path : 'side',component:SidebarComponent},
-  { path : 'raw-update',component:RawUpdateComponent}
+  { path : 'menu',component:MenubarComponent},
+  { path : 'raw-update',component:RawUpdateComponent},
+  { path : 'shippers',component:ShippersComponent},
+  { path : 'add-shipper',component:AddShipperComponent},
+  { path : 'shipper-data',component:ShipperDataComponent},
+  { path : 'shipper-update',component:ShipperUpdateComponent},
+  { path : 'update-dealer',component:UpdatedealerComponent},
 
 ]; 
 

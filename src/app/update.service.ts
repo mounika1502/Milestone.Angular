@@ -26,9 +26,15 @@ export class UpdateService {
   updateProfile(data:any,id:any){
     return this.http.put('http://localhost:2000/signupform/editProfile/' + id ,data)
    }
+   
     //this is for profile update
   updateRaw(data:any,id:any){
     return this.http.put('http://localhost:2000/raw/editRaw/' + id ,data)
+   }
+
+     //this is for Shipper update
+  updateShipper(data:any,id:any){
+    return this.http.put('http://localhost:2000/shippers/editShipper/' + id ,data)
    }
 
 

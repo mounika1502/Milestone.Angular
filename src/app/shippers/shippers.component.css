@@ -1,0 +1,16 @@
+.addproduct{
+    background: #697184;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    height: 35px;
+    width: 165px; 
+    float: right;
+    margin-right: 2em;
+    margin-top: 1em; 
+}
+.form-control{
+    padding-right: 25px;
+    background: url(https://static.thenounproject.com/png/101791-200.png) no-repeat right;
+     background-size: 20px; 
+   }

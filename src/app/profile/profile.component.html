@@ -1,9 +1,10 @@
 <br>
 <br>
 <br>
-<!-- bootatrap profile form   *ngIf="profile"-->
 
-  <div class="container py-5 h-100" >
+<body><!-- bootatrap profile form   *ngIf="profile"-->
+
+  <div class="container py-5 h-100" *ngIf="profile">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-lg-6 mb-4 mb-lg-0">
         <div class="card mb-3" style="border-radius: .5rem;">
@@ -17,41 +18,77 @@
               <i class="fa fa-pencil-square-o" style="color: rgb(243, 241, 245);" (click)="edit(text)" routerLink="/profile-update"></i>
             </div>
             <div class="col-md-8">
-              <div class="card-body p-4">
-                <h5 style="color: blue;">Profile Information</h5>
-                <hr class="mt-0 mb-4">
-                <div class="row">
-                  <div class="col-21 mb-3">
-                    <h3>Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{text.mobile}} </h3>
-                  </div>
-                  <div class="col-12 mb-3">
-                    <h3>Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{text.Email}}</h3>
-                    </div>
-                   <div class="col-21 mb-3">
-                    <h3>User Type &nbsp;: {{text.UserType}} </h3>
-                  </div> 
-                </div>
-                <h5 style="color: blue;">Address</h5>
-                <hr class="mt-0 mb-4">
+              <div class="card-body pt-2">
+                <h2 style="color: #5b5e65;"><b>Profile Information</b></h2>
+                <hr class="mt-0 mb-3">
                 <div class="row pt-1">
-                  <div class="col-6 mb-3">
-                    <h4 style="color: rgb(255, 0, 0);">Street : </h4>
-                    <h3>{{text.Street}}</h3>
-                  </div>
-                  <div class="col-6 mb-3">
-                    <h4 style="color: rgb(255, 0, 0);">City : </h4>
-                    <h3>{{text.City}}</h3>
-                  </div>
-                  <div class="col-6 mb-3">
-                    <h4 style="color: rgb(255, 0, 0);">State : </h4>
-                    <h3> {{text.State}}</h3>
-                  </div>
-                  <div class="col-6 mb-3">
-                    <h4 style="color: rgb(255, 0, 0);">Pincode : </h4>
-                    <h3> {{text.Pincode}} </h3>
-                  </div>
+                  <div class="col-12 mb-3">
+                  <table>
+                    <tr>
+                      <td style="color: rgb(165, 80, 11);">Phone</td>
+                      <td>: {{text.mobile}}</td>
+                    </tr>
+                    <tr>
+                      <td style="color: rgb(165, 80, 11);">Email</td>
+                      <td>: {{text.Email}}</td>
+                    </tr>
+                    <tr>
+                      <td style="color: rgb(165, 80, 11);">User Type</td>
+                      <td>: {{text.UserType}}</td>
+                    </tr>                     
+                  </table>
                 </div>
-                
+                </div>
+                <hr>
+                <div class="row pt-1">
+                  <div class="col-12 mb-3">                    
+                    <table>
+                      <tr>
+                        <td><b>Address</b></td>
+                      </tr>
+                      <tr>
+                        <td style="color: rgb(165, 80, 11);">Street/Area</td>
+                        <td>: {{text.Street}}</td>
+                      </tr>
+                      <tr>
+                        <td style="color: rgb(165, 80, 11);">City</td>
+                        <td>: {{text.City}}</td>
+                      </tr>
+                      <tr>
+                        <td style="color: rgb(165, 80, 11);">Pincode</td>
+                        <td>: {{text.Pincode}}</td>
+                      </tr>
+                      <tr>
+                        <td style="color: rgb(165, 80, 11);">State</td>
+                        <td>: {{text.State}}</td>
+                      </tr>                      
+                    </table>                  
+                  </div>
+                  <hr>
+                  <div *ngIf="text.Location">
+                    <table>
+                      <tr>
+                        <td><b>COmpany Details </b></td>
+                      </tr>
+                      <tr>
+                        <td style="color: rgb(165, 80, 11);">Company</td>
+                        <td>: {{text.Company}}</td>
+                      </tr>                      
+                      <tr>
+                        <td style="color: rgb(165, 80, 11);">Company Location</td>
+                        <td>: {{text.Location}}</td>
+                      </tr>
+                      <tr>
+                        <td style="color: rgb(165, 80, 11);">Company Bio</td>
+                        <td>: {{text.bio}}</td></tr>
+                    </table>
+                  </div>
+                  <div class="text-center" [hidden]="text.Location">
+                    <button style="height: 3em;width: 20em;color: white;background-color: #7b7f8b;border: 0;border-radius: 5px;" (click)="company()" [hidden]="">
+                      <b>Add Your company details</b>
+                    </button>
+                  </div>
+                </div>                
               </div>
             </div>
           </div>
@@ -59,122 +96,44 @@
       </div>
     </div>
   </div>
-
-
-  <div class="container py-5 h-100" *ngIf="editform">
-    <i class="fa fa-arrow-left" style="margin-left: 1em;" (click)="closeForm()"></i>
+  <div class="container py-5 h-100" *ngIf="companyForm">
+    <i class="fa fa-arrow-left" style="margin-left: 1em;" (click)="arrow()"></i>
     <div class="row justify-content-center align-items-center h-100">
-      <div class="col-12 col-lg-9 col-xl-7">
-        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-          <div class="card-body p-4 p-md-5">
-            <h2 class="mb-4 pb-2 pb-md-0 mb-md-5" style="color: blue;">Edit Profile</h2>
-            <form [formGroup]="updateform" (ngSubmit)="updateProfile(userPost.value)" #userPost="ngForm">
-
-              <div class="row">
-                <div class="col-md-6 mb-4">
+      <div class="col-12 col-lg-9 col-xl-7 pt-2">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;   ">
+          <div class="card-body p-4 p-md-8">
+            <h2 class="text-center" style="color: rgb(141, 141, 199);"><b>ADD COMPANY DETAILS</b></h2>
+            <hr>
+             <form [formGroup]="Form"> 
+              <div class="col">
+                <div class="col-md-12 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="firstName">First Name</label>
-                    <input type="text" class="form-control form-control-lg"  [(ngModel)]="text.Firstname" formControlName="Firstname">
-                    
+                    <label class="form-label" for="firstName">Company Name</label>
+                    <input type="text" class="form-control form-control-lg"  formControlName="Company" [(ngModel)]="this.text.Company" readonly>                    
                   </div>
-
                 </div>
-                <div class="col-md-6 mb-4">
-
+                <div class="col-md-12 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="lastName">Last Name</label>
-                    <input type="text" [(ngModel)]="text.Lastname"   formControlName="Lastname" class="form-control form-control-lg" >
-                   
+                    <label class="form-label" for="lastName">Company Location/Address</label>
+                    <textarea type="text" rows="3" cols="3" formControlName="Location" class="form-control form-control-lg" placeholder="Add your company location"></textarea>                   
                   </div>
-
                 </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6 mb-4 d-flex align-items-center">
-
-                  <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label">Mobile</label>
-                    <input type="text" class="form-control form-control-lg" [(ngModel)]="text.mobile" formControlName="mobile">
-              
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4 d-flex align-items-center">
-
-                  <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label">Password</label>
-                    <input type="text" class="form-control form-control-lg" [(ngModel)]="text.Password"  formControlName="Password">
-                    
-                  </div>
-                </div>              
-              </div>
-
-              <div class="row">
-                <div class="col-md-12 mb-4 pb-2">
-
+                <div class="col-md-12 ">
                   <div class="form-outline">
-                    <label class="form-label" for="emailAddress">Email</label>
-                    <input type="email" [(ngModel)]="text.Email" formControlName="Email" class="form-control form-control-lg" >
+                    <label class="form-label" for="lastName">Company Bio</label>
+                    <textarea type="text" rows="5" cols="5" formControlName="bio" class="form-control form-control-lg" placeholder="Please write few words about your company history, and bussiness offerings" ></textarea>                   
                   </div>
-
                 </div>
               </div>
-              <h5 style="color: blue;">Address</h5>
-                <hr class="mt-0 mb-4">
-              
-                <div class="row">
-                  <div class="col-md-6 mb-4 d-flex align-items-center">
-  
-                    <div class="form-outline datepicker w-100">
-                      <label for="birthdayDate" class="form-label">Street</label>
-                      <input type="text" class="form-control form-control-lg" [(ngModel)]="text.Street"  formControlName="Street">
-                
-                    </div>
-  
-                  </div>
-                  <div class="col-md-6 mb-4 d-flex align-items-center">
-  
-                    <div class="form-outline datepicker w-100">
-                      <label for="birthdayDate" class="form-label">City</label>
-                      <input type="text" class="form-control form-control-lg" [(ngModel)]="text.City"  formControlName="City">
-                      
-                    </div>
-  
-                  </div>              
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mb-4 d-flex align-items-center">
-  
-                    <div class="form-outline datepicker w-100">
-                      <label for="birthdayDate" class="form-label">State</label>
-                      <input type="text" class="form-control form-control-lg" [(ngModel)]="text.State"  formControlName="State">
-                
-                    </div>
-  
-                  </div>
-                  <div class="col-md-6 mb-4 d-flex align-items-center">
-  
-                    <div class="form-outline datepicker w-100">
-                      <label for="birthdayDate" class="form-label">Pincode</label>
-                      <input type="text" class="form-control form-control-lg"[(ngModel)]="text.Pincode"  formControlName="Pincode">
-                      
-                    </div>
-  
-                  </div>              
-                </div>
-
-              <div class="mt-4 pt-2">
-                <button class="btn btn-primary btn-lg" type="submit"  (click)="updateProfile(text.id)">Submit</button>&nbsp;
-                <button class="btn btn-danger btn-lg" type="submit"  (click)="closeForm()">Cancel</button>
+              <div class="mt-4 pt-2 text-center">
+                <button class="btn btn-primary btn-lg" type="submit" (click)="submit()">Submit</button>
               </div>
-
-            </form>
+             </form> 
           </div>
         </div>
       </div>
     </div>
   </div>
-
+</body>
 
 

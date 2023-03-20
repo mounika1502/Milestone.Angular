@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon" style="color: white;"></span>
    </button>
                 
-   <i class="fa fa-user" style="font-size:30px;color:white"><br><h4 style="margin-left: -10px;">Profile</h4></i>    
+   <img src="assets/images/user-profile.jpeg" style="width: 4em; border-radius: 50px;border: 0;" routerLink="/profile">    
     <div class="offcanvas offcanvas-start text-dark" style="width:250px; background-color: #697184;" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel" >
       <div class="offcanvas-header">
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -13,10 +13,10 @@
       <br>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" >
-          <li class="nav-item">
+          <!-- <li class="nav-item">
 
             <a class="nav-link active text-light text-center" routerLink="/profile"><img src="assets/images/user-profile.jpeg" style="width: 4em; border-radius: 50px;border: 0;"><br>Profile</a>
-          </li><br>    
+          </li><br>     -->
           <li class="nav-items">
             <a class="nav-link active text-light" routerLink="/home" aria-current="page"><i class="fa fa-home" style="font-size:24px;color:white;"></i>&nbsp;&nbsp;Home</a>
           </li><br>
@@ -34,6 +34,9 @@
           </li><br>
           <li class="nav-item">
             <a class="nav-link active text-light" [hidden]="aa === 'Dealer'" routerLink="/inventory" ><img  style="width:25px;height:25px;color:white" src="https://flaticons.net/icon.php?slug_category=application&slug_icon=inventory">&nbsp;&nbsp;Inventory</a>
+          </li><br>
+          <li class="nav-item">
+            <a class="nav-link active text-light" [hidden]="aa === 'Dealer'" routerLink="/shippers"><i class="fa fa-truck" style="font-size:24px; color:white"></i>&nbsp;&nbsp;My Shippers</a>
           </li><br>
           <li class="nav-item">
             <a class="nav-link active text-light" ><img style="width:25px;height:25px;color:white" src="https://www.seekpng.com/png/full/33-331171_board-of-trustees-community-icon-white-png.png">&nbsp;&nbsp;About Us</a>

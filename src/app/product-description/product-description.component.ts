@@ -17,19 +17,21 @@ export class ProductDescriptionComponent implements OnInit {
     this.data = JSON.parse(localStorage.getItem('Description') || '{}') 
     console.log(this.data)    
   }
-  edit(data:any){    
-    localStorage.setItem('product',JSON.stringify(data))   
-  }
+ 
   updateProduct(id:any){
     localStorage.setItem('product',JSON.stringify(this.data))
     const data = {
       imgurl: this.data.imgurl,
       prodId: this.data.prodId,
-      //Number:this.data.Number,
       name:this.data.name,
       qnt:this.data.qnt,
       price:this.data.price,
-      Description:this.data.Description
+      description:this.data.description,
+      date:this.data.date,
+      region:this.data.region,
+      quality:this.data.quality,
+      thick:this.data.thick,
+      color:this.data.color
     }
     console.log(data)
     this.service.update(data,id).subscribe((datas)=>{

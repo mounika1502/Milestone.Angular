@@ -36,8 +36,7 @@ export class RawUpdateComponent implements OnInit {
       if(datas){
           Swal.fire( 'Updated successfully!', '', 'success').then(() =>{ 
             this.router.navigate(['/raw'])     
-          }) 
-          
+          })          
       }
     })  
   }

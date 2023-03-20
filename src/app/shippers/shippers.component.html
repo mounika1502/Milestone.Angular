@@ -1,0 +1,28 @@
+<br><br><br><br>
+<input type="text"  style=" width: 80%; font-size: large; margin-left: 2.5em; " value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+<button class="addproduct" routerLink="/add-shipper">Add New Shipper</button>
+
+<div >
+<div class="container table-responsive py-3"> 
+    <table class="table table-bordered table-hover" >
+      <thead style="background-color: #697184;color: white;font-weight: 100;" >
+        <tr class="text-center">
+          <th scope="col">Shipper Name</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Shipper Details</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let data of shippers | filter : searchtext">
+        <tr>
+          <td scope="row">{{data.Name}}</td>
+          <td>{{data.Mobile}}</td>
+          <td class="text-center">
+            <button style="height: 2.5em;width: 10em;border: 0;border-radius: 5px;color: white;background-color: #697184;" (click)="description(data)">
+                View Details
+            </button>
+        </td>
+        </tr>     
+      </tbody>
+    </table>
+</div>
+</div>

@@ -43,6 +43,12 @@ import { ProfileUpdateComponent } from './profile-update/profile-update.componen
 import { RawMaterialComponent } from './raw-material/raw-material.component';
 import { AddRawComponent } from './add-raw/add-raw.component';
 import { RawUpdateComponent } from './raw-update/raw-update.component';
+import { MenubarComponent } from './menubar/menubar.component';
+import { ShippersComponent } from './shippers/shippers.component';
+import { AddShipperComponent } from './add-shipper/add-shipper.component';
+import { ShipperDataComponent } from './shipper-data/shipper-data.component';
+import { ShipperUpdateComponent } from './shipper-update/shipper-update.component';
+import { UpdatedealerComponent } from './updatedealer/updatedealer.component';
 
 
 // import { NgImageSliderModule } from 'ng-image-slider';
@@ -74,7 +80,13 @@ import { RawUpdateComponent } from './raw-update/raw-update.component';
     ProfileUpdateComponent,
     RawMaterialComponent,
     AddRawComponent,
-    RawUpdateComponent
+    RawUpdateComponent,
+    MenubarComponent,
+    ShippersComponent,
+    AddShipperComponent,
+    ShipperDataComponent,
+    ShipperUpdateComponent,
+    UpdatedealerComponent
   ],
   imports: [
     BrowserModule,

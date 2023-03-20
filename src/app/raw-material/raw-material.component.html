@@ -9,7 +9,7 @@
 <br>
 <br>
 <br>
-<div class="row row-cols-1 sm-1 row-cols-md-5 p-2 g-5">
+<div class="row row-cols-1 sm-1 row-cols-md-5 p-3 ">
   <div *ngFor="let product of products | filter : searchtext ">
     <div class="col">
        <div class="card h-100">
@@ -17,28 +17,28 @@
           <div class="card-body">
             <table>
               <tr>
-                <td><b style="color: rgb(77, 77, 180);"> S.NO </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td>
-                <td> {{product.Number}}</td>
+                <td><b style="color: rgb(77, 77, 180);"> S.NO </b></td>
+                <td>: {{product.Number}}</td>
               </tr>
               <tr>
-                <td><b style="color: rgb(77, 77, 180);"> Name </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td>
-                <td>{{product.Name}}</td>
+                <td><b style="color: rgb(77, 77, 180);"> Name </b></td>
+                <td>: {{product.Name}}</td>
               </tr>
               <tr>
-                <td><b style="color: rgb(77, 77, 180);"> Colour </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td>
-                <td>{{product.color}}</td>
+                <td><b style="color: rgb(77, 77, 180);"> Colour </b></td>
+                <td>: {{product.color}}</td>
               </tr>
               <tr>
-                <td><b style="color: rgb(77, 77, 180);"> Location </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td>
-                <td>{{product.region}}</td>
+                <td><b style="color: rgb(77, 77, 180);"> Location </b></td>
+                <td>: {{product.region}}</td>
               </tr>
               <tr>
-                <td><b style="color: rgb(77, 77, 180);"> Arrival- Date </b>:</td>
-                <td>{{product.date}}</td>
+                <td><b style="color: rgb(77, 77, 180);"> Arrival- Date </b></td>
+                <td>: {{product.date}}</td>
               </tr>
             </table> 
-            <div>
-              <button style="width: 4em; background-color: rgb(232, 79, 79);color: white;border-radius: 5px;border: 0;"  (click)="delete(product.Number)">Delete</button>&nbsp;
+            <div class="text-center pt-2">
+              <button style="width: 4em; background-color: rgb(232, 79, 79);color: white;border-radius: 5px;border: 0;"  (click)="delete(product.Number)">Delete</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <button style="width: 4em; background-color: rgb(80, 98, 237);color: white;border-radius: 5px;border: 0;"  (click)="edit(product)" routerLink="/raw-update">Edit</button>
             </div>        
          </div>

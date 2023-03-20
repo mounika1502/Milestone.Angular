@@ -1,0 +1,97 @@
+<br>
+<br>
+<body>
+<div class="container py-5 h-100" >
+    <i class="fa fa-arrow-left" style="margin-left: 1em;" routerLink="/shippers"></i>
+    <br>
+    <br>
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg);">
+          <form [formGroup]="ShipperForm">
+          <div class="card-body p-4 p-md-5">
+            <h2 class="mb-4 pb-2 pb-md-0 mb-md-1 text-center" style="color: blue;"><b>ADD SHIPPER</b></h2>  
+            <hr>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="firstName"><b>Name :</b></label>
+                    <input type="text" class="form-control form-control-lg"   formControlName="Name" >                    
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="lastName"><b>Mobile Number :</b></label>
+                    <input type="text"  class="form-control form-control-lg" formControlName="Mobile" >                   
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-4 pb-2">
+                  <div class="form-outline">
+                    <label class="form-label" for="emailAddress"><b>Address :</b></label>
+                    <textarea type="email" class="form-control form-control-lg" cols="3" rows="3" formControlName="Address"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <h5 style="color: blue;">Vehicle Details</h5>
+                <hr class="mt-0 mb-4">              
+                <div class="row">
+                  <div class="col-md-6 mb-4 d-flex align-items-center">  
+                    <div class="form-outline datepicker w-100">
+                      <label for="birthdayDate" class="form-label"><b>Truck Type :</b></label>
+                      <input type="text" class="form-control form-control-lg" formControlName="Truck">                
+                    </div>  
+                  </div>
+                  <div class="col-md-6 mb-4 d-flex align-items-center">  
+                    <div class="form-outline datepicker w-100">
+                      <label for="birthdayDate" class="form-label"><b>Truck Number :</b></label>
+                      <input type="text" class="form-control form-control-lg" formControlName="Trucknumber">                      
+                    </div>  
+                  </div>              
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4 d-flex align-items-center">  
+                    <div class="form-outline datepicker w-100">
+                      <label for="birthdayDate" class="form-label"><b>Truck Image :</b></label>
+                      <input type="text" class="form-control form-control-lg" formControlName="Truckimage">                
+                    </div>  
+                  </div>
+                  <div class="col-md-6 mb-4 d-flex align-items-center">  
+                    <div class="form-outline datepicker w-100">
+                      <label for="birthdayDate" class="form-label"><b>Driving Licence Image :</b></label>
+                      <input type="text" class="form-control form-control-lg" formControlName="Licence">                      
+                    </div>  
+                  </div>              
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4 d-flex align-items-center">  
+                    <div class="form-outline datepicker w-100">
+                      <label for="birthdayDate" class="form-label"><b>Aadhar Card Image :</b></label>
+                      <input type="text" class="form-control form-control-lg" formControlName="Aadhar">                
+                    </div>  
+                  </div>
+                  <div class="col-md-6 mb-4 d-flex align-items-center">  
+                    <div class="form-outline datepicker w-100">
+                      <label for="birthdayDate" class="form-label"><b>Pan Card Image:</b></label>
+                      <input type="text" class="form-control form-control-lg" formControlName="Pan">                      
+                    </div>  
+                  </div> 
+                </div>           
+
+              <div class="mt-2 text-center">
+                <button class="btn btn-primary btn-lg" type="submit" (click)="submit()">Submit</button>&nbsp;
+              </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body> 
+

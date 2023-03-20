@@ -1,0 +1,89 @@
+<br>
+<br>
+<br>
+<br>
+<i class="fa fa-arrow-left" style="margin-left: 1em;" routerLink="/shippers"></i>
+<br>
+<br>
+    <div class="container py-3 h-100" >
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px; background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg); ">
+            <div class="card-body p-4 p-md-5 bg-color-#3b3b3b">
+              <div class="row ">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b> Name :</b></label>
+                    <input type="text" class="form-control form-control-lg"  [(ngModel)]="this.data.Name">              
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label  class="form-label"><b>Mobile Number :</b></label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.Mobile">                    
+                  </div>
+                </div>              
+              </div>
+
+              <div class="row ">
+                <div class="col-md-12 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label class="form-label" ><b>Address :</b></label>
+                    <input type="email" class="form-control form-control-lg" [(ngModel)]="this.data.Address">
+                  </div>
+                </div>
+              </div> 
+              <div class="row ">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b> Truck Type :</b></label>
+                    <input type="text" class="form-control form-control-lg"  [(ngModel)]="this.data.Truck">              
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label  class="form-label"><b>Truck Number :</b></label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.Trucknumber">                    
+                  </div>
+                </div>              
+              </div> 
+              
+                <div class="row ">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="firstName"><b>Truck :</b></label><br>
+                      <img src="{{this.data.Truckimage}}" id="image" style="width:8.5em">                    
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="firstName"><b>Licence : </b></label><br>
+                      <img src="{{this.data.Licence}}" id="image" style="width:8.5em">                    
+                    </div>
+                  </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <label class="form-label" for="firstName"><b>Aadhar Card : &nbsp;</b></label><br>
+                        <img src="{{this.data.Aadhar}}" id="image" style="width:8.5em">                    
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <label class="form-label" for="firstName"><b>Pan Card : &nbsp;</b></label><br>
+                        <img src="{{this.data.Pan}}" id="image" style="width:8.5em">                    
+                      </div>
+                    </div>
+                  </div>
+                
+                <div class="mt-4 pt-2 text-center">
+                    <button class="btn btn-primary" (click)="update(this.data._id)">save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button  class="btn btn-danger" routerLink="/shipper-update">Cancel</button>
+                </div>            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
