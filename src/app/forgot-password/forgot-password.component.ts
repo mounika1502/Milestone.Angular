@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -10,13 +11,17 @@ export class ForgotPasswordComponent implements OnInit {
   Form: any;
   products: any;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.Form = new FormGroup({
       Email:new FormControl(""),
       Password: new FormControl("")     
     })
+  }
+
+  login(){
+    this.router.navigate(["/login"])
   }
   submitForm(id:any){
     
