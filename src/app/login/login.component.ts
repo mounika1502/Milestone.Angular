@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   reCaptchaVerifier: any;
   mobile1:any   
   loginData: any;
- 
+ Form:any
 
   visible=true;
   changetype=true;
@@ -240,19 +240,23 @@ else{
    .catch(error => console.log('error',error))             
 } 
 
-// fetch("http://localhost:2000/signupform/emailnotification", {
-//   method:'post',
-//   headers:{
-//     "Access-Control-Allow-Origin": "*",
-//     "Content-Type":'application/json'
-//   },
-//   body:JSON.stringify(this.SignupForm.value.Email)
-// }).then(res=> res.json())
-// .then(result=>{ 
-//   console.log(result)
-// }
-// )
+this.Form = new FormGroup({
+  Email : new FormControl(""),
+  Message:new FormControl('congratulations your signup successfully!!') 
+})
 
+fetch("http://localhost:2000/signupform/emailnotification", {
+  method:'post',
+  headers:{
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type":'application/json'
+  },
+  body:JSON.stringify(this.Form.value.Email)
+}).then(res=> res.json())
+.then(result=>{ 
+  console.log(result)
+}
+)
 }
 
 

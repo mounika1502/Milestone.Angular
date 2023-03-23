@@ -52,6 +52,8 @@ import { UpdatedealerComponent } from './updatedealer/updatedealer.component';
 import { ManufacturerComponent } from './manufacturer/manufacturer.component';
 import { AddManufacturerComponent } from './add-manufacturer/add-manufacturer.component';
 import { EditManufacturerComponent } from './edit-manufacturer/edit-manufacturer.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 // import { NgImageSliderModule } from 'ng-image-slider';
@@ -92,7 +94,9 @@ import { EditManufacturerComponent } from './edit-manufacturer/edit-manufacturer
     UpdatedealerComponent,
     ManufacturerComponent,
     AddManufacturerComponent,
-    EditManufacturerComponent
+    EditManufacturerComponent,
+    AboutUsComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -38,7 +38,7 @@ export class ProfileUpdateComponent implements OnInit {
   }
 
   updateProfile(Authentication:any){
-     localStorage.setItem('Login',JSON.stringify(this.data))
+    localStorage.setItem('Login',JSON.stringify(this.data))
     const data = {
       Firstname: this.data.Firstname,
       Lastname:this.data.Lastname,

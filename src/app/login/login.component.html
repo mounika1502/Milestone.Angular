@@ -38,12 +38,13 @@
                 </div>
   
                 <!-- Password input -->
-                <div class="form-outline mb-4">
+                <div class="form-outline mb-3">
                    <label class="form-label" for="form3Example4"><b>Password</b></label>
                    <input [type]="changetype?'text':'password'" id="form3Example4" class="form-control" formControlName="password">
                    <span class="eye" (click)="view()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'" style="color: black;"></i></span>
                    <span style="color: red;" *ngIf="password && password.invalid && password.touched">Please enter your password</span>
                 </div>
+                <div class="mb-3" style="float:right;color: #1b86e4; cursor: pointer;" routerLink="/forgotPassword">Forgot password?</div>
   
                 <!-- Submit button -->
                 <button type="submit" class="btn btn-primary btn-block col-xl-12" (click)="loginSubmit(loginForm)">

@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class AddRawComponent implements OnInit {
   productForm: any;
+  text: any;
 
   constructor(private router:Router, private fb:FormBuilder) {
     this.myForm()
@@ -21,14 +22,20 @@ export class AddRawComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text)
+
     this.productForm = new FormGroup ({
       Image :new FormControl(""),
       Number: new FormControl(""),
       Name: new FormControl(""),
       color: new FormControl(""),
       size: new FormControl(""),
+      stone:new FormControl(""),
       region: new FormControl(""),
-      date: new FormControl("")
+      date: new FormControl(""),
+      mobile:new FormControl(""),
     }) 
 
   }
@@ -38,7 +45,9 @@ export class AddRawComponent implements OnInit {
     this.productForm.value.Name ==''||
     this.productForm.value.color ==''||
     this.productForm.value.region ==''||
-    this.productForm.value.color ==''||
+    this.productForm.value.size ==''||
+    this.productForm.value.stone ==''||
+    this.productForm.value.mobile ==''||
     this.productForm.value.date =='')
     { 
       Swal.fire(  

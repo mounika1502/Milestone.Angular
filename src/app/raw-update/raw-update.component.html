@@ -6,36 +6,42 @@
     <div class="row justify-content-center align-items-center h-100">
       <div class="col-12 col-lg-9 col-xl-7">
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px; background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg); ">
-          <div class="card-body p-4 p-md-5 bg-color-#3b3b3b">
-            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="color: brown;"><b>Edit PRODUCT</b></h1>         
+          <div class="card-body p-md-5 bg-color-#3b3b3b">
+            <h1 class="mb-4 pb-md-0 mb-md-5 text-center" style="color: brown;"><b>Edit PRODUCT</b></h1>         
             <hr>
-              <div class="row ">
-                <div class="col-md-8 mb-4">
+              <div class="row text-center">
+                <div class="col-md-12 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="firstName"><b>Upload image : &nbsp;</b></label>
-                    <img src="{{this.data.Image}}" id="image" style="width:7.5em">                    
-                  </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                  <div class="form-outline">
-                    <label class="form-label" for="lastName"><b>S.No :</b></label><br>
-                    <!-- <button type="button" class="bt" (click)="minus()"><i class="fa fa-minus"></i></button> -->
-                    <input   class="form-control form-control-lg"   [(ngModel)]="this.data.Number"   >
-                    <!-- <button type="button" class="bt-t" (click)="plus()"><i class="fa fa-plus"></i></button>  -->                                      
+                    <img src="{{this.data.Image}}" id="image" style="width:19.5em; height: 10em; ">                    
                   </div>
                 </div>
               </div>
               <div class="row ">
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label"><b>Product Name :</b></label>
-                    <input type="text" class="form-control form-control-lg"  [(ngModel)]="this.data.Name">              
+                    <label class="form-label" for="lastName"><b>S.No :</b></label><br>
+                    <input   class="form-control form-control-lg"[(ngModel)]="this.data.Number">                                                          
                   </div>
                 </div>
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
-                    <label  class="form-label"><b>Color :</b></label>
-                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.color">                    
+                    <label class="form-label" for="lastName"><b>Product Name :</b></label><br>
+                    <input   class="form-control form-control-lg"[(ngModel)]="this.data.Name">                                                          
+                  </div>
+                </div>
+              </div>
+
+              <div class="row ">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Color :</b></label>
+                    <input type="text" class="form-control form-control-lg"  [(ngModel)]="this.data.color">              
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label  class="form-label"><b>Size :</b></label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.size">                    
                   </div>
                 </div>              
               </div>
@@ -55,7 +61,7 @@
                   </div> 
               </div>
 
-              <div class="mt-4 pt-2">
+              <div class="mt-4 pt-2 text-center">
                   <button class="btn btn-primary"(click)="updateProduct(this.data._id)">Save</button>&nbsp;&nbsp;
                   <button (click)="closeForm()" class="btn btn-danger">Cancel</button>
               </div>            

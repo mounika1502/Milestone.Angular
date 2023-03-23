@@ -36,10 +36,14 @@ export class UpdateService {
   updateShipper(data:any,id:any){
     return this.http.put('http://localhost:2000/shippers/editShipper/' + id ,data)
    }
+
   updateManufacturer(data:any,id:any){
     return this.http.put('http://localhost:2000/manufacturer/edits/' + id ,data)
    }
 
+   updateCompanyBio(data:any,id:any){
+    return this.http.put('http://localhost:2000/signupform/addCompany/' + id,data)
+   }
 
   
   

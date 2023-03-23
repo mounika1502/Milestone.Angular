@@ -13,52 +13,59 @@
             <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="margin-top:-2.5em;"><b>ADD PRODUCT</b></h1>        
             <form [formGroup]="productForm" novalidate>
               <hr>
-              <div class="row text-dark">
-                <div class="col-md-12 mb-4">
-                  <div class="form-outline">
+              <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
                     <label class="form-label" for="firstName"><b>Upload image :</b></label>
                     <input type="text" class="form-control form-control-lg" formControlName="Image"  placeholder="upload your image" >                    
-                  </div>
-                   
-                </div>               
-              </div>
-              <div class="row text-dark">
+                  </div>                   
+                </div> 
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label"><b>S.NO :</b></label>
                     <input type="text" class="form-control form-control-lg" formControlName="Number" placeholder="Enter your product ID">              
                   </div>
-                </div>
-                  <div *ngIf="productForm.controls['Number'].invalid && productForm.controls['Number'].touched " class="alert alert-danger">
-                    <div *ngIf="productForm.controls['Number'].errors.required">Number is required</div>
-                  </div>
-                 
+                </div>              
+              </div>
+              <div class="row text-dark">
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label"><b>Name of product :</b></label>
                     <input type="text" class="form-control form-control-lg" formControlName="Name" placeholder="Enter your product name">              
                   </div>
+                </div>                 
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label for="birthdayDate" class="form-label"><b>Colour :</b></label>
+                    <input type="text" class="form-control form-control-lg" formControlName="color" placeholder="Enter your product colour">              
+                  </div>
                 </div>                            
+              </div>
+              <div class="form-outline">                    
+                <input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >                    
               </div>
               <div class="row text-dark"> 
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label"><b>Colour :</b></label>
-                    <input type="text" class="form-control form-control-lg" formControlName="color" placeholder="Enter your product colour">                    
+                    <label for="birthdayDate" class="form-label"><b>Size :</b></label>
+                    <input type="text" class="form-control form-control-lg" formControlName="size" placeholder="Enter your product size">                    
                   </div>
                 </div>  
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                  <div class="form-outline datepicker w-100">
-                   <label for="birthdayDate" class="form-label"><b>Size :</b></label>
-                   <input type="text" class="form-control form-control-lg" formControlName="size" placeholder="Enter your product size">                    
+                   <label for="birthdayDate" class="form-label"><b>Stone Size/Type :</b></label><br>
+                   <select  formControlName="size" style="padding: 2%; width: 19em;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;" class="fa fa-caret-down">
+                      <option  value="Gangsaw Size">Gangsaw Size</option>
+                      <option  value="Cutter Size">Cutter Size</option>
+                    </select>
                  </div>
                 </div>                
               </div>
               <div class="row text-dark">
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                     <div class="form-outline datepicker w-100">
-                      <label for="birthdayDate" class="form-label"><b>Region of stone :</b></label>
-                      <input type="text" class="form-control form-control-lg" formControlName="region" placeholder="select your product location">              
+                      <label for="birthdayDate" class="form-label"><b>Location of stone :</b></label>
+                      <input type="text" class="form-control form-control-lg" formControlName="region" placeholder="enter your product location">              
                     </div>
                   </div>  
                 <div class="col-md-6 mb-4 d-flex align-items-center">
