@@ -38,6 +38,7 @@ import { AddManufacturerComponent } from './add-manufacturer/add-manufacturer.co
 import { EditManufacturerComponent } from './edit-manufacturer/edit-manufacturer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { EmailVerifyComponent } from './email-verify/email-verify.component';
 
 const routes: Routes = [
  // { path:'',redirectTo:'login',pathMatch:'full'},
@@ -76,7 +77,8 @@ const routes: Routes = [
   { path : 'add-manufacturer',component:AddManufacturerComponent},
   { path : 'Edit-manufacturer',component:EditManufacturerComponent},
   { path : 'about',component:AboutUsComponent},
-  { path : 'forgotPassword',component:ForgotPasswordComponent}
+  { path : 'forgotPassword/:token',component:ForgotPasswordComponent},
+  { path : 'email-verify',component:EmailVerifyComponent}
 
 ]; 
 

@@ -11,31 +11,19 @@
         <div class="card shadow-2-strong card-registration">
           <div class="card-body p-4 p-md-5 bg-color-#3b3b3b">
             <!-- <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="margin-top:-2.5em;"><b>ADD PRODUCT</b></h1>         -->
-            <form [formGroup]="Form" >
+             <form [formGroup]="Form" > 
               <div class="row text-dark">
                 <div class="col-md-12 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label"><b>Email :</b></label>
                     <input type="text" class="form-control form-control-lg" formControlName="Email" placeholder="Enter your email">              
                   </div>
-                </div>                 
-                <div class="col-md-12 mb-4 d-flex align-items-center">
-                  <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label"><b>New Password :</b></label>
-                    <input type="text" class="form-control form-control-lg" formControlName="Password" placeholder="Enter your new password">              
-                  </div>
-                </div>
-                <div class="col-md-12 mb-4 d-flex align-items-center">
-                    <div class="form-outline datepicker w-100">
-                      <label for="birthdayDate" class="form-label"><b>Confirm Password :</b></label>
-                      <input type="text" class="form-control form-control-lg" formControlName="Password" placeholder="Re-enter your new password">              
-                    </div>
-                  </div>                            
+                </div>                                            
               </div>
               <div class="mt-1  text-center ">
-                <button class="btn btn-primary" type="submit"  (click)="submitForm()">Submit</button>&nbsp;
+                <button class="btn btn-primary" type="submit"  (click)="submit()">Send verify link to email</button>&nbsp;
               </div>
-            </form>
+             </form> 
           </div>
         </div>
       </div>
@@ -72,6 +60,7 @@
           
 
      
+
 
 
 

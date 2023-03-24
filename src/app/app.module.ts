@@ -54,6 +54,7 @@ import { AddManufacturerComponent } from './add-manufacturer/add-manufacturer.co
 import { EditManufacturerComponent } from './edit-manufacturer/edit-manufacturer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { EmailVerifyComponent } from './email-verify/email-verify.component';
 
 
 // import { NgImageSliderModule } from 'ng-image-slider';
@@ -96,7 +97,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     AddManufacturerComponent,
     EditManufacturerComponent,
     AboutUsComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    EmailVerifyComponent
   ],
   imports: [
     BrowserModule,

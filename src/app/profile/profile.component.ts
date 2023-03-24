@@ -68,9 +68,10 @@ export class ProfileComponent implements OnInit {
     
               this.products = result  //it  runs $parse automatically when it runs the $digest loop, basically $parse is the way angular evaluates expressions
             console.log(this.products)
-            Swal.fire( 'Added successfully!', '', 'success').then(() =>{         
-              this.companyForm = false
-              this.profile = true
+            Swal.fire( 'Added successfully!', '', 'success').then(() =>{    
+              this.router.navigate(["login"])     
+              // this.companyForm = false
+              // this.profile = true
             })  
                   
           }

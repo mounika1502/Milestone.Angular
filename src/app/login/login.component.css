@@ -1,12 +1,10 @@
-
-
-.eye{
+ .eye{
     position: absolute;    
     margin-left: 33em;
     margin-top: -2em;
     color: black;
     cursor: pointer;
-}
+} 
 
 .contain1{
    margin-left: 5%;  

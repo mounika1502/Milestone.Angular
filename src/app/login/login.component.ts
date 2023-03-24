@@ -29,24 +29,20 @@ var config = {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-
- 
+export class LoginComponent implements OnInit { 
   login=true;
   loginForm:any   
- 
   withMobile: any;
   reCaptchaVerifier: any;
   mobile1:any   
   loginData: any;
- Form:any
-
+  Form:any
   visible=true;
   changetype=true;
-
   datas: any=[];
   showSignup = false;
   SignupForm: any;
+  mouni: any;
 
   constructor(
     private modalCtrl: ModalController,
@@ -136,7 +132,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('Login',JSON.stringify(this.loginData));
     console.log(this.loginData)       
     
-    if(result.status ==='failed'){
+    if(result.status === 'failed'){
       Swal.fire( 
         'Cancelled',
         'Invalid username or password!',
@@ -146,7 +142,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(["profile"])
      } 
     })
-  }    
+    }   
   }
 
   details:any=[]

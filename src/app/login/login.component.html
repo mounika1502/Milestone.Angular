@@ -1,5 +1,4 @@
-<section class="background-radial-gradient overflow-hidden"> 
-
+<div class="background-radial-gradient overflow-hidden"> 
 <table *ngIf="login" matSort>
     <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
       <div class="row gx-lg-5 align-items-center mb-5">
@@ -18,8 +17,7 @@
              to make your spaces majestic and timeless. Luxurious and best quality imported 
              marble from the quarries around the world at Milestone.
           </p>
-        </div>
-  
+        </div>  
         <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
           <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
           <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
@@ -44,10 +42,10 @@
                    <span class="eye" (click)="view()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'" style="color: black;"></i></span>
                    <span style="color: red;" *ngIf="password && password.invalid && password.touched">Please enter your password</span>
                 </div>
-                <div class="mb-3" style="float:right;color: #1b86e4; cursor: pointer;" routerLink="/forgotPassword">Forgot password?</div>
-  
+                <div class="mb-3" style="float:right;color: #1b86e4; cursor: pointer;text-decoration: underline;" routerLink="/email-verify">Forgot password?</div>
+                <!-- <hr> -->
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block col-xl-12" (click)="loginSubmit(loginForm)">
+                <button type="submit" class="btn btn-primary btn-block col-xl-12" (click)="loginSubmit(loginForm)" [disabled]="email.invalid || password.invalid">
                     Login
                   </button>
                   <br>
@@ -67,7 +65,7 @@
       </div>
     </div>
     </table> 
-  </section>
+  </div>
 
 
 <!--this is for log in with mobile page-->
@@ -215,7 +213,8 @@
             <div class="row gutters">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="text-center">               
-                  <button class="btn btn-primary btn-block" (click)="signupSubmit()"><b>Submit</b></button> 
+                  <button class="btn btn-primary btn-block" (click)="signupSubmit()" 
+                  [disabled]="Email.invalid || Password.invalid "><b>Submit</b></button> 
                 </div>
               </div>
             </div>
