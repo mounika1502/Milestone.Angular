@@ -27,15 +27,15 @@ export class AddRawComponent implements OnInit {
     console.log(this.text)
 
     this.productForm = new FormGroup ({
-      Image :new FormControl(""),
-      Number: new FormControl(""),
-      Name: new FormControl(""),
-      color: new FormControl(""),
-      size: new FormControl(""),
-      stone:new FormControl(""),
-      region: new FormControl(""),
-      date: new FormControl(""),
-      mobile:new FormControl(""),
+      Image :new FormControl('',[Validators.required]),
+      Number: new FormControl('',[Validators.required]),
+      Name: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      color: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      size: new FormControl('',[Validators.required]),
+      stone:new FormControl('',[Validators.required]),
+      region: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      date: new FormControl('',[Validators.required]),
+      mobile:new FormControl("")
     }) 
 
   }
@@ -76,4 +76,31 @@ export class AddRawComponent implements OnInit {
        .catch(error => console.log('error',error)) 
   }  
 }
+
+get Image()
+{
+ return this.productForm.get('Image');
+} get Number()
+{
+ return this.productForm.get('Number');
+} get Name()
+{
+ return this.productForm.get('Name');
+} get color()
+{
+ return this.productForm.get('color');
+} get region()
+{
+ return this.productForm.get('region');
+} get size()
+{
+ return this.productForm.get('size');
+} get stone()
+{
+ return this.productForm.get('stone');
+} get date()
+{
+ return this.productForm.get('date');
+}
+
 }

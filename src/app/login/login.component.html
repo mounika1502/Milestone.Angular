@@ -45,7 +45,7 @@
                 <div class="mb-3" style="float:right;color: #1b86e4; cursor: pointer;text-decoration: underline;" routerLink="/email-verify">Forgot password?</div>
                 <!-- <hr> -->
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block col-xl-12" (click)="loginSubmit(loginForm)" [disabled]="email.invalid || password.invalid">
+                <button type="submit" class="btn btn-primary btn-block col-xl-12" (click)="loginSubmit(loginForm)">
                     Login
                   </button>
                   <br>
@@ -101,8 +101,7 @@
         </div>
       </div>
     </div>
-</div>
- 
+</div> 
 
 
 <!-- this is signup form -->
@@ -110,11 +109,8 @@
     <table *ngIf="showSignup" matsort>
 
       <i class="fa fa-arrow-left" style="margin-left: 3em; margin-top: 2em;" (click)="toggleSignupArrow()"></i>
-
-      <div class="contain1" >
-       
-      <form [formGroup]="SignupForm">
-     
+      <div class="contain1" >       
+      <form [formGroup]="SignupForm">     
         <div class="row gutters">     
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
           <div class="card11-up">
@@ -142,9 +138,9 @@
                     <label>User Type</label><br>
                      <select  class="form-control"  formControlName="UserType" style="padding: 3%;" >
                        <option value="">--Select--</option>
-                       <option value="admin"> Admin</option>
-                       <option value="Dealer"> Dealer</option>
-                       <option value="Manufacturer">  Manufacturer</option>
+                       <option value="admin">Admin</option>
+                       <option value="Dealer">Dealer</option>
+                       <option value="Manufacturer">Manufacturer</option>
                      </select> 
                     <span style="color: red;" *ngIf="UserType && UserType.invalid && UserType.touched">Please select your Usertype</span>
                   </div>
@@ -152,7 +148,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
                   <div class="form-group">
                     <label>Company Name</label>
-                    <input type="text"   style="padding:3%"    class="form-control" formControlName="Company" placeholder="Enter your company name" >
+                    <input type="text" style="padding:3%" class="form-control" formControlName="Company" placeholder="Enter your company name" >
                     <span style="color: red;" *ngIf="Company && Company.invalid && Company.touched">Please enter your company name</span>
                   </div>
                 </div>            
@@ -160,7 +156,7 @@
                   <div class="form-group">
                     <label>Mobile</label>
                     <input type="text"   style="padding:3%"    class="form-control" formControlName="mobile" placeholder="Enter your mobile number" >
-                    <span style="color: red;" *ngIf="mobile && mobile.invalid && mobile.touched">Please enter your mobile number</span>
+                    <span style="color: red;" *ngIf="mobile && mobile.invalid && mobile.touched">Please enter your 10 digit mobile number</span>
                   </div>
                 </div> 
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
@@ -214,7 +210,17 @@
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="text-center">               
                   <button class="btn btn-primary btn-block" (click)="signupSubmit()" 
-                  [disabled]="Email.invalid || Password.invalid "><b>Submit</b></button> 
+                  [disabled]="Email.invalid || 
+                  Firstname.invalid ||
+                  Lastname.invalid ||
+                  Password.invalid ||
+                  mobile.invalid ||
+                  Street.invalid ||
+                  City.invalid ||
+                  State.invalid ||
+                  Pincode.invalid ||
+                  Company.invalid ||
+                  UserType.invalid "><b>Submit</b></button> 
                 </div>
               </div>
             </div>

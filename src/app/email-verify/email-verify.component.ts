@@ -47,10 +47,11 @@ export class EmailVerifyComponent implements OnInit {
       console.log(result)           
     console.log(this.Form) 
     
-     localStorage.setItem('Email',JSON.stringify(this.Form));
-     console.log(this.Form) 
+    //  localStorage.setItem('Email',JSON.stringify(this.Form));
+    //  console.log(this.Form) 
 
-    Swal.fire( 'Link sended successfully!', '', 'success').then(() =>{         
+    Swal.fire( 'Link sended successfully!', '', 'success').then(() =>{   
+      window .location.reload()      
     })  
         
     })  

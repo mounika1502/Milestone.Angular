@@ -145,7 +145,7 @@ export class LoginComponent implements OnInit {
     }   
   }
 
-  details:any=[]
+  
   //this is for otp based login page
    async mobileOtp(){ 
 

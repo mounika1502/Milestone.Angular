@@ -17,13 +17,15 @@
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label class="form-label" for="firstName"><b>Upload image :</b></label>
-                    <input type="text" class="form-control form-control-lg" formControlName="Image"  placeholder="upload your image" >                    
+                    <input type="text" class="form-control form-control-lg" formControlName="Image" placeholder="upload your image">
+                    <span style="color: red;" *ngIf="Image && Image.invalid && Image.touched">Please select your Product Image</span>                    
                   </div>                   
                 </div> 
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label"><b>S.NO :</b></label>
-                    <input type="text" class="form-control form-control-lg" formControlName="Number" placeholder="Enter your product ID">              
+                    <input type="text" class="form-control form-control-lg" formControlName="Number" placeholder="Enter your product ID"> 
+                    <span style="color: red;" *ngIf="Number && Number.invalid && Number.touched">Please enter your Product Id</span>             
                   </div>
                 </div>              
               </div>
@@ -31,13 +33,15 @@
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label"><b>Name of product :</b></label>
-                    <input type="text" class="form-control form-control-lg" formControlName="Name" placeholder="Enter your product name">              
+                    <input type="text" appFirstCap class="form-control form-control-lg" formControlName="Name" placeholder="Enter your product name"> 
+                    <span style="color: red;" *ngIf="Name && Name.invalid && Name.touched">Please enter your Product Name</span>             
                   </div>
                 </div>                 
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label"><b>Colour :</b></label>
-                    <input type="text" class="form-control form-control-lg" formControlName="color" placeholder="Enter your product colour">              
+                    <input type="text" class="form-control form-control-lg" formControlName="color" placeholder="Enter your product colour"> 
+                    <span style="color: red;" *ngIf="color && color.invalid && color.touched">Please enter your Product Colour</span>             
                   </div>
                 </div>                            
               </div>
@@ -48,16 +52,18 @@
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label"><b>Size :</b></label>
-                    <input type="text" class="form-control form-control-lg" formControlName="size" placeholder="Enter your product size">                    
+                    <input type="text" class="form-control form-control-lg" formControlName="size" placeholder="Enter your product size">
+                    <span style="color: red;" *ngIf="size && size.invalid && size.touched">Please enter your Product size</span>                    
                   </div>
                 </div>  
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                  <div class="form-outline datepicker w-100">
                    <label for="birthdayDate" class="form-label"><b>Stone Size/Type :</b></label><br>
-                   <select  formControlName="size" style="padding: 2%; width: 19em;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;" class="fa fa-caret-down">
+                   <select  formControlName="stone" style="padding: 2%; width: 19em;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;" class="fa fa-caret-down">
                       <option  value="Gangsaw Size">Gangsaw Size</option>
                       <option  value="Cutter Size">Cutter Size</option>
                     </select>
+                    <span style="color: red;" *ngIf="stone && stone.invalid && stone.touched">Please select your Product type</span>
                  </div>
                 </div>                
               </div>
@@ -65,18 +71,28 @@
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                     <div class="form-outline datepicker w-100">
                       <label for="birthdayDate" class="form-label"><b>Location of stone :</b></label>
-                      <input type="text" class="form-control form-control-lg" formControlName="region" placeholder="enter your product location">              
+                      <input type="text" class="form-control form-control-lg" formControlName="region" placeholder="enter your product location">
+                      <span style="color: red;" *ngIf="region && region.invalid && region.touched">Please enter your Location of stone</span>              
                     </div>
                   </div>  
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label"><b>Arrival Date :</b></label>
-                    <input type="date" class="form-control form-control-lg" formControlName="date" placeholder="Enter processing date">              
+                    <input type="date" class="form-control form-control-lg" formControlName="date" placeholder="Enter processing date">  
+                    <span style="color: red;" *ngIf="date && date.invalid && date.touched">Please select your purchasing date</span>            
                   </div>
                 </div>
               </div> 
               <div class="mt-1  text-center ">
-                <button class="submit" type="submit"  (click)="submitForm()">Submit</button>&nbsp;
+                <button class="submit" type="submit"  (click)="submitForm()"
+                [disabled]="Image.invalid ||
+                Number.invalid ||
+                Name.invalid ||
+                color.invalid ||
+                size.invalid ||
+                stone.invalid ||
+                region.invalid ||
+                date.invalid">Submit</button>&nbsp;
               </div>
             </form>
           </div>

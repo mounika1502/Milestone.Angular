@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -12,7 +12,7 @@ export class AddProductComponent implements OnInit {
   productForm: any;
   addProduct=true
   text: any;
-  size: any;
+  prodSize: any;
 
   constructor( private router:Router,private fb:FormBuilder) { }
 
@@ -23,19 +23,19 @@ export class AddProductComponent implements OnInit {
     console.log(this.text)
 
     this.productForm = new FormGroup ({
-      imgurl :new FormControl(""),
-      prodId: new FormControl(""),
-      name: new FormControl(""),
-      color: new FormControl(""),
-      size: new FormControl(""),
-      thick: new FormControl(""),
-      qnt: new FormControl(""),
-      price: new FormControl(""),
-      region: new FormControl(""),
-      quality: new FormControl(""),
-      date: new FormControl(""),
+      imgurl :new FormControl('',[Validators.required]),
+      prodId: new FormControl('',[Validators.required]),
+      name: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      color: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      size: new FormControl('',[Validators.required]),
+      thick: new FormControl('',[Validators.required]),
+      qnt: new FormControl('',[Validators.required]),
+      price: new FormControl('',[Validators.required]),
+      region: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      quality: new FormControl('',[Validators.required]),
+      date: new FormControl('',[Validators.required]),
       mobile:new FormControl(""),
-      description: new FormControl("")
+      description: new FormControl('',[Validators.required])
     })   
 
   }
@@ -43,7 +43,7 @@ export class AddProductComponent implements OnInit {
     this.addProduct=false
   }
   toggle(){
-    this.size = !this.size
+    this.prodSize = !this.prodSize
   }
 
   submitForm(){
@@ -58,7 +58,7 @@ export class AddProductComponent implements OnInit {
     this.productForm.value.region ==''||
     this.productForm.value.quality ==''||
     this.productForm.value.date ==''||
-    this.productForm.value.mobile ==''||
+    
     this.productForm.value.description ==''||
     this.productForm.value.price =='')
     { 
@@ -87,6 +87,55 @@ export class AddProductComponent implements OnInit {
        .catch(error => console.log('error',error)) 
   }  
 }
+
+  get imgurl()
+  {
+   return this.productForm.get('imgurl');
+  }
+  get name()
+  {
+    return this.productForm.get('name');
+  }
+  get color()
+  {
+    return this.productForm.get('color');
+   }
+   get prodId()
+  {
+    return this.productForm.get('prodId');
+   }
+    get size()
+    {
+     return this.productForm.get('size');
+    }
+   get thick()
+   {
+    return this.productForm.get('thick');
+   }
+   get qnt()
+   {
+    return this.productForm.get('qnt');
+   }
+   get region()
+   {
+    return this.productForm.get('region');
+   }
+   get quality()
+   {
+    return this.productForm.get('quality');
+   }
+   get date()
+   {
+    return this.productForm.get('date');
+   }
+   get price()
+   {
+    return this.productForm.get('price');
+   }
+   get description()
+   {
+    return this.productForm.get('description');
+   }
 
 }
 

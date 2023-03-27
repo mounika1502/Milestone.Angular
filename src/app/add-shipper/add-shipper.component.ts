@@ -27,13 +27,15 @@ export class AddShipperComponent implements OnInit {
   }
 
   submit(){
-      if(this.ShipperForm.value.Image ==''||
-      this.ShipperForm.value.Number ==''||
-      this.ShipperForm.value.Name ==''||
-      this.ShipperForm.value.color ==''||
-      this.ShipperForm.value.region ==''||
-      this.ShipperForm.value.color ==''||
-      this.ShipperForm.value.date =='')
+      if(this.ShipperForm.value.Name ==''||
+      this.ShipperForm.value.Mobile ==''||
+      this.ShipperForm.value.Address ==''||
+      this.ShipperForm.value.Truck ==''||
+      this.ShipperForm.value.Trucknumber ==''||
+      this.ShipperForm.value.Truckimage ==''||
+      this.ShipperForm.value.Aadhar ==''||
+      this.ShipperForm.value.Pan ==''||
+      this.ShipperForm.value.Licence =='')
       { 
         Swal.fire(  
            'Cancelled',  
@@ -54,13 +56,42 @@ export class AddShipperComponent implements OnInit {
          
          Swal.fire( 'Submitted successfully!', '', 'success').then(() =>{         
            this.router.navigate(["shippers"])
-        }) 
-        
+        })         
      }
-    )      
-         .catch(error => console.log('error',error)) 
+    )  
+     .catch(error => console.log('error',error)) 
     }  
   }
+
+  get Name()
+{
+ return this.ShipperForm.get('Name');
+} get Mobile()
+{
+ return this.ShipperForm.get('Mobile');
+} get Address()
+{
+ return this.ShipperForm.get('Address');
+} get Truck()
+{
+ return this.ShipperForm.get('Truck');
+} get Trucknumber()
+{
+ return this.ShipperForm.get('Trucknumber');
+} get Truckimage()
+{
+ return this.ShipperForm.get('Truckimage');
+} get Aadhar()
+{
+ return this.ShipperForm.get('Aadhar');
+} get Pan()
+{
+ return this.ShipperForm.get('Pan');
+}
+get Licence()
+{
+ return this.ShipperForm.get('Licence');
+}
 
   }
 
