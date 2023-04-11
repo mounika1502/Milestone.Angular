@@ -42,14 +42,16 @@ export class LoginComponent implements OnInit {
   datas: any=[];
   showSignup = false;
   SignupForm: any;
-  mouni: any;
+  List: any;
+  details:any =[]
 
   constructor(
     private modalCtrl: ModalController,
     private ngZone:NgZone,
     private router: Router,
     private _http:HttpClient
-    ) {      
+    ) { 
+      this.getProduct()     
      }
 
   ngOnInit(): void {
@@ -63,16 +65,16 @@ export class LoginComponent implements OnInit {
     }) 
     // signup form
     this.SignupForm = new FormGroup({
-      Firstname: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-      Lastname : new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      Firstname: new FormControl('',[Validators.required]),
+      Lastname : new FormControl('',[Validators.required]),
       mobile : new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       Email : new FormControl('',[Validators.required,Validators.email]),
       Password : new FormControl('',[Validators.required,Validators.minLength(5)]),
-      City:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      City:new FormControl('',[Validators.required]),
       UserType:new FormControl('',[Validators.required]),
       Pincode:new FormControl('',[Validators.required,Validators.pattern('[0-9]{6}')]),
       Street:new FormControl('',[Validators.required]),
-      State:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      State:new FormControl('',[Validators.required]),
       Company:new FormControl('',[Validators.required]),
       Message:new FormControl('congratulations your signup successfully!!')
     });
@@ -130,8 +132,7 @@ export class LoginComponent implements OnInit {
       console.log(this.loginData)      
 
     localStorage.setItem('Login',JSON.stringify(this.loginData));
-    console.log(this.loginData)       
-    
+    console.log(this.loginData)     
     if(result.status === 'failed'){
       Swal.fire( 
         'Cancelled',
@@ -145,10 +146,35 @@ export class LoginComponent implements OnInit {
     }   
   }
 
+  getProduct(){    
+    fetch("http://localhost:2000/signupform/getsignupdetails", {
+   method:'get',
+   headers:{
+     "Access-Control-Allow-Origin": "*",
+     "Content-Type":'application/json'
+   },
+   body:JSON.stringify(this.getProduct)
+ }).then(res=> res.json())
+ .then(result=>{ 
+   console.log(result)
+    this.details = result.SignupInfo
+    console.log(this.details)
+ }
+   )     
+   .catch(error => console.log('error',error))
+}
   
   //this is for otp based login page
    async mobileOtp(){ 
-
+    this.List = this.details.filter((item : any)=> { 
+      return item.mobile === this.mobile1});
+      console.log(this.List)
+      for(let i = 0;i < this.List.length;i++){
+        
+        localStorage.setItem('Login',JSON.stringify(this.List[0]));
+        
+      // if(this.List){
+      console.log(this.List)
   this.reCaptchaVerifier = new firebase.auth.RecaptchaVerifier(
     'sign-in-button',
     {
@@ -160,33 +186,36 @@ export class LoginComponent implements OnInit {
   console.log(this.mobile1);
   firebase
     .auth()
-    .signInWithPhoneNumber(this.mobile1,this.reCaptchaVerifier)
+    .signInWithPhoneNumber('+91' + this.mobile1,this.reCaptchaVerifier)
     .then((confirmationResult:any) => {
-      localStorage.setItem(
-        'verificationId',
-        JSON.stringify(confirmationResult.verificationId)
-      );
-      localStorage.setItem(
-        'mobileNo',
-        JSON.stringify(this.mobile1)
-      );
+      localStorage.setItem( 'verificationId',JSON.stringify(confirmationResult.verificationId));
+
+      localStorage.setItem('mobileNo', JSON.stringify(this.List));
+
       this.ngZone.run(() => {
         this.router.navigate(['/otp']);
       });
-      alert('Otp generated..')
-    })
+      Swal.fire( 'Otp Generated!!!', '', 'success').then(() =>{
+     }) 
+    })   
     .catch((error:any) => {
       console.log(error.message);
       alert(error.message);
       setTimeout(() => {
-        window.location.reload();
+        // window.location.reload();       
       }, 5000);
     });
-  }      
+  // }else{
+  //   alert('error.message');
+  // }
+  }
+}       
 
 
  //signup submit function
- signupSubmit(){       
+ signupSubmit(){ 
+  
+  
   if(this.SignupForm.value.Firstname ==''||
    this.SignupForm.value.Lastname ==''||
    this.SignupForm.value.mobile ==''||
@@ -230,29 +259,31 @@ else{
     Swal.fire( 'Submitted successfully!', '', 'success').then(() =>{         
        this.router.navigate(["login"])
        window.location.reload()
-    })       
-   }       
- })       
-   .catch(error => console.log('error',error))             
-} 
-
-this.Form = new FormGroup({
-  Email : new FormControl(""),
-  Message:new FormControl('congratulations your signup successfully!!') 
-})
-
+    }) 
+    
+  //  this is for sending email while we registered
+    var body ={
+      Email:this.SignupForm.value.Email
+    }
 fetch("http://localhost:2000/signupform/emailnotification", {
   method:'post',
   headers:{
     "Access-Control-Allow-Origin": "*",
     "Content-Type":'application/json'
-  },
-  body:JSON.stringify(this.Form.value.Email)
+  },  
+  body:JSON.stringify(body)
+  
 }).then(res=> res.json())
 .then(result=>{ 
-  console.log(result)
+  console.log(result)  
 }
 )
+.catch(error => console.log('error',error))
+   }       
+ })       
+   .catch(error => console.log('error',error))             
+} 
+
 }
 
 

@@ -1,8 +1,11 @@
 <br><br><br><br>
-<input type="text"  style=" width: 80%; font-size: large; margin-left: 2.5em; " value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+<div  class="row justify-content-center align-items-center text-center ">
+  <div class="col-10 col-lg-7 col-xl-5">
+    <input type="text" value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+  </div>
+</div> 
 <button class="addproduct" routerLink="/add-shipper">Add New Shipper</button>
 
-<div >
 <div class="container table-responsive py-3"> 
     <table class="table table-bordered table-hover" >
       <thead style="background-color: #697184;color: white;font-weight: 100;" >
@@ -24,5 +27,4 @@
         </tr>     
       </tbody>
     </table>
-</div>
 </div>

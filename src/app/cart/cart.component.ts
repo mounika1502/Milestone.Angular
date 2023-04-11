@@ -10,24 +10,30 @@ export class CartComponent implements OnInit {
  
     OrderItems:any;
     cartItem: number = 0;
+    Totalprice:any;
+    Get: any;
+    sign: any=[]
+    getCartDetails: any = [];
+    grandtotal: any;
 
     constructor() { }
   
     ngOnInit() {
       this.CartDetails() // get the data
       this.loadCart() // total product amount
-      this.cartItemFunc()
-    }
+      this.cartItemFunc()    
+    }   
   
-    getCartDetails: any = [];
-    // get the details into localstorage
+    
+    // get the details from localstorage
     CartDetails() {
-      if (localStorage.getItem('anunya')) {          // localCartis a key
+      if (localStorage.getItem('anunya')) {        
         this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
       }
     }
   
-    incQnt(prodId: any, qnt: any) {  // increase the qnt product 
+    // increase the qnt product
+    incQnt(prodId: any, qnt: any) {   
       for (let i = 0; i < this.getCartDetails.length; i++) {   // this is forloop
         if (this.getCartDetails[i].prodId === prodId) {  // based on the prodId
           if (qnt != 1000)
@@ -38,7 +44,8 @@ export class CartComponent implements OnInit {
       this.loadCart()
     }
   
-    decQnt(prodId: any, qnt: any) {   // decrease the qunt product
+    // decrease the qunt product
+    decQnt(prodId: any, qnt: any) {   
       for (let i = 0; i < this.getCartDetails.length; i++) {  // thi is for loop
         if (this.getCartDetails[i].prodId === prodId) { // decrease the product based on the id
           if (qnt != 1)
@@ -49,13 +56,12 @@ export class CartComponent implements OnInit {
       this.loadCart()
     }
   
-    // total amount
-    grandtotal: number = 0;
+    
     //total function
     loadCart() {
       if (localStorage.getItem('anunya')) {
         this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
-        this.grandtotal = this.getCartDetails.reduce(function (acc: number, val: { price: number; qnt: number; }) {   // acc is a name,val isa rate
+        this.grandtotal = this.getCartDetails.reduce(function (acc: any, val: { price: any; qnt: any; }) {   // acc is a name,val isa rate
           return acc + (val.price * val.qnt);  // return the total amount
         }, 0);
       }
@@ -66,19 +72,12 @@ export class CartComponent implements OnInit {
       localStorage.removeItem('anunya');
       this.getCartDetails = [];
       this.grandtotal = 0;
+      window .location.reload()
     }
+
     // single delete
     singleDelete(cart: any) {
-      console.log(cart);  // show in console
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
+      console.log(cart);  // show in console      
       if (localStorage.getItem('anunya')) {
         this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');  // get the details in localstorage
        
@@ -91,46 +90,19 @@ export class CartComponent implements OnInit {
             this.cartItemFunc()  
           }
         }
-      }
-      if (result.isConfirmed) {
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
-      }
-      })  
+      }     
+        window .location.reload() 
     }
-  
+    
+    
     cartItemFunc() {
       if (localStorage.getItem('anunya') != null) {
         var cartCount = JSON.parse(localStorage.getItem('anunya') || '{}');
         this.cartItem = cartCount.length;  
       }
-    }
-    checkout(){
-      const Obj={
-        OrderItems:this.OrderItems
-      }
-      var requestOptions = {
-        method: 'POST',
-        body:JSON.stringify(Obj)
-      };
-      console.log(requestOptions);  
-      fetch("https://localhost:2000/orderRoute/post",{
-        method:'POST',
-        headers:{
-          "Access-Control-Allow-Origin":"*",
-          "Content-Type":'application/json'
-        },
-      body:JSON.stringify(Obj)       
-      })  .then(response => response.json())
-      
-      .then(result =>
-        console.log(result))
-       
-      .catch(error => console.log('error',error));      
-    }  
+    }    
+    
   }
+  
 
 

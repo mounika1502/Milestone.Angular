@@ -1,0 +1,249 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  </head>
+  <body>
+    <div  class="row justify-content-center align-items-center text-center ">
+      <div class="col-10 col-lg-7 col-xl-5">
+        <input type="text" value="submit" placeholder= "Search ...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+      </div>
+    </div><br>
+     <p (click)="Get()"></p>
+      <section class="intro-single">
+       <div class="container" >
+         <div class="row" >
+           <div class="col-md-12 col-lg-8">
+             <div class="title-single-box" >
+               <h1 class="title-single">MILE STONE</h1>
+               <span class="color-text-a" style="color:#2eca6a;font-weight: 800;font-size: x-large;" > User Management</span>
+             </div>
+           </div>
+
+           <!-- <div class="col-md-12 col-lg-4" >
+             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <div class="btn-group"  role="group" aria-label="Basic radio toggle button group">
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                <label (click)="data2()" [hidden]="aa === 'Manufacturer'" class="btn btn-outline-success" for="btnradio1">Manufacturers</label>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"  >
+                <label (click)="data3()" [hidden]="aa === 'Dealer'" class="btn btn-outline-success" for="btnradio1">Dealers</label>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"  >
+                <label (click)="data5()"  [hidden]="aa === 'Dealer'" [hidden]="aa === 'Manufacturer'"  class="btn btn-outline-success" for="btnradio1">Admins</label>
+              </div>
+             </nav>   
+           </div> -->
+         </div>
+       </div><br>
+       <button (click)="data2()" [hidden]="aa === 'Manufacturer'" style="float:right;" class="btn btn-outline-secondary">Manufacturers</button >
+        <button (click)="data3()" [hidden]="aa === 'Dealer'" style="float:right;" class="btn btn-outline-secondary">Dealers</button>
+       <button (click)="data5()" [hidden]="aa === 'Dealer'" style="float:right;"   class="btn btn-outline-secondary">Admins</button>
+     <br>
+     <br>
+     <div *ngIf="data1">
+      <div class="row row-cols-1+ row-cols-sm-4  g-4" style="width:100%;margin-left: 0.01%;padding: 2%;" >
+        <div *ngFor="let text of sign | filter : searchtext">
+      <div class="col">
+      <div class="card h-100" style=" border-color: rgb(113, 113, 110);padding:5%;background-color: rgb(245, 245, 245);">
+   <br>
+      <div class="agent-info-box" >
+        <div class="agent-title">
+          <div class="title-box-d">
+            <h3 class="title-d"  >{{text.Firstname}}  {{text.Lastname}}
+            </h3>
+          </div>
+        </div>
+        <div class="agent-content mb-4">
+          <div class="info-agents color-a">
+            <tr>
+              <td><strong style="  float:left;">Phone  </strong></td>
+              <td><span class="color-text-a" style=" padding-left: 1cm;"> :&nbsp;&nbsp;{{text.mobile}}</span></td>
+           </tr>
+           <tr>
+              <td><strong style="  float:left;">Email  </strong></td>
+              <td><span class="color-text-a" style="  padding-left: 1cm;"> :&nbsp;&nbsp;{{text.Email}}</span></td>
+          </tr>
+          <tr>
+             <td> <strong style="  float:left;">Company  </strong></td>
+              <td><span class="color-text-a" style="padding-left: 1cm;">:&nbsp;&nbsp;{{text.Company}}</span></td>
+        </tr>
+        <tr>
+            <td> <strong style="  float:left;">UserType  </strong></td>
+             <td><span class="color-text-a" style="padding-left: 1cm;">:&nbsp;&nbsp;{{text.UserType}}</span></td>
+       </tr>
+        <!-- <tr>
+             <td> <strong style="  float:left;">Location</strong></td>
+              <td><span class="color-text-a" style="  padding-left: 1cm;">:&nbsp;&nbsp;{{text.Location}}</span></td>
+         </tr> -->
+         <tr>
+               <td> <strong style="  float:left;">Address </strong></td>
+              <td><span class="color-text-a" style="  padding-left: 1cm;"> :&nbsp;&nbsp;{{text.Street}}</span></td>
+            </tr>  <br>
+            <div class="card-footer">
+  </div>
+  </div>
+  </div>
+      </div>
+      </div>
+      </div>
+  </div>
+  </div>
+  </div>
+  <div *ngIf="data"> 
+     <div class="row row-cols-1 row-cols-sm-3  g-4" style="width:100%;margin-left: 0.01%;padding: 2%;" >
+       <div *ngFor="let text of this.Array | filter : searchtext">
+     <div class="col">
+     <div class="card h-100" style=" border-color: rgb(113, 113, 110);padding:5%;">
+  <br>
+     <div class="agent-info-box">
+       <div class="agent-title">
+         <div class="title-box-d">
+           <h3 class="title-d"  >{{text.Firstname}}  {{text.Lastname}}
+           </h3>
+         </div>
+       </div>
+       <div class="agent-content mb-4">
+         <div class="info-agents color-a">
+           <tr>
+             <td><strong style="  float:left;">Phone  </strong></td>
+             <td><span class="color-text-a" style=" padding-left: 1cm;"> :&nbsp;&nbsp;{{text.mobile}}</span></td>
+          </tr>
+          <tr>
+           <td><strong style="  float:left;">UserType  </strong></td>
+           <td><span class="color-text-a" style=" padding-left: 1cm;"> :&nbsp;&nbsp;{{text.UserType}}</span></td>
+        </tr>
+          <tr>
+             <td><strong style="  float:left;">Email  </strong></td>
+             <td><span class="color-text-a" style="  padding-left: 1cm;"> :&nbsp;&nbsp;{{text.Email}}</span></td>
+         </tr>
+         <tr>
+            <td> <strong style="  float:left;">Company  </strong></td>
+             <td><span class="color-text-a" style="padding-left: 1cm;">:&nbsp;&nbsp;{{text.Company}}</span></td>
+       </tr>
+       <!-- <tr>
+            <td> <strong style="  float:left;">Location</strong></td>
+             <td><span class="color-text-a" style="  padding-left: 1cm;">:&nbsp;&nbsp;{{text.Location}}</span></td>
+        </tr> -->
+        <tr>
+              <td> <strong style="  float:left;">Address </strong></td>
+             <td><span class="color-text-a" style="  padding-left: 1cm;"> :&nbsp;&nbsp;{{text.Street}}</span></td>
+           </tr><br>
+ </div>
+ </div>
+     </div>
+     </div>
+     </div>
+      
+ </div>
+ </div>
+ </div>
+
+ <div *ngIf="dataform"> 
+  <div class="row row-cols-1 row-cols-sm-3  g-4" style="width:100%;margin-left: 0.01%;padding: 2%;" >
+    <div *ngFor="let text of this.Arrayobj | filter : searchtext">
+  <div class="col">
+  <div class="card h-100" style=" border-color: rgb(113, 113, 110);padding:5%;">
+<br>
+  <div class="agent-info-box">
+    <div class="agent-title">
+      <div class="title-box-d">
+        <h3 class="title-d"  >{{text.Firstname}}  {{text.Lastname}}
+        </h3>
+      </div>
+    </div>
+    <div class="agent-content mb-4">
+      <div class="info-agents color-a">
+        <tr>
+          <td><strong style="  float:left;">Phone  </strong></td>
+          <td><span class="color-text-a" style=" padding-left: 1cm;"> :&nbsp;&nbsp;{{text.mobile}}</span></td>
+       </tr>
+       <tr>
+        <td><strong style="  float:left;">UserType  </strong></td>
+        <td><span class="color-text-a" style=" padding-left: 1cm;"> :&nbsp;&nbsp;{{text.UserType}}</span></td>
+     </tr>
+       <tr>
+          <td><strong style="  float:left;">Email  </strong></td>
+          <td><span class="color-text-a" style="  padding-left: 1cm;"> :&nbsp;&nbsp;{{text.Email}}</span></td>
+      </tr>
+      <tr>
+         <td> <strong style="  float:left;">Company  </strong></td>
+          <td><span class="color-text-a" style="padding-left: 1cm;">:&nbsp;&nbsp;{{text.Company}}</span></td>
+    </tr>
+    <!-- <tr>
+         <td> <strong style="  float:left;">Location</strong></td>
+          <td><span class="color-text-a" style="  padding-left: 1cm;">:&nbsp;&nbsp;{{text.Location}}</span></td>
+     </tr> -->
+     <tr>
+           <td> <strong style="  float:left;">Address </strong></td>
+          <td><span class="color-text-a" style="  padding-left: 1cm;"> :&nbsp;&nbsp;{{text.Street}}</span></td>
+        </tr>  <br>
+       
+</div>
+</div>
+  </div>
+  </div>
+  </div>
+   
+</div>
+</div>
+</div>
+  </section>
+  <br>
+  <br>
+  <div *ngIf="datatext">
+    <div class="row row-cols-1 row-cols-sm-3  g-4" style="width:100%;margin-left: 0.01%;padding: 2%;" >
+      <div *ngFor="let text of Arraydata | filter : searchtext">
+    <div class="col">
+    <div class="card h-100" style=" border-color: rgb(113, 113, 110);padding:5%;background-color: rgb(245, 245, 245);">
+ <br>
+    <div class="agent-info-box" >
+      <div class="agent-title">
+        <div class="title-box-d">
+          <h3 class="title-d"  >{{text.Firstname}}  {{text.Lastname}}
+          </h3>
+        </div>
+      </div>
+      <div class="agent-content mb-4">
+        <div class="info-agents color-a">
+          <tr>
+            <td><strong style="  float:left;">Phone  </strong></td>
+            <td><span class="color-text-a" style=" padding-left: 1cm;"> :&nbsp;&nbsp;{{text.mobile}}</span></td>
+         </tr>
+         <tr>
+            <td><strong style="  float:left;">Email  </strong></td>
+            <td><span class="color-text-a" style="  padding-left: 1cm;"> :&nbsp;&nbsp;{{text.Email}}</span></td>
+        </tr>
+        <tr>
+           <td> <strong style="  float:left;">Company  </strong></td>
+            <td><span class="color-text-a" style="padding-left: 1cm;">:&nbsp;&nbsp;{{text.Company}}</span></td>
+      </tr>
+      <tr>
+          <td> <strong style="  float:left;">UserType  </strong></td>
+           <td><span class="color-text-a" style="padding-left: 1cm;">:&nbsp;&nbsp;{{text.UserType}}</span></td>
+     </tr>
+      <!-- <tr>
+           <td> <strong style="  float:left;">Location</strong></td>
+            <td><span class="color-text-a" style="  padding-left: 1cm;">:&nbsp;&nbsp;{{text.Location}}</span></td>
+       </tr> -->
+       <tr>
+             <td> <strong style="  float:left;">Address </strong></td>
+            <td><span class="color-text-a" style="  padding-left: 1cm;"> :&nbsp;&nbsp;{{text.Street}}</span></td>
+          </tr>  <br>
+          <div class="card-footer">
+     <!-- <span><button class="btn btn-success"  [hidden]="text._id==localid"  style="margin-left: 37%;"  (click)="dealer2(text)">Add</button></span> -->
+
+     <!-- <span><button class="btn btn-primary"  style="float:right" routerLink="/update"  (click)="dealerform(text)">Edit</button></span> -->
+     <!-- [hidden]="text._id==localid" -->
+</div>
+
+
+</div>
+</div>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+       </body>
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+      <script src="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.min.js"></script>

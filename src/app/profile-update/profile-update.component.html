@@ -10,18 +10,19 @@
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
           <form [formGroup]="ProfileForm">
           <div class="card-body p-4 p-md-5">
-            <h2 class="mb-4 pb-2 pb-md-0 mb-md-1 text-center" style="color: blue;"><b>Edit Profile</b></h2>  
-            <hr>
+            <h1 class="mb-4 pb-2 pb-md-0 mb-md-1 text-center" style="color: #4f679f;"><b>Edit Profile</b></h1>  
+            <h2 style="color: blue;">Personal Details</h2>
+                <hr class="mt-0 mb-4">
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="firstName">First Name</label>
+                    <label class="form-label" for="firstName"><b>First Name :</b></label>
                     <input type="text" class="form-control form-control-lg"  [(ngModel)]="this.data.Firstname" formControlName="Firstname" >                    
                   </div>
                 </div>
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="lastName">Last Name</label>
+                    <label class="form-label" for="lastName"><b>Last Name :</b></label>
                     <input type="text" [(ngModel)]="this.data.Lastname" class="form-control form-control-lg" formControlName="Lastname" >                   
                   </div>
                 </div>
@@ -30,38 +31,30 @@
               <div class="row">
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label">Mobile</label>
+                    <label for="birthdayDate" class="form-label"><b>Mobile :</b></label>
                     <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.mobile" formControlName="mobile" >              
                   </div>
                 </div>
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label">Password</label>
-                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.Password" formControlName="Password">                    
+                    <label for="birthdayDate" class="form-label"><b>Email :</b></label>
+                    <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.Email" formControlName="Email" readonly>                    
                   </div>
                 </div>              
               </div>
-              <div class="row">
-                <div class="col-md-12 mb-4 pb-2">
-                  <div class="form-outline">
-                    <label class="form-label" for="emailAddress">Email</label>
-                    <input type="email" [(ngModel)]="this.data.Email"  class="form-control form-control-lg" formControlName="Email" >
-                  </div>
-                </div>
-              </div>
-              <h5 style="color: blue;">Address</h5>
+              <h2 style="color: blue;">Home Address</h2>
                 <hr class="mt-0 mb-4">
               
                 <div class="row">
                   <div class="col-md-6 mb-4 d-flex align-items-center">  
                     <div class="form-outline datepicker w-100">
-                      <label for="birthdayDate" class="form-label">Street</label>
+                      <label for="birthdayDate" class="form-label"><b>Area/Street :</b></label>
                       <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.Street" formControlName="Street">                
                     </div>  
                   </div>
                   <div class="col-md-6 mb-4 d-flex align-items-center">  
                     <div class="form-outline datepicker w-100">
-                      <label for="birthdayDate" class="form-label">City</label>
+                      <label for="birthdayDate" class="form-label"><b>City :</b></label>
                       <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.City" formControlName="City">                      
                     </div>  
                   </div>              
@@ -69,41 +62,41 @@
                 <div class="row">
                   <div class="col-md-6 mb-4 d-flex align-items-center">  
                     <div class="form-outline datepicker w-100">
-                      <label for="birthdayDate" class="form-label">State</label>
+                      <label for="birthdayDate" class="form-label"><b>State :</b></label>
                       <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.State" formControlName="State">                
                     </div>  
                   </div>
                   <div class="col-md-6 mb-4 d-flex align-items-center">  
                     <div class="form-outline datepicker w-100">
-                      <label for="birthdayDate" class="form-label">Pincode</label>
+                      <label for="birthdayDate" class="form-label"><b>Pincode :</b></label>
                       <input type="text" class="form-control form-control-lg"[(ngModel)]="this.data.Pincode" formControlName="Pincode">                      
                     </div>  
                   </div>              
                 </div>
-                <h5 class="pt-1" style="color: blue;">Company Details</h5>
+                <h2 class="pt-1" style="color: blue;">Company Details</h2>
                 <hr>
                 <div class="row">
                   <div class="col-md-6 mb-4 d-flex align-items-center">  
                     <div class="form-outline datepicker w-100">
-                      <label for="birthdayDate" class="form-label">Company</label>
+                      <label for="birthdayDate" class="form-label"><b>Company :</b></label>
                       <input type="text" class="form-control form-control-lg" [(ngModel)]="this.data.Company" formControlName="Company">                
                     </div>  
                   </div>
                   <div class="col-md-6 mb-4 d-flex align-items-center">  
                     <div class="form-outline datepicker w-100">
-                      <label for="birthdayDate" class="form-label">Location</label>
+                      <label for="birthdayDate" class="form-label"><b>Location :</b></label>
                       <input type="text" class="form-control form-control-lg"[(ngModel)]="this.data.Location" formControlName="Location">                      
                     </div>  
                   </div>
                 </div>
                 <div class="col-md-12 mb-4 d-flex align-items-center">  
                   <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label">Company Bio</label>
-                    <input type="text" class="form-control form-control-lg"[(ngModel)]="this.data.bio" formControlName="bio">                      
+                    <label for="birthdayDate" class="form-label"><b>Company Bio :</b></label>
+                    <textarea type="text" cols="=5" rows="5" class="form-control form-control-lg"[(ngModel)]="this.data.bio" formControlName="bio"></textarea>                      
                   </div>  
                 </div> 
               <div class="mt-4 pt-2 text-center">
-                <button class="btn btn-primary btn-lg" type="submit"  (click)="updateProfile(this.data.Authentication)">Submit</button>&nbsp;
+                <button class="btn btn-primary btn-lg" type="submit"  (click)="updateProfile(this.data.Authentication)">Save</button>&nbsp;
                 <button class="btn btn-danger btn-lg" type="submit"  routerLink="/profile">Cancel</button>
               </div>
           </div>

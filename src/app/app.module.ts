@@ -56,6 +56,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { EmailVerifyComponent } from './email-verify/email-verify.component';
 import { FirstCapDirective } from './first-cap.directive';
+import { CardsComponent } from './cards/cards.component';
+import { CardDescriptionComponent } from './card-description/card-description.component';
+import { UsersComponent } from './users/users.component';
 
 
 // import { NgImageSliderModule } from 'ng-image-slider';
@@ -100,7 +103,10 @@ import { FirstCapDirective } from './first-cap.directive';
     AboutUsComponent,
     ForgotPasswordComponent,
     EmailVerifyComponent,
-    FirstCapDirective
+    FirstCapDirective,
+    CardsComponent,
+    CardDescriptionComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

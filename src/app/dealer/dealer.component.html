@@ -8,7 +8,11 @@
   <br> 
   <br>
 <body>
-   <input type="text"  style=" width: 75%; padding: 2%; font-size: large; margin-left: 10%; border: 1px solid rgb(159, 159, 159);  padding: 1%;  " value="submit" placeholder= "Search..." [(ngModel)]="searchtext" name="array id" class="form-control"><br><br><br>
+  <div  class="row justify-content-center align-items-center text-center ">
+    <div class="col-10 col-lg-7 col-xl-5">
+      <input type="text" value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+    </div>
+  </div> 
    <p (click)="Get()"></p>
     <section class="intro-single">
      <div class="container" >

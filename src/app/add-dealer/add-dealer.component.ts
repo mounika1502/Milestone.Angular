@@ -13,7 +13,9 @@ export class AddDealerComponent implements OnInit {
   dealer: any=[];
   sign: any=[]
   Signupform:any;
+
   constructor() { }
+
   ngOnInit(): void {
     this.Signupform = new FormGroup(
       {
@@ -27,10 +29,10 @@ export class AddDealerComponent implements OnInit {
         Address: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
         Location:new FormControl(),
         sid:new FormControl(0),
-        UserType:new FormControl('',Validators.required),
-        
+        UserType:new FormControl('',Validators.required)        
       });
   }
+
   Adddata(){
     if(this.Signupform.value.Firstname ==""||this.Signupform.value.UserType ==""||this.Signupform.value.Lastname ==""||this.Signupform.value.Email ==""||this.Signupform.value.mobile ==""||this.Signupform.value.Company ==""||this.Signupform.value.Address ==""){
       Swal.fire(  
@@ -62,16 +64,11 @@ export class AddDealerComponent implements OnInit {
         console.log(result))
       
       .catch(error => console.log('error',error)); 
-        }  
-      
-    if (this.Signupform.invalid) {
-      return;
-    }   
+        }         
     console.log(JSON.stringify(this.Signupform.value, null, 2));  
   }
-  onSubmit(){
+
  
-  }
   get Firstname()
   {
    return this.Signupform.get('Firstname') as FormControl;

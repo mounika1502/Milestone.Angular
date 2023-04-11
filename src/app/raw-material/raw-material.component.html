@@ -3,7 +3,11 @@
 <br>
 <br>
 <br>
-<input type="text"  style=" width: 80%; font-size: large; margin-left: 3em; justify-content: center; " value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+<div  class="row justify-content-center align-items-center text-center ">
+  <div class="col-10 col-lg-7 col-xl-5">
+    <input type="text" value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+  </div>
+</div>   
 <button class="addproduct" routerLink="/add-raw">Add Raw-Product</button>
 <br>
 <br>
@@ -44,7 +48,10 @@
             <div class="text-center pt-2">
               <button style="width: 4em; background-color: rgb(232, 79, 79);color: white;border-radius: 5px;border: 0;"  (click)="delete(product.Number)">Delete</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <button style="width: 4em; background-color: rgb(80, 98, 237);color: white;border-radius: 5px;border: 0;"  (click)="edit(product)" routerLink="/raw-update">Edit</button>
-            </div>        
+            </div> 
+            <div class="pt-1" style="float: left;">              
+              <button class="btn btn-success" (click)="edit(product)" routerLink="/add-product">Move to product</button>
+            </div>                  
          </div>
       </div>
   </div>

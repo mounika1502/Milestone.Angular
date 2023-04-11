@@ -1,0 +1,63 @@
+<br>
+<br>
+<br>
+<br>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>  
+<div class = "card-wrapper">
+  <div class = "card">
+    <div class = "product-imgs">
+      <div class = "img-display">
+        <div class = "img-showcase">
+          <img src = "{{data.imgurl}}" alt = "shoe image">
+        </div>
+      </div>    
+    </div>
+    <div class = "product-content" style=" margin-left: 28px;">
+      <h2 class = "product-title" >{{data.name}}</h2>
+      <div class = "product-price"> 
+        <h2 class = "new-price"> Price (sqft): <span>{{data.price}}</span></h2>
+      </div>
+      <div class = "product-detail">
+        <ul>
+          <li >ProductId <span style="padding-left: 2cm;">: {{data.prodId}}</span></li>
+             <hr>
+          <li>Color <span style="padding-left: 2.8cm;">: {{data.color}}</span></li>
+          <hr>
+          <li>Quantity <span style="padding-left: 2.3cm;"> : {{data.qnt}}</span></li>
+          <hr>
+          <li>Location of stone <span style="padding-left: 0.64cm;">: {{data.region}}</span></li>
+          <hr>
+          <li>Processing date <span style="padding-left: 0.9cm;">: {{data.date}}</span></li>
+          <hr>
+          <li>Quality <span style="padding-left: 2.5cm;">: {{data.quality}}</span></li>
+          <hr>         
+          <li>Thickness <span style="padding-left: 1.9cm;">: {{data.thick}}</span></li>
+          <hr>
+          <li>size<span style="padding-left: 3.16cm;">: {{data.size}}</span></li>
+          <hr>
+          <li>Manufacturer<span style="padding-left: 1.46cm;">: {{data.manufacturername}}</span></li>
+          <hr>
+          <li>PhoneNumber<span style="padding-left: 1.31cm;">: {{data.PhoneNumber}}</span></li>
+          <hr>       
+        </ul>
+        <br>
+        <h1>Description : </h1>
+        <p>{{data.description}}</p>
+        <hr>
+        <br>
+        <i class="fa fa-phone"  aria-hidden="true" style="color:green"> &nbsp; Contact Supplier         
+        </i>
+        <p><a href="tel:{{data.PhoneNumber}}">{{data.PhoneNumber}}</a></p> 
+      </div>
+      <br>
+      <br>      
+        <button class="btn btn-outline-success" (click)="addCart(data)" style="margin-left:20px;width: 300px;"> Add to Cart
+        </button>      
+    </div>
+  </div>
+</div>
+</body>

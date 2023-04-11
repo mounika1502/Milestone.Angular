@@ -16,7 +16,6 @@ export class ForgotPasswordComponent implements OnInit {
   sign: any;
   Email:any;
   constructor(private router:Router) {
-    this.getProduct()
    }
 
   ngOnInit(): void {
@@ -34,29 +33,13 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
     //This is for product getting (gett) call 
-    getProduct(){    
-      fetch("http://localhost:2000/signupform/getsignupdetails", {
-     method:'get',
-     headers:{
-       "Access-Control-Allow-Origin": "*",
-       "Content-Type":'application/json'
-     },
-     body:JSON.stringify(this.getProduct)
-   }).then(res=> res.json())
-   .then(result=>{ 
-     console.log(result),
-     this.details = result.SignupInfo
-     console.log(this.details)
-     }
-     )     
-     .catch(error => console.log('error',error))
-  }
+  
 
   submitForm(){    
 
-    console.log(this.Form)
-    this.sign=this.details.filter((item:any)=>item.Email=== this.Email)
-    console.log(this.sign)
+    // console.log(this.Form)
+    // this.sign=this.details.filter((item:any)=>item.Email=== this.Email)
+    // console.log(this.sign)
     fetch("http://localhost:2000/signupform/updatePassword/" + this.Form.value.Email, {
       method: 'PUT',
       headers: {
@@ -74,8 +57,8 @@ export class ForgotPasswordComponent implements OnInit {
         console.log(this.products)
 
          Swal.fire( 'Updated successfully!', '', 'success').then(() =>{         
-       this.router.navigate(["login"])
-       window.location.reload()
+       this.router.navigate(["/login"])
+      //  window.location.reload()
     })               
       }
       ).catch(err =>

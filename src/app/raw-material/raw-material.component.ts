@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -7,34 +8,68 @@ import Swal from 'sweetalert2';
   styleUrls: ['./raw-material.component.css']
 })
 export class RawMaterialComponent implements OnInit {
-
+  text:any
   searchtext:any;
   products: any=[];
-  constructor() {
-    this.getProduct()
-   }
+  details: any=[]
+  manufacturer: any;
+ 
+
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
-  }
-   //This is for product getting (gett) call 
-   getProduct(){    
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text)
+
+    var data ={
+      mobile:this.text.mobile
+    }    
     fetch("http://localhost:2000/raw/getraw", {
+   method:'post',
+   headers:{
+     "Access-Control-Allow-Origin": "*",
+     "Content-Type":'application/json'
+   },
+     body:JSON.stringify(data)
+ }).then(res=> res.json())
+ .then(result=>{ 
+   console.log(result),
+   this.products = result.RawInfo
+   console.log(this.products)
+   }
+   )     
+   .catch(error => console.log('error',error))
+  }
+  
+  getProduct(){    
+    fetch("http://localhost:2000/signupform/getsignupdetails", {
    method:'get',
    headers:{
      "Access-Control-Allow-Origin": "*",
      "Content-Type":'application/json'
    },
-  
+   body:JSON.stringify(this.getProduct)
  }).then(res=> res.json())
  .then(result=>{ 
-   console.log(result),
-   this.products = result.RawInfo
-   }
+   console.log(result)
+    this.details = result.SignupInfo
+    console.log(this.details)
+ }
    )     
    .catch(error => console.log('error',error))
 }
+  
 
-delete(Number:any){    
+delete(Number:any){ 
+   Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {   
   fetch("http://localhost:2000/raw/delete/" + Number,{
    method:'DELETE',
    headers:{
@@ -44,12 +79,21 @@ delete(Number:any){
   .then(response => response.json())
   .then(result=>{
     console.log(result)
-    this.getProduct()
-    alert('ok')
+   
+   
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
   }
   ).catch(err =>
      console.log(err))    
 } 
+
 //this is for edit the product
 edit(rawProduct:any){ 
   this.products = rawProduct

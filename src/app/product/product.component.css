@@ -104,11 +104,7 @@ border-radius: 10px;
   -webkit-transform: scale(1.1); /* Safari 3-8 */
   transform: scale(1.1);
 }
-mat-toolbar{
-  background-color:#3b3b3b;;
-  height: 80px;
-  background-image: url(https://www.kajariaceramics.com/product-picture/GP02384_b.jpg);
-}
+
 .mar{
   width: 20%;
 }
@@ -132,3 +128,9 @@ background-image: url(https://img.freepik.com/premium-photo/grey-marble-texture-
 height: 100%;
 width: 100%;
 } */
+
+.form-control{
+  padding-right: 25px;
+  background: url(https://static.thenounproject.com/png/101791-200.png) no-repeat right;
+   background-size: 20px; 
+ }

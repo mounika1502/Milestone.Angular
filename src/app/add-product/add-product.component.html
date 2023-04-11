@@ -28,7 +28,7 @@
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label"><b>S.NO :</b></label>
-                    <input type="text" class="form-control form-control-lg" formControlName="prodId" placeholder="Enter your product ID">
+                    <input type="text" appFirstCap class="form-control form-control-lg" formControlName="prodId" [(ngModel)]="raw.Number" placeholder="Enter your product ID">
                     <span style="color: red;" *ngIf="prodId && prodId.invalid && prodId.touched">Please enter your Product Id</span>              
                   </div>
                 </div> 
@@ -106,14 +106,14 @@
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
                     <label for="birthdayDate" class="form-label"><b>Colour :</b></label>
-                    <input type="text" class="form-control form-control-lg" formControlName="color" placeholder="Enter your product colour">
+                    <input type="text" appFirstCap class="form-control form-control-lg" formControlName="color" placeholder="Enter your product colour">
                     <span style="color: red;" *ngIf="color && color.invalid && color.touched">Please enter your Product Colour</span>                    
                   </div>
                 </div>  
                 <div class="col-md-5 mb-1 align-items-center">   
                  <div class="form-outline datepicker w-80" style="margin-bottom: -2em;">
                    <label for="birthdayDate" class="form-label"><b>Size :</b></label>               
-                   <input type="text" class="form-control form-control-lg" formControlName="size" placeholder="Enter your product size">   
+                   <input type="text" appFirstCap class="form-control form-control-lg" formControlName="size" placeholder="Enter your product size">   
                    <span style="color: red;" *ngIf="size && size.invalid && size.touched">Please enter your Product size</span>                                                  
                  </div>                 
                 </div>  
@@ -155,8 +155,8 @@
                 </div> 
                 <div class="col-md-6 mb-4 d-flex align-items-center">
                   <div class="form-outline datepicker w-100">
-                    <label for="birthdayDate" class="form-label"><b>Region of stone :</b></label>
-                    <input type="text" class="form-control form-control-lg" formControlName="region" placeholder="select your product location">   
+                    <label for="birthdayDate" class="form-label"><b>Location/Region of stone :</b></label>
+                    <input type="text" appFirstCap class="form-control form-control-lg" formControlName="region" placeholder="select your product location">   
                     <span style="color: red;" *ngIf="region && region.invalid && region.touched">Please enter your product location</span>           
                   </div>
                 </div>                             
@@ -182,10 +182,22 @@
                 </div>
               </div>
               <div class="row text-dark">
+              <div class="col-md-12 pb-2">
+                <div class="form-outline datepicker w-100">
+                  <label for="birthdayDate" class="form-label"><b>Stone Size/Type :</b></label><br>
+                  <select  formControlName="stone" style="padding: 2%; width: 19em;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;" class="fa fa-caret-down">
+                     <option  value="Gangsaw Size">Gangsaw Size</option>
+                     <option  value="Cutter Size">Cutter Size</option>
+                   </select>
+                   <span style="color: red;" *ngIf="stone && stone.invalid && stone.touched">Please select your Product type</span>
+                </div>
+               </div> 
+              </div>
+              <div class="row text-dark">
                 <div class="col-md-12  pb-2">
                   <div class="form-outline">
                     <label class="form-label" for="emailAddress"><b>Description :</b></label>
-                    <textarea type="email" class="form-control form-control-lg" cols="5" rows="5" formControlName="description" placeholder="Enter your message"></textarea>
+                    <textarea type="email" appFirstCap class="form-control form-control-lg" cols="5" rows="5" formControlName="description" placeholder="Enter your message"></textarea>
                     <span style="color: red;" *ngIf="description && description.invalid && description.touched">Write few words about this product</span>
                   </div>
                 </div>

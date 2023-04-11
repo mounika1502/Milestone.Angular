@@ -2,62 +2,55 @@
 <br>
 <br>
 
-<i class="fa fa-arrow-left" style="margin-left: 1em; margin-top: 2em;font-size: 20px;" routerLink="/inventory"></i>
-<br>
-<br>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
   <body> 
-    <div class="container bootdey">
-      <div class="panel panel-default panel-order">        
-        <div class="panel-body" >                           
-            <div>
-              <div class="row">
-                  <div class="col-md-1"><img src ="{{data.imgurl}}" style="width:80%;"></div>
-                    <div class="col-md-11">
-                        <div class="row">
-                          <div class="col-md-12" style="padding:25px; font-size: 1.5em;" >  
-                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Product Id : </b> {{data.prodId}}</span><br>                                
-                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.name}}</span><br>  
-                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Colour &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>{{data.color}}</span><br>  
-                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">size &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.size}}</span><br>  
-                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Thickness &nbsp;&nbsp;: </b> {{data.thick}}</span><br>   
-                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Quantity &nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.qnt}}</span><br>   
-                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.price}}</span><br>   
-                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Quality &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b> {{data.quality}}</span><br>  
-                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Location of stone : </b> {{data.region}}</span><br>  
-                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Processing date &nbsp;&nbsp;&nbsp;: </b> {{data.date}}</span><br>                 
-                            <span class="label label-info"><b style="color: rgb(81, 81, 211)">Description : </b>{{data.description}}</span><br>                            
-                          </div>                               
-                        </div>
-                        <!-- <div>
-                            <button class="btn btn-danger" (click)="delete(data.prodId)">Delete</button>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-primary" style="width:5em" (click)="edit(data)" routerLink="/dealerproduct">Edit</button>
-                        </div> -->
-                    </div> 
-                  </div>
-              </div> 
-                                
-        
-                                            
-            </div>                               
+    <i class="fa fa-arrow-left" style="margin-left: 1em; margin-top: 2em;font-size: 20px;" routerLink="/inventory"></i>
+ 
+<div class = "card-wrapper">
+  <div class = "card">
+    <!-- card left -->
+    <div class = "product-imgs">
+      <div class = "img-display">
+        <div class = "img-showcase">
+          <img src = "{{data.imgurl}}" style="height:26em;width:20em">
         </div>
-   </div>                          
-</body>
+      </div>
+    </div>
+    <!-- card right -->
+    <div class = "product-content">
+      <h2 class = "product-title">{{data.name}}</h2>
+      <div class = "product-price"> 
+        <h2 class = "new-price"> Price: <span>{{data.price}}</span></h2>
+      </div>
 
+      <div class = "product-detail">
 
+        <ul>
+             <li>ProductId <span style="padding-left: 2cm;">:&nbsp;&nbsp;{{data.prodId}}</span></li>
+             <hr>
+          <li>Color <span style="padding-left: 2.83cm;">:&nbsp;&nbsp;{{data.color}}</span></li>
+          <hr>
+          <li>Available Quantity <span style="padding-left: 0.4cm;"> :&nbsp;&nbsp;{{data.qnt}}</span></li>
+          <hr>
+          <li>Location of stone <span style="padding-left: 0.6cm;">:&nbsp;&nbsp;{{data.region}}</span></li>
+          <hr>
+          <li>Processing date <span style="padding-left: 1cm;">:&nbsp;&nbsp;{{data.date}}</span></li>
+          <hr>
+          <li>Quality <span style="padding-left: 2.5cm;">:&nbsp;&nbsp;{{data.quality}}</span></li>
+          <hr>
+          <li>Thickness <span style="padding-left: 2cm;">:&nbsp;&nbsp;{{data.thick}}</span></li>
+          <hr>
+          <li>size<span style="padding-left: 3.2cm;">:&nbsp;&nbsp;{{data.size}}</span></li>
+          <hr>
+        </ul>
+<br>
+        <h1>Description: </h1>
+        <p>{{data.description}}</p>
 
-
-
-    
-
- 
-
-
-    
-   
- 
-
- 
-
- 
- 
+      </div>
+    </div>
+  </div>
+</div>
+ </body>

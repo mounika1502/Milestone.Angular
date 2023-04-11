@@ -3,10 +3,15 @@
 <br>
 <br>
 <body>
+  <div  class="row justify-content-center align-items-center text-center ">
+    <div class="col-10 col-lg-7 col-xl-5">
+      <input type="text" value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+    </div>
+  </div>   
     <div class="container bootdey">
       <div class="panel panel-default panel-order">
         <div class="panel-heading">
-          <input type="text"  style=" width: 80%; font-size: large;    padding: 1%; " value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+         
             <h1 style="font-size:30px;color: rgb(5, 74, 117) ;font-weight: bolder;padding: 2%;">ORDERS</h1>
         </div>        
         <div class="panel-body" *ngFor="let test of order | filter : searchtext ">                         

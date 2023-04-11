@@ -29,11 +29,12 @@ export class ProfileComponent implements OnInit {
   State:'',
   } 
   Form: any;
+  texts: any=[];
   constructor(private service:UpdateService, private fb:FormBuilder,private router:Router) {}  
 
   ngOnInit(): void {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
-     console.log(this.text)
+     console.log(this.text.Firstname)
 
      this.Form = new FormGroup({
       Company:new FormControl(""),
@@ -69,7 +70,8 @@ export class ProfileComponent implements OnInit {
               this.products = result  //it  runs $parse automatically when it runs the $digest loop, basically $parse is the way angular evaluates expressions
             console.log(this.products)
             Swal.fire( 'Added successfully!', '', 'success').then(() =>{    
-              this.router.navigate(["login"])     
+              this.router.navigate(["login"])  
+              window.location.reload()   
               // this.companyForm = false
               // this.profile = true
             })  

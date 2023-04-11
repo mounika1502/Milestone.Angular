@@ -2,6 +2,11 @@
 <br>
 <br>
 <body class="style"> 
+  <div  class="row justify-content-center align-items-center text-center ">
+    <div class="col-10 col-lg-7 col-xl-5">
+      <input type="text" value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+    </div>
+  </div> 
     <br>
      <br>
      <h1 style="text-align:center;color:#ffffff">
@@ -12,30 +17,34 @@
    <div class="users">
      <div class="card">
    <table >
-           <tr>
+        <tr>
            <td class="tdstyle"> FirstName: </td> 
            <td>{{data.Firstname}}</td>
-         </tr>
-         <tr>
-       <td class="tdstyle">  LastName:</td>     
-       <td> {{data.Lastname}}</td>
-     </tr>       
-   <tr>
-       <td class="tdstyle">  Mobile:</td> 
-        <td> {{data.mobile}}</td>
-     </tr>
-   <tr>       
-       <td class="tdstyle"> Email: </td> 
-        <td> {{data.Email}}</td>
-     </tr>
-    <tr>
-       <td class="tdstyle"> Password: </td>
-        <td>{{data.Password}}</td>
-     </tr>
+        </tr>
+        <tr>
+          <td class="tdstyle">  LastName:</td>     
+          <td> {{data.Lastname}}</td>
+        </tr>       
+        <tr>
+          <td class="tdstyle">  Mobile:</td> 
+          <td> {{data.mobile}}</td>
+        </tr>
+        <tr>
+          <td class="tdstyle">  UserType:</td> 
+          <td> {{data.UserType}}</td>
+        </tr>
+        <tr>       
+          <td class="tdstyle"> Email: </td> 
+          <td> {{data.Email}}</td>
+        </tr>
+        <tr>
+          <td class="tdstyle"> Password: </td>
+          <td>{{data.Password}}</td>
+        </tr>
      </table>     
-   </div>
-     </div>
-     </div>
+    </div>
+    </div>
+    </div>
    </section>
    <!-- <pagination-controls style="color:#143479" 
    (pageChange)="p = $event" 

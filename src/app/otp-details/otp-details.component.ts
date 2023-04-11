@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./otp-details.component.css']
 })
 export class OtpDetailsComponent implements OnInit {
-
+  searchtext:any;
   details:any=[]
 
   constructor() { 

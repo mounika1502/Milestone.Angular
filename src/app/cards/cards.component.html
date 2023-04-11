@@ -1,0 +1,37 @@
+<br><br><br><br>
+<body>
+  <div  class="row justify-content-center align-items-center text-center ">
+    <div class="col-10 col-lg-7 col-xl-5">
+      <input type="text" value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+    </div>
+  </div> 
+    <div class="row row-cols-2 sm-2 row-cols-md-4  g-5" style="padding-right: 1%;padding-left: 1%;">
+      
+      <div *ngFor="let cart of products| filter:searchtext">
+        <br>
+        <div class="col">
+  
+          <div class="card h-100">
+            <img src={{cart.imgurl}} class="card-img-top" style="height:10rem" (click)="anu(cart)">
+            <div class="card-body" style="align-items: center;" style="height: 100%; width:100%;">
+              <p style="font-weight: bold;"> {{cart.name}}</p>
+
+              <tr>  
+                <td style="font-weight: 600;"></td>
+                <td>{{cart.thick}}</td>
+              </tr>
+              <tr>
+  
+                <td style="font-weight: 600;"></td>
+                <td>{{cart.size}}</td>
+              </tr>
+              <p style="color:blue">Tap on image for more details</p> 
+            </div>
+  
+          </div>
+        </div>
+  
+  
+      </div>
+    </div>
+  </body>

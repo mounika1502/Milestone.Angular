@@ -1,27 +1,18 @@
-mat-toolbar{
-    background-color:#3b3b3b;;
-    height: 80px;
-    background-image: url(https://www.kajariaceramics.com/product-picture/GP02384_b.jpg);
-}
 .body{
-    background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg);
-  }
- 
-  .pop-up {   
-    margin-top: 30%;
-    margin-left: 124%;
-    width: 70%;
-    height: 90%;
-    border: 1px solid #2B2A2A;
-    background-color: rgb(246, 244, 244);
-background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg); 
-    }
-    .pop-up-drop { 
-      position: fixed;
-   
-      top: 0;
-      left: -30%;
-    height:50%;
-    width: 50%;
-     
+  background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg);
+}
+.pop-up-drop { 
+  position: fixed;
+  top: 0;
+  left: -30%;
+  height:50%;
+  width: 50%;     
+}
+.submit{
+  background-color: #697184;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  height: 2.5em;
+  width: 10.7em;
 }

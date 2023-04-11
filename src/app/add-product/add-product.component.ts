@@ -13,11 +13,14 @@ export class AddProductComponent implements OnInit {
   addProduct=true
   text: any;
   prodSize: any;
-
+  raw:any;
   constructor( private router:Router,private fb:FormBuilder) { }
 
   ngOnInit(): void {
 
+    this.raw = JSON.parse(localStorage.getItem('rawproduct')||'{}') 
+    console.log(this.raw)
+    
     
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
     console.log(this.text)
@@ -25,16 +28,17 @@ export class AddProductComponent implements OnInit {
     this.productForm = new FormGroup ({
       imgurl :new FormControl('',[Validators.required]),
       prodId: new FormControl('',[Validators.required]),
-      name: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-      color: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-      size: new FormControl('',[Validators.required]),
+      name: new FormControl('',[Validators.required]),
+      color: new FormControl('',[Validators.required]),
+      size: new FormControl('',[Validators.required],),
       thick: new FormControl('',[Validators.required]),
       qnt: new FormControl('',[Validators.required]),
       price: new FormControl('',[Validators.required]),
-      region: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      region: new FormControl('',[Validators.required]),
       quality: new FormControl('',[Validators.required]),
       date: new FormControl('',[Validators.required]),
       mobile:new FormControl(""),
+      stone:new FormControl('',[Validators.required]),
       description: new FormControl('',[Validators.required])
     })   
 
@@ -57,9 +61,9 @@ export class AddProductComponent implements OnInit {
     this.productForm.value.qnt ==''||
     this.productForm.value.region ==''||
     this.productForm.value.quality ==''||
-    this.productForm.value.date ==''||
-    
+    this.productForm.value.date ==''||    
     this.productForm.value.description ==''||
+    this.productForm.value.stone ==''||
     this.productForm.value.price =='')
     { 
       Swal.fire(  
@@ -131,6 +135,10 @@ export class AddProductComponent implements OnInit {
    get price()
    {
     return this.productForm.get('price');
+   }
+   get stone()
+   {
+    return this.productForm.get('stone');
    }
    get description()
    {

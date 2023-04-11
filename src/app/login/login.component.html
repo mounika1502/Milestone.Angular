@@ -1,5 +1,6 @@
+<div *ngIf="login" matSort>
 <div class="background-radial-gradient overflow-hidden"> 
-<table *ngIf="login" matSort>
+
     <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
       <div class="row gx-lg-5 align-items-center mb-5">
         <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
@@ -42,12 +43,13 @@
                    <span class="eye" (click)="view()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'" style="color: black;"></i></span>
                    <span style="color: red;" *ngIf="password && password.invalid && password.touched">Please enter your password</span>
                 </div>
-                <div class="mb-3" style="float:right;color: #1b86e4; cursor: pointer;text-decoration: underline;" routerLink="/email-verify">Forgot password?</div>
-                <!-- <hr> -->
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block col-xl-12" (click)="loginSubmit(loginForm)">
+                <div class="mb-3" style="float:right;color: #1b86e4; cursor: pointer;text-decoration: underline;" routerLink="/email-verify">Forgot password?</div><br><br>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary btn-block col-xl-12" (click)="loginSubmit(loginForm)">
                     Login
                   </button>
+                </div>
+                
                   <br>
                   <br>  
                 <!-- Register buttons -->
@@ -64,8 +66,9 @@
         </div>
       </div>
     </div>
-    </table> 
+   
   </div>
+</div> 
 
 
 <!--this is for log in with mobile page-->
@@ -106,7 +109,7 @@
 
 <!-- this is signup form -->
  
-    <table *ngIf="showSignup" matsort>
+    <div *ngIf="showSignup" matsort>
 
       <i class="fa fa-arrow-left" style="margin-left: 3em; margin-top: 2em;" (click)="toggleSignupArrow()"></i>
       <div class="contain1" >       
@@ -122,14 +125,14 @@
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%"> 
                 <div class="form-group">
                   <label>First Name</label>
-                  <input type="text"  style="padding:3%"   class="form-control" formControlName="Firstname" placeholder="Enter first name" >
+                  <input type="text" appFirstCap style="padding:3%"   class="form-control" formControlName="Firstname" placeholder="Enter first name" >
                   <span style="color: red;" *ngIf="Firstname && Firstname.invalid && Firstname.touched">Please enter your Firstname</span>
                 </div>
               </div>           
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
                 <div class="form-group">
                   <label>Last Name</label>
-                  <input type="text" style="padding:3%" class="form-control" formControlName="Lastname" placeholder="Enter last name" >
+                  <input type="text" appFirstCap style="padding:3%" class="form-control" formControlName="Lastname" placeholder="Enter last name" >
                   <span style="color: red;" *ngIf="Lastname && Lastname.invalid && Lastname.touched">Please enter your Lastname</span>
                 </div>
               </div>   
@@ -148,28 +151,28 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
                   <div class="form-group">
                     <label>Company Name</label>
-                    <input type="text" style="padding:3%" class="form-control" formControlName="Company" placeholder="Enter your company name" >
+                    <input type="text" appFirstCap style="padding:3%" class="form-control" formControlName="Company" placeholder="Enter your company name" >
                     <span style="color: red;" *ngIf="Company && Company.invalid && Company.touched">Please enter your company name</span>
                   </div>
                 </div>            
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
                   <div class="form-group">
                     <label>Mobile</label>
-                    <input type="text"   style="padding:3%"    class="form-control" formControlName="mobile" placeholder="Enter your mobile number" >
+                    <input type="text" style="padding:3%" class="form-control" formControlName="mobile" placeholder="Enter your mobile number" >
                     <span style="color: red;" *ngIf="mobile && mobile.invalid && mobile.touched">Please enter your 10 digit mobile number</span>
                   </div>
                 </div> 
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
                   <div class="form-group">
                     <label >Password</label>
-                    <input type="text"  style="padding:3%"   class="form-control" formControlName="Password" placeholder="Enter your password">
+                    <input type="text" style="padding:3%"   class="form-control" formControlName="Password" placeholder="Enter your password">
                     <span style="color: red;" *ngIf="Password && Password.invalid && Password.touched">Please enter your password</span>
                   </div>
                 </div>          
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-12" style="padding:1%">
                 <div class="form-group">
                   <label >Email</label>
-                  <input type="email"  style="padding:3%"   class="form-control" formControlName="Email" placeholder="Enter email ID">
+                  <input type="email" style="padding:3%"   class="form-control" formControlName="Email" placeholder="Enter email ID">
                   <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched">Please enter your Email</span>
                 </div>
               </div>                    
@@ -179,28 +182,28 @@
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
                 <div class="form-group">
                   <label for="ciTy">Street/Area</label>
-                  <input type="text"  style="padding:3%"   class="form-control" formControlName="Street" placeholder="Enter your street">
+                  <input type="text" appFirstCap style="padding:3%"   class="form-control" formControlName="Street" placeholder="Enter your street">
                   <span style="color: red;" *ngIf="Street && Street.invalid && Street.touched">Please enter your street name</span>
                 </div>
               </div>      
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
                 <div class="form-group">
                   <label for="zIp">City/Town</label>
-                  <input type="text"   style="padding:3%"  class="form-control" formControlName="City" placeholder="Enter your city">
+                  <input type="text" appFirstCap style="padding:3%" class="form-control" formControlName="City" placeholder="Enter your city">
                   <span style="color: red;" *ngIf="City && City.invalid && City.touched">Please enter your city name</span>
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
                 <div class="form-group">
                   <label for="ciTy">State</label>
-                  <input type="name"  style="padding:3%"   class="form-control" formControlName="State" placeholder="Enter Your state">
+                  <input type="name" appFirstCap style="padding:3%"   class="form-control" formControlName="State" placeholder="Enter Your state">
                   <span style="color: red;" *ngIf="State && State.invalid && State.touched">Please enter your state</span>
                 </div>
               </div>      
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="padding:1%">
                 <div class="form-group">
                   <label for="zIp">Pin-Code</label>
-                  <input type="text"   style="padding:3%"  class="form-control" formControlName="Pincode" placeholder="Pin Code">
+                  <input type="text" style="padding:3%" class="form-control" formControlName="Pincode" placeholder="Pin Code">
                   <span style="color: red;" *ngIf="Pincode && Pincode.invalid && Pincode.touched">Please enter your pincode</span>
                 </div>
               </div>
@@ -228,7 +231,7 @@
         </div>
         </form>
       </div>
-    </table>
+    </div>
       
       
       

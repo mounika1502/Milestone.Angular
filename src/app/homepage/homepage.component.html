@@ -1,22 +1,35 @@
 <nav class="navbar  fixed-top" style="background-color: #697184;">
 
+  <!-- cart image -->
+  <svg width="0" height="0" fill="currentColor"  viewBox="0 0 16 16">
+    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </svg>
+  <div style="float:right">
+    <div class="shopingicons mr-auto">           
+      <a  class="icons-btn d-inline-block bag">
+        <i class="fa fa-shopping-cart"aria-hidden="true" style="color:white; font-size: 30px; margin-right: 20px;"></i>
+        <span class="icon-shopping-bag" ></span>      
+        <span class="number" style="font-size:9px; margin-right: 59px;margin-left: -31px; color: yellow" class="badge bg-danger" slot="end" routerLink="/cart" [hidden]="aa === 'Manufacturer'">{{cartItem}} </span>     
+      </a>                   
+    </div>
+  </div>
+
   <div class="container-fluid">
-    <button class="navbar-toggler" style="color: white;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+    <button class="navbar-toggler" style="color: white;margin-top: -31px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span class="navbar-toggler-icon" style="color: white;"></span>
    </button>
                 
-   <img src="assets/images/user-profile.jpeg" style="width: 4em; border-radius: 50px;border: 0;" routerLink="/profile">    
+   <!-- <img src="assets/images/user-profile.jpeg" style="width: 4em; border-radius: 50px;border: 0;" routerLink="/profile">     -->
     <div class="offcanvas offcanvas-start text-dark" style="width:250px; background-color: #697184;" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel" >
       <div class="offcanvas-header">
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div><br>
       <br>
       <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" >
-          <!-- <li class="nav-item">
-
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+           <li class="nav-item">
             <a class="nav-link active text-light text-center" routerLink="/profile"><img src="assets/images/user-profile.jpeg" style="width: 4em; border-radius: 50px;border: 0;"><br>Profile</a>
-          </li><br>     -->
+          </li><br>     
           <li class="nav-items">
             <a class="nav-link active text-light" routerLink="/home" aria-current="page"><i class="fa fa-home" style="font-size:24px;color:white;"></i>&nbsp;&nbsp;Home</a>
           </li><br>
@@ -45,10 +58,7 @@
             <a class="nav-link active text-light" [hidden]="aa === 'Dealer'" routerLink="/shippers"><i class="fa fa-truck" style="font-size:24px; color:white"></i>&nbsp;&nbsp;My Shippers</a>
           </li><br>
           <li class="nav-item">
-            <a class="nav-link active text-light" routerLink="about"><img style="width:25px;height:25px;color:white" src="https://www.seekpng.com/png/full/33-331171_board-of-trustees-community-icon-white-png.png">&nbsp;&nbsp;About Us</a>
-          </li><br>
-          <li class="nav-item">
-            <a class="nav-link active text-light"  ><img style="width:25px;height:25px;color:white" src="https://www.nicepng.com/png/full/78-784644_circular-question-mark-button-question-mark-icon-white.png">&nbsp;&nbsp;Help</a>
+            <a class="nav-link active text-light" [hidden]="aa === 'Dealer'" [hidden]="aa === 'Manufacturer'" routerLink="/users"><img style="width:25px;height:25px;color:white" src="https://www.seekpng.com/png/full/33-331171_board-of-trustees-community-icon-white-png.png">&nbsp;&nbsp;User Management</a>
           </li><br>
           <li class="nav-item">
             <a class="nav-link active text-light" (click)="logout()"><i class="fa fa-sign-out" style="font-size:25px;color:white"></i>&nbsp;&nbsp;Logout</a>

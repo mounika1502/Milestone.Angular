@@ -11,15 +11,11 @@ import Swal from 'sweetalert2';
 export class AddRawComponent implements OnInit {
   productForm: any;
   text: any;
+  details: any=[]
 
   constructor(private router:Router, private fb:FormBuilder) {
-    this.myForm()
   }
-  myForm(){
-    //  this.productForm = this.fb.group({
-    //   Number:['',Validators.required]
-    //  });
-  }
+ 
 
   ngOnInit(): void {
 
@@ -29,16 +25,18 @@ export class AddRawComponent implements OnInit {
     this.productForm = new FormGroup ({
       Image :new FormControl('',[Validators.required]),
       Number: new FormControl('',[Validators.required]),
-      Name: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      Name: new FormControl('',[Validators.required]),
       color: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
       size: new FormControl('',[Validators.required]),
       stone:new FormControl('',[Validators.required]),
       region: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
       date: new FormControl('',[Validators.required]),
-      mobile:new FormControl("")
+      mobile:new FormControl(""),
+      Firstname: new FormControl(""),
+      Lastname : new FormControl("")
     }) 
-
   }
+
   submitForm(){
     if(this.productForm.value.Image ==''||
     this.productForm.value.Number ==''||
@@ -48,6 +46,8 @@ export class AddRawComponent implements OnInit {
     this.productForm.value.size ==''||
     this.productForm.value.stone ==''||
     this.productForm.value.mobile ==''||
+    this.productForm.value.Firstname ==''||
+    this.productForm.value.Lastname ==''||
     this.productForm.value.date =='')
     { 
       Swal.fire(  
@@ -66,14 +66,28 @@ export class AddRawComponent implements OnInit {
      }).then(res=> res.json())
      .then(result=>{ 
        console.log(result)
+
+       if(result.status == 'error'){
+        alert('Product Id already exist')     
+
+       } else{
+        Swal.fire( 'Submitted successfully!', '', 'success').then(() =>{         
+          this.router.navigate(["raw"])
+        }) 
        
-       Swal.fire( 'Submitted successfully!', '', 'success').then(() =>{         
-        this.router.navigate(["raw"])
-      }) 
-      
+       }
+       
+   
+       
+            
    }
+   
   )      
-       .catch(error => console.log('error',error)) 
+       .catch(error =>{
+        console.error(error)
+        console.log('error',error)
+       } ) 
+       
   }  
 }
 

@@ -4,28 +4,32 @@
 <br>
 <br>
 <br>
-<input type="text"  style=" width: 80%; font-size: large; margin-left: 2.5em; " value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+<div  class="row justify-content-center align-items-center text-center ">
+  <div class="col-10 col-lg-7 col-xl-5">
+    <input type="text" value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+  </div>
+</div> 
 <button class="addproduct" routerLink="/add-product">Add Your Product</button>
 <br>
 <br>
 <br>
 <br>
-<div class="row row-cols-2 row-cols-sm-4  g-4"  >
+<div class="row row-cols-2 row-cols-sm-4 g-4">
   <div *ngFor="let product of products | filter : searchtext ">
     <div class="col">
        <div class="card h-100" style="margin: 7px; border-color: rgb(113, 113, 110);">
            <img src={{product.imgurl}} class="card-img-top" style="height:10em" (click)="description(product)">
            <table >
             <tr>
-              <td style="color: rgb(104, 104, 222);padding: 3%;">Name </td>
+              <td style="color: rgb(104, 104, 222);padding: 3%;">Name</td>
               <td>: {{product.name}}</td>
             </tr>
             <tr>
-              <td style="color: rgb(104, 104, 222);padding: 3%;">Size </td>
+              <td style="color: rgb(104, 104, 222);padding: 3%;">Size</td>
               <td>: {{product.size}}</td>
             </tr>
             <tr>
-              <td style="color: rgb(104, 104, 222);padding: 3%;">Price/SQFT </td>
+              <td style="color: rgb(104, 104, 222);padding: 3%;">Price/SQFT</td>
               <td>: {{product.price}}</td>
             </tr>
            </table>

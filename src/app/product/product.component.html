@@ -3,49 +3,27 @@
 <br>
 <br>
 <br>
-<body >
-  <div class="row row-cols-2 row-cols-sm-3  g-4"  >
-  <div class="panel-heading">    
-    <div style="font-size:12px;float: right; color: yellow;cursor: pointer;" class="badge bg-danger" slot="end" routerLink="/cart">
-      <i style="font-size: 30px;float: right;" class="fa fa-cart-plus" routerLink="/cart"></i>
-      {{cartItem}}
+
+<body>
+  <div  class="row justify-content-center align-items-center text-center ">
+    <div class="col-10 col-lg-7 col-xl-5">
+      <input type="text" value="submit" placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"><br>
+    </div>
+  </div> 
+  <div class="row row-cols-2 sm-2 row-cols-md-4  g-5" style="padding-right: 1%;padding-left: 1%;">
+   
+    <div *ngFor="let cart of dealer| filter:searchtext">
+      <br>
+      <div class="col">
+  
+        <div class="card h-100">
+          <img src={{cart.Image}} class="card-img-top" style="height:10rem" >
+          <div class="card-body" style="align-items: center;" style="height: 100%; width:100%;">
+            <p style="font-weight: bold;"> {{cart.name}}</p>
+             <button class="btn" style="border-radius: 5px;border: 0;background-color: #697184;color: white;" routerLink="/card" (click)="getproducts(cart)"> viewproducts</button>            
+          </div>  
+        </div>
+      </div> 
     </div>
   </div>
-      <p (click)="getStoreProducts()"></p>
-  <div *ngFor="let test of productsStore">
-<div class="col">
-
-<div class="card h-100" style="margin: 7px; border-color: rgb(113, 113, 110);">
-<img src={{test.imgurl}} class="card-img-top" style="height:10em" >
-<div class="card-body">
-  <table>
-  <tr>
-    <td style="padding: 0%;" class="tdstyle"> Name : </td>
-    <td>{{test.name}}</td>
-  </tr>
-
-  <tr>
-    <td class="tdstyle"> Price: </td>
-    <td>{{test.price}}</td>
-  </tr>
-  <!-- <tr>
-    <td class="tdstyle"> Qnt: </td>
-    <td>{{test.qnt}}</td>
-  </tr>
-  <tr>
-    <td class="tdstyle"> Product ID </td>
-    <td>{{test.prodId}}</td>
-  </tr>-->
-  <tr> 
-    <td>
-      <button class="btn btn-primary" (click)="addCart(test)"> Add to cart</button>
-    </td>    
-  </tr>
-</table>  
-</div>
-</div>
-</div>
-</div>
-</div>
-
 </body>

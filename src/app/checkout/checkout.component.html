@@ -85,12 +85,14 @@
       <br>
 <br>
 <br>
+
 <div class="container" align="center">
   <i  style="font-size:100px;" class="fa fa-truck" aria-hidden="true"></i>
         <h3 class="mt-3 text-blue">Welcome</h3>
         <p class="white-text">You are 30 seconds away from completing your order!</p>
 </div>
 <br>
+<body>
 <form >
     <div class="container" >
     <div class="row mb-4">
@@ -144,23 +146,64 @@
     </div>
 
 <div class="form-outline mb-4">
-<textarea [(ngModel)]="Area" class="form-control"style="border-color: blue" id="form11Example7" rows="4" name="Area"></textarea>
-<label class="form-label" for="form11Example7" id="validationCustom01" required>Area</label>
+<textarea [(ngModel)]="Address" class="form-control"style="border-color: blue" id="form11Example7" rows="4" name="Area"></textarea>
+<label class="form-label" for="form11Example7" id="validationCustom01" required>Address</label>
 </div>
     </div>
   </form>
-<button class="btn btn-primary" (click)="popup()" style="margin-left: 58%;
+</body>
+
+<!-- <button class="btn btn-primary" (click)="popup()" style="margin-left: 58%;
 margin-top: -10%">Continue to pay</button>
 <button class="btn btn-primary" routerLink="/cart" style="margin-left:14px; margin-top: -21%"
->Go Back</button>
-  
-<div *ngIf="pop">
+>Go Back</button> -->
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+
+<div class="mt-1  text-center ">
+   <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ Continue to pay
+</button>
+
+  <!-- <button class="submit" type="submit"  (click)="popup()">Continue to pay</button>&nbsp; -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+         
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <button btn btn-primary class="submit" (click)="cash1()">Pay by cash</button>
+          <br>
+          <br>
+          <button btn btn-primary class="submit" >Pay 50%</button>
+          <br>
+          <br>
+          <button btn btn-primary class="submit" >Pay 100%</button>
+
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <br><br><br><br><br><br><br>
+<!-- <div *ngIf="pop">
   <div class="pop-up-drop">
     <div class="pop-up">
       <i class="fa fa-close" style="font-size:24px;color:black;float: right;" (click)="close()" ></i>
-        <button class="btn btn-primary" style="    margin-top: 80px;
-        margin-left: 30%" (click)="cash1()" >Pay by cash</button><br>
-        <button class="btn btn-primary" style="margin-top: 60px;margin-left: 30%; " routerLink="/payment">Pay by card </button>
+        <button    
+       (click)="cash1()" >Pay by cash</button><br>
+        <button   routerLink="/payment">Pay by card </button>
       </div>
     </div>
-    </div>
+    </div> -->

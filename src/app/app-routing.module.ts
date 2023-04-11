@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './add-product/add-product.component';
-
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { OtpDetailsComponent } from './otp-details/otp-details.component';
@@ -39,6 +38,9 @@ import { EditManufacturerComponent } from './edit-manufacturer/edit-manufacturer
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { EmailVerifyComponent } from './email-verify/email-verify.component';
+import { CardsComponent } from './cards/cards.component';
+import { CardDescriptionComponent } from './card-description/card-description.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
  // { path:'',redirectTo:'login',pathMatch:'full'},
@@ -46,7 +48,7 @@ const routes: Routes = [
   { path : 'homepage', component:HomepageComponent,canActivate:[CactivateGuard]},
   { path : 'product',component:ProductComponent,canActivate:[CactivateGuard]}  ,   
   { path : 'add-dealer',component:AddDealerComponent,canActivate:[CactivateGuard]},
-  { path : 'profile',component:ProfileComponent}, 
+  { path : 'profile',component:ProfileComponent,canActivate:[CactivateGuard]}, 
   { path : 'dealer',component:DealerComponent,canActivate:[CactivateGuard]},
   { path : 'add-product',component:AddProductComponent,canActivate:[CactivateGuard]},   
   { path : 'otp',component:OtpComponent},
@@ -78,8 +80,10 @@ const routes: Routes = [
   { path : 'Edit-manufacturer',component:EditManufacturerComponent},
   { path : 'about',component:AboutUsComponent},
   { path : 'forgotPassword/:token',component:ForgotPasswordComponent},
-  { path : 'email-verify',component:EmailVerifyComponent}
-
+  { path : 'email-verify',component:EmailVerifyComponent},
+  { path : 'card',component:CardsComponent},
+  { path : 'card-description',component:CardDescriptionComponent},
+  { path : 'users',component:UsersComponent}
 ]; 
 
 @NgModule({
