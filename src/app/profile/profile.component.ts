@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { ProfileService } from '../profile.service';
-import { UpdateService } from '../update.service';
 
 @Component({
   selector: 'app-profile',
@@ -30,7 +28,7 @@ export class ProfileComponent implements OnInit {
   } 
   Form: any;
   texts: any=[];
-  constructor(private service:UpdateService, private fb:FormBuilder,private router:Router) {}  
+  constructor( private fb:FormBuilder,private router:Router) {}  
 
   ngOnInit(): void {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
@@ -40,7 +38,6 @@ export class ProfileComponent implements OnInit {
       Company:new FormControl(""),
       Location:new FormControl(""),
       bio:new FormControl("")
-
      })
      console.log(this.Form)
   }
@@ -74,13 +71,11 @@ export class ProfileComponent implements OnInit {
               window.location.reload()   
               // this.companyForm = false
               // this.profile = true
-            })  
-                  
+            })                   
           }
           ).catch(err =>
             console.log(err))
-      }
- 
+      } 
   
   arrow(){
     this.companyForm = false

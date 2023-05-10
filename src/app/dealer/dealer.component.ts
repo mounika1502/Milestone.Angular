@@ -47,7 +47,6 @@ searchtext:any;
 
    }
   ngOnInit(): void {
-    // this.data2();
 
     fetch("http://localhost:2000/signupform/getsignupdetails",{
       method:"GET",
@@ -65,72 +64,22 @@ searchtext:any;
     ).catch(err =>
       console.log('error',err))
     this.Get();
-    // this.array=this.sign.filter((item:any)=>item.UserType ==='Dealer')
-    // console.log(this.array)
-    // this.data=true;
-    // this.data4=false;
     
     this.localid=JSON.parse(localStorage.getItem('docId')|| '{}')
     
-    // this.send = new FormGroup({
-    //     To: new FormControl(),
-    //     Subject : new FormControl(''),
-    //     Message : new FormControl(''),
-    //   });
       this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
       console.log(this.text)
       this.aa=this.text.UserType
       console.log(this.aa) 
   }
-  Get(){
-  
+  Get(){  
   }
-//   sendmail(dealer:any){
-// this.popupdata=true;
-// this.registerForm = dealer
-//   } 
-//   Delete(_id:any){
-// Swal.fire({
-//   title: 'Are you sure?',
-//   text: "You won't be able to revert this!",
-//   icon: 'warning',
-//   showCancelButton: true,
-//   confirmButtonColor: '#3085d6',
-//   cancelButtonColor: '#d33',
-//   confirmButtonText: 'Yes, delete it!'
-// }).then((result) => {
-//     console.log(_id)
-//       fetch("http://localhost:7500/dealer/deletedealer/" + _id,{
-//        method:'DELETE',
-//        headers:{
-//          "access-Control-Allow-Origin":"*"
-//        },
-//       })
-//       .then(response => response.json())
-//       .then(result=>{
-//        console.log(result)
-//        this.Get()
-//         if (result.isConfirmed) {
-//           Swal.fire(
-//             'Deleted!',
-//             'Your file has been deleted.',
-//             'success'
-//           )
-//         }
-//       })
-//       }
-//       ).catch(err =>
-//        console.log(err))    
-//    }
-  //  Edit(sign:any){
-  //       this.popupform=true;
-  //       this.SignupForm = sign
-  //       localStorage.setItem('edit',JSON.stringify(sign))
-  //     }
-      remove(){
-        this.popupform=false;
-        this.popupdata=false;
-      }
+
+  remove(){
+    this.popupform=false;
+    this.popupdata=false;
+  }
+
 data3(){
   this.data4=true;
   this.data=false;

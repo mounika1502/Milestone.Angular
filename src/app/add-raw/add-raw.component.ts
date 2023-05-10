@@ -67,27 +67,20 @@ export class AddRawComponent implements OnInit {
      .then(result=>{ 
        console.log(result)
 
-       if(result.status == 'error'){
-        alert('Product Id already exist')     
+       if(result.status == 'failed'){
+        Swal.fire( 'cancelled', 'Product Id already exist', 'error')    
 
        } else{
         Swal.fire( 'Submitted successfully!', '', 'success').then(() =>{         
           this.router.navigate(["raw"])
-        }) 
-       
-       }
-       
-   
-       
-            
-   }
-   
+        })        
+       } 
+   }   
   )      
        .catch(error =>{
         console.error(error)
         console.log('error',error)
-       } ) 
-       
+       } )        
   }  
 }
 

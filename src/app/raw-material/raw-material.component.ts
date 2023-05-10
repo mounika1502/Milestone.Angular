@@ -69,7 +69,8 @@ delete(Number:any){
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {   
+    }).then((result) => { 
+      if (result.isConfirmed == true) {
   fetch("http://localhost:2000/raw/delete/" + Number,{
    method:'DELETE',
    headers:{
@@ -77,22 +78,20 @@ delete(Number:any){
     },
   })
   .then(response => response.json())
-  .then(result=>{
-    console.log(result)
-   
-   
-      if (result.isConfirmed) {
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
-      }
-    })
-  }
-  ).catch(err =>
-     console.log(err))    
-} 
+       .then(result=>{
+        console.log(result)
+      })     
+       .catch(err =>
+        console.log(err))    
+    } 
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+  })
+}
+
 
 //this is for edit the product
 edit(rawProduct:any){ 

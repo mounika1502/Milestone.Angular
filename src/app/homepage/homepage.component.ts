@@ -35,11 +35,7 @@ export class HomepageComponent implements OnInit {
         let storeDataGet: any = []; // storeDataGet is a array
         storeDataGet.push(category); // push the category into localstorage
         localStorage.setItem('anunya',JSON.stringify(storeDataGet));
-       
-    //     Swal.fire('Added Successfully!', '', 'success').then(() => {
-    //       window.location.reload()
-    //    } );
-       //localCart is key ,storeDataGet is To convert the stringify
+      
       }
       
       else {

@@ -35,7 +35,7 @@ export class EmailVerifyComponent implements OnInit {
     ) 
  }
  else{
-     fetch("http://localhost:2000/auth/getsignupdetail", {
+     fetch("http://localhost:7500/auth/getsignupdetail", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -44,15 +44,18 @@ export class EmailVerifyComponent implements OnInit {
       body:JSON.stringify(this.Form.value)
     }).then(res=> res.json())
     .then(result=>{  
-      console.log(result)           
-    console.log(this.Form) 
-    
-    //  localStorage.setItem('Email',JSON.stringify(this.Form));
-    //  console.log(this.Form) 
+      console.log(result) 
+      if(result.status == 'failed'){
+        Swal.fire( 'cancelled', 'Email does not exist', 'error')     
 
-    Swal.fire( 'Link sended successfully!', '', 'success').then(() =>{   
-      window .location.reload()      
-    })  
+       } else{
+        Swal.fire( 'Link sended successfully!', '', 'success').then(() =>{   
+          window .location.reload()      
+        })        
+       }         
+    console.log(this.Form) 
+    //  localStorage.setItem('Email',JSON.stringify(this.Form));
+    //  console.log(this.Form)   
         
     })  
   }

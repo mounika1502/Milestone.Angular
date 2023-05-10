@@ -32,7 +32,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.router.navigate(["/login"])
   }
 
-    //This is for product getting (gett) call 
+    
   
 
   submitForm(){    
@@ -40,7 +40,7 @@ export class ForgotPasswordComponent implements OnInit {
     // console.log(this.Form)
     // this.sign=this.details.filter((item:any)=>item.Email=== this.Email)
     // console.log(this.sign)
-    fetch("http://localhost:2000/signupform/updatePassword/" + this.Form.value.Email, {
+    fetch("http://localhost:7500/signupform/updatePassword/" + this.Form.value.Email, {
       method: 'PUT',
       headers: {
         "Access-Control-Allow-Origin": "*",        

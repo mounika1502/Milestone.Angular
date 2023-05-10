@@ -281,7 +281,7 @@ fetch("http://localhost:2000/signupform/emailnotification", {
 .catch(error => console.log('error',error))
    }       
  })       
-   .catch(error => console.log('error',error))             
+               
 } 
 
 }

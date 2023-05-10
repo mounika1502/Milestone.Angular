@@ -76,12 +76,6 @@ export class OtpComponent implements OnInit {
     this.verified = JSON.parse(localStorage.getItem('regdata') || '{}')
     console.log(this.verified.role)
 
-    //getting the phone number
-    // this.data=JSON.parse(localStorage.getItem('mobileNo')||'{}')   
-    // this.total=this.data
-    // console.log(this.total)  
-  
-
   }
 
   onOtpChange(otp:string){
