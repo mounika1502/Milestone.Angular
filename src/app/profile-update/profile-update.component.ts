@@ -64,7 +64,7 @@ export class ProfileUpdateComponent implements OnInit {
 
   //  updateProfile(data:any){
   //   console.log(this.ProfileForm)
-  //   fetch("http://localhost:2000/signupform/editProfile/" + this.data.Authentication, {
+  //   fetch("https://milestone-096608973980.herokuapp.com/signupform/editProfile/" + this.data.Authentication, {
   //     method: 'PUT',
   //     headers: {
   //       "access-Control-Allow-Origin": "*",        

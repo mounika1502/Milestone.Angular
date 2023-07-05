@@ -16,7 +16,7 @@ export class ShippersComponent implements OnInit {
   }
 
   getProduct(){    
-    fetch("http://localhost:2000/shippers/getshipper", {
+    fetch("https://milestone-096608973980.herokuapp.com/shippers/getshipper", {
    method:'get',
    headers:{
      "Access-Control-Allow-Origin": "*",

@@ -119,7 +119,7 @@ export class LoginComponent implements OnInit {
         'error'                                  //then take one alert message like not save all data
       ) 
   }else{
-     fetch("http://localhost:2000/loginform/addlogin", {
+     fetch("https://milestone-096608973980.herokuapp.com/loginform/addlogin", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -147,7 +147,7 @@ export class LoginComponent implements OnInit {
   }
 
   getProduct(){    
-    fetch("http://localhost:2000/signupform/getsignupdetails", {
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/getsignupdetails", {
    method:'get',
    headers:{
      "Access-Control-Allow-Origin": "*",
@@ -236,7 +236,7 @@ export class LoginComponent implements OnInit {
 }
 else{
     
-  fetch("http://localhost:2000/signupform/addsignupdetails", {
+  fetch("https://milestone-096608973980.herokuapp.com/signupform/addsignupdetails", {
    method:'post',
    headers:{
      "Access-Control-Allow-Origin": "*",
@@ -265,7 +265,7 @@ else{
     var body ={
       Email:this.SignupForm.value.Email
     }
-fetch("http://localhost:2000/signupform/emailnotification", {
+fetch("https://milestone-096608973980.herokuapp.com/signupform/emailnotification", {
   method:'post',
   headers:{
     "Access-Control-Allow-Origin": "*",

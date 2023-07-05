@@ -9,6 +9,6 @@ export class ProfileService {
   constructor(private http:HttpClient) { }
 
   update(data:any,id:any){
-    return this.http.put('http://localhost:2000/signupform/editProfile/' + id,data)
+    return this.http.put('https://milestone-096608973980.herokuapp.com/signupform/editProfile/' + id,data)
    }
 }

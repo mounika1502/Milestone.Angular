@@ -10,39 +10,39 @@ export class UpdateService {
 
   // this is for product update call
    update(data:any,id:any){
-    return this.http.put('http://localhost:2000/products/editProduct/' + id,data)
+    return this.http.put('https://milestone-096608973980.herokuapp.com/products/editProduct/' + id,data)
    }
 
    //this is for dealer update call
    updateDealer(data:any,id:any){
-    return this.http.put('http://localhost:2000/dealer/editdealer/' + id,data)
+    return this.http.put('https://milestone-096608973980.herokuapp.com/dealer/editdealer/' + id,data)
   }
  //this is for order management order status update
   updateStatus(data:any,id:any){
-    return this.http.put('http://localhost:2000/placeorders/orderStatus/' + id,data)
+    return this.http.put('https://milestone-096608973980.herokuapp.com/placeorders/orderStatus/' + id,data)
   }
 
   //this is for profile update
   updateProfile(data:any,id:any){
-    return this.http.put('http://localhost:2000/signupform/editProfile/' + id ,data)
+    return this.http.put('https://milestone-096608973980.herokuapp.com/signupform/editProfile/' + id ,data)
    }
 
     //this is for profile update
   updateRaw(data:any,id:any){
-    return this.http.put('http://localhost:2000/raw/editRaw/' + id ,data)
+    return this.http.put('https://milestone-096608973980.herokuapp.com/raw/editRaw/' + id ,data)
    }
 
      //this is for Shipper update
   updateShipper(data:any,id:any){
-    return this.http.put('http://localhost:2000/shippers/editShipper/' + id ,data)
+    return this.http.put('https://milestone-096608973980.herokuapp.com/shippers/editShipper/' + id ,data)
    }
 
   updateManufacturer(data:any,id:any){
-    return this.http.put('http://localhost:2000/manufacturer/edits/' + id ,data)
+    return this.http.put('https://milestone-096608973980.herokuapp.com/manufacturer/edits/' + id ,data)
    }
 
    updateCompanyBio(data:any,id:any){
-    return this.http.put('http://localhost:2000/signupform/addCompany/' + id,data)
+    return this.http.put('https://milestone-096608973980.herokuapp.com/signupform/addCompany/' + id,data)
    }
 
   

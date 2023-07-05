@@ -53,7 +53,7 @@ export class SignupComponent implements OnInit {
        ) 
     }else{
         
-      fetch("https://localhost:2000/signupform/addsignupdetails", {
+      fetch("https://milestone-096608973980.herokuapp.com/signupform/addsignupdetails", {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",

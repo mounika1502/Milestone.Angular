@@ -51,7 +51,7 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
 
-    fetch("http://localhost:2000/placeorders/getAllOrders",{
+    fetch("https://milestone-096608973980.herokuapp.com/orderRoute/getOrders",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",

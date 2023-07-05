@@ -35,7 +35,7 @@ export class EmailVerifyComponent implements OnInit {
     ) 
  }
  else{
-     fetch("http://localhost:7500/auth/getsignupdetail", {
+     fetch("https://milestone-096608973980.herokuapp.com/auth/getsignupdetail", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",

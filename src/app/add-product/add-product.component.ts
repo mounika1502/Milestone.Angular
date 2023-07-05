@@ -72,7 +72,7 @@ export class AddProductComponent implements OnInit {
          'error'                                  //then take one alert message like not save all data
        ) 
     }else{  
-       fetch("http://localhost:2000/products/addproduct", {
+       fetch("https://milestone-096608973980.herokuapp.com/products/addproduct", {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",

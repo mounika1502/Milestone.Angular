@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
     localStorage.setItem('Login',JSON.stringify(this.text))
     console.log(this.Form.value)
     
-        fetch("http://localhost:2000/signupform/addCompany/" + this.text.Authentication, {
+        fetch("https://milestone-096608973980.herokuapp.com/signupform/addCompany/" + this.text.Authentication, {
           method: 'PUT',
           headers: {
             "access-Control-Allow-Origin": "*",        

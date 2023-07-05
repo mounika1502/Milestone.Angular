@@ -48,7 +48,7 @@ searchtext:any;
    }
   ngOnInit(): void {
 
-    fetch("http://localhost:2000/signupform/getsignupdetails",{
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -83,7 +83,7 @@ searchtext:any;
 data3(){
   this.data4=true;
   this.data=false;
-  fetch("http://localhost:2000/dealer/getdealer",{
+  fetch("https://milestone-096608973980.herokuapp.com/dealer/getdealer",{
     method:"GET",
     headers:{
       "access-Control-Allow-Origin":"*",
@@ -109,7 +109,7 @@ Dealer(){
     this.data4=false;
   }
   dealer2(data:any){  
-    fetch("http://localhost:2000/dealer/adddealer",{
+    fetch("https://milestone-096608973980.herokuapp.com/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",

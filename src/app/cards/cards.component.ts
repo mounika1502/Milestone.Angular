@@ -33,7 +33,7 @@ export class CardsComponent implements OnInit {
      
     get() {
       console.log(this.name)
-      fetch("http://localhost:2000/products/getbyName/" + this.name, {
+      fetch("https://milestone-096608973980.herokuapp.com/products/getbyName/" + this.name, {
         method: 'GET',
       headers: {
         "access-Control-Allow-Origin": "*",    

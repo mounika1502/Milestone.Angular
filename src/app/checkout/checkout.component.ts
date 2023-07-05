@@ -52,7 +52,7 @@ export class CheckoutComponent implements OnInit {
         };
         console.log(Obj);  
         console.log(JSON.stringify(Obj))   //product details with user details
-        fetch("http://localhost:2000/placeorders/post",{
+        fetch("https://milestone-096608973980.herokuapp.com/placeorders/post",{
           method:'POST',
           headers:{
             "Access-Control-Allow-Origin":"*",

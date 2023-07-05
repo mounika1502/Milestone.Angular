@@ -33,7 +33,7 @@ export class ProductComponent implements OnInit {
   }  
  
     get() {
-      fetch("http://localhost:2000/card/getcard", {
+      fetch("https://milestone-096608973980.herokuapp.com/card/getcard", {
         method: 'GET',
       headers: {
         "access-Control-Allow-Origin": "*",

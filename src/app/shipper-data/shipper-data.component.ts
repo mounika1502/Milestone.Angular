@@ -22,7 +22,7 @@ edit(shippers:any){
 }
 
 delete(Mobile:any){    
-  fetch("http://localhost:2000/shippers/delete/" + Mobile,{
+  fetch("https://milestone-096608973980.herokuapp.com/shippers/delete/" + Mobile,{
    method:'DELETE',
    headers:{
       "access-Control-Allow-Origin":"*"

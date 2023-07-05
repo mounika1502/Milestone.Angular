@@ -53,7 +53,7 @@ export class UsersComponent implements OnInit {
       console.log(this.aa) 
   }
   Get(){
-    fetch("http://localhost:2000/signupform/getsignupdetails",{
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -96,7 +96,7 @@ export class UsersComponent implements OnInit {
     // this.data4=false;
   }
   All(){
-    fetch("http://localhost:2000/signupform/getsignupdetails",{
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",

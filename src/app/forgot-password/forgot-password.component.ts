@@ -15,13 +15,16 @@ export class ForgotPasswordComponent implements OnInit {
   text: any;
   sign: any;
   Email:any;
+  confirmPassword: any;
+ 
   constructor(private router:Router) {
    }
 
   ngOnInit(): void {
     this.Form = new FormGroup({
       Email:new FormControl(""),
-      Password: new FormControl("")     
+      Password: new FormControl("") ,
+        
     })
 
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
@@ -32,15 +35,15 @@ export class ForgotPasswordComponent implements OnInit {
     this.router.navigate(["/login"])
   }
 
+  submitForm(){  
+    var Obj={
+      "confirmPassword":this.confirmPassword
+    }
+
+    console.log(Obj.confirmPassword) 
+    if(this.Form.value.Password == Obj.confirmPassword) {
     
-  
-
-  submitForm(){    
-
-    // console.log(this.Form)
-    // this.sign=this.details.filter((item:any)=>item.Email=== this.Email)
-    // console.log(this.sign)
-    fetch("http://localhost:7500/signupform/updatePassword/" + this.Form.value.Email, {
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/updatePassword/" + this.Form.value.Email, {
       method: 'PUT',
       headers: {
         "Access-Control-Allow-Origin": "*",        
@@ -59,9 +62,13 @@ export class ForgotPasswordComponent implements OnInit {
          Swal.fire( 'Updated successfully!', '', 'success').then(() =>{         
        this.router.navigate(["/login"])
       //  window.location.reload()
-    })               
+    })          
+         
       }
       ).catch(err =>
         console.log(err))
+  }else{
+    alert('password not match')
   }
+}
 }

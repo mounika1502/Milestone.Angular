@@ -42,7 +42,7 @@ sign: any=[];
    this.data2();
    this.localIds=JSON.parse(localStorage.getItem('docIds')|| '{}')
    
-    fetch("http://localhost:2000/signupform/getsignupdetails",{
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -76,7 +76,7 @@ this.registerForm = dealer
 data3(){
   this.data4=true;
   this.data=false
-  fetch("http://localhost:2000/manufacturer/getdata",{
+  fetch("https://milestone-096608973980.herokuapp.com/manufacturer/getdata",{
     method:"GET",
     headers:{
       "access-Control-Allow-Origin":"*",
@@ -103,7 +103,7 @@ Dealer(){
  
 
     dealer2(data:any){  
-      fetch("http://localhost:2000/manufacturer/adddata",{
+      fetch("https://milestone-096608973980.herokuapp.com/manufacturer/adddata",{
         method:'POST',
         headers:{
           "Access-Control-Allow-Origin":"*",

@@ -43,7 +43,7 @@ import { CardDescriptionComponent } from './card-description/card-description.co
 import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
- // { path:'',redirectTo:'login',pathMatch:'full'},
+  { path:'',redirectTo:'login',pathMatch:'full'},
   { path : 'login',component:LoginComponent},   
   { path : 'homepage', component:HomepageComponent,canActivate:[CactivateGuard]},
   { path : 'product',component:ProductComponent,canActivate:[CactivateGuard]}  ,   
@@ -79,6 +79,7 @@ const routes: Routes = [
   { path : 'add-manufacturer',component:AddManufacturerComponent},
   { path : 'Edit-manufacturer',component:EditManufacturerComponent},
   { path : 'about',component:AboutUsComponent},
+ // { path : 'forgotPassword',component:ForgotPasswordComponent},
   { path : 'forgotPassword/:token',component:ForgotPasswordComponent},
   { path : 'email-verify',component:EmailVerifyComponent},
   { path : 'card',component:CardsComponent},

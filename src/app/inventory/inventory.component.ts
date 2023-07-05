@@ -45,7 +45,7 @@ export class InventoryComponent implements OnInit {
     var data={
       mobile:this.text.mobile
     }    
-     fetch("http://localhost:2000/products/getproduct", {
+     fetch("https://milestone-096608973980.herokuapp.com/products/getproduct", {
     method:'post',
     headers:{
       "Access-Control-Allow-Origin": "*",
@@ -73,7 +73,7 @@ export class InventoryComponent implements OnInit {
     confirmButtonText: 'Yes, delete it!'
   }).then((result) => {
     if (result.isConfirmed == true) {
-      fetch("http://localhost:2000/products/deleteproduct/" + prodId,{
+      fetch("https://milestone-096608973980.herokuapp.com/products/deleteproduct/" + prodId,{
         method:'DELETE',
         headers:{
           "access-Control-Allow-Origin":"*"

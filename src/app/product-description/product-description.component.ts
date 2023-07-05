@@ -59,7 +59,7 @@ export class ProductDescriptionComponent implements OnInit {
   }).then((result) => {
 
   console.log(Number)
-    fetch("http://localhost:2000/products/deleteproduct/" + prodId,{
+    fetch("https://milestone-096608973980.herokuapp.com/products/deleteproduct/" + prodId,{
      method:'DELETE',
      headers:{
        "access-Control-Allow-Origin":"*"

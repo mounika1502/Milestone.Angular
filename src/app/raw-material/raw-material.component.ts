@@ -24,7 +24,7 @@ export class RawMaterialComponent implements OnInit {
     var data ={
       mobile:this.text.mobile
     }    
-    fetch("http://localhost:2000/raw/getraw", {
+    fetch("https://milestone-096608973980.herokuapp.com/raw/getraw", {
    method:'post',
    headers:{
      "Access-Control-Allow-Origin": "*",
@@ -42,7 +42,7 @@ export class RawMaterialComponent implements OnInit {
   }
   
   getProduct(){    
-    fetch("http://localhost:2000/signupform/getsignupdetails", {
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/getsignupdetails", {
    method:'get',
    headers:{
      "Access-Control-Allow-Origin": "*",
@@ -71,7 +71,7 @@ delete(Number:any){
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => { 
       if (result.isConfirmed == true) {
-  fetch("http://localhost:2000/raw/delete/" + Number,{
+  fetch("https://milestone-096608973980.herokuapp.com/raw/delete/" + Number,{
    method:'DELETE',
    headers:{
       "access-Control-Allow-Origin":"*"

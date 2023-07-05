@@ -56,7 +56,7 @@ export class AddRawComponent implements OnInit {
          'error'                                  //then take one alert message like not save all data
        ) 
     }else{  
-       fetch("http://localhost:2000/raw/addraw", {
+       fetch("https://milestone-096608973980.herokuapp.com/raw/addraw", {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",
