@@ -24,15 +24,15 @@ import { DealerUpdateComponent } from './dealer-update/dealer-update.component';
 import { ProfileUpdateComponent } from './profile-update/profile-update.component';
 import { RawMaterialComponent } from './raw-material/raw-material.component';
 import { AddRawComponent } from './add-raw/add-raw.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+
 import { RawUpdateComponent } from './raw-update/raw-update.component';
-import { MenubarComponent } from './menubar/menubar.component';
+
 import { ShippersComponent } from './shippers/shippers.component';
 import { AddShipperComponent } from './add-shipper/add-shipper.component';
 import { ShipperDataComponent } from './shipper-data/shipper-data.component';
 import { ShipperUpdateComponent } from './shipper-update/shipper-update.component';
 import { UpdatedealerComponent } from './updatedealer/updatedealer.component';
-import { ManufacturerComponent } from './manufacturer/manufacturer.component';
+
 import { AddManufacturerComponent } from './add-manufacturer/add-manufacturer.component';
 import { EditManufacturerComponent } from './edit-manufacturer/edit-manufacturer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -67,15 +67,13 @@ const routes: Routes = [
   { path : 'profile-update',component:ProfileUpdateComponent},
   { path : 'raw',component:RawMaterialComponent},
   { path : 'add-raw',component:AddRawComponent},
-  { path : 'side',component:SidebarComponent},
-  { path : 'menu',component:MenubarComponent},
   { path : 'raw-update',component:RawUpdateComponent},
   { path : 'shippers',component:ShippersComponent},
   { path : 'add-shipper',component:AddShipperComponent},
   { path : 'shipper-data',component:ShipperDataComponent},
   { path : 'shipper-update',component:ShipperUpdateComponent},
   { path : 'update-dealer',component:UpdatedealerComponent},
-  { path : 'manufacturer',component:ManufacturerComponent},
+
   { path : 'add-manufacturer',component:AddManufacturerComponent},
   { path : 'Edit-manufacturer',component:EditManufacturerComponent},
   { path : 'about',component:AboutUsComponent},

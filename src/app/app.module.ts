@@ -13,7 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { SidebarComponent } from './sidebar/sidebar.component';
+
 import { ProductComponent } from './product/product.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { OtpComponent } from './otp/otp.component';
@@ -43,13 +43,13 @@ import { ProfileUpdateComponent } from './profile-update/profile-update.componen
 import { RawMaterialComponent } from './raw-material/raw-material.component';
 import { AddRawComponent } from './add-raw/add-raw.component';
 import { RawUpdateComponent } from './raw-update/raw-update.component';
-import { MenubarComponent } from './menubar/menubar.component';
+
 import { ShippersComponent } from './shippers/shippers.component';
 import { AddShipperComponent } from './add-shipper/add-shipper.component';
 import { ShipperDataComponent } from './shipper-data/shipper-data.component';
 import { ShipperUpdateComponent } from './shipper-update/shipper-update.component';
 import { UpdatedealerComponent } from './updatedealer/updatedealer.component';
-import { ManufacturerComponent } from './manufacturer/manufacturer.component';
+
 import { AddManufacturerComponent } from './add-manufacturer/add-manufacturer.component';
 import { EditManufacturerComponent } from './edit-manufacturer/edit-manufacturer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -69,7 +69,7 @@ import { UsersComponent } from './users/users.component';
     LoginComponent,
     HomepageComponent,
     SignupComponent,
-    SidebarComponent,
+  
     ProductComponent,
     AddProductComponent,
     OtpComponent,
@@ -90,14 +90,12 @@ import { UsersComponent } from './users/users.component';
     ProfileUpdateComponent,
     RawMaterialComponent,
     AddRawComponent,
-    RawUpdateComponent,
-    MenubarComponent,
+    RawUpdateComponent,   
     ShippersComponent,
     AddShipperComponent,
     ShipperDataComponent,
     ShipperUpdateComponent,
-    UpdatedealerComponent,
-    ManufacturerComponent,
+    UpdatedealerComponent,   
     AddManufacturerComponent,
     EditManufacturerComponent,
     AboutUsComponent,

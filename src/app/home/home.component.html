@@ -1,183 +1,817 @@
 <br>
 <body>
-  <main class="main">
-    <!-- Header -->
-    <header class="header">
-      <div class="container flex-between">
-        <div class="logo">
-        
-        </div>
-        <nav class="main-navgation flex-between flex-ver-top">
-          <div class="nav-links">
-            <a href="#">Granites</a>
-            <a href="#">Marbles</a>
-            <a href="#">Tiles</a>
+ 
+  <style>
+    .main-navgation a {
+    font-weight: 700;
+    font-size: 14px;
+    color: #9e9aa7;
+    transition: 0.3s;
+  }
+  
+  .main-navgation a:hover {
+    color: #232127;
+  }
+  
+  @media (max-width: 992px) {
+    .main-navgation a {
+      width: 100%;
+      color: white;
+      text-align: center;
+      font-size: 16px;
+    }
+    .main-navgation a:hover {
+      color: #2acfcf;
+    }
+  }
+  
+  .landing {
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+    margin-left: 11%;
+    overflow-x: hidden;
+  }
+  
+  @media (max-width: 992px) {
+    .landing {
+      flex-direction: column-reverse;
+      margin-left: 0;
+      padding-bottom: 80px;
+      row-gap: 60px;
+    }
+  }
+  
+  @media (max-width: 280px) {
+    .landing {
+      padding-bottom: 40px;
+    }
+  }
+  
+  .landing .landing-text {
+    flex: 1;
+    min-width: 465px;
+  }
+  
+  @media (max-width: 992px) {
+    .landing .landing-text {
+      max-width: 95%;
+      min-width: 0;
+      text-align: center;
+    }
+  }
+  
+  .landing .landing-text h1 {
+    width: 100%;
+    font-size: 3.9em;
+    line-height: 1.15;
+  }
+  
+  @media (max-width: 992px) {
+    .landing .landing-text h1 {
+      font-size: 3em;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .landing .landing-text h1 {
+      font-size: 2em;
+    }
+  }
+  
+  .landing .landing-text p {
+    font-size: 18px;
+    max-width: 500px;
+    margin: 0 0 29.41176px;
+  }
+  
+  @media (max-width: 992px) {
+    .landing .landing-text p {
+      font-size: 16px;
+      margin: 10px auto 29.41176px;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .landing .landing-text p {
+      font-size: 15px;
+    }
+  }
+  
+  .landing .landing-image {
+    position: relative;
+    right: -70px;
+  }
+  
+  @media (max-width: 992px) {
+    .landing .landing-image {
+      flex-basis: initial;
+      right: -240px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .landing .landing-image {
+      right: -170px;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .landing .landing-image {
+      right: -110px;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .landing .landing-image {
+      right: -120px;
+    }
+  }
+  
+  @media (max-width: 280px) {
+    .landing .landing-image {
+      right: -70px;
+    }
+  }
+  
+  @media (min-width: 1100px) {
+    .landing .landing-image {
+      right: -130px;
+    }
+  }
+  
+  .landing .landing-image img {
+    width: 100%;
+    margin-left: -22%;
+  }
+  
+  .features {
+    margin-top: 100px;
+    background-color: #f5f5f8;
+  }
+  
+  .url-shorten-form {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* background: #3b3054 url(../images/bg-shorten-desktop.svg) no-repeat right top; */
+    background-size: cover;
+    padding: 45px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    transform: translateY(-50%);
+    transition: gap 0.3s;
+  }
+  
+  @media (max-width: 850px) {
+    .url-shorten-form {
+      flex-direction: column;
+      /* background: #3b3054 url(../images/bg-shorten-mobile.svg) no-repeat right top; */
+      padding: 25px;
+      margin-bottom: 0;
+    }
+  }
+  
+  @media (max-width: 280px) {
+    .url-shorten-form {
+      padding: 20px;
+    }
+  }
+  
+  .url-shorten-form > div {
+    position: relative;
+    flex: 1;
+  }
+  
+  .url-shorten-form .url-input {
+    width: 100%;
+    font-family: "Poppins", sans-serif, "Segoe UI", Tahoma, Geneva, Verdana;
+    font-size: 18px;
+    padding: 8px 20px;
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.2s;
+  }
+  
+  .url-shorten-form .url-input::placeholder {
+    font-family: "Poppins", sans-serif, "Segoe UI", Tahoma, Geneva, Verdana;
+    font-size: 16px;
+    font-weight: 500;
+    color: #9e9aa7;
+  }
+  
+  .url-shorten-form .alert {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 4px);
+    font-style: italic;
+    font-size: 16px;
+    color: #f46262;
+    opacity: 0;
+    transition: 0.2s opacity;
+  }
+  
+  @media (max-width: 500px) {
+    .url-shorten-form .alert {
+      font-size: 14px;
+    }
+  }
+  
+  .url-shorten-form .btn {
+    text-align: center;
+    border-radius: inherit;
+    white-space: nowrap;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 850px) {
+    .url-shorten-form .btn {
+      font-size: 19px;
+      padding: 10px 30px;
+    }
+  }
+  
+  .url-shorten-form.empty {
+    gap: 37px;
+  }
+  
+  .url-shorten-form.empty .url-input {
+    border-color: #f46262;
+  }
+  
+  .url-shorten-form.empty .url-input::placeholder {
+    color: #f46262;
+    opacity: 0.5;
+  }
+  
+  .url-shorten-form.empty .alert {
+    opacity: 1;
+  }
+  
+  .url-shorten-form.success button {
+    background: #30c59b;
+  }
+  
+  .url-shorten-results {
+    position: relative;
+    top: -60px;
+  }
+  
+  .url-shorten-results .url-shorten-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 15px 25px;
+    background: white;
+    border-radius: 6px;
+    margin-bottom: 15.15152px;
+  }
+  
+  .url-shorten-results .url-shorten-result > div p {
+    font-size: 17px;
+    word-break: break-word;
+  }
+  
+  .url-shorten-results .url-shorten-result > div a:hover {
+    text-decoration: underline wavy #30c59b 2px;
+  }
+  
+  @media (max-width: 850px) {
+    .url-shorten-results .url-shorten-result {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+      gap: 0;
+    }
+    .url-shorten-results .url-shorten-result > div {
+      width: 100%;
+      align-items: flex-start;
+      padding: 12px 18px;
+    }
+  }
+  
+  .url-shorten-results .delete-all-urls {
+    display: block;
+    margin: auto;
+    font-size: 15px;
+    background-color: #f24a4a;
+  }
+  
+  .url-shorten-results .delete-all-urls:hover {
+    background-color: #f46262;
+  }
+  
+  .url-shorten-result .old-url p {
+    color: #35323e;
+    font-weight: 500;
+  }
+  
+  .url-shorten-result .old-url a {
+    color: inherit;
+  }
+  
+  @media (max-width: 850px) {
+    .url-shorten-result .old-url {
+      border-bottom: 1px solid #bfbfbf;
+    }
+  }
+  
+  .url-shorten-result .new-url {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .url-shorten-result .new-url a {
+    color: #2acfcf;
+  }
+  
+  @media (max-width: 850px) {
+    .url-shorten-result .new-url {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+  
+  .url-shorten-result .options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  @media (max-width: 850px) {
+    .url-shorten-result .options {
+      width: 100%;
+    }
+  }
+  
+  .url-shorten-result .options button {
+    width: 95px;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .url-shorten-result .options button.copied {
+    background: #3b3054;
+  }
+  
+  .url-shorten-result .options button.delete-url {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    background: #f46262;
+    border: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.2s;
+  }
+  
+  .url-shorten-result .options button.delete-url:hover {
+    color: #f46262;
+    background-color: #eff0f5;
+    font-size: 20px;
+  }
+  
+  @media (max-width: 850px) {
+    .url-shorten-result .options button {
+      width: 100%;
+      font-size: 18px;
+      padding: 10px 30px;
+    }
+  }
+  
+  .more-features-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 80px 0 90px 0;
+  }
+  
+  @media (max-width: 666px) {
+    .more-features-content {
+      gap: 80px;
+    }
+  }
+  
+  @media (max-width: 280px) {
+    .more-features-content {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
+  
+  .more-features-content .feature {
+    position: relative;
+    background: white;
+    border-radius: 6px;
+  }
+  
+  .more-features-content .feature:before,
+  .more-features-content .feature::after {
+    position: absolute;
+    content: "";
+    background: #2acfcf;
+  }
+  
+  @media (max-width: 666px) {
+    .more-features-content > div:nth-child(2):before,
+    .more-features-content > div:nth-child(2)::after {
+      width: 6px;
+      height: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .more-features-content > div:nth-child(2):before {
+      top: -80px;
+    }
+    .more-features-content > div:nth-child(2):after {
+      bottom: -80px;
+    }
+  }
+  
+  @media (min-width: 1130px) {
+    .more-features-content {
+      align-items: flex-start;
+    }
+    .more-features-content > div:nth-child(2) {
+      margin-top: 30px;
+    }
+    .more-features-content > div:nth-child(2):before,
+    .more-features-content > div:nth-child(2)::after {
+      height: 6px;
+      width: 25px;
+      top: 40%;
+    }
+    .more-features-content > div:nth-child(2):before {
+      left: -25px;
+    }
+    .more-features-content > div:nth-child(2):after {
+      right: -25px;
+    }
+    .more-features-content > div:nth-child(3) {
+      margin-top: 60px;
+    }
+  }
+  
+  .feature .feature-illustration {
+    position: absolute;
+    top: -32.5px;
+    left: 25px;
+    display: grid;
+    place-items: center;
+    width: 65px;
+    height: 65px;
+    background: #3b3054;
+    border-radius: 50%;
+  }
+  
+  @media (max-width: 666px) {
+    .feature .feature-illustration {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+    }
+  }
+  
+  .feature .feature-illustration img {
+    max-width: 50%;
+  }
+  
+  .feature .feature-details {
+    padding: 0 25px 30px;
+    margin-top: 60px;
+  }
+  
+  @media (max-width: 666px) {
+    .feature .feature-details {
+      text-align: center;
+      margin-top: 80px;
+    }
+  }
+  
+  @media (max-width: 280px) {
+    .feature .feature-details {
+      padding: 0 20px 25px;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .feature .feature-details h3 {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 280px) {
+    .feature .feature-details h3 {
+      font-size: 18px;
+    }
+  }
+  
+  .feature .feature-details p {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .pricing {
+    padding: 50px 0;
+    /* background: #3b3054 url(../images/bg-boost-desktop.svg) no-repeat right; */
+    background-size: cover;
+  }
+  
+  @media (max-width: 500px) {
+    .pricing {
+      padding: 90px 0;
+      /* background-image: url(../images/bg-boost-mobile.svg); */
+    }
+  }
+  
+  .pricing .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .pricing h2 {
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .footer {
+    padding-top: 50px;
+    background: #a099ae;
+  }
+  
+  .footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 70px;
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: 705px) {
+    .footer .container {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+  
+  .footer .logo {
+    flex: 1 0 auto;
+  }
+  
+  .footer .logo img {
+    filter: brightness(10);
+  }
+  
+  .footer .quick-links {
+    display: flex;
+    gap: 60px;
+  }
+  
+  @media (max-width: 705px) {
+    .footer .quick-links {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 30px;
+    }
+  }
+  
+  .footer .quick-links .links-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .footer .links-group span {
+    color: white;
+    font-weight: 700;
+  }
+  
+  .footer .links-group > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6.66667px;
+  }
+  .footer .links-group a {
+    color: #bfbfbf;
+    font-size: 13px;
+    transition: 0.2s color;
+  }
+  .footer .links-group a:hover {
+    color: cyan;
+  }
+  .footer .social-media {display: flex;flex-shrink: 0;align-items: center; gap: 20px;
+  }
+  </style>
+
+    <main class="main">
+      <!-- Header -->
+      <header class="header">
+        <div class="container flex-between">
+          <div class="logo">
+          
           </div>
-          <div class="nav-buttons">
-            <a href="/login" class="log-in">Login</a>
-            <a href="/login" class="sign-up btn btn-sm">Sign Up</a>
-          </div>
-        </nav>
-        <div class="burger-menu">
-          <i class="fa-regular fa-bars icon"></i>
-        </div>
-      </div>
-    </header>
-    <!-- Landing -->
-    <section class="landing">
-      <div class="landing-text">
-        <h1>Welcome To Milestone !</h1>
-        <p>
-          Build your brand’s recognition and get detailed insights on how your
-          links are performing.
-        </p>
-        <a href="/login" class="btn btn-lg">Get Started</a>
-      </div>
-      <div class="landing-image">
-        <img src="https://raw.githubusercontent.com/MohamedAridah/frontendmentor_url-shortening-api/main/images/illustration-working.svg" alt="Working Illustration" />
-      </div>
-    </section>
-    <!-- Features -->
-    <section class="features" id="features">
-      <div class="container">
-        <!-- Short URL Feature -->
-        <div class="url-shorten-feature">
-          <form class="url-shorten-form" id="url-shorten-form">
+          <nav class="main-navgation flex-between flex-ver-top">
+            <div class="nav-links">
+              <a href="/inventory">Granites</a>
+              <a href="/inventory">Marbles</a>
             
-          </form>
-          <div class="url-shorten-results"></div>
-        </div>
-        <!-- Advanced Features -->
-        <div class="more-features">
-          <div class="section-header">
-            <h2>Advanced Statistics</h2>
-            <p>
-              Track how your links are performing across the web with our
-              advanced statistics dashboard.
-            </p>
-          </div>
-          <div class="more-features-content">
-            <div class="feature">
-              <div class="feature-illustration">
-                <img src="https://icon-library.com/images/granite-icon/granite-icon-1.jpg" />
-              </div>
-              <div class="feature-details">
-                <h3>Brand Recognition</h3>
-                <p>
-                  Boost your brand recognition with each click. Generic links
-                  don’t mean a thing. Branded links help instil confidence in
-                  your content.
-                </p>
-              </div>
             </div>
-            <div class="feature">
-              <div class="feature-illustration">
-                <img src="https://icon-library.com/images/granite-icon/granite-icon-1.jpg" alt="Feature Illustration Icon" />
-              </div>
-              <div class="feature-details">
-                <h3>Detailed Records</h3>
-                <p>
-                  Gain insights into who is clicking your links. Knowing when
-                  and where people engage with your content helps inform
-                  better decisions.
-                </p>
-              </div>
+            <div class="nav-buttons">
+              <a href="/login" class="log-in" [hidden]= "aa">Login</a>
+              <a href="/profile" class="sign-up "><i class="fa fa-user" style="font-size:24px"></i>Profile</a>
             </div>
-            <div class="feature">
-              <div class="feature-illustration">
-                <img src="https://icon-library.com/images/granite-icon/granite-icon-1.jpg" />
-              </div>
-              <div class="feature-details">
-                <h3>Fully Customizable</h3>
-                <p>
-                  Improve brand awareness and content discoverability through
-                  customizable links, supercharging audience engagement.
-                </p>
-              </div>
-            </div>
+          </nav>
+          <div class="burger-menu">
+            <i class="fa-regular fa-bars icon"></i>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Pricing -->
-    <section class="pricing" id="pricing">
-      <div class="container">
-        <div class="section-header">
-          <h2>Boost your links today</h2>
-          <a href="/login" class="btn btn-lg">Get Started</a>
+      </header>
+      <!-- Landing -->
+      <section class="landing">
+        <div class="landing-text">
+          <h1 style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Welcome To Milestone !</h1>
+          <p>
+            Build your brand’s recognition and get detailed insights on how your
+            links are performing.
+          </p>
+
+          <div *ngIf="text.mobile == null || text.mobile ==''">          
+
+            <div  routerLink="/login" class="btn btn-lg" style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Get Started</div>
+         
         </div>
-      </div>
-    </section>
-    <!-- Footer -->
-    <footer class="footer" id="resources">
-      <div class="container">
-        <!-- Website Logo -->
-        <div class="logo">
-          <a href="#">
-            <img src="https://raw.githubusercontent.com/MohamedAridah/frontendmentor_url-shortening-api/main/images/logo.svg" alt="" />
-          </a>
+        <br>
+        <div class="landing-image center">
+          <img src="https://raw.githubusercontent.com/MohamedAridah/frontendmentor_url-shortening-api/main/images/illustration-working.svg" alt="Working Illustration" style="margin-left: -61%;" />
         </div>
-        <!-- Quick Links -->
-        <div class="quick-links">
-          <div class="links-group">
-            <span>Features</span>
-            <div>
-              <a href="#">Link Shortening</a>
-              <a href="#">Branded Links</a>
-              <a href="#">Analytics</a>
+        </div>
+      </section>
+      <!-- Features -->
+      <section class="features" id="features">
+        <div class="container">
+          <!-- Short URL Feature -->
+          <div class="url-shorten-feature">
+            <form class="url-shorten-form" id="url-shorten-form">
+              
+            </form>
+            <div class="url-shorten-results"></div>
+          </div>
+          <!-- Advanced Features -->
+          <div class="more-features">
+            <div class="section-header">
+              <h2 style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Advanced Statistics</h2>
+              <p style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">
+                Track how your links are performing across the web with our
+                advanced statistics dashboard.
+              </p>
+            </div>
+
+           <div class="more-features-content">
+
+           
+
+              <div class="feature">
+                <div class="feature-illustration">
+                  <img src="https://icon-library.com/images/granite-icon/granite-icon-1.jpg" />
+                </div>
+                <div class="feature-details">
+                  <h3 style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Brand Recognition</h3>
+                  <p style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">
+                    Boost your brand recognition with each click. Generic links
+                    don't mean a thing. Branded links help instil confidence in
+                    your content.
+                  </p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-illustration">
+                  <img src="https://icon-library.com/images/granite-icon/granite-icon-1.jpg" alt="Feature Illustration Icon" />
+                </div>
+                <div class="feature-details">
+                  <h3 style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Detailed Records</h3>
+                  <p style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">
+                    Gain insights into who is clicking your links. Knowing when
+                    and where people engage with your content helps inform
+                    better decisions.
+                  </p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-illustration">
+                  <img src="https://icon-library.com/images/granite-icon/granite-icon-1.jpg" />
+                </div>
+                <div class="feature-details">
+                  <h3 style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Fully Customizable</h3>
+                  <p style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">
+                    Improve brand awareness and content discoverability through
+                    customizable links, supercharging audience engagement.
+                  </p>
+                </div>
+              </div>
+
+            </div>          
+
+            </div> 
+
+          </div>
+    
+      </section>
+      <!-- Pricing -->
+      <section class="pricing" id="pricing">
+        <div class="container">
+          <div class="section-header">                                                                                                                                                                                                                    
+            <h2 style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Boost your links today</h2>
+            <div *ngIf="text.mobile == null || text.mobile ==''">
+            <a href="./login" class="btn btn-lg" style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Get Started</a>
             </div>
           </div>
-          <div class="links-group">
-            <span>Resources</span>
-            <div>
-              <a href="#">Blog</a>
-              <a href="#">Developers</a>
-              <a href="#">Support</a>
-            </div>
-          </div>
-          <div class="links-group">
-            <span>Company</span>
-            <div>
-              <a href="#">About</a>
-              <a href="#">Our Team</a>
-              <a href="#">Careers</a>
-              <a href="#">Contact</a>
-            </div>
-          </div>
         </div>
-        <!-- Social Media -->
-        <div class="social-media">
-          <a href="#">
-            <img src="https://raw.githubusercontent.com/MohamedAridah/frontendmentor_url-shortening-api/main/images/icon-facebook.svg" alt="Facebook Logo">
-          </a>
-          <a href="#">
-            <img src="https://raw.githubusercontent.com/MohamedAridah/frontendmentor_url-shortening-api/main/images/icon-twitter.svg" alt="Twitter Logo">
-          </a>
-          <a href="#">
-            <img src="https://raw.githubusercontent.com/MohamedAridah/frontendmentor_url-shortening-api/main/images/icon-pinterest.svg" alt="Pinterest Logo">
-          </a>
-          <a href="#">
-            <img src="https://raw.githubusercontent.com/MohamedAridah/frontendmentor_url-shortening-api/main/images/icon-instagram.svg" alt="Instagram Logo">
-          </a>
-        </div>
-      </div>
-      <!-- Made By -->
-      <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" class="outer-link" target="_blank">Frontend Mentor</a>.
-        Coded by <span class="outer-link">Milestone</span>.
-        <ul class="social-media">
-          <li>
-            <a href="https://www.codepen.io/FedLover" title="go To My Codepen Account">
-              <i class="fa-brands fa-codepen icon"></i>
+      </section>
+      <!-- Footer -->
+      <footer class="footer" id="resources">
+        <div class="container">
+          <!-- Website Logo -->
+          <div class="logo">
+            <a href="#">
+              <img src="https://raw.githubusercontent.com/MohamedAridah/frontendmentor_url-shortening-api/main/images/logo.svg" alt="" routerLink="/blackgalaxy" />
             </a>
-          </li>
-          <li>
-            <a href="https://www.frontendmentor.io/profile/MohamedAridah" title="go To My Frontend Mentor Account">
-              <img src="https://mohamedaridah.github.io/hosted-assets/FEM.png" class="image" alt="">
+          </div>
+          <!-- Quick Links -->
+          <div class="quick-links">
+            <div class="links-group">
+              <span style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Features</span>
+              <div>
+                <a href="#" style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Link Shortening</a>
+                <a href="#" style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Branded Links</a>
+                <a href="#" style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Analytics</a>
+              </div>
+            </div>
+            <div class="links-group">
+              <span style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Resources</span>
+              <div>
+                <a style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana" href="#">Blog</a>
+                <a style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana" href="#">Developers</a>
+                <a style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana" href="#">Support</a>
+              </div>
+            </div>
+            <div class="links-group">
+              <span style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Company</span>
+              <div>
+                <a style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana" href="#">About</a>
+                <a style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana" href="#">Our Team</a>
+                <a style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana" href="#">Careers</a>
+                <a style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana" href="#">Contact</a>
+              </div>
+            </div>
+          </div>
+          <!-- Social Media -->
+          <div class="social-media">
+            <a href="#">
+              <img src="https://raw.githubusercontent.com/MohamedAridah/frontendmentor_url-shortening-api/main/images/icon-facebook.svg" alt="Facebook Logo">
             </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-  </main>
+            <a href="#">
+              <img src="https://raw.githubusercontent.com/MohamedAridah/frontendmentor_url-shortening-api/main/images/icon-twitter.svg" alt="Twitter Logo">
+            </a>
+            <a href="#">
+              <img src="https://raw.githubusercontent.com/MohamedAridah/frontendmentor_url-shortening-api/main/images/icon-pinterest.svg" alt="Pinterest Logo">
+            </a>
+            <a href="#">
+              <img src="https://raw.githubusercontent.com/MohamedAridah/frontendmentor_url-shortening-api/main/images/icon-instagram.svg" alt="Instagram Logo">
+            </a>
+          </div>
+        </div>
+        <!-- Made By -->
+        <div class="attribution" style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" class="outer-link" target="_blank">Frontend Mentor</a>.
+          Coded by <span class="outer-link">Milestone</span>.
+          <ul class="social-media">
+            <li>
+              <a href="https://www.codepen.io/FedLover" title="go To My Codepen Account">
+                <i class="fa-brands fa-codepen icon"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.frontendmentor.io/profile/MohamedAridah" title="go To My Frontend Mentor Account">
+                <img src="https://mohamedaridah.github.io/hosted-assets/FEM.png" class="image" alt="">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </main>
+  
   </body>
