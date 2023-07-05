@@ -51,7 +51,7 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
 
-    fetch("https://milestone-096608973980.herokuapp.com/orderRoute/getOrders",{
+    fetch("https://milestone-096608973980.herokuapp.com/orderRoute/allorders",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -93,8 +93,7 @@ export class OrdersComponent implements OnInit {
   for(let i = 0;i < this.order1.length;i++){
     this.data1 = this.order1[i]  
     console.log(this.data1)    
- } 
-    
+ }    
   
  }   
 
